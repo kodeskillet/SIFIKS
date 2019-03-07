@@ -10,7 +10,12 @@
 </head>
 <body>
     @include('include.navbar')
-
-    @yield('content')
+    <div class="container-fluid">
+        @yield('content')
+    </div>
+    <div class="container">
+        @yield('content1')
+    </div>
 </body>
+
 </html>
