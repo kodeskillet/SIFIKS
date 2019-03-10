@@ -4,7 +4,6 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="float-right" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" >
         <a class="nav-link" href="#">Info Kesehatan</a>
@@ -15,10 +14,10 @@
       <li class="nav-item">
           <a class="nav-link" href="#">Cari Dokter</a>
       </li>  
+    </ul>
+    <ul class="navbar-nav"> 
       <li class="nav-item">
           <a class="nav-link" href="/login">Login</a>
         </li>
     </ul>
-    
-  </div>
 </nav>
