@@ -2,21 +2,25 @@
 
 @section('content')
 <div class="jumbotron p-4 p-md-5 text-white rounded bg-info">
-        <div class="col-md-6 px-0">
-          <h1 class="display-4 font-bold" >SIFIKS</h1>
-          <img src="D:\Alfaza Doc\Semester 4\Proyek\SIFIKS\resources\views\img\dokter.jpg" alt="Dokter" class="img-thumbnail" >
-          <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
-          <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Cari SIFIKS" aria-label="Recipient's username" aria-describedby="button-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
+        <div class="row">
+          <div class="col-md-6 px-0">
+            <h1 class="display-4 font-bold" >SIFIKS</h1>
+            <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Cari SIFIKS" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
+                </div>
               </div>
-            </div>
-            <button type="button" class="btn btn-primary">Tanya Dokter</button>
-            <button type="button" class="btn btn-primary">Cari Dokter</button>
-            <button type="button" class="btn btn-primary">Cari Rumah Sakit</button>
+              <button type="button" class="btn btn-primary">Tanya Dokter</button>
+              <button type="button" class="btn btn-primary">Cari Dokter</button>
+              <button type="button" class="btn btn-primary">Cari Rumah Sakit</button>
+          </div>
+          <div class="col-md-6">
+            <img src="{{ asset('storage/images/dokter.jpg') }}" alt="Dokter" class="img-thumbnail float-right" >
+          </div>
         </div>
-      </div>
+    </div>
 @endsection
 
 @section('content1')
