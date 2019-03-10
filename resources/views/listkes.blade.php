@@ -20,6 +20,7 @@
 
 
 <h1>Trending Kesehatan</h1>
+<hr>
 <div class="bd-example">
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -61,9 +62,9 @@
     </div>
   </div>
 
-
+  <hr>
   <h2>Info Kesehatan</h2>
-
+  <br>
   <div class="row mb-2">
       <div class="col-md-6">
         <div class="card flex-md-row mb-4 box-shadow h-md-250">
