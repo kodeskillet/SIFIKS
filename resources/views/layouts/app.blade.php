@@ -19,3 +19,13 @@
 </body>
 
 </html>
+
+<style>
+    .main-container {
+    width: 667px;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    padding-top: 45px;
+}
+</style>
