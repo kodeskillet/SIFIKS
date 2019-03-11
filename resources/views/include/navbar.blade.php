@@ -5,16 +5,15 @@
   </button>
 
   <div class="btn-group">
-  <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button type="button" class="btn btn-light dropdown-toggle text-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Info Kesehatan
   </button>
   <div class="dropdown-menu">
     <a class="dropdown-item" href="#">Penyakit</a>
     <a class="dropdown-item" href="#">Obat</a>
     <a class="dropdown-item" href="/listkes">Kesehatan</a>
-
   </div>
-</div>
+  </div>
     
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
