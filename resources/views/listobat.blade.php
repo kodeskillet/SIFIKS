@@ -1,5 +1,22 @@
 @extends('layouts.app')
 @section('content1')
+
+<div class="nav-scroller py-1 mb-2 bg-primary">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 text-white" href="#">Virus</a>
+      <a class="p-2 text-white" href="#">Kanker</a>
+      <a class="p-2 text-white" href="#">Jantung</a>
+      <a class="p-2 text-white" href="#">Otak</a>
+      <a class="p-2 text-white" href="#">Psikologi</a>
+      <a class="p-2 text-white" href="#">Defisiensi</a>
+      <a class="p-2 text-white" href="#">Infeksi</a>
+      <a class="p-2 text-white" href="#">Mata</a>
+      <a class="p-2 text-white" href="#">Pencernaan.</a>
+
+    </nav>
+  </div>
+
+
 <div class="container">
 			<div class="row">
 				<div class="col-sm-12">
@@ -41,13 +58,13 @@
 
                 <p><h2>Daftar Obat</h2></p>
                 <p>
-                <ul><li><a href="#">Obat A</a></li></ul>
+                <ul><li><a href="#">Antibiotik</a></li></ul>
                 </p>
                 <p>
-                <ul><li><a href="#">Obat B</a></li></ul>
+                <ul><li><a href="#">Asam Mefenamat</a></li></ul>
                 </p>
                 <p>
-                <ul><li><a href="#">Obat C</a></li></ul>
+                <ul><li><a href="#">Aspirin</a></li></ul>
                 </p>
                    
 				</div>
