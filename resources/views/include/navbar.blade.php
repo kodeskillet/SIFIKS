@@ -9,8 +9,8 @@
     Info Kesehatan
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Penyakit</a>
-    <a class="dropdown-item" href="#">Obat</a>
+    <a class="dropdown-item" href="/listpenyakit">Penyakit</a>
+    <a class="dropdown-item" href="/listobat">Obat</a>
     <a class="dropdown-item" href="/listkes">Kesehatan</a>
   </div>
   </div>

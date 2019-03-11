@@ -21,6 +21,9 @@ Route::get('/listkes', function () {
 Route::get('/listobat', function () {
     return view('listobat');
 });
+Route::get('/listpenyakit', function () {
+    return view('listpenyakit');
+});
 Route::get('/', function () {
     return view('home');
 });
