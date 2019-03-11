@@ -4,10 +4,18 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <div class="btn-group">
+  <button type="button" class="btn btn-light dropdown-toggle text-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Info Kesehatan
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Penyakit</a>
+    <a class="dropdown-item" href="#">Obat</a>
+    <a class="dropdown-item" href="/listkes">Kesehatan</a>
+  </div>
+  </div>
+    
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" >
-        <a class="nav-link" href="/listkes">Info Kesehatan</a>
-      </li>
       <li class="nav-item">
           <a class="nav-link" href="#">Cari Rumah Sakit</a>
       </li>
