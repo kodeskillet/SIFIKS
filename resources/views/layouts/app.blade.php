@@ -16,6 +16,8 @@
     <div class="container">
         @yield('content1')
     </div>
+    @include('include.footer')
+    
 </body>
 <script src="{{ asset('js/app.js') }}"></script>
 </html>

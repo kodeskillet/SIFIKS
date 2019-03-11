@@ -23,6 +23,3 @@ Route::get('/listkes', function () {
     return view('listkes');
 });
 
-Route::get('/tes', function () {
-    return view('test');
-});
