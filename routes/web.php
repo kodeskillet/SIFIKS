@@ -11,15 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
 
 Route::get('/login', function () {
     return view('login');
 });
-
 Route::get('/listkes', function () {
     return view('listkes');
 });
+Route::get('/listobat', function () {
+    return view('listobat');
+});
+Route::get('/listpenyakit', function () {
+    return view('listpenyakit');
+});
+Route::get('/', function () {
+    return view('home');
+});
+
+Route::get('/admin', function () {
+    return view('/admin/controlPanel');
+});
+
 
