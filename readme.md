@@ -3,7 +3,7 @@
 
 ## About SIFIKS
 
-SIFIKS is a QNA Forum and Information System regarding medical and health topics.
+SIFIKS is a web-based QNA Forum and Information System regarding medical and health topics.
 
 Build in hopes of helping users to find health and medical information such as :
 
