@@ -13,12 +13,19 @@
             <input type="text" class="form-control" id="name" placeholder="Enter name">
         </div>
 
+        <div class="form-group">
+            <label for="exampleInputEmail1">Category</label>
+            <select class="form-control">
+                    <option>Obat</option>
+                    <option>Kesehatan</option>
+                    <option>Penyakit</option>
+                  </select>        </div>
+
         <div class="box-body pad">
         <label for="exampleInputEmail1">Content</label>
           <form>
                     <textarea id="editor1" name="editor1">
-                    </textarea>
-                    
+                    </textarea>      
           </form>
         </div>
 
