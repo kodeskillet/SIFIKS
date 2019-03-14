@@ -28,8 +28,28 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/admin', function () {
-    return view('/admin/admin');
+Route::get('/administrator/', function () {
+    return view('/admin/dashboard');
+});
+
+Route::get('/administrator/obat', function () {
+    return view('/admin/obat');
+});
+
+Route::get('/administrator/kesehatan', function () {
+    return view('/admin/kesehatan');
+});
+Route::get('/administrator/penyakit', function () {
+    return view('/admin/penyakit');
+});
+Route::get('/administrator/dokter', function () {
+    return view('/admin/dokter');
+});
+Route::get('/administrator/dokter/tambah', function () {
+    return view('/admin/tambahDokter');
+});
+Route::get('/administrator/pertanyaan', function () {
+    return view('/admin/pertanyaan');
 });
 
 
