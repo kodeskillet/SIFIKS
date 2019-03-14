@@ -501,9 +501,12 @@
 <script src="/bower_components/admin-lte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/bower_components/admin-lte/dist/js/demo.js"></script>
+<script src="/bower_components/ckeditor/ckeditor.js"></script>
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()
+  
+    CKEDITOR.replace( 'editor1' );
   })
 </script>
 </body>
