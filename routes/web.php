@@ -51,5 +51,7 @@ Route::get('/administrator/dokter/tambah', function () {
 Route::get('/administrator/pertanyaan', function () {
     return view('/admin/pertanyaan');
 });
-
+Route::get('/administrator/artikel/tambah', function () {
+    return view('/admin/tambahArtikel');
+});
 
