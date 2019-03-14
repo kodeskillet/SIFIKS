@@ -10660,3 +10660,13 @@ a.text-dark:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.foot {
+  padding: 20px 0;
+}
+
+.form-signin {
+  width: 50%;
+  padding: 10px;
+  margin: auto;
+}
+
