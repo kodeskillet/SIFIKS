@@ -8,10 +8,6 @@
     <!-- form start -->
     <form role="form">
         <div class="box-body">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Judul</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter name">
-        </div>
 
         <div class="form-group">
             <label for="exampleInputEmail1">Category</label>
@@ -19,7 +15,15 @@
                     <option>Obat</option>
                     <option>Kesehatan</option>
                     <option>Penyakit</option>
-                  </select>        </div>
+                  </select>        
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Judul</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name">
+        </div>
+
+        
 
         <div class="box-body pad">
         <label for="exampleInputEmail1">Content</label>
