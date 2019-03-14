@@ -55,3 +55,23 @@ Route::get('/administrator/artikel/tambah', function () {
     return view('/admin/tambahArtikel');
 });
 
+Route::get('/dokter/kesehatanDokter', function () {
+    return view('/dokter/kesehatanDokter');
+});
+
+
+Route::get('/dokter/obatDokter', function () {
+    return view('/dokter/obatDokter');
+});
+
+Route::get('/dokter/penyakitDokter', function () {
+    return view('/dokter/penyakitDokter');
+});
+
+Route::get('/dokter/pertanyaanDokter', function () {
+    return view('/dokter/pertanyaanDokter');
+});
+
+Route::get('/dokter/tambahArtikelDokter', function () {
+    return view('/dokter/tambahArtikelDokter');
+});
