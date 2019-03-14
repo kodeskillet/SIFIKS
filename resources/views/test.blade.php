@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.adm-app')
 
 @section('content')
 
-    Hello
+    Hello {{ $role }}
 
 @endsection

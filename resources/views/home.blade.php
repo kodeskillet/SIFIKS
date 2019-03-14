@@ -4,7 +4,7 @@
     <div class="jumbotron p-4 p-md-5 text-white rounded bg-info">
         <div class="row">
             <div class="col-md-6 px-0">
-                <h1 class="display-4 font-bold" >SIFIKS</h1>
+                <img src="https://i.ibb.co/JQbV1BQ/sifiks5.png" width="45%" alt="sifiks5" border="0">
                 <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Cari SIFIKS" aria-label="Recipient's username" aria-describedby="button-addon2">
