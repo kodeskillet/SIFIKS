@@ -3,7 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIFIKS  | Administrator</title>
+    <title>SIFIKS  |
+        @if($role == "Doctor")
+            {{ __('Doctors') }}
+        @else
+            {{ __('Administrator') }}
+        @endif
+    </title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="{{ asset("bower_components/bootstrap/dist/css/bootstrap.min.css") }}">
     <link rel="stylesheet" href="{{ asset("bower_components/font-awesome/css/font-awesome.min.css") }}">
@@ -34,9 +40,21 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="#" class="logo">
+        <a href="
+        @if($role == "Doctor")
+            {{ route('doctor-index') }}
+        @else
+            {{ route('admin-index') }}
+        @endif
+        " class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>S</b></span>
+            <span class="logo-mini">
+                @if($role == "Doctor")
+                    <img src="https://i.ibb.co/PjJBk1n/LOGO1.png" alt="LOGO1" width="75%" border="0">
+                @else
+                    <img src="https://i.ibb.co/0XXj1FY/LOGO.png" alt="LOGO" width="75%" border="0">
+                @endif
+            </span>
             <!-- logo for regular state and mobile devices -->
             <span class="logo-lg">
                 @if($role == "Doctor")
@@ -120,33 +138,51 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header text-center">WORKING SPACE</li>
                 <li>
-                  <a href="#">
+                    <a href="
+                    @if($role == "Doctor")
+                        {{ route('doctor-index') }}
+                    @else
+                        {{ route('admin-index') }}
+                    @endif
+                    ">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                   </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="
+                    @if($role == "Doctor")
+                        {{ route('doctor-article') }}
+                    @else
+                        {{ route('admin-article') }}
+                    @endif
+                    ">
                         <i class="fa fa-file-text"></i> <span>Article</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/administrator/pertanyaan/">
+                    <a href="
+                    @if($role == "Doctor")
+                    {{ route('doctor-thread') }}
+                    @else
+                    {{ route('admin-thread') }}
+                    @endif
+                    ">
                         <i class="fa fa-commenting"></i> <span>Thread</span>
                     </a>
                 </li>
                 @if($role == "Admin")
                     <li>
-                        <a href="/administrator/dokter">
+                        <a href="#">
                             <i class="fa fa-user-md"></i> <span>Doctor</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../widgets.html">
+                        <a href="#">
                             <i class="fa fa-users"></i> <span>Member</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../widgets.html">
+                        <a href="#">
                             <i class="fa fa-hospital-o"></i> <span>Hospital</span>
                         </a>
                     </li>
@@ -166,10 +202,10 @@
                 Page Header
                 <small></small>
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                <li class="active">Here</li>
-            </ol>
+            {{--<ol class="breadcrumb">--}}
+                {{--<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>--}}
+                {{--<li class="active">Here</li>--}}
+            {{--</ol>--}}
         </section>
 
         <!-- Main content -->
