@@ -29,13 +29,15 @@ Route::prefix('admin')->group( function() {
     Route::get('/hospital', 'AdminController@hospital')->name('admin-hospital');
 });
 
-
 Route::prefix('doctor')->group( function() {
     Route::get('/', 'DoctorController@index')->name('doctor-index');
     Route::get('/article', 'DoctorController@article')->name('doctor-article');
     Route::get('/thread', 'DoctorController@thread')->name('doctor-thread');
 });
 
+Route::resources([
+    'articles' => 'ArticleController'
+]);
 
 
 
