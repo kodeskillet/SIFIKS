@@ -11,67 +11,32 @@
 |
 */
 
-
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/listkes', function () {
-    return view('listkes');
-});
-Route::get('/listobat', function () {
-    return view('listobat');
-});
-Route::get('/listpenyakit', function () {
-    return view('listpenyakit');
-});
-Route::get('/', function () {
+Route::get('/', function() {
     return view('home');
 });
 
-Route::get('/administrator/', function () {
-    return view('/admin/dashboard');
-});
+Auth::routes();
 
-Route::get('/administrator/obat', function () {
-    return view('/admin/obat');
-});
+Route::get('/home', 'UserController@index')->name('home');
 
-Route::get('/administrator/kesehatan', function () {
-    return view('/admin/kesehatan');
-});
-Route::get('/administrator/penyakit', function () {
-    return view('/admin/penyakit');
-});
-Route::get('/administrator/dokter', function () {
-    return view('/admin/dokter');
-});
-Route::get('/administrator/dokter/tambah', function () {
-    return view('/admin/tambahDokter');
-});
-Route::get('/administrator/pertanyaan', function () {
-    return view('/admin/pertanyaan');
-});
-Route::get('/administrator/artikel/tambah', function () {
-    return view('/admin/tambahArtikel');
-});
-
-Route::get('/dokter/kesehatanDokter', function () {
-    return view('/dokter/kesehatanDokter');
+Route::prefix('admin')->group( function() {
+    Route::get('/', 'AdminController@index')->name('admin-index');
+    Route::get('/article', 'AdminController@article')->name('admin-article');
+    Route::get('/thread', 'AdminController@thread')->name('admin-thread');
+    Route::get('/admin', 'AdminController@admin')->name('admin-admin');
+    Route::get('/doctor', 'AdminController@doctor')->name('admin-doctor');
+    Route::get('/member', 'AdminController@member')->name('admin-member');
+    Route::get('/hospital', 'AdminController@hospital')->name('admin-hospital');
 });
 
 
-Route::get('/dokter/obatDokter', function () {
-    return view('/dokter/obatDokter');
+Route::prefix('doctor')->group( function() {
+    Route::get('/', 'DoctorController@index')->name('doctor-index');
+    Route::get('/article', 'DoctorController@article')->name('doctor-article');
+    Route::get('/thread', 'DoctorController@thread')->name('doctor-thread');
 });
 
-Route::get('/dokter/penyakitDokter', function () {
-    return view('/dokter/penyakitDokter');
-});
 
-Route::get('/dokter/pertanyaanDokter', function () {
-    return view('/dokter/pertanyaanDokter');
-});
 
-Route::get('/dokter/tambahArtikelDokter', function () {
-    return view('/dokter/tambahArtikelDokter');
-});
+
+

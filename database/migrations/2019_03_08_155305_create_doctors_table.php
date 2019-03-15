@@ -18,6 +18,7 @@ class CreateDoctorsTable extends Migration
             $table->integer('specialization_id');
             $table->integer('city_id');
             $table->string('name');
+            $table->string('license');
             $table->text('biography');
             $table->text('profile_picture');
             $table->string('email')->unique();
