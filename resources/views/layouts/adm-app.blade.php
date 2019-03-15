@@ -172,17 +172,22 @@
                 </li>
                 @if($role == "Admin")
                     <li>
-                        <a href="#">
+                        <a href="{{ route('admin-admin') }}">
+                            <i class="fa fa-user-secret"></i> <span>Admin</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin-doctor') }}">
                             <i class="fa fa-user-md"></i> <span>Doctor</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('admin-member') }}">
                             <i class="fa fa-users"></i> <span>Member</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('admin-hospital') }}">
                             <i class="fa fa-hospital-o"></i> <span>Hospital</span>
                         </a>
                     </li>

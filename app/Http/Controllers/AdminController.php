@@ -19,4 +19,20 @@ class AdminController extends Controller
     public function thread() {
         return view('pages.thread')->with('role', self::$role);
     }
+
+    public function admin() {
+        return view('pages.admin')->with('role', self::$role);
+    }
+
+    public function doctor() {
+        return view('pages.doctor')->with('role', self::$role);
+    }
+
+    public function member() {
+        return view('pages.member')->with('role', self::$role);
+    }
+
+    public function hospital() {
+        return view('pages.hospital')->with('role', self::$role);
+    }
 }
