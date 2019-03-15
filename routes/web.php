@@ -20,5 +20,10 @@ Auth::routes();
 Route::get('/home', 'UserController@index')->name('home');
 
 Route::get('/admin', 'AdminController@index')->name('admin-index');
+Route::get('/admin/article', 'AdminController@article')->name('admin-article');
+Route::get('/admin/thread', 'AdminController@thread')->name('admin-thread');
+
 
 Route::get('/doctor', 'DoctorController@index')->name('doctor-index');
+Route::get('/doctor/article', 'DoctorController@article')->name('doctor-article');
+Route::get('/doctor/thread', 'DoctorController@thread')->name('doctor-thread');
