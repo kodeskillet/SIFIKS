@@ -32,10 +32,10 @@
                     </form>
                 </div>
 
-                <!-- <div class="form-group">
+                <!--<div class="form-group">
                     <label for="exampleInputEmail1">City</label>
                     <input type="text" class="form-control" id="city" placeholder="Enter City">
-                </div> -->
+                </div>-->
 
                 <div class="form-group">
                     <label for="picture">Picture</label>
