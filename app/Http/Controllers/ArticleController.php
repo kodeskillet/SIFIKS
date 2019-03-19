@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Articles;
 
 class ArticleController extends Controller
 {
@@ -37,9 +38,17 @@ class ArticleController extends Controller
         $this->validate($request,[
             'category' => 'required',
             'title' => 'required',
-            'content' => 'required'
+            'content' => 'required',
         ]);
-        return 123;
+
+        $article = new Articles;
+        $article->category = $request->input('category');
+        $article->title = $request->input('title');
+        $article->content = $request->input('content');
+        $article->writer_id = $request->input('');
+        $article->cover_image = $request->input('');
+        $article->save();
+        return redirect ('/admin/article');
     }
 
     /**
