@@ -3,36 +3,58 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Articles;
 
 class AdminController extends Controller
 {
-    private static $role = "Admin";
-
     public function index() {
-        return view('pages.dashboard')->with('role', self::$role);
+        $data = [
+            'role' => 'Admin'
+        ];
+        return view('pages.dashboard')->with('data', $data);
     }
 
     public function article() {
-        return view('pages.article')->with('role', self::$role);
+        $articles = Articles::all();
+        $data = [
+            'role' => 'Admin',
+            'articles' => $articles
+        ];
+        return view('pages.article')->with('data', $data);
     }
 
     public function thread() {
-        return view('pages.thread')->with('role', self::$role);
+        $data = [
+            'role' => 'Admin'
+        ];
+        return view('pages.thread')->with('data', $data);
     }
 
     public function admin() {
-        return view('pages.admin')->with('role', self::$role);
+        $data = [
+            'role' => 'Admin'
+        ];
+        return view('pages.admin')->with('data', $data);
     }
 
     public function doctor() {
-        return view('pages.doctor')->with('role', self::$role);
+        $data = [
+            'role' => 'Admin'
+        ];
+        return view('pages.doctor')->with('data', $data);
     }
 
     public function member() {
-        return view('pages.member')->with('role', self::$role);
+        $data = [
+            'role' => 'Admin'
+        ];
+        return view('pages.member')->with('data', $data);
     }
 
     public function hospital() {
-        return view('pages.hospital')->with('role', self::$role);
+        $data = [
+            'role' => 'Admin'
+        ];
+        return view('pages.hospital')->with('data', $data);
     }
 }

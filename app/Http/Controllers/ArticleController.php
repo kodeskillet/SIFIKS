@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Articles;
 
 class ArticleController extends Controller
 {
@@ -13,7 +14,13 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('pages.ext.add-article')->with('role', 'Admin');
+        $articles = Articles::all();
+        $data = [
+            'role' => 'Admin',
+            'articles' => $articles
+        ];
+
+        return view('pages.article')->with('data',$data);
     }
 
     /**
@@ -23,7 +30,10 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'role' => 'Admin'
+        ];
+        return view('pages.ext.add-article')->with('data', $data);
     }
 
     /**
@@ -34,7 +44,20 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'category' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
+        $article = new Articles;
+        $article->category = $request->input('category');
+        $article->title = $request->input('title');
+        $article->content = $request->input('content');
+        $article->writer_id = 2;
+        $article->cover_image = "fauzan";
+        $article->save();
+        return redirect ('/admin/article');
     }
 
     /**
@@ -45,7 +68,8 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = Articles::find($id);
+
     }
 
     /**
@@ -56,7 +80,7 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -68,7 +92,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -79,6 +103,6 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

@@ -3,20 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Articles;
 
 class DoctorController extends Controller
 {
-    private static $role = "Doctor";
 
     public function index() {
-        return view('pages.dashboard')->with('role', self::$role);
+        $data = [
+            'role' => 'Doctor'
+        ];
+        return view('pages.dashboard')->with('data', $data);
     }
 
     public function article() {
-        return view('pages.article')->with('role', self::$role);
+        $articles = Articles::all();
+        $data = [
+            'role' => 'Admin',
+            'articles' => $articles
+        ];
+        return view('pages.article')->with('data', $data);
     }
 
     public function thread() {
-        return view('pages.thread')->with('role', self::$role);
+        $data = [
+            'role' => 'Doctor'
+        ];
+        return view('pages.thread')->with('data', $data);
     }
 }
