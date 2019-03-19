@@ -7,41 +7,28 @@ use App\Articles;
 
 class ArticleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $articles = Articles::all();
         $data = [
-            'role' => 'Admin',
+            'role' => session('role'),
             'articles' => $articles
         ];
 
         return view('pages.article')->with('data',$data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         $data = [
-            'role' => 'Admin'
+            'role' => session('role')
         ];
         return view('pages.ext.add-article')->with('data', $data);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $this->validate($request,[
@@ -57,50 +44,52 @@ class ArticleController extends Controller
         $article->writer_id = 2;
         $article->cover_image = "fauzan";
         $article->save();
+
         return redirect ('/admin/article');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        $article = Articles::find($id);
+        $data = [
+            'role' => session('role'),
+            'article' => Articles::find($id)
+        ];
+
+        return view('pages.ext.view-article')->with('data', $data);
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-
+        $article = Articles::find($id);
+        $data = [
+            'role' => session('role'),
+            'article' => $article
+        ];
+        return view('pages.ext.edit-article')->with('data', $data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'category' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+        ]);
 
+        $article = Articles::find($id);
+        $article->category = $request->input('category');
+        $article->title = $request->input('title');
+        $article->content = $request->input('content');
+        $article->writer_id = 2;
+        $article->cover_image = "fauzan";
+        $article->save();
+
+        return redirect ('/admin/article');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
 

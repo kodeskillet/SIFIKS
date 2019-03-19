@@ -8,53 +8,34 @@ use App\Articles;
 class AdminController extends Controller
 {
     public function index() {
-        $data = [
-            'role' => 'Admin'
-        ];
-        return view('pages.dashboard')->with('data', $data);
+        return view('pages.dashboard');
     }
 
     public function article() {
         $articles = Articles::all();
         $data = [
-            'role' => 'Admin',
             'articles' => $articles
         ];
         return view('pages.article')->with('data', $data);
     }
 
     public function thread() {
-        $data = [
-            'role' => 'Admin'
-        ];
-        return view('pages.thread')->with('data', $data);
+        return view('pages.thread');
     }
 
     public function admin() {
-        $data = [
-            'role' => 'Admin'
-        ];
-        return view('pages.admin')->with('data', $data);
+        return view('pages.admin');
     }
 
     public function doctor() {
-        $data = [
-            'role' => 'Admin'
-        ];
-        return view('pages.doctor')->with('data', $data);
+        return view('pages.doctor');
     }
 
     public function member() {
-        $data = [
-            'role' => 'Admin'
-        ];
-        return view('pages.member')->with('data', $data);
+        return view('pages.member');
     }
 
     public function hospital() {
-        $data = [
-            'role' => 'Admin'
-        ];
-        return view('pages.hospital')->with('data', $data);
+        return view('pages.hospital');
     }
 }
