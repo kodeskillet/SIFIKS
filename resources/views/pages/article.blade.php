@@ -21,7 +21,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            @if(count($articles)>5)
+                            @if(count($data['articles'])>0)
                                 <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                                     <thead>
                                         <tr role="row">

@@ -2,6 +2,6 @@
 
 @section('content')
     <center>
-        <h2>Welcome <b>{{ $role }}</b></h2>
+        <h2>Welcome <b>{{ $data['role'] }}</b></h2>
     </center>
 @endsection
