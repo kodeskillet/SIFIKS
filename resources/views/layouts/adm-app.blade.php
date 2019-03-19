@@ -222,11 +222,11 @@
 <script src="{{ asset("bower_components/admin-lte/dist/js/demo.js") }}"></script>
 <script src="{{ asset("bower_components/ckeditor/ckeditor.js") }}"></script>
 <script>
-    $(document).ready(function () {
+    CKEDITOR.replace('editor1');
 
-        CKEDITOR.replace( 'editor1' );
-
-    })
+    $('.delete').on('submit', function() {
+       return confirm('Are you sure?');
+    });
 </script>
 </body>
 </html>

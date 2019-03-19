@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'Indonesia/Jakarta',
+    'timezone' => 'Asia/Bangkok',
 
     /*
     |--------------------------------------------------------------------------

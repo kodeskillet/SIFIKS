@@ -55,18 +55,22 @@
                                                 <td>{{$article->created_at}}</td>
                                                 <td>{{$article->updated_at}}</td>
                                                 <td class="text-center">
-                                                    <a href="" class="btn btn-danger btn-sm">
-                                                        <i class="fa fa-trash-o"></i>
-                                                    </a>
-                                                    <a href="/articles/{{$article->id}}/edit" class="btn btn-warning btn-sm">
-                                                        <i class="fa fa-refresh"></i>
-                                                    </a>
+                                                    <form method="post" action="{{ route('articles.destroy', $article->id) }}">
+                                                        @csrf
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <input type="hidden" name="id" value="{{ $article->id }}">
+                                                        <button type="submit" class="btn btn-danger btn-sm">
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </button>
+
+                                                        <a href="/articles/{{$article->id}}/edit" class="btn btn-warning btn-sm">
+                                                            <i class="fa fa-refresh"></i>
+                                                        </a>
+                                                    </form>
                                                 </td>
                                             </tr>
                                             </tbody>
                                         @endforeach
-                                        <tfoot>
-                                        </tfoot>
                                     </table>
                                 @else
                                     <div class="alert alert-danger" role="alert">
@@ -117,4 +121,5 @@
         </div>
         <!-- /.box -->
     </section>
+
 @endsection
