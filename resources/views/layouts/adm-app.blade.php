@@ -209,7 +209,7 @@
     <!-- /.content-wrapper -->
 
     <footer class="main-footer">
-        <p>Copyright © <a href="https://flying-coders.github.io/" target="_blank">Flying Coders</a></p>
+        <p class="text-center">Copyright © 2019 <a href="https://flying-coders.github.io/" target="_blank">Flying Coders</a></p>
     </footer>
 </div>
 <!-- ./wrapper -->
