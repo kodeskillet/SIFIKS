@@ -16,7 +16,7 @@
                 {{Form::textarea ('content','',['id'=>'editor1','class'=>'form-control','placeholder' => 'Masukkan Konten'])}}
             </div>
             <div class="form-group">
-                {{Form::file('content_image')}}
+                {{Form::file('cover_image')}}
             </div>
             {{Form::submit('Add',['class'=>'btn btn-primary'])}}
         {!! Form::close() !!}

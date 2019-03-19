@@ -35,9 +35,11 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+            'category' => 'required',
             'title' => 'required',
             'content' => 'required'
         ]);
+        return 123;
     }
 
     /**
