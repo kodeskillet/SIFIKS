@@ -3,7 +3,7 @@
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <a href="{{ route('articles.index') }}" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Tambah artikel</a>
+            <a href="{{ route('articles.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Tambah artikel</a>
             {{--<div class="box-tools pull-right">--}}
               {{--<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"--}}
                       {{--title="Collapse">--}}

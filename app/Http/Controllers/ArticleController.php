@@ -14,7 +14,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('pages.ext.add-article')->with('role', 'Admin');
+        return view('pages.article')->with('role', 'Admin');
     }
 
     /**
@@ -24,7 +24,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.ext.add-article')->with('role', 'Admin');
     }
 
     /**
@@ -45,8 +45,8 @@ class ArticleController extends Controller
         $article->category = $request->input('category');
         $article->title = $request->input('title');
         $article->content = $request->input('content');
-        $article->writer_id = $request->input('');
-        $article->cover_image = $request->input('');
+        $article->writer_id = 2;
+        $article->cover_image = "fauzan";
         $article->save();
         return redirect ('/admin/article');
     }
@@ -59,7 +59,7 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -70,7 +70,7 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -82,7 +82,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -93,6 +93,6 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }
