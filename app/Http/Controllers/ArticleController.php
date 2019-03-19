@@ -14,7 +14,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('pages.article')->with('role', 'Admin');
+        $articles = Articles::all();
+        return view('pages.article', compact('articles', $articles));
     }
 
     /**

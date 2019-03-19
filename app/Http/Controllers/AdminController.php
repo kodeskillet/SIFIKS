@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Articles;
 
 class AdminController extends Controller
 {
@@ -13,7 +14,8 @@ class AdminController extends Controller
     }
 
     public function article() {
-        return view('pages.article')->with('role', self::$role);
+        $articles = Articles::all();
+        return view('pages.article', compact('articles', $articles));
     }
 
     public function thread() {
