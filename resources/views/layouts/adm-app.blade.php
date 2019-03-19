@@ -36,6 +36,7 @@
     hold-transition sidebar-mini fixed
 ">
 <!-- Site wrapper -->
+
 <div class="wrapper">
 
     <header class="main-header">
