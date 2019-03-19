@@ -39,7 +39,7 @@
                                         <tr role="row" class="odd">
                                             <td>{{$article->category}}</td>
                                             <td>{{$article->title}}</td>
-                                            <td><a href="" class="btn btn-info">Article</a></td>
+                                            <td><a href="/articles/{{$article->id}}" class="btn btn-info">Article</a></td>
                                             <td>{{$article->writer_id}}</td>
                                             <td>{{$article->created_at}}</td>
                                             <td>{{$article->updated_at}}</td>
