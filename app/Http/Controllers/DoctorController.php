@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Articles;
 
 class DoctorController extends Controller
 {
@@ -15,8 +16,10 @@ class DoctorController extends Controller
     }
 
     public function article() {
+        $articles = Articles::all();
         $data = [
-            'role' => 'Doctor'
+            'role' => 'Admin',
+            'articles' => $articles
         ];
         return view('pages.article')->with('data', $data);
     }

@@ -171,7 +171,7 @@
                         <i class="fa fa-commenting"></i> <span>Thread</span>
                     </a>
                 </li>
-                @if($data['role'] == "Doctor")
+                @if($data['role'] == "Admin")
                     <li>
                         <a href="{{ route('admin-admin') }}">
                             <i class="fa fa-user-secret"></i> <span>Admin</span>

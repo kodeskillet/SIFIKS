@@ -14,8 +14,12 @@ class ArticleController extends Controller
      */
     public function index()
     {
+        $data = [
+            'role' => 'Admin',
+            'articles' => $articles
+        ];
         $articles = Articles::all();
-        return view('pages.article', compact('articles', $articles));
+        return view('pages.article')->with('data',$data);
     }
 
     /**
@@ -25,7 +29,10 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('pages.ext.add-article')->with('role', 'Admin');
+        $data = [
+            'role' => 'Admin'
+        ];
+        return view('pages.ext.add-article')->with('data', $data);
     }
 
     /**
