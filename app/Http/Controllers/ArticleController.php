@@ -14,11 +14,12 @@ class ArticleController extends Controller
      */
     public function index()
     {
+        $articles = Articles::all();
         $data = [
             'role' => 'Admin',
             'articles' => $articles
         ];
-        $articles = Articles::all();
+
         return view('pages.article')->with('data',$data);
     }
 
