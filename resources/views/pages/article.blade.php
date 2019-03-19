@@ -3,12 +3,12 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Article
+            Artikel
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> {{ $data['role'] }}</a></li>
-            <li class="active">Article</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li class="active">Artikel</li>
         </ol>
     </section>
 
@@ -17,14 +17,7 @@
 
         <div class="box">
             <div class="box-header with-border">
-                <a href="{{ route('articles.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Tambah artikel</a>
-                {{--<div class="box-tools pull-right">--}}
-                {{--<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"--}}
-                {{--title="Collapse">--}}
-                {{--<i class="fa fa-minus"></i></button>--}}
-                {{--<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">--}}
-                {{--<i clasbhbbs="fa fa-times"></i></button>--}}
-                {{--</div>--}}
+                <a href="{{ route('articles.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus"></i>&nbsp;&nbsp;<b>Buat artikel</b></a>
             </div>
             <div class="box-body">
                 <div class="box-body">
@@ -45,7 +38,7 @@
                                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Penulis</th>
                                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Tgl. Dibuat</th>
                                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Tgl. Diperbaruhi</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Action</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"></th>
                                         </tr>
                                         </thead>
                                         @foreach($data['articles'] as $article)
@@ -53,11 +46,22 @@
                                             <tr role="row" class="odd">
                                                 <td>{{$article->category}}</td>
                                                 <td>{{$article->title}}</td>
-                                                <td><a href="/articles/{{$article->id}}" class="btn btn-info">Article</a></td>
+                                                <td class="text-center">
+                                                    <a href="/articles/{{ $article->id }}" class="btn btn-info">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                </td>
                                                 <td>{{$article->writer_id}}</td>
                                                 <td>{{$article->created_at}}</td>
                                                 <td>{{$article->updated_at}}</td>
-                                                <td><a href="" class="btn btn-danger "><i class="fa fa-trash"></i> Hapus</a> || <a href="" class="btn btn-warning"><i class="glyphicon glyphicon-retweet"></i> Update</a></td>
+                                                <td class="text-center">
+                                                    <a href="" class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-trash-o"></i>
+                                                    </a>
+                                                    <a href="/articles/{{$article->id}}/edit" class="btn btn-warning btn-sm">
+                                                        <i class="fa fa-refresh"></i>
+                                                    </a>
+                                                </td>
                                             </tr>
                                             </tbody>
                                         @endforeach

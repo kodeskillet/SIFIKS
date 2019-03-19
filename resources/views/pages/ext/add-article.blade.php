@@ -1,8 +1,25 @@
 @extends('layouts.adm-app')
 @section('content')
-<div class="box box-primary container" style="padding-bottom:20px;">
-    <h1>Membuat Artikel</h1>
-        {!! Form::open(['action' => 'ArticleController@store','method'=> 'POST', 'enctype' => 'multipart/data']) !!}
+    <section class="content-header">
+        <h1>
+            <a href="{{ route('admin-article') }}" class="btn btn-default">
+                <i class="fa fa-chevron-left"></i>
+            </a>&nbsp;&nbsp;&nbsp;
+            Buat Artikel
+            <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li class="active"><a href="{{ route('admin-article') }}">Artikel</a></li>
+            <li class="active">Buat Artikel</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+        <div class="box box-primary container" style="padding-bottom:20px;">
+            <br>
+            {!! Form::open(['action' => 'ArticleController@store','method'=> 'POST', 'enctype' => 'multipart/data']) !!}
             <div class="form-group">
                 {{Form::label ('category','Category')}}
                 {{ Form::select(
@@ -31,6 +48,8 @@
                 {{Form::file('cover_image')}}
             </div>
             {{Form::submit('Add',['class'=>'btn btn-primary'])}}
-        {!! Form::close() !!}
-</div>
+            <a href="{{ route('admin-article') }}" class="btn btn-danger">Batal</a>
+            {!! Form::close() !!}
+        </div>
+    </section>
 @endsection

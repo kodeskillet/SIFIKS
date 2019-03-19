@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SIFIKS  |
-        @if($data['role'] == "Doctor")
+        @if(session('role') == "Doctor")
             {{ __('Doctors') }}
         @else
             {{ __('Administrator') }}
@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="
-    @if($data['role'] == "Doctor")
+    @if(session('role') == "Doctor")
         skin-yellow
     @else
         skin-blue
@@ -42,7 +42,7 @@
     <header class="main-header">
         <!-- Logo -->
         <a href="
-        @if($data['role'] == "Doctor")
+        @if(session('role') == "Doctor")
             {{ route('doctor-index') }}
         @else
             {{ route('admin-index') }}
@@ -50,7 +50,7 @@
         " class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini">
-                @if($data['role'] == "Doctor")
+                @if(session('role') == "Doctor")
                     <img src="https://i.ibb.co/PjJBk1n/LOGO1.png" alt="LOGO1" width="75%" border="0">
                 @else
                     <img src="https://i.ibb.co/0XXj1FY/LOGO.png" alt="LOGO" width="75%" border="0">
@@ -58,7 +58,7 @@
             </span>
             <!-- logo for regular state and mobile devices -->
             <span class="logo-lg">
-                @if($data['role'] == "Doctor")
+                @if(session('role') == "Doctor")
                     <img src="https://i.ibb.co/wwj2vnt/sifiks2.png" alt="sifiks2" width="40%" border="0">
                 @else
                     <img src="https://i.ibb.co/JQbV1BQ/sifiks5.png" alt="sifiks5" width="40%" border="0">
@@ -121,7 +121,7 @@
                 </div>
                 <div class="pull-left info">
                     <p>Alfuzzy Satria JalaIkan</p>
-                    <a href="#"><i class="fa fa-circle text-success"></i> {{ $data['role'] }}</a>
+                    <a href="#"><i class="fa fa-circle text-success"></i> {{ session('role') }}</a>
                 </div>
             </div>
             <!-- search form -->
@@ -140,7 +140,7 @@
                 <li class="header text-center">WORKING SPACE</li>
                 <li>
                     <a href="
-                    @if($data['role'] == "Doctor")
+                    @if(session('role') == "Doctor")
                         {{ route('doctor-index') }}
                     @else
                         {{ route('admin-index') }}
@@ -151,27 +151,27 @@
                 </li>
                 <li>
                     <a href="
-                    @if($data['role'] == "Doctor")
+                    @if(session('role') == "Doctor")
                         {{ route('doctor-article') }}
                     @else
                         {{ route('admin-article') }}
                     @endif
                     ">
-                        <i class="fa fa-file-text"></i> <span>Article</span>
+                        <i class="fa fa-file-text"></i> <span>Artikel</span>
                     </a>
                 </li>
                 <li>
                     <a href="
-                    @if($data['role'] == "Doctor")
+                    @if(session('role') == "Doctor")
                     {{ route('doctor-thread') }}
                     @else
                     {{ route('admin-thread') }}
                     @endif
                     ">
-                        <i class="fa fa-commenting"></i> <span>Thread</span>
+                        <i class="fa fa-commenting"></i> <span>QNA</span>
                     </a>
                 </li>
-                @if($data['role'] == "Admin")
+                @if(session('role') == "Admin")
                     <li>
                         <a href="{{ route('admin-admin') }}">
                             <i class="fa fa-user-secret"></i> <span>Admin</span>
@@ -179,7 +179,7 @@
                     </li>
                     <li>
                         <a href="{{ route('admin-doctor') }}">
-                            <i class="fa fa-user-md"></i> <span>Doctor</span>
+                            <i class="fa fa-user-md"></i> <span>Dokter</span>
                         </a>
                     </li>
                     <li>
@@ -189,7 +189,7 @@
                     </li>
                     <li>
                         <a href="{{ route('admin-hospital') }}">
-                            <i class="fa fa-hospital-o"></i> <span>Hospital</span>
+                            <i class="fa fa-hospital-o"></i> <span>Rumah Sakit</span>
                         </a>
                     </li>
                 @endif

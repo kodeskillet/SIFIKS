@@ -3,12 +3,12 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Dashboard
+            Question and Answer
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> {{ $data['role'] }}</a></li>
-            <li class="active">Dashboard</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li class="active">QNA</li>
         </ol>
     </section>
 
