@@ -14,7 +14,7 @@ class AddProfilePictureToAdmins extends Migration
     public function up()
     {
         Schema::table('admins', function (Blueprint $table) {
-            $table->string('profile_picture');
+            $table->string('profile_picture')->nullable();
         });
     }
 
