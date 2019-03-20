@@ -7,9 +7,29 @@ use App\Articles;
 
 class AdminController extends Controller
 {
-    public function index() {
-        return view('pages.dashboard');
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
     }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        return view('adm-home');
+    }
+
+//    public function index() {
+//        return view('pages.dashboard');
+//    }
 
     public function article() {
         $articles = Articles::all();
