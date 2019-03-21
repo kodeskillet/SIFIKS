@@ -19,9 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'UserController@index')->name('home');
 
-
-
-
 Route::prefix('admin')->group( function() {
     // Auth -->
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
