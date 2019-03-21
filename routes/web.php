@@ -19,6 +19,8 @@ Route::get('/viewarticle', function() {
     return view('viewarticle');
 });
 
+Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.articles');
+
 Auth::routes();
 
 Route::get('/home', 'UserController@index')->name('home');
@@ -36,6 +38,9 @@ Route::prefix('admin')->group( function() {
     Route::get('/member', 'AdminController@member')->name('admin-member');
     Route::get('/hospital', 'AdminController@hospital')->name('admin-hospital');
 
+    // Article Access
+    Route::resource('articles', 'ArticleController');
+
     // Home
     Route::get('/', 'AdminController@index')->name('admin-index');
 });
@@ -49,13 +54,12 @@ Route::prefix('doctor')->group( function() {
     Route::get('/article', 'DoctorController@article')->name('doctor-article');
     Route::get('/thread', 'DoctorController@thread')->name('doctor-thread');
 
+    // Article Access
+    Route::resource('articles', 'ArticleController');
+
     // Home
     Route::get('/', 'DoctorController@index')->name('doctor-index');
 });
-
-Route::resources([
-    'articles' => 'ArticleController'
-]);
 
 
 

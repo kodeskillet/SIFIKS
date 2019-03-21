@@ -11,9 +11,11 @@
             Health Info
         </button>
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Sickness</a>
-            <a class="dropdown-item" href="#">Medicine</a>
-            <a class="dropdown-item" href="#">Health</a>
+            <a class="dropdown-item" href="{{ route('list.articles', ['category' => 'penyakit']) }}">Penyakit</a>
+            <a class="dropdown-item" href="{{ route('list.articles', ['category' => 'obat']) }}">Obat - obatan</a>
+            <a class="dropdown-item" href="{{ route('list.articles', ['category' => 'hidup-sehat']) }}">Hidup Sehat</a>
+            <a class="dropdown-item" href="{{ route('list.articles', ['category' => 'keluarga']) }}">Keluarga</a>
+            <a class="dropdown-item" href="{{ route('list.articles', ['category' => 'kesehatan']) }}">Kesehatan</a>
         </div>
     </div>
 

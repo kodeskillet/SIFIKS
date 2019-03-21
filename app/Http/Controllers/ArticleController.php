@@ -48,6 +48,7 @@ class ArticleController extends Controller
         return redirect ('/admin/article');
     }
 
+
     public function show($id)
     {
         $data = [
@@ -56,7 +57,18 @@ class ArticleController extends Controller
         ];
 
         return view('pages.ext.view-article')->with('data', $data);
+    }
 
+
+    public function listByCat($cat)
+    {
+        $data = [
+            'role' => session('role'),
+            'articles' => Articles::where('category', $cat),
+            'category' => $cat
+        ];
+
+        return view('articles')->with('data', $data);
     }
 
 
@@ -87,8 +99,9 @@ class ArticleController extends Controller
         $article->cover_image = "fauzan";
         $article->save();
 
-        return redirect ('/admin/article');
+        return redirect (route('admin-article'));
     }
+
 
     public function destroy($id)
     {
