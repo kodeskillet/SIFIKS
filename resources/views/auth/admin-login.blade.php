@@ -2,9 +2,11 @@
 
 @section('content')
     <br><br>
-    <div class="row justify-content-center">
-        <div class="col-md-3">
-            <a href="/"><img src="https://i.ibb.co/fxTRWgL/sifiks4.png" alt="sifiks4" class="img-fluid" border="0"></a>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <a href="/"><img src="https://i.ibb.co/fxTRWgL/sifiks4.png" alt="sifiks4" class="img-fluid" border="0"></a>
+            </div>
         </div>
     </div>
 
