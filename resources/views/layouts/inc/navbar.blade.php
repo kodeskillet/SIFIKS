@@ -21,10 +21,10 @@
 
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-            <a class="nav-link" href="#">Find Hospital</a>
+            <a class="nav-link" href="/SearchRS">Find Hospital</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Find Doctor</a>
+            <a class="nav-link" href="/SearchDokter">Find Doctor</a>
         </li>
     </ul>
     <ul class="navbar-nav">
