@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content1')
+@section('content')
 
     <div style="margin-top:20px;">
         <form class="form-signin" method="POST" action="{{ route('admin.login.submit') }}" autocomplete="off">

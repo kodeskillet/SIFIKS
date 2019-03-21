@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('content1')
+@include('layouts.inc.navbar')
+
+@section('content')
 
     <div style="margin-top:20px;">
         <form class="form-signin" method="POST" action="{{ route('login') }}" autocomplete="off">
