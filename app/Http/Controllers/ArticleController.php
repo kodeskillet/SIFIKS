@@ -62,10 +62,31 @@ class ArticleController extends Controller
 
     public function listByCat($cat)
     {
+        $category = null;
+
+        switch ($cat) {
+            case "penyakit":
+                $category = "Penyakit";
+                break;
+            case "obat":
+                $category = "Obat - obatan";
+                break;
+            case "hidup-sehat":
+                $category = "Hidup Sehat";
+                break;
+            case "keluarga":
+                $category = "Keluarga";
+                break;
+            case "kesehatan":
+                $category = "Kesehatan";
+                break;
+        }
+
         $data = [
             'role' => session('role'),
             'articles' => Articles::where('category', $cat),
-            'category' => $cat
+            'category' => $category,
+            'cat' => $cat
         ];
 
         return view('articles')->with('data', $data);

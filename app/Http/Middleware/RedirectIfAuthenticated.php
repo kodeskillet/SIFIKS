@@ -20,12 +20,12 @@ class RedirectIfAuthenticated
         switch($guard) {
             case 'admin':
                 if(Auth::guard($guard)->check()) {
-                    return redirect()->route('admin-index');
+                    return redirect()->route('admin.index');
                 }
                 break;
             case 'doctor':
                 if(Auth::guard($guard)->check()) {
-                    return redirect()->route('admin-index');
+                    return redirect()->route('admin.index');
                 }
                 break;
             default:
