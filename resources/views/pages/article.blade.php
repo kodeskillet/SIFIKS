@@ -17,6 +17,7 @@
 
         <div class="box">
             <div class="box-header with-border">
+                <h4>Daftar Artikel</h4>
                 <a href="{{ route('articles.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus"></i>&nbsp;&nbsp;<b>Buat artikel</b></a>
             </div>
             <div class="box-body">
@@ -73,13 +74,17 @@
                                         @endforeach
                                     </table>
                                 @else
-                                    <div class="alert alert-danger" role="alert">
-                                        <p>Maaf tidak ada konten</p>
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-3">
+                                            <div class="alert alert-danger text-center">
+                                                <strong>Maaf tidak ada konten.</strong>
+                                            </div>
+                                        </div>
                                     </div>
                                 @endif
                             </div>
                         </div>
-                        <div class="row">
+                        <!--<div class="row">
                             <div class="col-sm-5">
                                 <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
                             </div>
@@ -113,7 +118,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>

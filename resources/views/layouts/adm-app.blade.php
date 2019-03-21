@@ -33,7 +33,7 @@
     @else
         skin-blue
     @endif
-    hold-transition sidebar-mini fixed
+    hold-transition sidebar-mini
 ">
 <!-- Site wrapper -->
 
@@ -98,7 +98,15 @@
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a  class="btn btn-default btn-flat" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                        {{ __('Sign Out') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                 </div>
                             </li>
                         </ul>
@@ -222,10 +230,12 @@
 <script src="{{ asset("bower_components/admin-lte/dist/js/demo.js") }}"></script>
 <script src="{{ asset("bower_components/ckeditor/ckeditor.js") }}"></script>
 <script>
-    CKEDITOR.replace('editor1');
+    let editor = CKEDITOR.replace('editor1');
+    editor.config.height = 350;
+    // editor.config.resize_enabled = false;
 
-    $('.delete').on('submit', function() {
-       return confirm('Are you sure?');
+    $(document).ready( function() {
+        $('form').attr('autocomplete', 'off');
     });
 </script>
 </body>

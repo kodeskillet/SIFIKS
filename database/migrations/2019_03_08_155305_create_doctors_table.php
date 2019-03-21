@@ -20,7 +20,8 @@ class CreateDoctorsTable extends Migration
             $table->string('name');
             $table->string('license');
             $table->text('biography');
-            $table->text('profile_picture');
+            $table->string('profile_picture')->nullable();
+            $table->enum('gender', ['Male', 'Female']);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

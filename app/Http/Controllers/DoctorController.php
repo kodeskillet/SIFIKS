@@ -8,8 +8,13 @@ use App\Articles;
 class DoctorController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth:doctor');
+    }
+
     public function index() {
-        return view('pages.dashboard');
+        return view('adm-home');
     }
 
     public function article() {
