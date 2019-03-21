@@ -1,9 +1,13 @@
 @extends('layouts.app')
-
+    <link rel="stylesheet" href="{{ asset("bower_components/bootstrap/dist/css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("bower_components/font-awesome/css/font-awesome.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("bower_components/Ionicons/css/ionicons.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("bower_components/admin-lte/dist/css/AdminLTE.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("bower_components/admin-lte/dist/css/skins/_all-skins.min.css") }}">
 @include('layouts.inc.navbar')
 
 @section('content')
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
         <div class="jumbotron p-4 p-md-5 text-white rounded bg-info">
             <div class="row">
                 <div class="col-md-6 px-0">
@@ -24,95 +28,53 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="container">
-        <h1>Info Kesehatan Terkini</h1>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{{ asset('storage/images/dokter.jpg') }}"  alt="Buah" class="img-thumbnail" >
-                    <div class="card-body">
-                        <p class="card-text">Apakah mood kamu terasa tidak stabil atau perut terasa kram menjelang dan saat menstruasi? Lima makanan di bawah ini bisa bermanfaat untuk membantumu mengatasi rasa tidak nyaman selama menstruasi. Yuk, cari tahu lebih lanjut!</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                        </div>
-                    </div>
-                </div>
+        <h1>Tanya Dokter</h1>
+        <!-- <div class="box box-primary container" style="padding-bottom:20px;"> -->
+            <br>
+            {!! Form::open(['action' => 'ArticleController@store','method'=> 'POST', 'enctype' => 'multipart/data']) !!}
+            <div class="form-group">
+                {{Form::label ('category','Category')}}
+                {{ Form::select(
+                    'category', [
+                        'Illness' => 'Illness',
+                        'Medications' => 'Medications',
+                        'Living Healthy' => 'Living Healthy',
+                        'Family' => 'Family',
+                        'Healthy' => 'Healthy'
+                    ],
+                    null, [
+                        'class' => 'form-control',
+                        'placeholder' => 'Select a category...'
+                    ]
+                )}}
             </div>
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-                    <div class="card-body">
-                        <p class="card-text">Apakah mood kamu terasa tidak stabil atau perut terasa kram menjelang dan saat menstruasi? Lima makanan di bawah ini bisa bermanfaat untuk membantumu mengatasi rasa tidak nyaman selama menstruasi. Yuk, cari tahu lebih lanjut!</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                        </div>
-                    </div>
-                </div>
+            <div class="form-group">
+                {{Form::label ('title','Title')}}
+                {{Form::text ('title','',['class'=>'form-control','placeholder' => 'Masukkan Judul'])}}
             </div>
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{{ asset('storage/images/test2.jpg') }}"  alt="Buah" class="img-thumbnail" >
-                    <div class="card-body">
-                        <p class="card-text">Apakah mood kamu terasa tidak stabil atau perut terasa kram menjelang dan saat menstruasi? Lima makanan di bawah ini bisa bermanfaat untuk membantumu mengatasi rasa tidak nyaman selama menstruasi. Yuk, cari tahu lebih lanjut!</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                        </div>
-                    </div>
-                </div>
+            <div class="form-group">
+                {{Form::label ('content','Content')}}
+                {{Form::textarea ('content','',['id'=>'editor1','class'=>'form-control','placeholder' => 'Masukkan Konten'])}}
             </div>
-
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Image</text></svg>
-                    <div class="card-body">
-                        <p class="card-text">Apakah mood kamu terasa tidak stabil atau perut terasa kram menjelang dan saat menstruasi? Lima makanan di bawah ini bisa bermanfaat untuk membantumu mengatasi rasa tidak nyaman selama menstruasi. Yuk, cari tahu lebih lanjut!</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                        </div>
-                    </div>
-                </div>
+            <div class="form-group">
+                {{Form::file('cover_image')}}
             </div>
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Image</text></svg>
-                    <div class="card-body">
-                        <p class="card-text">Apakah mood kamu terasa tidak stabil atau perut terasa kram menjelang dan saat menstruasi? Lima makanan di bawah ini bisa bermanfaat untuk membantumu mengatasi rasa tidak nyaman selama menstruasi. Yuk, cari tahu lebih lanjut!</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Image</text></svg>
-                    <div class="card-body">
-                        <p class="card-text">Apakah mood kamu terasa tidak stabil atau perut terasa kram menjelang dan saat menstruasi? Lima makanan di bawah ini bisa bermanfaat untuk membantumu mengatasi rasa tidak nyaman selama menstruasi. Yuk, cari tahu lebih lanjut!</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            {{Form::submit('Add',['class'=>'btn btn-primary'])}}
+            <a href="{{ route('admin-article') }}" class="btn btn-danger">Batal</a>
+            {!! Form::close() !!}
+        <!-- </div> -->
     </div>
+
+    <script src="{{ asset("bower_components/jquery/dist/jquery.min.js") }}"></script>
+    <script src="{{ asset("bower_components/bootstrap/dist/js/bootstrap.min.js") }}"></script>
+    <script src="{{ asset("bower_components/jquery-slimscroll/jquery.slimscroll.min.js") }}"></script>
+    <script src="{{ asset("bower_components/fastclick/lib/fastclick.js") }}"></script>
+    <script src="{{ asset("bower_components/admin-lte/dist/js/adminlte.min.js") }}"></script>
+    <script src="{{ asset("bower_components/admin-lte/dist/js/demo.js") }}"></script>
+    <script src="{{ asset("bower_components/ckeditor/ckeditor.js") }}"></script>
+    <script>
+        CKEDITOR.replace('editor1');
+    </script>
 @endsection

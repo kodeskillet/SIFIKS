@@ -53,6 +53,10 @@ Route::resources([
     'articles' => 'ArticleController'
 ]);
 
+Route::get('/user-Ask', function() {
+    return view('user-AskToDoctor');
+});
+
 
 
 
