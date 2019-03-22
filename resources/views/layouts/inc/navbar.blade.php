@@ -8,7 +8,7 @@
 
     <div class="btn-group">
         <button type="button" class="btn btn-light dropdown-toggle text-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Health Info
+            Info Kesehatan
         </button>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="{{ route('list.articles', ['category' => 'penyakit']) }}">Penyakit</a>
@@ -34,12 +34,12 @@
             </li>
             @if (Route::has('register'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Daftar') }}</a>
                 </li>
             @endif
         @else
             <li class="nav-item">
-                <a class="nav-link" href="#">Ask a Question</a>
+                <a class="nav-link" href="#"><strong>Tanya Dokter</strong></a>
             </li>
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
