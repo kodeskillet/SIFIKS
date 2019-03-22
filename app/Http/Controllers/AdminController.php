@@ -63,9 +63,10 @@ class AdminController extends Controller
 
     public function store(Request $request){
         $this->validate($request,[
-            'name' => 'required',
+            'name' => 'required|min:3|max:50',
             'email' => 'required',
-            'password' => 'required',
+            'password' => 'required_with:password_confirmation|same:password_confirmation|min:6',
+            'password_confirmation' => 'min:6'
         ]);
 
         $pass = Hash::make($request->password);

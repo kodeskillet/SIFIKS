@@ -39,6 +39,12 @@
                         {{Form::password ('password',['class'=>'form-control','placeholder'=>'**********'])}}
                 </div>
             </div>
+            <div class="form-group row">
+                {{Form::label ('password_confirmation','Ulangi Password',['class'=>'col-md-2 col-form-label text-md-right'])}}
+                <div class="col-md-6">
+                        {{Form::password ('password_confirmation',['class'=>'form-control','placeholder'=>'**********'])}}
+                </div>
+            </div>
             {{Form::submit('Add',['class'=>'btn btn-primary'])}}
             <a href="{{ route('admin-admin') }}" class="btn btn-danger">Batal</a>
             {!! Form::close() !!}
