@@ -45,7 +45,7 @@ Route::prefix('admin')->group( function() {
 
 
     // Home
-    Route::get('/', 'AdminController@index')->name('admin-index');
+    Route::get('/', 'AdminController@index')->name('admin.index');
 });
 
 Route::prefix('doctor')->group( function() {

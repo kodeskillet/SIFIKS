@@ -45,7 +45,7 @@
         @if(session('role') == "Doctor")
             {{ route('doctor-index') }}
         @else
-            {{ route('admin-index') }}
+            {{ route('admin.index') }}
         @endif
         " class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -80,7 +80,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="/bower_components/admin-lte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Alfuzzy Satria JalaIkan</span>
+                            <span class="hidden-xs">{{ Auth::guard('admin')->user()->name }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -88,8 +88,11 @@
                                 <img src="/bower_components/admin-lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Alfuzzy Satria JalaIkan - Fans Kpop
-                                    <small>Member since Nov. 2012</small>
+                                    {{ Auth::guard('admin')->user()->name }}
+                                    <small>
+                                        Member since:&nbsp;
+                                        {{ __('22 Feb 2019') }}
+                                    </small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->
@@ -128,7 +131,7 @@
                     <img src="/bower_components/admin-lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Alfuzzy Satria JalaIkan</p>
+                    <p>{{ Auth::guard('admin')->user()->name }}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> {{ session('role') }}</a>
                 </div>
             </div>
@@ -151,7 +154,7 @@
                     @if(session('role') == "Doctor")
                         {{ route('doctor-index') }}
                     @else
-                        {{ route('admin-index') }}
+                        {{ route('admin.index') }}
                     @endif
                     ">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>

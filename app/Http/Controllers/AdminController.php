@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Articles;
@@ -26,7 +28,13 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('adm-home');
+        $since = new Carbon(Auth::user()->created_at);
+
+        $data = [
+            'role' => session('role'),
+            'since' => $since
+        ];
+        return view('adm-home')->with('data', $data);
     }
 
 //    public function index() {
