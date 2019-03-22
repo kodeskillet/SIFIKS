@@ -19,6 +19,14 @@ Route::get('/viewarticle', function() {
     return view('viewarticle');
 });
 
+Route::get('/SearchDokter', function() {
+    return view('SearchDokter');
+});
+
+Route::get('/SearchRS', function() {
+    return view('SearchRS');
+});
+
 Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.articles');
 
 Auth::routes();
