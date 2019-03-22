@@ -20,36 +20,27 @@
     <section class="content container-fluid">
         <div class="box box-primary container" style="padding-bottom:20px;">
             <br>
-            {!! Form::open(['action' => 'ArticleController@store','method'=> 'POST', 'enctype' => 'multipart/data']) !!}
-            <div class="form-group">
-                {{Form::label ('category','Category')}}
-                {{ Form::select(
-                    'category', [
-                        'Illness' => 'Illness',
-                        'Medications' => 'Medications',
-                        'Living Healthy' => 'Living Healthy',
-                        'Family' => 'Family',
-                        'Healthy' => 'Healthy'
-                    ],
-                    null, [
-                        'class' => 'form-control',
-                        'placeholder' => 'Select a category...'
-                    ]
-                )}}
+            {!! Form::open(['action' => 'AdminController@store','method'=> 'POST', 'enctype' => 'multipart/data']) !!}
+            <div class="form-group row">
+                {{Form::label ('name','Username',['class'=>'col-md-2 col-form-label text-md-right'])}}
+                <div class="col-md-6">
+                        {{Form::text ('name','',['class'=>'form-control','placeholder'=>'Masukkan Username'])}}
+                </div>
             </div>
-            <div class="form-group">
-                {{Form::label ('title','Title')}}
-                {{Form::text ('title','',['class'=>'form-control','placeholder' => 'Masukkan Judul'])}}
+            <div class="form-group row">
+                {{Form::label ('email','E-Mail',['class'=>'col-md-2 col-form-label text-md-right'])}}
+                <div class="col-md-6">
+                        {{Form::email ('email','',['class'=>'form-control','placeholder'=>'Masukkan Email'])}}
+                </div>
             </div>
-            <div class="form-group">
-                {{Form::label ('content','Content')}}
-                {{Form::textarea ('content','',['id'=>'editor1','class'=>'form-control','placeholder' => 'Masukkan Konten'])}}
-            </div>
-            <div class="form-group">
-                {{Form::file('cover_image')}}
+            <div class="form-group row">
+                {{Form::label ('password','Password',['class'=>'col-md-2 col-form-label text-md-right'])}}
+                <div class="col-md-6">
+                        {{Form::password ('password',['class'=>'form-control','placeholder'=>'**********'])}}
+                </div>
             </div>
             {{Form::submit('Add',['class'=>'btn btn-primary'])}}
-            <a href="{{ route('admin-article') }}" class="btn btn-danger">Batal</a>
+            <a href="{{ route('admin-admin') }}" class="btn btn-danger">Batal</a>
             {!! Form::close() !!}
         </div>
     </section>
