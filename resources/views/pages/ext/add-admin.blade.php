@@ -36,7 +36,7 @@
             <div class="form-group row">
                 {{Form::label ('password','Password',['class'=>'col-md-2 col-form-label text-md-right'])}}
                 <div class="col-md-6">
-                        {{Form::password ('password',['class'=>'form-control','placeholder'=>'**********'])}}
+                        {{Form::password (Hash::make('password'),['class'=>'form-control','placeholder'=>'**********'])}}
                 </div>
             </div>
             {{Form::submit('Add',['class'=>'btn btn-primary'])}}

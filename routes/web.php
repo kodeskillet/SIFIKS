@@ -38,6 +38,7 @@ Route::prefix('admin')->group( function() {
     Route::get('/member', 'AdminController@member')->name('admin-member');
     Route::get('/hospital', 'AdminController@hospital')->name('admin-hospital');
     Route::get('/admin/create', 'AdminController@create')->name('admin.create');
+    Route::post('/admin/create','AdminController@store')->name('admin.post');
 
     // Article Access
     Route::resource('articles', 'ArticleController');
