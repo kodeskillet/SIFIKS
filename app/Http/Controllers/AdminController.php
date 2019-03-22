@@ -39,6 +39,10 @@ class AdminController extends Controller
         return view('pages.article')->with('data', $data);
     }
 
+    public function create(){
+        return view ('pages.ext.add-admin');
+    }
+
     public function thread() {
         return view('pages.thread');
     }

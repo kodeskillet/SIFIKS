@@ -7,7 +7,7 @@
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
             <li class="active">Admin</li>
         </ol>
     </section>
@@ -17,7 +17,7 @@
 
         <div class="box">
             <div class="box-header with-border">
-                <a href="/administrator/artikel/tambah/" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Tambah artikel</a>
+                <a href="{{ route('admin.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Tambah Admin</a>
                 {{--<div class="box-tools pull-right">--}}
                 {{--<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"--}}
                 {{--title="Collapse">--}}

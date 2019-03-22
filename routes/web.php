@@ -37,9 +37,11 @@ Route::prefix('admin')->group( function() {
     Route::get('/doctor', 'AdminController@doctor')->name('admin-doctor');
     Route::get('/member', 'AdminController@member')->name('admin-member');
     Route::get('/hospital', 'AdminController@hospital')->name('admin-hospital');
+    Route::get('/admin/create', 'AdminController@create')->name('admin.create');
 
     // Article Access
     Route::resource('articles', 'ArticleController');
+
 
     // Home
     Route::get('/', 'AdminController@index')->name('admin-index');
