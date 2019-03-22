@@ -42,7 +42,17 @@ class AdminController extends Controller
         return view('pages.article')->with('data', $data);
     }
 
-    //CRUD
+    //======================================================CRUD============================================
+
+    public function admin() {
+        $admin = Admin::all();
+        $data = [
+            'role' => session('role'),
+            'admin' => $admin,
+        ];
+        return view('pages.admin')->with('data',$data);
+    }
+
     public function store(Request $request){
         $this->validate($request,[
             'name' => 'required',
@@ -62,21 +72,17 @@ class AdminController extends Controller
     }
 
     public function create(){
-        //CRUD
+
         $data = [
             'role' => session('role')
         ];
         return view ('pages.ext.add-admin')->with('data',$data);
     }
 
-    //CRUD
+    //======================================================CRUD============================================
 
     public function thread() {
         return view('pages.thread');
-    }
-
-    public function admin() {
-        return view('pages.admin');
     }
 
     public function doctor() {
