@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use App\Articles;
 
 class ArticleController extends Controller
@@ -25,7 +27,7 @@ class ArticleController extends Controller
     public function create()
     {
         $data = [
-            'role' => session('role')
+            'role' => session('role'),
         ];
         return view('pages.ext.add-article')->with('data', $data);
     }
@@ -43,7 +45,7 @@ class ArticleController extends Controller
         $article->category = $request->input('category');
         $article->title = $request->input('title');
         $article->content = $request->input('content');
-        $article->writer_id = 2;
+        $article->writer_id = Auth::guard('admin')->user()->id;
         $article->cover_image = "fauzan";
         $article->save();
 
