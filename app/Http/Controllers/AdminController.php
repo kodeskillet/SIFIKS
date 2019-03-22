@@ -31,6 +31,7 @@ class AdminController extends Controller
 //        return view('pages.dashboard');
 //    }
 
+
     public function article() {
         $articles = Articles::all();
         $data = [
@@ -39,9 +40,20 @@ class AdminController extends Controller
         return view('pages.article')->with('data', $data);
     }
 
-    public function create(){
-        return view ('pages.ext.add-admin');
+    //CRUD
+    public function store(){
+
     }
+
+    public function create(){
+        //CRUD
+        $data = [
+            'role' => session('role')
+        ];
+        return view ('pages.ext.add-admin')->with('data',$data);
+    }
+
+    //CRUD
 
     public function thread() {
         return view('pages.thread');
