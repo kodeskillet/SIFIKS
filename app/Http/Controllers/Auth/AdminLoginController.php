@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class AdminLoginController extends Controller
 {
@@ -21,11 +23,20 @@ class AdminLoginController extends Controller
 
     public function login(Request $request)
     {
+        $data = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+
         // Validate Data
-        $this->validate($request, [
-            'email' => 'required|email',
+        $validate = Validator::make($data, [
+            'email' => 'required|exists:admins|email',
             'password' => 'required|min:6'
         ]);
+
+        if($validate->fails()) {
+            return redirect()->back()->withErrors($validate);
+        }
 
         $credentials = [
             'email' => $request->email,
@@ -39,6 +50,15 @@ class AdminLoginController extends Controller
             return redirect()->intended(route('admin.index'));
         }
         // If 'false' -> redirect back to admin.login
-        return redirect()->back()->withInput($request->only('email', 'remember'));
+        $this->sendFailedLoginResponse($request);
+//        return redirect()->back()->withInput($request->only('email', 'remember'))->with('message', 'E-mail or Password invalid.');
     }
+
+    private function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            'email' => [trans('auth.failed')],
+        ]);
+    }
+
 }
