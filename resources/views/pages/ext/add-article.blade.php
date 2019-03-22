@@ -24,11 +24,11 @@
                 {{Form::label ('category','Category')}}
                 {{ Form::select(
                     'category', [
-                        'Illness' => 'Illness',
-                        'Medications' => 'Medications',
-                        'Living Healthy' => 'Living Healthy',
-                        'Family' => 'Family',
-                        'Healthy' => 'Healthy'
+                        'penyakit' => 'Penyakit',
+                        'obat' => 'Obat - obatan',
+                        'hidup-sehat' => 'Hidup Sehat',
+                        'keluarga' => 'Keluarga',
+                        'kesehatan' => 'Kesehatan'
                     ],
                     null, [
                         'class' => 'form-control',
@@ -44,9 +44,9 @@
                 {{Form::label ('content','Content')}}
                 {{Form::textarea ('content','',['id'=>'editor1','class'=>'form-control','placeholder' => 'Masukkan Konten'])}}
             </div>
-            <div class="form-group">
-                {{Form::file('cover_image')}}
-            </div>
+            {{--<div class="form-group">--}}
+                {{--{{Form::file('cover_image')}}--}}
+            {{--</div>--}}
             {{Form::submit('Add',['class'=>'btn btn-primary'])}}
             <a href="{{ route('admin-article') }}" class="btn btn-danger">Batal</a>
             {!! Form::close() !!}
