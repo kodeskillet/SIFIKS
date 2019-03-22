@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Articles;
 use App\Admin;
 
@@ -43,7 +44,7 @@ class AdminController extends Controller
 
     //CRUD
     public function store(Request $request){
-
+        $pass = Hash::make('password');
         $this->validate($request,[
             'name' => 'required',
             'email' => 'required',
@@ -53,10 +54,10 @@ class AdminController extends Controller
         $admin = new Admin;
         $admin->name = $request->input('name');
         $admin->email = $request->input('email');
-        $admin->password = $request->input('password');
+        $admin->password = $pass;
         $admin->save();
 
-        return redirect ('/admin/article');
+        return redirect ('/admin/admin');
     }
 
     public function create(){
