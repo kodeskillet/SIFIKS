@@ -35,34 +35,26 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                @if(count($data['admin'])>100)
+                                @if(count($data['admin'])>0)
                                 <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                                     <thead>
                                     <tr role="row">
-                                        <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">No.</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Spesialis</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Kota</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Nama</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Biografi</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Profile Picture</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Email</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Email Verification</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Action</th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Nama</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Email</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Di buat pada tgl</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Terakhir di update</th>
                                     </tr>
                                     </thead>
+                                    @foreach($data['admin'] as $admin)
                                     <tbody>
                                     <tr role="row" class="odd">
-                                        <td>1</td>
-                                        <td>Kandungan</td>
-                                        <td>Malang</td>
-                                        <td>Marion Jola</td>
-                                        <td>Artis dengan Kearifan lokal</td>
-                                        <td>A</td>
-                                        <td>marion@gmail.com</td>
-                                        <td>jola@gmail.com</td>
-                                        <td><a href="" class="btn btn-danger "><i class="fa fa-trash"></i>Hapus</a></td>
+                                        <td>{{$admin->name}}</td></td>
+                                        <td>{{$admin->email}}</td>
+                                        <td>{{$admin->created_at}}</td>
+                                        <td>{{$admin->updated_at}}</td>
                                     </tr>
                                     </tbody>
+                                    @endforeach
                                     <tfoot>
                                     </tfoot>
                                 </table>
