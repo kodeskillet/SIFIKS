@@ -36,7 +36,7 @@
     <div class="row">
         <div class="col-md-10">
             <div class="col-md-6">
-                <h2>Pilih Spesialis Dokter</h2>
+                <h2>Pilih Tindakan Medis</h2>
             </div>
         </div>
     </div>
@@ -44,37 +44,37 @@
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
           <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-          <a href="#" class="btn btn-primary">Dokter Anak</a>
+          <a href="#" class="btn btn-primary">Kandungan</a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
             <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="#" class="btn btn-primary">Dokter Paru-Paru</a>
+            <a href="#" class="btn btn-primary">Laboratorium</a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
             <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="#" class="btn btn-primary">Dokter Kehamilan</a>
+            <a href="#" class="btn btn-primary">Radiologi</a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
             <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="#" class="btn btn-primary">Dokter Jantung</a>
+            <a href="#" class="btn btn-primary">Jantung</a>
         </div>
       </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
             <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="#" class="btn btn-primary">Dokter Reproduksi</a>
+            <a href="#" class="btn btn-primary">Paru-Paru</a>
         </div>
       </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
           <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-          <a href="#" class="btn btn-primary">Dokter Mata</a>
+          <a href="#" class="btn btn-primary">Sistem Pencernaan</a>
             </div>
           </div>
   </div>

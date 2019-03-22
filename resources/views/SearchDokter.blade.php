@@ -5,6 +5,7 @@
 <div class="jumbotron p-4 p-md-5 text-white rounded bg-info">
         <div class="row">
           <div class="col-md-6 px-0">
+              
             <h1 class="display-4 font-bold" >Cari Nama Dokter/ Spesialis</h1>
             <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
             <div class="row">
@@ -25,6 +26,7 @@
                 </div>
             </div>
           </div>
+          
         </div>
     </div>
 
