@@ -44,12 +44,13 @@ class AdminController extends Controller
 
     //CRUD
     public function store(Request $request){
-        $pass = Hash::make('password');
         $this->validate($request,[
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
         ]);
+
+        $pass = Hash::make($request->password);
 
         $admin = new Admin;
         $admin->name = $request->input('name');
