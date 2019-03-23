@@ -26,10 +26,12 @@ class OAuthController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver($provider)->user();
+        $user = Socialite::driver($provider)->stateless()->user();
         $authUser = $this->findOrCreateUser($user, $provider);
-        Auth::guard('web')->login($authUser, true);
-        return redirect(route('home'));
+        if(Auth::guard('web')->login($authUser, true)) {
+            return redirect(route('home'));
+        }
+        return redirect(route('login'));
     }
 
 
