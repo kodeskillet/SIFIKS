@@ -6,13 +6,11 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class OAuthController extends Controller
 {
-
-    use AuthenticatesUsers;
 
     public function redirectToProvider($provider)
     {
@@ -30,12 +28,20 @@ class OAuthController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver($provider)->stateless()->user();
-        $authUser = $this->findOrCreateUser($user, $provider);
-        if(Auth::guard('web')->login($authUser, true)) {
-            return redirect('/');
+        $user = null;
+
+        if($provider == 'twitter') {
+            $user = Socialite::driver($provider)->user();
+        } else {
+            $user = Socialite::driver($provider)->stateless()->user();
         }
-        return redirect('login');
+
+        $authUser = $this->findOrCreateUser($user, $provider);
+
+        Auth::guard('web')->attempt(['email' => $authUser->email, 'password' => $authUser->email]);
+
+        return redirect(route('home'));
+
     }
 
 
@@ -48,18 +54,20 @@ class OAuthController extends Controller
      */
     public function findOrCreateUser($user, $provider)
     {
-        $authUser = User::where('provider_id', $user->id)->first();
+        $authUser = User::where('email', $user->getEmail())->first();
         if($authUser) {
             return $authUser;
         }
 
-        $data = User::create([
-            'name' => $user->name,
-            'email' => !empty($user->email) ? $user->email : '',
-            'provider' => $provider,
-            'provider_id' => $user->id
-        ]);
-        return $data;
+        $newUser = new User;
+        $newUser->email = $user->getEmail();
+        $newUser->name = $user->getName();
+        $newUser->password = Hash::make($user->getEmail());
+        $newUser->provider = $provider;
+        $newUser->provider_id = $user->id;
+        $newUser->save();
+
+        return $newUser;
     }
 
 }
