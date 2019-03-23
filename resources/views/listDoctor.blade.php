@@ -74,8 +74,42 @@
 
 
         <div class="col-md-8">
-            test
+
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{ asset('storage/images/test1.jpg') }}" alt="..." class="card-img" >
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <a href="#" class="btn btn-primary">Dokter Anak</a>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{ asset('storage/images/test1.jpg') }}" alt="..." class="card-img" >
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <a href="#" class="btn btn-primary">Dokter Anak</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    
+    
+    
     </div>
 </div>
 @endsection
