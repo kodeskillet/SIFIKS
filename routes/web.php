@@ -27,6 +27,10 @@ Route::get('/SearchRS', function() {
     return view('SearchRS');
 });
 
+Route::get('/listdoctor', function() {
+    return view('listDoctor');
+});
+
 Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.articles');
 
 Auth::routes();
