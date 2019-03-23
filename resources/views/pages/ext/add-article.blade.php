@@ -36,14 +36,32 @@
                         'placeholder' => 'Select a category...'
                     ]
                 )}}
+                @if($errors->has('category'))
+                <br>
+                    <div class="text-danger">
+                        {{$errors->first('category')}}
+                    </div>
+                @endif
             </div>
             <div class="form-group">
                 {{Form::label ('title','Title')}}
                 {{Form::text ('title','',['class'=>'form-control','placeholder' => 'Masukkan Judul'])}}
+                @if($errors->has('title'))
+                <br>
+                    <div class="text-danger">
+                        {{$errors->first('title')}}
+                    </div>
+                @endif
             </div>
             <div class="form-group">
                 {{Form::label ('content','Content')}}
                 {{Form::textarea ('content','',['id'=>'editor1','class'=>'form-control','placeholder' => 'Masukkan Konten'])}}
+                @if($errors->has('content'))
+                <br>
+                    <div class="text-danger">
+                        {{$errors->first('content')}}
+                    </div>
+                @endif
             </div>
             {{--<div class="form-group">--}}
                 {{--{{Form::file('cover_image')}}--}}
