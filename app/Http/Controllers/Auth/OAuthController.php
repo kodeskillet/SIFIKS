@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 use Laravel\Socialite\Facades\Socialite;
 
 class OAuthController extends Controller
@@ -29,6 +30,7 @@ class OAuthController extends Controller
     public function handleProviderCallback($provider)
     {
         $user = null;
+        $err = null;
 
         if($provider == 'twitter') {
             $user = Socialite::driver($provider)->user();
@@ -38,10 +40,17 @@ class OAuthController extends Controller
 
         $authUser = $this->findOrCreateUser($user, $provider);
 
-        Auth::guard('web')->attempt(['email' => $authUser->email, 'password' => $authUser->email]);
+        $attempt = Auth::guard('web')->attempt(['email' => $authUser->email, 'password' => $authUser->email]);
 
-        return redirect(route('home'));
+        $req = new Request([
+            'email' => $authUser->email,
+        ]);
 
+        if($attempt) {
+            return redirect(route('home'));
+        }
+//        $this->sendFailedLoginResponse($req);
+        return redirect(route('login'));
     }
 
 
@@ -68,6 +77,14 @@ class OAuthController extends Controller
         $newUser->save();
 
         return $newUser;
+    }
+
+    private function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            'email' => [trans('auth.failed')],
+        ]);
+
     }
 
 }
