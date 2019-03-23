@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
-use App\User;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class OAuthController extends Controller
 {
+
+    use AuthenticatesUsers;
+
     public function redirectToProvider($provider)
     {
         return Socialite::driver($provider)->redirect();
@@ -29,9 +33,9 @@ class OAuthController extends Controller
         $user = Socialite::driver($provider)->stateless()->user();
         $authUser = $this->findOrCreateUser($user, $provider);
         if(Auth::guard('web')->login($authUser, true)) {
-            return redirect(route('home'));
+            return redirect('/');
         }
-        return redirect(route('login'));
+        return redirect('login');
     }
 
 
