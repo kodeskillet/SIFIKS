@@ -43,7 +43,7 @@ class AdminController extends Controller
 
 
     public function article() {
-        $articles = Articles::all();
+        $articles = Articles::orderBy('category','desc')->paginate(5);
         $data = [
             'articles' => $articles
         ];
