@@ -55,6 +55,24 @@
                     <button type="submit" class="btn btn-lg btn-primary btn-block">Log In</button>
                 </div>
             </div>
+            <hr>
+            <div class="text-center text-muted">Atau Masuk Dengan</div>
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-8">
+                    <div class="btn-toolbar justify-content-center">
+                        <div class="btn-group mr-2" style="width: 47.5% !important;">
+                            <a href="{{ route('api.login', ['provider' => 'google']) }}" class="btn btn-outline-danger btn-lg">
+                                <i class="fa fa-google fa-lg"></i>oogle
+                            </a>
+                        </div>
+                        <div class="btn-group" style="width: 47.5% !important;">
+                            <a href="{{ route('api.login', ['provider' => 'facebook']) }}" class="btn btn-outline-primary btn-lg">
+                                <i class="fa fa-facebook fa-lg"></i>acebook
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 @endsection
