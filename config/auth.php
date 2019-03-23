@@ -114,17 +114,17 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
-            'expire' => 60,
+            'expire' => 120,
         ],
         'admins' => [
             'provider' => 'admins',
             'table' => 'password_resets',
-            'expire' => 30,
+            'expire' => 120,
         ],
         'doctors' => [
             'provider' => 'doctors',
             'table' => 'password_resets',
-            'expire' => 60,
+            'expire' => 120,
         ],
     ],
 
