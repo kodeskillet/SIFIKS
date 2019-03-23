@@ -46,7 +46,10 @@ class DoctorLoginController extends Controller
         // Attempt Login
         if(Auth::guard('doctor')->attempt($credentials, $request->remember)) {
             // If 'true' -> redirect to admin.index
-            session(['role' => 'Doctor']);
+            session([
+                'role' => 'Doctor',
+                'guard' => 'doctor'
+            ]);
             return redirect()->intended(route('admin-index'));
         }
         // If 'false' -> redirect back to admin.login

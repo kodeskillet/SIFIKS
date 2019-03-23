@@ -46,7 +46,10 @@ class AdminLoginController extends Controller
         // Attempt Login
         if(Auth::guard('admin')->attempt($credentials, $request->remember)) {
             // If 'true' -> redirect to admin.index
-            session(['role' => 'Admin']);
+            session([
+                'role' => 'Admin',
+                'guard' => 'admin'
+            ]);
             return redirect()->intended(route('admin.index'));
         }
         // If 'false' -> redirect back to admin.login
