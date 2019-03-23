@@ -30,5 +30,52 @@
         </div>
     </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 border border-info">
+        
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                    Aceh
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                    Bali
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                <label class="form-check-label" for="exampleRadios3">
+                    Jakarta
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
+                <label class="form-check-label" for="exampleRadios4">
+                    Malang
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
+                <label class="form-check-label" for="exampleRadios5">
+                    Papua
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
+                <label class="form-check-label" for="exampleRadios6">
+                    Ternate
+                </label>
+            </div>
+        </div>
 
+
+        <div class="col-md-8">
+            test
+        </div>
+    </div>
+</div>
 @endsection
