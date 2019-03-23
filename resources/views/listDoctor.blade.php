@@ -32,7 +32,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4 border border-info">
+        <div class="col-md-4">
         
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
