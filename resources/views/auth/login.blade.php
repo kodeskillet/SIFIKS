@@ -37,40 +37,37 @@
                             <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                             &nbsp;
                             <label class="form-check-label" for="remember">
-                                Remember Me
+                                Ingat Saya
                             </label>
                         </div>
                     </div>
                 </div>
-
-                <br>
-
-                <div class="text-center">
-                    <p>Don't have an account ?
+                <div class="text-center mt-1 mb-1">
+                    <p>Tidak punya akun?
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Sign Up Here</a></p>
+                            <a href="{{ route('register') }}">Daftar Disini</a></p>
                     @endif
                 </div>
-                <div class="row">
-                    <div class="col-md-6 offset-md-3">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
                         <button type="submit" class="btn btn-lg btn-primary btn-block">Log In</button>
                     </div>
                 </div>
-                <hr>
-                <div class="text-center text-muted">Atau Masuk Dengan</div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <hr>
+                        <div class="text-muted text-center">Atau Masuk Dengan</div>
+                    </div>
+                </div>
                 <div class="row justify-content-center mt-3">
-                    <div class="col-md-8">
-                        <div class="btn-toolbar">
-                            <div class="btn-group mr-2" style="width: 48% !important;">
-                                <a href="{{ route('api.login', ['provider' => 'google']) }}" class="btn btn-outline-danger btn-lg">
-                                    <i class="fa fa-google fa-lg"></i>oogle
-                                </a>
-                            </div>
-                            <div class="btn-group" style="width: 48% !important;">
-                                <a href="{{ route('api.login', ['provider' => 'facebook']) }}" class="btn btn-outline-primary btn-lg">
-                                    <i class="fa fa-facebook fa-lg"></i>acebook
-                                </a>
-                            </div>
+                    <div class="col-md-6">
+                        <div class="btn-group btn-block" role="group" aria-label="Basic example">
+                            <a href="{{ route('api.login', ['provider' => 'google']) }}" class="btn btn-soc btn-google btn-lg p-3">
+                                <i class="fab fa-google fa-lg"></i>
+                            </a>
+                            <a href="{{ route('api.login', ['provider' => 'twitter']) }}" class="btn btn-soc btn-twitter btn-lg p-3">
+                                <i class="fab fa-twitter fa-lg"></i>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -88,7 +88,7 @@
                                 <img src="/bower_components/admin-lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                 <p>
-                                    {{ Auth::guard('admin')->user()->name }}
+                                    {{ Auth::guard(session('guard'))->user()->name }}
                                     <small>
                                         Member since:&nbsp;
                                         {{ __('22 Feb 2019') }}
@@ -131,7 +131,7 @@
                     <img src="/bower_components/admin-lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>{{ Auth::guard('admin')->user()->name }}</p>
+                    <p>{{ Auth::guard(session('guard'))->user()->name }}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> {{ session('role') }}</a>
                 </div>
             </div>
