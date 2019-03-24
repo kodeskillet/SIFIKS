@@ -106,7 +106,7 @@ class AdminController extends Controller
             'role' => session('role'),
             'doctor' => $doctor
         ];
-        return view('pages.ext.edit-doctor')->with('data', $data);
+        return view('pages.ext.edit-dokter')->with('data', $data);
     }
 
     public function updatedoctor(Request $request){
