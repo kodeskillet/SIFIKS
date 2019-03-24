@@ -109,8 +109,19 @@ class AdminController extends Controller
         return view('pages.ext.edit-dokter')->with('data', $data);
     }
 
-    public function updatedoctor(Request $request){
+    public function updatedoctor(Request $request,$id){
+        $this->validate($request,[
+            'name' => 'required|min:3|max:50',
+            'password' => 'required_with:password_confirmation|same:password_confirmation|min:6',
+            'password_confirmation' => 'min:6'
+        ]);
 
+        $pass = Hash::make($request->password);
+        $doctor = Doctor::find($id);
+        $doctor->name = $request->input('name');
+        $doctor->password = $pass;
+        $doctor->save();
+        return redirect(route('admin-doctor'));
     }
 
     //==========================CRUD_DOKTER=============CRUD_DOKTER==========================CRUD_DOKTER============================
