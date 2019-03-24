@@ -6,7 +6,7 @@
                 <i class="fa fa-chevron-left"></i>
             </a>&nbsp;&nbsp;&nbsp;
             Edit Dokter
-            <small><b>( {{$data['doctor']->title}} )</b></small>
+            <small><b>( {{$data['doctor']->name}} )</b></small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
