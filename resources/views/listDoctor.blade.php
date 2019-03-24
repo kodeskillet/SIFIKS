@@ -134,13 +134,13 @@
         <div class="card mb-3">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{ asset('storage/images/test1.jpg') }}" alt="..." class="card-img" >
+                    <img src="{{ asset('storage/images/marsha.jpg') }}" alt="..." class="card-img" >
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title">dr. Marsha Hamrah, Sp.A</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-primary">Dokter Anak</a>
+                        <a href="#" class="btn btn-primary">Buat Janji</a>
                     </div>
                 </div>
             </div>
@@ -149,13 +149,43 @@
         <div class="card mb-3">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{ asset('storage/images/test1.jpg') }}" alt="..." class="card-img" >
+                    <img src="{{ asset('storage/images/felicia.jpg') }}" alt="..." class="card-img" >
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title">dr. Felicia Carissa, Sp.OG</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-primary">Dokter Anak</a>
+                        <a href="#" class="btn btn-primary">Buat Janji</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{ asset('storage/images/key.jpg') }}" alt="..." class="card-img" >
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">dr. Key Alexae, Sp.JP</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <a href="#" class="btn btn-primary">Buat Janji</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{ asset('storage/images/namira.jpg') }}" alt="..." class="card-img" >
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">dr. Namira Atasya, Sp.PD</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <a href="#" class="btn btn-primary">Buat Janji</a>
                     </div>
                 </div>
             </div>
