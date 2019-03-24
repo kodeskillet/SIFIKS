@@ -34,37 +34,29 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                @if(count($data['user'])>1)
+                                @if(count($data['user'])>0)
                                 <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                                     <thead>
                                     <tr role="row">
-                                        <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">No.</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Spesialis</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Kota</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Nama</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Biografi</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Profile Picture</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Email</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Email Verification</th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Nama</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Email</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Dibuat pada tgl</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Action</th>
                                     </tr>
                                     </thead>
+                                    @foreach($data['user'] as $user)
                                     <tbody>
                                     <tr role="row" class="odd">
-                                        <td>1</td>
-                                        <td>Kandungan</td>
-                                        <td>Malang</td>
-                                        <td>Marion Jola</td>
-                                        <td>Artis dengan Kearifan lokal</td>
-                                        <td>A</td>
-                                        <td>marion@gmail.com</td>
-                                        <td>jola@gmail.com</td>
+                                        <td>{{$user->name}}</td>
+                                        <td>{{$user->email}}</td>
+                                        <td>{{$user->created_at}}</td>
                                         <td><a href="" class="btn btn-danger "><i class="fa fa-trash"></i>Hapus</a></td>
                                     </tr>
                                     </tbody>
                                     <tfoot>
                                     </tfoot>
                                 </table>
+                                @endforeach
                                 @else
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3">
