@@ -120,7 +120,7 @@
 
 <!-- list doctor -->
             <br>
-            <h1 class="font-weight-bold">Bold text.</h1>
+            <h1 class="font-weight-bold">Cari Jadwal Dokter</h1>
 
         <div class="card mb-3">
             <div class="row no-gutters">
