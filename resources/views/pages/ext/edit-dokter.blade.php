@@ -55,7 +55,7 @@
             </div>
             {{Form::hidden('_method', 'PUT')}}
             {{Form::submit('Update',['class'=>'btn btn-primary'])}}
-            <a href="{{ route('admin-article') }}" class="btn btn-danger">Batal</a>
+            <a href="{{ route('admin-doctor') }}" class="btn btn-danger">Batal</a>
             {!! Form::close() !!}
         </div>
     </section>
