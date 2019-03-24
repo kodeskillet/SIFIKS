@@ -10,26 +10,46 @@
         <div class="row">
             <div class="col col-md-8">
                 <br>
-                <div class="box box-widget collapsed-box">
+                <a href=""><i class="fa fa-home"></i> Back to home</a>
+                <br>
+                <h2>Ask To Dokter</h2>
+                <hr>
+                <div class="box box-widget">
                     <div class="box-header with-border">
+                        <div class="user-block">
+                            <img class="img-circle" src="../bower_components/admin-lte/dist/img/user1-128x128.jpg" alt="User Image">
+                            <span class="username"><a href="#">Ahmad Syifaur</a></span>
+                            <span class="description">3 days ago</span>
+                        </div>
                     <!-- /.user-block -->
-                    <a href="" class="btn btn-primary" data-widget="collapse"><i class="fa fa-edit"></i>Buat Pertanyaan</a>
-                    <!-- /.box-tools -->
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body" style="display: none;">
-                        <div class="form-group">
-                            <label>Topic</label>
-                            <input type="text" class="form-control" placeholder="Enter Topic">
-                        </div>
-                        <div class="form-group">
-                        {{Form::textarea ('content','',['id'=>'editor1','class'=>'form-control','placeholder' => 'Masukkan Konten'])}}
-                        </div>
-                        {{Form::submit('Kirim',['class'=>'btn btn-primary'])}}
-                        <a href="{{ route('admin-article') }}" class="btn btn-danger">Batal</a>
-                        {!! Form::close() !!}
+                    <div class="box-body">
+                    <!-- post text -->
+                    <a href=""><h5>Gatal</h5></a>
+                        <p>hi dok , kenapa tubuh saya gatal ? </p>
+                    <!-- Social sharing buttons -->
+                        <span class="pull-right text-muted">1 Answered</span>
                     </div>
                     <!-- /.box-body -->
+                    <div class="box-footer box-comments">
+                        <div class="box-comment">
+                            <!-- User image -->
+                            <img class="img-circle img-sm" src="../bower_components/admin-lte/dist/img/user3-128x128.jpg" alt="User Image">
+
+                            <div class="comment-text">
+                                <span class="username">
+                                    Dokter Mentari
+                                    <span class="text-muted pull-right">3 days ago</span>
+                                </span><!-- /.username -->
+                            Hai Syifaur , sini main ke rumah ibu , nanti ibu obatin
+                            </div>
+                            <!-- /.comment-text -->
+                            <span>by : <a href="">dokter mentari</a></span>
+                        </div>
+                    <!-- /.box-comment -->
+                    </div>
+                    <!-- /.box-footer -->
                 </div>
                 <hr>
                 <br>
@@ -82,7 +102,7 @@
                 </div>
             </div>
             <div class="col col-md-4">
-            <a href="https://ibb.co/nPXSZRZ"><img src="https://i.ibb.co/6XK5VNV/health.png" alt="health" border="0" width="350"></a>
+            <a href="/ask"><img src="https://i.ibb.co/HP8gZtz/doctor.png" alt="doctor" border="0" width="350"></a>
             </div>
         </div>
     </div>
