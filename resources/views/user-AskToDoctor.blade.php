@@ -1,72 +1,88 @@
 @extends('layouts.app')
-    <link rel="stylesheet" href="{{ asset("bower_components/bootstrap/dist/css/bootstrap.min.css") }}">
     <link rel="stylesheet" href="{{ asset("bower_components/font-awesome/css/font-awesome.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("bower_components/Ionicons/css/ionicons.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("bower_components/admin-lte/dist/css/AdminLTE.min.css") }}">
     <link rel="stylesheet" href="{{ asset("bower_components/admin-lte/dist/css/skins/_all-skins.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("bower_components/admin-lte/dist/css/AdminLTE.min.css") }}">
 @include('layouts.inc.navbar')
 
 @section('content')
-    <!-- <div class="container-fluid">
-        <div class="jumbotron p-4 p-md-5 text-white rounded bg-info">
-            <div class="row">
-                <div class="col-md-6 px-0">
-                    <img src="https://i.ibb.co/JQbV1BQ/sifiks5.png" width="45%" alt="sifiks5" border="0">
-                    <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Cari SIFIKS" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
-                        </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-8">
+                <br>
+                <div class="box box-widget collapsed-box">
+                    <div class="box-header with-border">
+                    <!-- /.user-block -->
+                    <a href="" class="btn btn-primary" data-widget="collapse"><i class="fa fa-edit"></i>Buat Pertanyaan</a>
+                    <!-- /.box-tools -->
                     </div>
-                    <button type="button" class="btn btn-primary">Tanya Dokter</button>
-                    <button type="button" class="btn btn-primary">Cari Dokter</button>
-                    <button type="button" class="btn btn-primary">Cari Rumah Sakit</button>
+                    <!-- /.box-header -->
+                    <div class="box-body" style="display: none;">
+                        <div class="form-group">
+                            <label>Topic</label>
+                            <input type="text" class="form-control" placeholder="Enter Topic">
+                        </div>
+                        <div class="form-group">
+                        {{Form::textarea ('content','',['id'=>'editor1','class'=>'form-control','placeholder' => 'Masukkan Konten'])}}
+                        </div>
+                        {{Form::submit('Kirim',['class'=>'btn btn-primary'])}}
+                        <a href="{{ route('admin-article') }}" class="btn btn-danger">Batal</a>
+                        {!! Form::close() !!}
+                    </div>
+                    <!-- /.box-body -->
                 </div>
-                <div class="col-md-6">
-                    <img src="{{ asset('storage/images/dokter.jpg') }}" alt="Dokter" class="img-thumbnail float-right" >
+                <hr>
+                <br>
+                <h2>Diskusi Kesehatan Terbaru</h2>
+                <div class="box box-widget">
+                    <div class="box-header with-border">
+                        <div class="user-block">
+                            <img class="img-circle" src="/bower_components/admin-lte/dist/img/user1-128x128.jpg" alt="User Image">
+                            <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
+                            <span class="description">5 mins ago</span>
+
+                        </div>
+                    <!-- /.user-block -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                    <!-- post text -->
+                        <a href=""><h5>Lorem ipsum</h5></a>
+                        <p>Far far away, behind the word mountains, far from the
+                            countries Vokalia and Consonantia, there live the blind
+                            texts. Separated they live in Bookmarksgrove right at</p>
+
+                        <!-- Social sharing buttons -->
+                        <span class="pull-right text-muted">1 Answered</span>
+                        <span><i class="fa fa-check-circle " style="color:blue"></i> Answered by :</span>
+                        <!-- <span class="pull-right text-muted">1 Answered</span> -->
+                    </div>
+                    <hr>
+                    <div class="box-header with-border">
+                        <div class="user-block">
+                            <img class="img-circle" src="/bower_components/admin-lte/dist/img/user1-128x128.jpg" alt="User Image">
+                            <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
+                            <span class="description">7:30 PM Today</span>
+                        </div>
+                     <!-- /.user-block -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                    <!-- post text -->
+                        <a href=""><h5>Lorem ipsum</h5></a>
+                        <p>the coast of the Semantics, a large language ocean.
+                            A small river named Duden flows by their place and supplies
+                            it with the necessary regelialia. It is a paradisematic
+                            country, in which roasted parts of sentences fly into
+                            your mouth.</p>
+
+                        <!-- Social sharing buttons -->
+                        <span class="pull-right text-muted">0 Answered</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div> -->
-    <div class="container">
-        <h1>Tanya Dokter</h1>
-        <!-- <div class="box box-primary container" style="padding-bottom:20px;"> -->
-            <br>
-            {!! Form::open(['action' => 'ArticleController@store','method'=> 'POST', 'enctype' => 'multipart/data']) !!}
-            <div class="form-group">
-                {{Form::label ('category','Category')}}
-                {{ Form::select(
-                    'category', [
-                        'Illness' => 'Illness',
-                        'Medications' => 'Medications',
-                        'Living Healthy' => 'Living Healthy',
-                        'Family' => 'Family',
-                        'Healthy' => 'Healthy'
-                    ],
-                    null, [
-                        'class' => 'form-control',
-                        'placeholder' => 'Select a category...'
-                    ]
-                )}}
-            </div>
-            <div class="form-group">
-                {{Form::label ('title','Title')}}
-                {{Form::text ('title','',['class'=>'form-control','placeholder' => 'Masukkan Judul'])}}
-            </div>
-            <div class="form-group">
-                {{Form::label ('content','Content')}}
-                {{Form::textarea ('content','',['id'=>'editor1','class'=>'form-control','placeholder' => 'Masukkan Konten'])}}
-            </div>
-            <div class="form-group">
-                {{Form::file('cover_image')}}
-            </div>
-            {{Form::submit('Add',['class'=>'btn btn-primary'])}}
-            <a href="{{ route('admin-article') }}" class="btn btn-danger">Batal</a>
-            {!! Form::close() !!}
-        <!-- </div> -->
     </div>
-
     <script src="{{ asset("bower_components/jquery/dist/jquery.min.js") }}"></script>
     <script src="{{ asset("bower_components/bootstrap/dist/js/bootstrap.min.js") }}"></script>
     <script src="{{ asset("bower_components/jquery-slimscroll/jquery.slimscroll.min.js") }}"></script>
