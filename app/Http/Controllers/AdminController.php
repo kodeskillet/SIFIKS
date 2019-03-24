@@ -57,7 +57,29 @@ class AdminController extends Controller
     }
 
     public function storedoctor(Request $request){
+        $this->validate($request,[
+            'specialization_id' => 'required',
+            'city_id' => 'required',
+            'name' => 'required|min:3|max:50',
+            'license' => 'required|min:3|max:191',
+            'biography' => 'required',
+            'email' => 'required',
+            'password' => 'required_with:password_confirmation|same:password_confirmation|min:6',
+            'password_confirmation' => 'min:6'
+        ]);
 
+        $pass = Hash::make($request->password);
+        $doctor = new Doctor;
+        $doctor->specialization_id = $request->input('specialization_id');
+        $doctor->city_id = $request->input('city_id');
+        $doctor->name = $request->input('name');
+        $doctor->license = $request->input('license');
+        $doctor->biography = $request->input('biography');
+        $doctor->email = $request->input('email');
+        $doctor->password = $request->input('password');
+        $doctor->save();
+
+        return redirect('/admin/doctor');
     }
 
     //==========================CRUD_DOKTER=============CRUD_DOKTER==========================CRUD_DOKTER============================
