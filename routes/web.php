@@ -50,9 +50,12 @@ Route::prefix('admin')->group( function() {
     Route::get('/admin/create', 'AdminController@create')->name('admin.create');
     Route::post('/admin/create','AdminController@store')->name('admin.post');
 
-    //Create Doctor
+    // Create Doctor
     Route::get('/doctor/create', 'AdminController@createdoctor')->name('doctor.create');
-    Route::post('/admin/create','AdminController@storedoctor')->name('doctor.store');
+    Route::post('/doctor/create','AdminController@storedoctor')->name('doctor.store');
+
+    //Delete Doctor
+    Route::delete('/doctor/{id}','AdminController@destroydoctor')->name('doctor.destroy');
 
     // Article Access
     Route::resource('articles', 'ArticleController');

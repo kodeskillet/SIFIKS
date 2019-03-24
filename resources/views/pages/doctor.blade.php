@@ -55,7 +55,20 @@
                                         <td>{{$doctor->city_id}}</td>
                                         <td>{{$doctor->biography}}</td>
                                         <td>{{$doctor->email}}</td>
-                                        <td><a href="" class="btn btn-danger "><i class="fa fa-trash"></i></a> <a href="" class="btn btn-warning" ><i class="fa fa-refresh"></i></a></td>
+                                        <td>
+                                            <form method="post" action="{{ route('doctor.destroy', $doctor->id) }}">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="id" value="{{ $doctor->id }}">
+                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                    <i class="fa fa-trash-o"></i>
+                                                </button>
+
+                                                <a href="{{ route('doctor.edit', ['id' => $doctor->id]) }}" class="btn btn-warning btn-sm">
+                                                    <i class="fa fa-refresh"></i>
+                                                </a>
+                                            </form>
+                                        </td>
                                     </tr>
                                     </tbody>
                                     @endforeach
