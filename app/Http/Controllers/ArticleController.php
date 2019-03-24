@@ -120,7 +120,7 @@ class ArticleController extends Controller
         $article->category = $request->input('category');
         $article->title = $request->input('title');
         $article->content = $request->input('content');
-        $article->writer_id = 2;
+        // $article->writer_id = 1;
         $article->cover_image = "fauzan";
         $article->save();
 
