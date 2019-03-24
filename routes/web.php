@@ -91,8 +91,8 @@ Route::get('oauth/{provider}', 'Auth\OAuthController@redirectToProvider')->name(
 Route::get('oauth/{provider}/callback', 'Auth\OAuthController@handleProviderCallback')->name('api.login.submit');
 
 
-Route::get('/user-Ask', function() {
-    return view('user-AskToDoctor');
+Route::get('/Ask', function() {
+    return view('AskToDoctor');
 });
 
 

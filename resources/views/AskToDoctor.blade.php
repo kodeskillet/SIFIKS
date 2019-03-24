@@ -81,6 +81,9 @@
                     </div>
                 </div>
             </div>
+            <div class="col col-md-4">
+            <a href="https://ibb.co/T03hy48"><img src="https://i.ibb.co/HP8gZtz/doctor.png" alt="doctor" border="0" width="350"></a>
+            </div>
         </div>
     </div>
     <script src="{{ asset("bower_components/jquery/dist/jquery.min.js") }}"></script>
