@@ -85,6 +85,17 @@
                 </div>
             </div>
             <div class="form-group row">
+                {{Form::label ('email','E-Mail',['class'=>'col-md-2 col-form-label text-md-right'])}}
+                <div class="col-md-4">
+                        {{Form::email('email','',['class'=>'form-control float-right','placeholder'=>'faurinta@sifiksdoc.com'])}}
+                        @if($errors->has('email'))
+                            <div class="text-danger">
+                                {{$errors->first('email')}}
+                            </div>
+                        @endif
+                </div>
+            </div>
+            <div class="form-group row">
                 {{Form::label ('password','Password',['class'=>'col-md-2 col-form-label text-md-right'])}}
                 <div class="col-md-6">
                     {{Form::password ('password',['class'=>'form-control','placeholder'=>'***************'])}}
