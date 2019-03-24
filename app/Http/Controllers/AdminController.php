@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Articles;
 use App\Admin;
+use App\Doctor;
 
 class AdminController extends Controller
 {
