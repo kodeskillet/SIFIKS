@@ -52,6 +52,15 @@ class AdminController extends Controller
     }
     //==========================CRUD_DOKTER=============CRUD_DOKTER==========================CRUD_DOKTER============================
 
+    public function doctor() {
+        $doctor = Doctor::orderBy('name','desc')->paginate(10);
+        $data = [
+            'role' => session('role'),
+            'doctor' => $doctor,
+        ];
+        return view('pages.doctor')->with('data',$data);
+    }
+
     public function createdoctor(){
         return view('pages.ext.add-doctor');
     }
@@ -129,10 +138,6 @@ class AdminController extends Controller
 
     public function thread() {
         return view('pages.thread');
-    }
-
-    public function doctor() {
-        return view('pages.doctor');
     }
 
     public function member() {
