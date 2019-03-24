@@ -15,7 +15,7 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('category', ['Illness', 'Medications', 'Living Healthy', 'Family', 'Healthy']);
+            $table->enum('category', ['penyakit', 'obat', 'hidup-sehat', 'keluarga', 'kesehatan']);
             $table->integer('writer_id');
             $table->string('title');
             $table->mediumText('content');

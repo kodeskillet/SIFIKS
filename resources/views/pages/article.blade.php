@@ -48,7 +48,7 @@
                                                 <td>{{$article->category}}</td>
                                                 <td>{{$article->title}}</td>
                                                 <td class="text-center">
-                                                    <a href="/articles/{{ $article->id }}" class="btn btn-info">
+                                                    <a href="{{ route('articles.show', ['id' => $article->id]) }}" class="btn btn-info">
                                                         <i class="fa fa-eye"></i>
                                                     </a>
                                                 </td>
@@ -64,14 +64,16 @@
                                                             <i class="fa fa-trash-o"></i>
                                                         </button>
 
-                                                        <a href="/articles/{{$article->id}}/edit" class="btn btn-warning btn-sm">
+                                                        <a href="{{ route('articles.edit', ['id' => $article->id]) }}" class="btn btn-warning btn-sm">
                                                             <i class="fa fa-refresh"></i>
                                                         </a>
                                                     </form>
                                                 </td>
                                             </tr>
                                             </tbody>
+
                                         @endforeach
+                                        {{$data['articles']->links()}} {{--  {{Pagination harus di bawah}} --}}
                                     </table>
                                 @else
                                     <div class="row">

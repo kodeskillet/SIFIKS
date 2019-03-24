@@ -8,21 +8,23 @@
 
     <div class="btn-group">
         <button type="button" class="btn btn-light dropdown-toggle text-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Health Info
+            Info Kesehatan
         </button>
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Sickness</a>
-            <a class="dropdown-item" href="#">Medicine</a>
-            <a class="dropdown-item" href="#">Health</a>
+            <a class="dropdown-item" href="{{ route('list.articles', ['category' => 'penyakit']) }}">Penyakit</a>
+            <a class="dropdown-item" href="{{ route('list.articles', ['category' => 'obat']) }}">Obat - obatan</a>
+            <a class="dropdown-item" href="{{ route('list.articles', ['category' => 'hidup-sehat']) }}">Hidup Sehat</a>
+            <a class="dropdown-item" href="{{ route('list.articles', ['category' => 'keluarga']) }}">Keluarga</a>
+            <a class="dropdown-item" href="{{ route('list.articles', ['category' => 'kesehatan']) }}">Kesehatan</a>
         </div>
     </div>
 
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-            <a class="nav-link" href="#">Find Hospital</a>
+            <a class="nav-link" href="/SearchRS">Find Hospital</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Find Doctor</a>
+            <a class="nav-link" href="/SearchDokter">Find Doctor</a>
         </li>
     </ul>
     <ul class="navbar-nav">
@@ -32,12 +34,12 @@
             </li>
             @if (Route::has('register'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Daftar') }}</a>
                 </li>
             @endif
         @else
             <li class="nav-item">
-                <a class="nav-link" href="#">Ask a Question</a>
+                <a class="nav-link" href="#"><strong>Tanya Dokter</strong></a>
             </li>
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

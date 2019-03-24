@@ -15,6 +15,20 @@ Route::get('/', function() {
     return view('home');
 });
 
+Route::get('/viewarticle', function() {
+    return view('viewarticle');
+});
+
+Route::get('/SearchDokter', function() {
+    return view('SearchDokter');
+});
+
+Route::get('/SearchRS', function() {
+    return view('SearchRS');
+});
+
+Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.articles');
+
 Auth::routes();
 
 Route::get('/home', 'UserController@index')->name('home');
@@ -32,8 +46,27 @@ Route::prefix('admin')->group( function() {
     Route::get('/member', 'AdminController@member')->name('admin-member');
     Route::get('/hospital', 'AdminController@hospital')->name('admin-hospital');
 
+    // Create Admin
+    Route::get('/admin/create', 'AdminController@create')->name('admin.create');
+    Route::post('/admin/create','AdminController@store')->name('admin.post');
+
+    // Create Doctor
+    Route::get('/doctor/create', 'AdminController@createdoctor')->name('doctor.create');
+    Route::post('/doctor/create','AdminController@storedoctor')->name('doctor.store');
+
+    //Delete Doctor
+    Route::delete('/doctor/{id}','AdminController@destroydoctor')->name('doctor.destroy');
+
+    //Edit Doctor
+    Route::get('/doctor/{id}/edit','AdminController@editdoctor')->name('doctor.edit');
+    Route::put('/doctor/{id}','AdminController@updatedoctor')->name('doctor.update');
+
+    // Article Access
+    Route::resource('articles', 'ArticleController');
+
+
     // Home
-    Route::get('/', 'AdminController@index')->name('admin-index');
+    Route::get('/', 'AdminController@index')->name('admin.index');
 });
 
 Route::prefix('doctor')->group( function() {
@@ -45,13 +78,18 @@ Route::prefix('doctor')->group( function() {
     Route::get('/article', 'DoctorController@article')->name('doctor-article');
     Route::get('/thread', 'DoctorController@thread')->name('doctor-thread');
 
+    // Article Access
+    Route::resource('articles', 'ArticleController');
+
     // Home
     Route::get('/', 'DoctorController@index')->name('doctor-index');
+
 });
 
-Route::resources([
-    'articles' => 'ArticleController'
-]);
+// Socialite Open-Authentication
+Route::get('oauth/{provider}', 'Auth\OAuthController@redirectToProvider')->name('api.login');
+Route::get('oauth/{provider}/callback', 'Auth\OAuthController@handleProviderCallback')->name('api.login.submit');
+
 
 Route::get('/user-Ask', function() {
     return view('user-AskToDoctor');

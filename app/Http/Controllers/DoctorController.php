@@ -28,4 +28,10 @@ class DoctorController extends Controller
     public function thread() {
         return view('pages.thread');
     }
+
+    //==============================================CRUD_DOCTOR=============================================
+
+
+
+    //==============================================CRUD_DOCTOR=============================================
 }
