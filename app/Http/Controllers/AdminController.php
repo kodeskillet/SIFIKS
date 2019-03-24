@@ -76,7 +76,7 @@ class AdminController extends Controller
         $doctor->license = $request->input('license');
         $doctor->biography = $request->input('biography');
         $doctor->email = $request->input('email');
-        $doctor->password = $request->input('password');
+        $doctor->password = $pass;
         $doctor->profile_picture = 2;
         $doctor->save();
 
