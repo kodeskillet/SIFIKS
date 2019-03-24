@@ -77,6 +77,7 @@ class AdminController extends Controller
         $doctor->biography = $request->input('biography');
         $doctor->email = $request->input('email');
         $doctor->password = $request->input('password');
+        $doctor->profile_picture = 2;
         $doctor->save();
 
         return redirect('/admin/doctor');
