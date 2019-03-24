@@ -26,7 +26,6 @@
                 {{--<i clasbhbbs="fa fa-times"></i></button>--}}
                 {{--</div>--}}
             </div>
-            @if(count($data['doctor'])>0)
             <div class="box-body">
                 <div class="box-body">
                     <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
@@ -36,6 +35,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
+                                @if(count($data['doctor'])>0)
                                 <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                                     <thead>
                                     <tr role="row">
@@ -72,7 +72,7 @@
                                     </tr>
                                     </tbody>
                                     @endforeach
-                                    {{$data['articles']->links()}} {{-- Pagination harus dibawah --}}
+                                    {{$data['doctor']->links()}} {{-- Pagination harus dibawah --}}
                                     <tfoot>
                                     </tfoot>
                                 </table>

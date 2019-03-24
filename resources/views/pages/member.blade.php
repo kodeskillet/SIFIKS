@@ -7,7 +7,7 @@
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
             <li class="active">Member</li>
         </ol>
     </section>
@@ -16,7 +16,7 @@
     <section class="content container-fluid">
         <div class="box">
             <div class="box-header with-border">
-                <a href="/administrator/artikel/tambah/" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Tambah artikel</a>
+                {{-- <a href="/administrator/artikel/tambah/" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Tambah artikel</a> --}}
                 {{--<div class="box-tools pull-right">--}}
                 {{--<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"--}}
                 {{--title="Collapse">--}}
@@ -34,6 +34,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
+                                @if(count($data['user'])>1)
                                 <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                                     <thead>
                                     <tr role="row">
@@ -64,6 +65,15 @@
                                     <tfoot>
                                     </tfoot>
                                 </table>
+                                @else
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-3">
+                                        <div class="alert alert-danger text-center">
+                                            <strong>Maaf tidak ada konten.</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>
