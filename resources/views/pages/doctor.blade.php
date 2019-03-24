@@ -26,6 +26,7 @@
                 {{--<i clasbhbbs="fa fa-times"></i></button>--}}
                 {{--</div>--}}
             </div>
+            @if(count($data['doctor'])>0)
             <div class="box-body">
                 <div class="box-body">
                     <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
@@ -38,38 +39,43 @@
                                 <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                                     <thead>
                                     <tr role="row">
-                                        <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">No.</th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Nama Dokter</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Spesialis</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Kota</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Nama</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Biografi</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Profile Picture</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Email</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Email Verification</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Action</th>
                                     </tr>
                                     </thead>
+                                    @foreach($data['doctor'] as $doctor)
                                     <tbody>
                                     <tr role="row" class="odd">
-                                        <td>1</td>
-                                        <td>Kandungan</td>
-                                        <td>Malang</td>
-                                        <td>Marion Jola</td>
-                                        <td>Artis dengan Kearifan lokal</td>
-                                        <td>A</td>
-                                        <td>marion@gmail.com</td>
-                                        <td>jola@gmail.com</td>
-                                        <td><a href="" class="btn btn-danger "><i class="fa fa-trash"></i>Hapus</a></td>
+                                        <td>{{$doctor->name}}</td>
+                                        <td>{{$doctor->specialization_id}}</td>
+                                        <td>{{$doctor->city_id}}</td>
+                                        <td>{{$doctor->biography}}</td>
+                                        <td>{{$doctor->email}}</td>
+                                        <td><a href="" class="btn btn-danger "><i class="fa fa-trash"></i></a> <a href="" class="btn btn-warning" ><i class="fa fa-refresh"></i></a></td>
                                     </tr>
                                     </tbody>
+                                    @endforeach
                                     <tfoot>
                                     </tfoot>
                                 </table>
+                                @else
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-3">
+                                        <div class="alert alert-danger text-center">
+                                            <strong>Maaf tidak ada konten.</strong>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            @endif
             <!-- /.box-body -->
         </div>
         <!-- /.box -->
