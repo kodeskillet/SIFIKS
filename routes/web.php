@@ -45,8 +45,13 @@ Route::prefix('admin')->group( function() {
     Route::get('/doctor', 'AdminController@doctor')->name('admin-doctor');
     Route::get('/member', 'AdminController@member')->name('admin-member');
     Route::get('/hospital', 'AdminController@hospital')->name('admin-hospital');
+
+    // Create Admin
     Route::get('/admin/create', 'AdminController@create')->name('admin.create');
     Route::post('/admin/create','AdminController@store')->name('admin.post');
+
+    //Create Doctor
+    Route::get('/create', 'AdminController@createdoctor')->name('doctor.create');
 
     // Article Access
     Route::resource('articles', 'ArticleController');
@@ -70,6 +75,7 @@ Route::prefix('doctor')->group( function() {
 
     // Home
     Route::get('/', 'DoctorController@index')->name('doctor-index');
+
 });
 
 

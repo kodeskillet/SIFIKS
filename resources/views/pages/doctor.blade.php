@@ -17,7 +17,7 @@
 
         <div class="box">
             <div class="box-header with-border">
-                <a href="/administrator/artikel/tambah/" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Tambah artikel</a>
+                <a href="{{route('doctor.create')}}" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Tambah Dokter</a>
                 {{--<div class="box-tools pull-right">--}}
                 {{--<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"--}}
                 {{--title="Collapse">--}}
