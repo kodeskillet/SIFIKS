@@ -72,6 +72,7 @@
                                     </tr>
                                     </tbody>
                                     @endforeach
+                                    {{$data['articles']->links()}} {{-- Pagination harus dibawah --}}
                                     <tfoot>
                                     </tfoot>
                                 </table>

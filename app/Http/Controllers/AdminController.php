@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Articles;
 use App\Admin;
 use App\Doctor;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -168,12 +169,23 @@ class AdminController extends Controller
 
     //======================================================CRUD_ADMIN============================================
 
-    public function thread() {
-        return view('pages.thread');
-    }
+    //============================================================================================================
+
+    //==========================MEMBER AREA====================================MEMBER AREA========================
 
     public function member() {
-        return view('pages.member');
+        $user = User::orderBy('name','desc')->paginate(10);
+        $data = [
+            'role' => session('role'),
+            'user' => $user,
+        ];
+        return view('pages.member')->with('data',$data);
+    }
+
+    //==========================MEMBER AREA====================================MEMBER AREA========================
+
+    public function thread() {
+        return view('pages.thread');
     }
 
     public function hospital() {
