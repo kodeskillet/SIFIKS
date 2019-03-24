@@ -19,7 +19,7 @@
     <section class="content container-fluid">
         <div class="box box-primary container" style="padding-bottom:20px;">
             <br>
-            {!! Form::open(['action' => ['ArticleController@updatedoctor', $data['doctor']->id],'method'=> 'POST', 'enctype' => 'multipart/data']) !!}
+            {!! Form::open(['action' => ['AdminController@updatedoctor', $data['doctor']->id],'method'=> 'POST', 'enctype' => 'multipart/data']) !!}
             <div class="form-group row">
                 {{Form::label ('name','Nama',['class'=>'col-md-2 col-form-label text-md-right'])}}
                 <div class="col-md-4">
