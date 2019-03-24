@@ -32,15 +32,15 @@ class OAuthController extends Controller
         $user = null;
         $err = null;
 
-        if($provider == 'twitter') {
-            $user = Socialite::driver($provider)->user();
-        } else {
+        if($provider == 'google') {
             $user = Socialite::driver($provider)->stateless()->user();
+        } else {
+            $user = Socialite::driver($provider)->user();
         }
 
         $authUser = $this->findOrCreateUser($user, $provider);
 
-        $attempt = Auth::guard('web')->attempt(['email' => $authUser->email, 'password' => $authUser->email]);
+        $attempt = Auth::guard('web')->attempt(['email' => $authUser->email, 'password' => $authUser->provider_id]);
 
         $req = new Request([
             'email' => $authUser->email,
@@ -71,13 +71,14 @@ class OAuthController extends Controller
         $newUser = new User;
         $newUser->email = $user->getEmail();
         $newUser->name = $user->getName();
-        $newUser->password = Hash::make($user->getEmail());
+        $newUser->password = Hash::make($user->id);
         $newUser->provider = $provider;
         $newUser->provider_id = $user->id;
         $newUser->save();
 
         return $newUser;
     }
+
 
     private function sendFailedLoginResponse(Request $request)
     {
