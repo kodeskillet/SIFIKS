@@ -59,11 +59,23 @@
                     </div>
                 </div>
 
-                <div class="row" style="margin-top:30px;">
-                    <div class="col-md-6 offset-md-3 text-center">
-                        <button type="submit" class="btn btn-primary btn-md">Register</button>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 mt-4">
+                        <button type="submit" class="btn btn-primary btn-block">Daftar</button>
                     </div>
                 </div>
+
+                <div class="row justify-content-center mt-0">
+                    <div class="col-md-6"><hr></div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="text-muted text-center">Atau Daftar Dengan</div>
+                    </div>
+                </div>
+
+                @include('layouts.inc.oauth')
             </form>
         </div>
     </div>

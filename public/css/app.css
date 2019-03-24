@@ -16433,6 +16433,10 @@ readers do not read off random characters that represent icons */
   padding: 20px 0;
 }
 
+.disabled {
+  cursor: not-allowed !important;
+}
+
 .form-signin {
   width: 50%;
   padding: 10px;
@@ -16450,6 +16454,11 @@ readers do not read off random characters that represent icons */
 
 .btn-google {
   background: #dd4b39 !important;
+  color: white !important;
+}
+
+.btn-facebook {
+  background: #3B5998 !important;
   color: white !important;
 }
 
