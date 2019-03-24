@@ -92,12 +92,25 @@ class AdminController extends Controller
         return redirect('/admin/doctor');
     }
 
-        public function destroydoctor($id){
+    public function destroydoctor($id){
 
         $doctor = Doctor::find($id);
         $doctor->delete();
 
         return redirect (route('admin-doctor'));
+    }
+
+    public function editdoctor($id){
+        $doctor = Doctor::find($id);
+        $data = [
+            'role' => session('role'),
+            'doctor' => $doctor
+        ];
+        return view('pages.ext.edit-doctor')->with('data', $data);
+    }
+
+    public function updatedoctor(Request $request){
+
     }
 
     //==========================CRUD_DOKTER=============CRUD_DOKTER==========================CRUD_DOKTER============================

@@ -57,6 +57,10 @@ Route::prefix('admin')->group( function() {
     //Delete Doctor
     Route::delete('/doctor/{id}','AdminController@destroydoctor')->name('doctor.destroy');
 
+    //Edit Doctor
+    Route::get('/doctor/{id}/edit','AdminController@editdoctor')->name('doctor.edit');
+    Route::put('/doctor/{id}','AdminController@updatedoctor')->name('doctor.update');
+
     // Article Access
     Route::resource('articles', 'ArticleController');
 
