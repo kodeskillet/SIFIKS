@@ -72,6 +72,11 @@ Route::prefix('doctor')->group( function() {
     Route::get('/', 'DoctorController@index')->name('doctor-index');
 });
 
+// Socialite Open-Authentication
+Route::get('oauth/{provider}', 'Auth\OAuthController@redirectToProvider')->name('api.login');
+Route::get('oauth/{provider}/callback', 'Auth\OAuthController@handleProviderCallback')->name('api.login.submit');
+
+
 
 
 
