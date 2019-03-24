@@ -45,7 +45,7 @@ class AdminController extends Controller
 
 
     public function article() {
-        $articles = Articles::orderBy('category','desc')->paginate(5);
+        $articles = Articles::orderBy('category','asc')->paginate(5);
         $data = [
             'articles' => $articles
         ];
@@ -54,7 +54,7 @@ class AdminController extends Controller
     //==========================CRUD_DOKTER=============CRUD_DOKTER==========================CRUD_DOKTER============================
 
     public function doctor() {
-        $doctor = Doctor::orderBy('name','desc')->paginate(10);
+        $doctor = Doctor::orderBy('name','asc')->paginate(10);
         $data = [
             'role' => session('role'),
             'doctor' => $doctor,
@@ -174,7 +174,7 @@ class AdminController extends Controller
     //==========================MEMBER AREA====================================MEMBER AREA========================
 
     public function member() {
-        $user = User::orderBy('name','desc')->paginate(10);
+        $user = User::orderBy('name','asc')->paginate(10);
         $data = [
             'role' => session('role'),
             'user' => $user,

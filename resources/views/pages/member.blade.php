@@ -55,8 +55,9 @@
                                     </tbody>
                                     <tfoot>
                                     </tfoot>
+                                    @endforeach
                                 </table>
-                                @endforeach
+                                {{$data['user']->links()}} {{--  {{Pagination harus di bawah}} --}}
                                 @else
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3">

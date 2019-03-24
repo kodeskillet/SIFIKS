@@ -14,7 +14,7 @@ class ArticleController extends Controller
 
     public function index()
     {
-        $articles = Articles::orderBy('category','desc')->paginate(5);
+        $articles = Articles::orderBy('category','asc')->paginate(5);
         $data = [
             'role' => session('role'),
             'articles' => $articles
