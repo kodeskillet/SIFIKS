@@ -47,7 +47,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                     <!-- post text -->
-                        <a href=""><h5>Lorem ipsum</h5></a>
+                        <a href="/ask-detail"><h5>Lorem ipsum</h5></a>
                         <p>Far far away, behind the word mountains, far from the
                             countries Vokalia and Consonantia, there live the blind
                             texts. Separated they live in Bookmarksgrove right at</p>
@@ -69,7 +69,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                     <!-- post text -->
-                        <a href=""><h5>Lorem ipsum</h5></a>
+                        <a href="/ask-detail"><h5>Lorem ipsum</h5></a>
                         <p>the coast of the Semantics, a large language ocean.
                             A small river named Duden flows by their place and supplies
                             it with the necessary regelialia. It is a paradisematic
@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div class="col col-md-4">
-            <a href="https://ibb.co/nPXSZRZ"><img src="https://i.ibb.co/6XK5VNV/health.png" alt="health" border="0" width="350"></a>
+            <a href="https://ibb.co/jVBG2xT"><img src="https://i.ibb.co/7g8V5TX/health.png" alt="health" border="0"width="350"></a>
             </div>
         </div>
     </div>
