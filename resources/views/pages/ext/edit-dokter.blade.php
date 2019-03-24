@@ -20,34 +20,39 @@
         <div class="box box-primary container" style="padding-bottom:20px;">
             <br>
             {!! Form::open(['action' => ['ArticleController@updatedoctor', $data['doctor']->id],'method'=> 'POST', 'enctype' => 'multipart/data']) !!}
-            <div class="form-group">
-                {{Form::label ('category','Category')}}
-                {{ Form::select(
-                    'category', [
-                        'penyakit' => 'Penyakit',
-                        'obat' => 'Obat - obatan',
-                        'hidup-sehat' => 'Hidup Sehat',
-                        'keluarga' => 'Keluarga',
-                        'kesehatan' => 'Kesehatan'
-                    ],
-                    $data['article']->category,
-                    [
-                        'class' => 'form-control',
-                        'placeholder' => 'Select a category...'
-                    ]
-                )}}
+            <div class="form-group row">
+                {{Form::label ('name','Nama',['class'=>'col-md-2 col-form-label text-md-right'])}}
+                <div class="col-md-4">
+                        {{Form::text ('name',$data['doctor']->name,['class'=>'form-control float-right'])}}
+                        @if($errors->has('name'))
+                            <div class="text-danger">
+                                {{$errors->first('name')}}
+                            </div>
+                        @endif
+                </div>
             </div>
-            <div class="form-group">
-                {{Form::label ('title','Title')}}
-                {{Form::text ('title',$data['article']->title,['class'=>'form-control','placeholder' => 'Masukkan Judul'])}}
+            <div class="form-group row">
+                {{Form::label ('password','Password',['class'=>'col-md-2 col-form-label text-md-right'])}}
+                <div class="col-md-6">
+                    {{Form::password ('password',['class'=>'form-control','placeholder'=>'***************'])}}
+                        @if($errors->has('password'))
+                            <div class="text-danger">
+                                {{$errors->first('password')}}
+                            </div>
+                        @endif
+                </div>
             </div>
-            <div class="form-group">
-                {{Form::label ('content','Content')}}
-                {{Form::textarea ('content',$data['article']->content,['id'=>'editor1','class'=>'form-control','placeholder' => 'Masukkan Konten'])}}
+            <div class="form-group row">
+                {{Form::label ('password_confirmation','Ulangi Password',['class'=>'col-md-2 col-form-label text-md-right'])}}
+                <div class="col-md-6">
+                    {{Form::password ('password_confirmation',['class'=>'form-control','placeholder'=>'***************'])}}
+                        @if($errors->has('password_confirmation'))
+                            <div class="text-danger">
+                                {{$errors->first('password_confirmation')}}
+                            </div>
+                        @endif
+                </div>
             </div>
-            {{--<div class="form-group">--}}
-                {{--{{Form::file('cover_image')}}--}}
-            {{--</div>--}}
             {{Form::hidden('_method', 'PUT')}}
             {{Form::submit('Update',['class'=>'btn btn-primary'])}}
             <a href="{{ route('admin-article') }}" class="btn btn-danger">Batal</a>
