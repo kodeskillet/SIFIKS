@@ -16,7 +16,7 @@
     <section class="content container-fluid">
 
         <center>
-            <h2>Welcome <b>{{ Auth::user()->name }}</b></h2>
+            <h2>Welcome <b>{{session('role')}}</b> <b>{{ Auth::user()->name }}</b></h2>
         </center>
 
     </section>

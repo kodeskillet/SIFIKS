@@ -71,7 +71,9 @@
                                                 </td>
                                             </tr>
                                             </tbody>
+
                                         @endforeach
+                                        {{$data['articles']->links()}} {{--  {{Pagination harus di bawah}} --}}
                                     </table>
                                 @else
                                     <div class="row">

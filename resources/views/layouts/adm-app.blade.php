@@ -31,7 +31,7 @@
     @if(session('role') == "Doctor")
         skin-yellow
     @else
-        skin-blue
+        skin-red
     @endif
     hold-transition sidebar-mini
 ">

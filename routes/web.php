@@ -45,8 +45,21 @@ Route::prefix('admin')->group( function() {
     Route::get('/doctor', 'AdminController@doctor')->name('admin-doctor');
     Route::get('/member', 'AdminController@member')->name('admin-member');
     Route::get('/hospital', 'AdminController@hospital')->name('admin-hospital');
+
+    // Create Admin
     Route::get('/admin/create', 'AdminController@create')->name('admin.create');
     Route::post('/admin/create','AdminController@store')->name('admin.post');
+
+    // Create Doctor
+    Route::get('/doctor/create', 'AdminController@createdoctor')->name('doctor.create');
+    Route::post('/doctor/create','AdminController@storedoctor')->name('doctor.store');
+
+    //Delete Doctor
+    Route::delete('/doctor/{id}','AdminController@destroydoctor')->name('doctor.destroy');
+
+    //Edit Doctor
+    Route::get('/doctor/{id}/edit','AdminController@editdoctor')->name('doctor.edit');
+    Route::put('/doctor/{id}','AdminController@updatedoctor')->name('doctor.update');
 
     // Article Access
     Route::resource('articles', 'ArticleController');
@@ -70,6 +83,7 @@ Route::prefix('doctor')->group( function() {
 
     // Home
     Route::get('/', 'DoctorController@index')->name('doctor-index');
+
 });
 
 // Socialite Open-Authentication
