@@ -92,7 +92,7 @@ class AdminController extends Controller
         return redirect('/admin/doctor');
     }
 
-        public function destroy($id){
+        public function destroydoctor($id){
 
         $doctor = Doctor::find($id);
         $doctor->delete();
