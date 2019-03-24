@@ -34,42 +34,51 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-        
+        <h3>Pilih Kota</h3>
+        <hr>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                <label class="form-check-label" for="exampleRadios1">
-                    Aceh
-                </label>
+                <label class="form-check-label" for="exampleRadios1">Aceh</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                <label class="form-check-label" for="exampleRadios2">
-                    Bali
-                </label>
+                <label class="form-check-label" for="exampleRadios2">Bali</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                <label class="form-check-label" for="exampleRadios3">
-                    Jakarta
-                </label>
+                <label class="form-check-label" for="exampleRadios3">Cirebon</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-                <label class="form-check-label" for="exampleRadios4">
-                    Malang
-                </label>
+                <label class="form-check-label" for="exampleRadios4">Depok</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
-                <label class="form-check-label" for="exampleRadios5">
-                    Papua
-                </label>
+                <label class="form-check-label" for="exampleRadios5">Jakarta</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
-                <label class="form-check-label" for="exampleRadios6">
-                    Ternate
-                </label>
+                <label class="form-check-label" for="exampleRadios6">Labuan Bajo</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
+                <label class="form-check-label" for="exampleRadios6">Makassar</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
+                <label class="form-check-label" for="exampleRadios6">Palembang</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
+                <label class="form-check-label" for="exampleRadios6">Surabaya</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
+                <label class="form-check-label" for="exampleRadios6">Tanggerang</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
+                <label class="form-check-label" for="exampleRadios6">Yogyakarta</label>
             </div>
         </div>
 
