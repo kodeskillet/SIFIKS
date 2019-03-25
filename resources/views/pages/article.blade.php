@@ -14,10 +14,9 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
-
         <div class="box">
             <div class="box-header with-border">
-                <h4>Daftar Artikel</h4>
+                <strong>Daftar Artikel</strong>
                 <a href="{{ route('article.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus"></i>&nbsp;&nbsp;<b>Buat artikel</b></a>
             </div>
             <div class="box-body">
@@ -37,16 +36,16 @@
                                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Judul</th>
                                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Artikel</th>
                                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Penulis</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Tgl. Dibuat</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Tgl. Diperbaruhi</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Ditinjau</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Terakhir diubah</th>
                                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"></th>
                                         </tr>
                                         </thead>
                                         @foreach($data['articles'] as $article)
                                             <tbody>
                                             <tr role="row" class="odd">
-                                                <td>{{$article->category}}</td>
-                                                <td>{{$article->title}}</td>
+                                                <td>{{ ucwords($article->category) }}</td>
+                                                <td>{{ $article->trimStr($article->title) }}</td>
                                                 <td class="text-center">
                                                     <a href="{{ route('article.show', ['id' => $article->id]) }}" class="btn btn-info">
                                                         <i class="fa fa-eye"></i>
@@ -61,8 +60,8 @@
                                                     @endif
 
                                                 </td>
-                                                <td>{{$article->created_at}}</td>
-                                                <td>{{$article->updated_at}}</td>
+                                                <td>{{ $article->created_at->format("d M Y") }}</td>
+                                                <td>{{ $article->updated_at->format("d M Y | h:i A") }}</td>
                                                 <td class="text-center">
                                                     <form method="post" action="{{ route('article.destroy', $article->id) }}">
                                                         @csrf

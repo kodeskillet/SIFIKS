@@ -5,7 +5,7 @@
             <a href="{{ route('admin.index') }}" class="btn btn-default">
                 <i class="fa fa-chevron-left"></i>
             </a>&nbsp;&nbsp;&nbsp;
-            Buat Artikel
+            Daftarkan Admin
             <small></small>
         </h1>
         <ol class="breadcrumb">
@@ -22,9 +22,9 @@
             <br>
             {!! Form::open(['action' => 'AdminController@store','method'=> 'POST', 'enctype' => 'multipart/data']) !!}
             <div class="form-group row">
-                {{Form::label ('name','Username',['class'=>'col-md-2 col-form-label text-md-right'])}}
+                {{Form::label ('name','Nama',['class'=>'col-md-2 col-form-label text-md-right'])}}
                 <div class="col-md-4">
-                        {{Form::text ('name','',['class'=>'form-control float-right','placeholder'=>'Masukkan Username'])}}
+                        {{Form::text ('name','',['class'=>'form-control float-right','placeholder'=>'Masukkan Nama'])}}
                         @if($errors->has('name'))
                             <div class="text-danger">
                                 {{$errors->first('name')}}

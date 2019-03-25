@@ -17,4 +17,11 @@ class Articles extends Model
     public function doctor() {
         return $this->belongsTo('App\Doctor', 'writer_id');
     }
+
+    public function trimStr($str) {
+        if(strlen($str) > 20) {
+            return substr($str, 0, 20) . "...";
+        }
+        return $str;
+    }
 }

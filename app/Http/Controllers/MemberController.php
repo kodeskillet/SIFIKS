@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class MemberController extends Controller
 {
@@ -11,9 +12,15 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        return view('pages.member');
+        $user = User::orderBy('name','asc')->paginate(10);
+        $data = [
+            'role' => session('role'),
+            'user' => $user,
+        ];
+        return view('pages.member')->with('data',$data);
     }
 
     /**
@@ -21,10 +28,10 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+//    public function create()
+//    {
+//        //
+//    }
 
     /**
      * Store a newly created resource in storage.
@@ -32,10 +39,10 @@ class MemberController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+//    public function store(Request $request)
+//    {
+//        //
+//    }
 
     /**
      * Display the specified resource.
@@ -68,17 +75,11 @@ class MemberController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->status = $request->cond;
+        $user->save();
+
+        return redirect(route('member.index'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

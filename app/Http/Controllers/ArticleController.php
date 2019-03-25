@@ -131,7 +131,7 @@ class ArticleController extends Controller
         $article->cover_image = "fauzan";
         $article->save();
 
-        return redirect (route('admin-article'));
+        return redirect (route('article.index'));
     }
 
 
@@ -140,6 +140,6 @@ class ArticleController extends Controller
         $article = Articles::find($id);
         $article->delete();
 
-        return redirect (route('admin-article'));
+        return redirect (route('article.index'));
     }
 }
