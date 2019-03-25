@@ -31,6 +31,10 @@ Route::get('/User', function() {
     return view('userlayout');
 });
 
+Route::get('/User/Edit', function() {
+    return view('EditUser');
+});
+
 Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.articles');
 
 Auth::routes();

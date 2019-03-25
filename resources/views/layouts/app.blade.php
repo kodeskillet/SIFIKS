@@ -46,5 +46,4 @@
         padding: 45px 15px;
         text-align: center;
     }
-    
     </style>
