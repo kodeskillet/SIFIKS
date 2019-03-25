@@ -49,30 +49,26 @@ Route::prefix('admin')->group( function() {
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 
     // Pages -->
-    Route::get('/article', 'AdminController@article')->name('admin-article');
-    Route::get('/thread', 'AdminController@thread')->name('admin-thread');
-    Route::get('/admin', 'AdminController@admin')->name('admin-admin');
-    Route::get('/doctor', 'AdminController@doctor')->name('admin-doctor');
-    Route::get('/member', 'AdminController@member')->name('admin-member');
-    Route::get('/hospital', 'AdminController@hospital')->name('admin-hospital');
+//    Route::get('/article', 'AdminController@article')->name('admin-article');
+//    Route::get('/thread', 'AdminController@thread')->name('admin-thread');
+//    Route::get('/admin', 'AdminController@admin')->name('admin-admin');
+//    Route::get('/doctor', 'AdminController@doctor')->name('admin-doctor');
+//    Route::get('/member', 'AdminController@member')->name('admin-member');
+//    Route::get('/hospital', 'AdminController@hospital')->name('admin-hospital');
 
-    // Create Admin
-    Route::get('/admin/create', 'AdminController@create')->name('admin.create');
-    Route::post('/admin/create','AdminController@store')->name('admin.post');
+    // Admin Controller
+    Route::resource('admin', 'AdminController');
+    Route::get('/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 
-    // Create Doctor
-    Route::get('/doctor/create', 'AdminController@createdoctor')->name('doctor.create');
-    Route::post('/doctor/create','AdminController@storedoctor')->name('doctor.store');
 
-    //Delete Doctor
-    Route::delete('/doctor/{id}','AdminController@destroydoctor')->name('doctor.destroy');
-
-    //Edit Doctor
-    Route::get('/doctor/{id}/edit','AdminController@editdoctor')->name('doctor.edit');
-    Route::put('/doctor/{id}','AdminController@updatedoctor')->name('doctor.update');
-
-    // Article Access
-    Route::resource('articles', 'ArticleController');
+    //Resourced Controller
+    Route::resources([
+        'doctor' => 'DoctorController',
+        'article' => 'ArticleController',
+        'hospital' => 'HospitalController',
+        'member' => 'MemberController',
+        'thread' => 'ThreadController',
+    ]);
 
 
     // Home

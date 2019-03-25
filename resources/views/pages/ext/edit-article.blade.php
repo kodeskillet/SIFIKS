@@ -2,7 +2,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            <a href="{{ route('admin-article') }}" class="btn btn-default">
+            <a href="{{ route('article.index') }}" class="btn btn-default">
                 <i class="fa fa-chevron-left"></i>
             </a>&nbsp;&nbsp;&nbsp;
             Edit Artikel
@@ -10,7 +10,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
-            <li class="active"><a href="{{ route('admin-article') }}">Artikel</a></li>
+            <li class="active"><a href="{{ route('article.index') }}">Artikel</a></li>
             <li class="active">Edit Artikel</li>
         </ol>
     </section>
@@ -50,7 +50,7 @@
             {{--</div>--}}
             {{Form::hidden('_method', 'PUT')}}
             {{Form::submit('Update',['class'=>'btn btn-primary'])}}
-            <a href="{{ route('admin-article') }}" class="btn btn-danger">Batal</a>
+            <a href="{{ route('article.index') }}" class="btn btn-danger">Batal</a>
             {!! Form::close() !!}
         </div>
     </section>

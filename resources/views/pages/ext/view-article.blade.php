@@ -2,17 +2,17 @@
 @section('content')
     <section class="content-header">
         <h1>
-            <a href="{{ route('admin-article') }}" class="btn btn-default">
+            <a href="{{ route('article.index') }}" class="btn btn-default">
                 <i class="fa fa-chevron-left"></i>
             </a>&nbsp;&nbsp;&nbsp;
             Preview Artikel
-            <small><b>( {{$data['article']->title}} )</b></small>
+            <small><b>( {{$article->title}} )</b></small>
             <small></small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
-            <li class="active"><a href="{{ route('admin-article') }}">Artikel</a></li>
-            <li class="active">Preview<small>({{ $data['article']->id }})</small></li>
+            <li class="active"><a href="{{ route('article.index') }}">Artikel</a></li>
+            <li class="active">Preview<small>({{ $article->id }})</small></li>
         </ol>
     </section>
 
@@ -20,7 +20,22 @@
     <section class="content container-fluid">
         <div class="box box-primary container" style="padding-bottom:20px;">
             <br>
-            {!! $data['article']->content !!}
+            {!! $article->content !!}
+
+            <hr>
+            <div class="text-muted">
+                Ditinjau <strong>{{ $article->created_at }}</strong>
+                <br>
+                Oleh
+                <strong>
+                    ({{ $article->writer }})
+                    @if($article->writer == "Admin")
+                        {{ $article->admin->name }}
+                    @else
+                        {{ $article->doctor->name }}
+                    @endif
+                </strong>
+            </div>
         </div>
     </section>
 @endsection

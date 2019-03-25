@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Articles;
+use App\Admin;
+use App\Doctor;
 
 class ArticleController extends Controller
 {
@@ -13,8 +15,17 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Articles::orderBy('category','asc')->paginate(5);
+//        $writer = array();
+//
+//        foreach ($articles as $article) {
+//            if($article->writer == 'Admin') {
+//                array_push($writer, Admin::where('id', $article->writer_id)->name);
+//            } else {
+//
+//            }
+//        }
+
         $data = [
-            'role' => session('role'),
             'articles' => $articles
         ];
 
@@ -24,10 +35,7 @@ class ArticleController extends Controller
 
     public function create()
     {
-        $data = [
-            'role' => session('role'),
-        ];
-        return view('pages.ext.add-article')->with('data', $data);
+        return view('pages.ext.add-article');
     }
 
 
@@ -43,8 +51,9 @@ class ArticleController extends Controller
         $article->category = $request->input('category');
         $article->title = $request->input('title');
         $article->content = $request->input('content');
-        $article->writer_id = Auth::guard('admin')->user()->id;
-        $article->cover_image = "fauzan";
+        $article->writer = session('role');
+        $article->writer_id = Auth::guard(session('guard'))->user()->id;
+//        $article->cover_image = "fauzan";
         $article->save();
 
         return redirect ('/admin/article');
@@ -53,12 +62,14 @@ class ArticleController extends Controller
 
     public function show($id)
     {
-        $data = [
-            'role' => session('role'),
-            'article' => Articles::find($id)
-        ];
+        $article = Articles::find($id);
+//        $writer = null;
 
-        return view('pages.ext.view-article')->with('data', $data);
+/*        if($article->writer == "Admin") {
+            $writer = $article->admin()->name;
+        }*/
+
+        return view('pages.ext.view-article')->with('article', $article);
     }
 
 
@@ -85,7 +96,6 @@ class ArticleController extends Controller
         }
 
         $data = [
-            'role' => session('role'),
             'articles' => Articles::where('category', $cat),
             'category' => $category,
             'cat' => $cat
@@ -99,7 +109,6 @@ class ArticleController extends Controller
     {
         $article = Articles::find($id);
         $data = [
-            'role' => session('role'),
             'article' => $article
         ];
         return view('pages.ext.edit-article')->with('data', $data);
