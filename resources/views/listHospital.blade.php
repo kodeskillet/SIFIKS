@@ -101,11 +101,11 @@
         <div class="card mb-3">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{ asset('storage/images/marsha.jpg') }}" alt="..." class="card-img" >
+                    <img src="{{ asset('storage/images/rs1.jpeg') }}" alt="..." class="card-img" >
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">dr. Marsha Hamrah, Sp.A</h5>
+                        <h5 class="card-title">Siloam Hospitals Bogor</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                         <a href="#" class="btn btn-primary">Buat Janji</a>
                     </div>
@@ -116,11 +116,11 @@
         <div class="card mb-3">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{ asset('storage/images/felicia.jpg') }}" alt="..." class="card-img" >
+                    <img src="{{ asset('storage/images/rs2.jpeg') }}" alt="..." class="card-img" >
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">dr. Felicia Carissa, Sp.OG</h5>
+                        <h5 class="card-title">Premiere Hospitals Surabaya</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                         <a href="#" class="btn btn-primary">Buat Janji</a>
                     </div>
@@ -131,11 +131,11 @@
         <div class="card mb-3">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{ asset('storage/images/key.jpg') }}" alt="..." class="card-img" >
+                    <img src="{{ asset('storage/images/rs3.jpeg') }}" alt="..." class="card-img" >
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">dr. Key Alexae, Sp.JP</h5>
+                        <h5 class="card-title">Metro Hospitals Jakarta</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                         <a href="#" class="btn btn-primary">Buat Janji</a>
                     </div>
@@ -146,11 +146,11 @@
         <div class="card mb-3">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{ asset('storage/images/namira.jpg') }}" alt="..." class="card-img" >
+                    <img src="{{ asset('storage/images/rs4.jpeg') }}" alt="..." class="card-img" >
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">dr. Namira Atasya, Sp.PD</h5>
+                        <h5 class="card-title">Yosemite Hospitals Palangkaraya</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                         <a href="#" class="btn btn-primary">Buat Janji</a>
                     </div>
