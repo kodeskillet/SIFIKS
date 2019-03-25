@@ -6,13 +6,13 @@
         <div class="row">
           <div class="col-md-6 px-0">
               
-            <h1 class="display-4 font-bold" >Cari Nama Dokter/ Spesialis</h1>
+            <h1 class="display-4 font-bold" >Buat Jadwal Konsultasi Di Rumah Sakit Terbaik Seluruh Indonesia</h1>
             <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
             <div class="row">
                 <div class="col-md-5">
                     <label for="tentang">Saya mencari informasi tentang:</label>
                     <div class="input-group">
-                        <input id="tentang" type="text" class="form-control" placeholder="Cari Nama Dokter/Spesialis">
+                        <input id="tentang" type="text" class="form-control" placeholder="Laboratorium Klinik">
                     </div>
                 </div>  
                 <div class="col-md-5">

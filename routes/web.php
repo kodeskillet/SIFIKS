@@ -32,7 +32,7 @@ Route::get('/listdoctor', function() {
 });
 
 Route::get('/listhospital', function() {
-    return view('listDoctor');
+    return view('listHospital');
 });
 
 Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.articles');
