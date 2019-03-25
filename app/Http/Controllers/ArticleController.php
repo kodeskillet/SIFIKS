@@ -10,8 +10,6 @@ use App\Articles;
 class ArticleController extends Controller
 {
 
-
-
     public function index()
     {
         $articles = Articles::orderBy('category','asc')->paginate(5);
