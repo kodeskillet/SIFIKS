@@ -69,29 +69,4 @@ class AdminController extends Controller
 
         return redirect ('/admin/admin');
     }
-
-    //======================================================CRUD_ADMIN============================================
-
-    //============================================================================================================
-
-    //==========================MEMBER AREA====================================MEMBER AREA========================
-
-    public function member() {
-        $user = User::orderBy('name','asc')->paginate(10);
-        $data = [
-            'role' => session('role'),
-            'user' => $user,
-        ];
-        return view('pages.member')->with('data',$data);
-    }
-
-    //==========================MEMBER AREA====================================MEMBER AREA========================
-
-    public function thread() {
-        return view('pages.thread');
-    }
-
-    public function hospital() {
-        return view('pages.hospital');
-    }
 }
