@@ -34,51 +34,59 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-        <h3>Pilih Kota</h3>
+        <h3>Pilih Tindakan</h3>
         <hr>
+
+        <div class="input-group">
+                        <input id="lokasi" type="text" class="form-control" placeholder="Tindakan Terkait">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary">Cari</button>
+                        </div>
+                    </div>
+        <br>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                <label class="form-check-label" for="exampleRadios1">Aceh</label>
+                <label class="form-check-label" for="exampleRadios1">Semua Tindakan</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                <label class="form-check-label" for="exampleRadios2">Bali</label>
+                <label class="form-check-label" for="exampleRadios2">Analisa Gas Darah</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                <label class="form-check-label" for="exampleRadios3">Cirebon</label>
+                <label class="form-check-label" for="exampleRadios3">Cek Asam Urat</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-                <label class="form-check-label" for="exampleRadios4">Depok</label>
+                <label class="form-check-label" for="exampleRadios4">Cek Golongan Darah</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
-                <label class="form-check-label" for="exampleRadios5">Jakarta</label>
+                <label class="form-check-label" for="exampleRadios5">Cek Kolesterol</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
-                <label class="form-check-label" for="exampleRadios6">Labuan Bajo</label>
+                <label class="form-check-label" for="exampleRadios6">Elektroforesis</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
-                <label class="form-check-label" for="exampleRadios6">Makassar</label>
+                <label class="form-check-label" for="exampleRadios6">Fungsi Ginjal</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
-                <label class="form-check-label" for="exampleRadios6">Palembang</label>
+                <label class="form-check-label" for="exampleRadios6">Hitung Darah Lengkap</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
-                <label class="form-check-label" for="exampleRadios6">Surabaya</label>
+                <label class="form-check-label" for="exampleRadios6">Patologi Anatomi</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
-                <label class="form-check-label" for="exampleRadios6">Tanggerang</label>
+                <label class="form-check-label" for="exampleRadios6">Pemeriksaan Feses</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
-                <label class="form-check-label" for="exampleRadios6">Yogyakarta</label>
+                <label class="form-check-label" for="exampleRadios6">Pemeriksaan Kimia Klinik</label>
             </div>
         </div>
 
