@@ -41,6 +41,8 @@ Auth::routes();
 
 Route::get('/home', 'UserController@index')->name('home');
 
+
+// Admin Privileges ======================================================>
 Route::prefix('admin')->group( function() {
     // Auth -->
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -76,7 +78,11 @@ Route::prefix('admin')->group( function() {
     // Home
     Route::get('/', 'AdminController@index')->name('admin.index');
 });
+// END-OF
+// Admin Privileges ======================================================>
 
+
+// Doctor Privileges ======================================================>
 Route::prefix('doctor')->group( function() {
     // Auth -->
     Route::get('/login', 'Auth\DoctorLoginController@showLoginForm')->name('doctor.login');
@@ -93,6 +99,9 @@ Route::prefix('doctor')->group( function() {
     Route::get('/', 'DoctorController@index')->name('doctor-index');
 
 });
+// END-OF
+// Doctor Privileges ======================================================>
+
 
 // Socialite Open-Authentication
 Route::get('oauth/{provider}', 'Auth\OAuthController@redirectToProvider')->name('api.login');
