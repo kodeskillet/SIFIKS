@@ -16,9 +16,11 @@ class DoctorController extends Controller
     public function index()
     {
         $doctor = Doctor::orderBy('name','asc')->paginate(10);
+        $specialization = DoctorSpecialization::orderBy('name', 'asc')->paginate(5);
         $data = [
             'role' => session('role'),
             'doctor' => $doctor,
+            'specialization' => $specialization
         ];
         return view('pages.doctor')->with('data',$data);
     }
@@ -30,7 +32,8 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        //
+        $specialization = DoctorSpecialization::pluck('name', 'id');
+        return view('pages.ext.add-doctor')->with('specialization', $specialization);
     }
 
     /**
