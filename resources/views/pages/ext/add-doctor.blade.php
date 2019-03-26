@@ -32,19 +32,19 @@
                 </div>
             </div>
             <div class="form-group row">
-                {{Form::label ('specialization_id','Spesialis',['class'=>'col-md-2 col-form-label text-md-right'])}}
+                {{Form::label ('specialty','Spesialis',['class'=>'col-md-2 col-form-label text-md-right'])}}
                 <div class="col-md-6">
                     {{ Form::select(
-                        'specialization_id',
+                        'specialty',
                         $specialization,
                         null, [
                             'class' => 'form-control',
                             'placeholder' => 'Pilih Spesialis'
                         ]
                     )}}
-                        @if($errors->has('specialization_id'))
+                        @if($errors->has('specialty'))
                             <div class="text-danger">
-                                {{$errors->first('specialization_id')}}
+                                {{$errors->first('specialty')}}
                             </div>
                         @endif
                 </div>
