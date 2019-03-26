@@ -115,6 +115,10 @@ Route::get('/ask-detail', function() {
     return view('DetailQuestions');
 });
 
+Route::get('/admin/profile', function() {
+    return view('/pages/profile');
+});
+
 
 
 
