@@ -24,7 +24,7 @@ class SpecializationController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.ext.add-specialty');
     }
 
     /**
@@ -35,7 +35,20 @@ class SpecializationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'degree' => 'required',
+            'name' => 'required',
+            'detail' => 'required|min:300'
+        ]);
+
+        $specialty = new DoctorSpecialization;
+        $specialty->degree = $request->input('degree');
+        $specialty->name = $request->input('name');
+        $specialty->detail = $request->input('detail');
+
+        if($specialty->save()) {
+            return redirect(route('doctor.index'));
+        }
     }
 
     /**
@@ -55,10 +68,10 @@ class SpecializationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+//    public function edit($id)
+//    {
+//        //
+//    }
 
     /**
      * Update the specified resource in storage.
