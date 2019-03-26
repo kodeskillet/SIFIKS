@@ -151,55 +151,43 @@
                 <li class="header text-center">WORKING SPACE</li>
                 <li>
                     <a href="
-                    @if(session('role') == "Doctor")
-                        {{ route('doctor-index') }}
-                    @else
-                        {{ route('admin.index') }}
-                    @endif
+                        @if(Auth::guard('admin')->check())
+                            {{ route('admin.dashboard') }}
+                        @else
+                            #
+                        @endif
                     ">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                   </a>
                 </li>
                 <li>
-                    <a href="
-                    @if(session('role') == "Doctor")
-                        {{ route('doctor-article') }}
-                    @else
-                        {{ route('admin-article') }}
-                    @endif
-                    ">
+                    <a href="{{ route('article.index') }}">
                         <i class="fa fa-file-text"></i> <span>Artikel</span>
                     </a>
                 </li>
                 <li>
-                    <a href="
-                    @if(session('role') == "Doctor")
-                    {{ route('doctor-thread') }}
-                    @else
-                    {{ route('admin-thread') }}
-                    @endif
-                    ">
+                    <a href="{{ route('thread.index') }}">
                         <i class="fa fa-commenting"></i> <span>QNA</span>
                     </a>
                 </li>
-                @if(session('role') == "Admin")
+                @if(Auth::guard('admin')->check())
                     <li>
-                        <a href="{{ route('admin-admin') }}">
+                        <a href="{{ route('admin.index') }}">
                             <i class="fa fa-user-secret"></i> <span>Admin</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin-doctor') }}">
+                        <a href="{{ route('doctor.index') }}">
                             <i class="fa fa-user-md"></i> <span>Dokter</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin-member') }}">
+                        <a href="{{ route('member.index') }}">
                             <i class="fa fa-users"></i> <span>Member</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin-hospital') }}">
+                        <a href="{{ route('hospital.index') }}">
                             <i class="fa fa-hospital-o"></i> <span>Rumah Sakit</span>
                         </a>
                     </li>
