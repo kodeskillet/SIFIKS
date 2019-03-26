@@ -50,7 +50,7 @@ class AdminLoginController extends Controller
                 'role' => 'Admin',
                 'guard' => 'admin'
             ]);
-            return redirect()->intended(route('admin.index'));
+            return redirect()->intended(route('admin.dashboard'));
         }
         // If 'false' -> redirect back to admin.login
         $this->sendFailedLoginResponse($request);
