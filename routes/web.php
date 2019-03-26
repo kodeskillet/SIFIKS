@@ -108,6 +108,13 @@ Route::get('oauth/{provider}', 'Auth\OAuthController@redirectToProvider')->name(
 Route::get('oauth/{provider}/callback', 'Auth\OAuthController@handleProviderCallback')->name('api.login.submit');
 
 
+Route::get('/ask', function() {
+    return view('AskToDoctor');
+});
+Route::get('/ask-detail', function() {
+    return view('DetailQuestions');
+});
+
 
 
 
