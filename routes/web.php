@@ -56,10 +56,9 @@ Route::prefix('admin')->group( function() {
     Route::resources([
         'member' => 'MemberController',
         'doctor' => 'DoctorController',
-        'specialization' => 'SpecializationController',
+        'specialty' => 'SpecializationController',
         'article' => 'ArticleController',
         'hospital' => 'HospitalController',
-        'member' => 'MemberController',
         'thread' => 'ThreadController',
     ]);
 
