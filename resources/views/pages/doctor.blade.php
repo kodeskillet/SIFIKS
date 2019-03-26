@@ -43,20 +43,26 @@
                                     <tr role="row">
                                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Nama Dokter</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Spesialis</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Kota</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Biografi</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Lokasi</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Email</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Ditinjau</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Terakhir diubah</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"></th>
                                     </tr>
                                     </thead>
                                     @foreach($data['doctor'] as $doctor)
                                     <tbody>
                                     <tr role="row" class="odd">
-                                        <td>{{$doctor->name}}</td>
-                                        <td>{{$doctor->specialization_id}}</td>
-                                        <td>{{$doctor->city_id}}</td>
-                                        <td>{{$doctor->biography}}</td>
-                                        <td>{{$doctor->email}}</td>
+                                        <td>{{ $doctor->name }}</td>
+                                        <td>
+                                            <a href="#" title="{{ $doctor->specialty->name }}">
+                                                {{ $doctor->trimStr($doctor->specialty->name) }}
+                                            </a>
+                                        </td>
+                                        <td>{{ $doctor->city_id }}</td>
+                                        <td>{{ $doctor->email }}</td>
+                                        <td>{{ $doctor->created_at->format("d M Y") }}</td>
+                                        <td>{{ $doctor->updated_at->format("d M Y | h:i") }}</td>
                                         <td class="text-center">
                                             <form method="post" action="{{ route('doctor.destroy', $doctor->id) }}">
                                                 @csrf
@@ -74,9 +80,7 @@
                                     </tr>
                                     </tbody>
                                     @endforeach
-                                    {{$data['doctor']->links()}} {{-- Pagination harus dibawah --}}
-                                    <tfoot>
-                                    </tfoot>
+                                    {{$data['doctor']->links()}}
                                 </table>
                                 @else
                                 <div class="row">
@@ -101,7 +105,7 @@
             <div class="box-header with-border">
                 <strong>Daftar Spesialis</strong>
                 <div class="pull-right">
-                    <a href="{{route('doctor.create')}}" class="btn btn-success"><i class="fa fa-plus"></i>
+                    <a href="{{route('specialty.create')}}" class="btn btn-success"><i class="fa fa-plus"></i>
                         Tambah Spesialis
                     </a>
                     <button type="button" class="btn btn-warning" data-widget="collapse" data-toggle="tooltip" title="Toggle">
@@ -135,11 +139,11 @@
                                             <tr role="row" class="odd">
                                                 <td>{{ $specialty->degree }}</td>
                                                 <td>{{ $specialty->name }}</td>
-                                                <td>{{ $specialty->detail }}</td>
+                                                <td>{{ $specialty->trimStr($specialty->detail) }}</td>
                                                 <td>{{ $specialty->created_at->format("d M Y") }}</td>
                                                 <td>{{ $specialty->updated_at->format("d M Y | h:i") }}</td>
                                                 <td class="text-center">
-                                                    <form method="post" action="{{ route('specialization.destroy', $specialty->id) }}">
+                                                    <form method="post" action="{{ route('specialty.destroy', $specialty->id) }}">
                                                         @csrf
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <input type="hidden" name="id" value="{{ $specialty->id }}">
@@ -147,7 +151,7 @@
                                                             <i class="fa fa-trash-o"></i>
                                                         </button>
 
-                                                        <a href="{{ route('specialization.edit', ['id' => $specialty->id]) }}" class="btn btn-warning btn-sm">
+                                                        <a href="{{ route('specialty.edit', ['id' => $specialty->id]) }}" class="btn btn-warning btn-sm">
                                                             <i class="fa fa-refresh"></i>
                                                         </a>
                                                     </form>
