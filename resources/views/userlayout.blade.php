@@ -46,6 +46,24 @@
                           </div>
                         </div>
                   </div>
+
+                  <div class="col md 6">
+                    <div class="card mb-3" style="max-width: 520px;">
+                        <div class="row no-gutters">
+                          <div class="col-md-4">
+                            <img src="{{ asset('storage/images/Contoh.jpg') }}" class="profile-avatar-img" alt="...">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h5 class="card-title text-info">Kenapa Kamu Tidak Mencintaiku?</h5>
+                              <p class="card-text">Aku mencintaimu tapi kok kamu artis. Kamu adalah kemungkinan yang aku semogakan</p>
+                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+
                   </div>
                   
                     </div>
