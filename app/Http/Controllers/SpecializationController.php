@@ -12,10 +12,15 @@ class SpecializationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-//    public function index()
-//    {
-//        //
-//    }
+    public function index()
+    {
+        $specialization = DoctorSpecialization::orderBy('name', 'asc')->paginate(5);
+        $data = [
+            'specialization' => $specialization
+        ];
+
+        return view('pages.specialization')->with('data', $data);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +29,7 @@ class SpecializationController extends Controller
      */
     public function create()
     {
-        return view('pages.ext.add-specialty');
+        return view('pages.ext.add-specialization');
     }
 
     /**
@@ -68,10 +73,11 @@ class SpecializationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-//    public function edit($id)
-//    {
-//        //
-//    }
+    public function edit($id)
+    {
+        $specialty = DoctorSpecialization::find($id);
+        return view('pages.ext.edit-specialization')->with('specialty', $specialty);
+    }
 
     /**
      * Update the specified resource in storage.
@@ -93,6 +99,9 @@ class SpecializationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $specialty = DoctorSpecialization::find($id);
+        if($specialty->delete()) {
+            return redirect(route('doctor.index'));
+        }
     }
 }

@@ -2,7 +2,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            <a href="{{ route('doctor.index') }}" class="btn btn-default">
+            <a href="{{ route('specialty.index') }}" class="btn btn-default">
                 <i class="fa fa-chevron-left"></i>
             </a>&nbsp;&nbsp;&nbsp;
             Tambah Spesialis
@@ -10,7 +10,8 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
-            <li class="active"><a href="{{ route('doctor.index') }}">Dokter</a></li>
+            <li><a href="{{ route('doctor.index') }}">Dokter</a></li>
+            <li><a href="{{ route('specialty.index') }}">Spesialis</a></li>
             <li class="active">Tambah Spesialis</li>
         </ol>
     </section>

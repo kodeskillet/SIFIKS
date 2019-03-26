@@ -18,12 +18,10 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctor = Doctor::orderBy('name','asc')->paginate(1);
-        $specialization = DoctorSpecialization::orderBy('name', 'asc')->paginate(5);
+        $doctor = Doctor::orderBy('name','asc')->paginate(10);
         $data = [
             'role' => session('role'),
             'doctor' => $doctor,
-            'specialization' => $specialization
         ];
         return view('pages.doctor')->with('data',$data);
     }

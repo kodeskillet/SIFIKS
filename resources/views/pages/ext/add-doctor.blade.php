@@ -33,7 +33,7 @@
             </div>
             <div class="form-group row">
                 {{Form::label ('specialty','Spesialis',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                <div class="col-md-6">
+                <div class="col-md-4">
                     {{ Form::select(
                         'specialty',
                         $specialization,
@@ -47,6 +47,11 @@
                                 {{$errors->first('specialty')}}
                             </div>
                         @endif
+                </div>
+                <div class="col-md-2">
+                    <a href="{{ route('specialty.index') }}" class="btn btn-primary">
+                        Semua Spesialis
+                    </a>
                 </div>
             </div>
             <div class="form-group row">
