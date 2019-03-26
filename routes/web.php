@@ -27,6 +27,14 @@ Route::get('/SearchRS', function() {
     return view('SearchRS');
 });
 
+Route::get('/User', function() {
+    return view('userlayout');
+});
+
+Route::get('/User/Edit', function() {
+    return view('EditUser');
+)};
+           
 Route::get('/listdoctor', function() {
     return view('listDoctor');
 });
