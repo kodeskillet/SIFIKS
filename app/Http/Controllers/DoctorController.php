@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Doctor;
+use App\DoctorDetail;
 use App\DoctorSpecialization;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
 
 class DoctorController extends Controller
 {
@@ -15,7 +18,7 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctor = Doctor::orderBy('name','asc')->paginate(10);
+        $doctor = Doctor::orderBy('name','asc')->paginate(1);
         $specialization = DoctorSpecialization::orderBy('name', 'asc')->paginate(5);
         $data = [
             'role' => session('role'),
@@ -45,29 +48,34 @@ class DoctorController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'specialization_id' => 'required',
-            'city_id' => 'required',
+            'specialty' => 'required',
             'name' => 'required|min:3|max:50',
             'license' => 'required|min:3|max:191',
-            'biography' => 'required',
             'email' => 'required',
             'password' => 'required_with:password_confirmation|same:password_confirmation|min:6',
             'password_confirmation' => 'min:6'
         ]);
 
-        $pass = Hash::make($request->password);
-        $doctor = new Doctor;
-        $doctor->specialization_id = $request->input('specialization_id');
-        $doctor->city_id = $request->input('city_id');
-        $doctor->name = $request->input('name');
-        $doctor->license = $request->input('license');
-        $doctor->biography = $request->input('biography');
-        $doctor->email = $request->input('email');
-        $doctor->password = $pass;
-        $doctor->profile_picture = 2;
-        $doctor->save();
 
-        return redirect(route('doctor.index'));
+        $doctor = new Doctor;
+        $doctor->name = $request->input('name');
+        $doctor->specialization_id = $request->input('specialty');
+        $doctor->license = $request->input('license');
+        $doctor->email = $request->input('email');
+        $doctor->password = Hash::make($request->password);
+
+        if($doctor->save()) {
+            return redirect(route('doctor.index'));
+        }
+
+//        $data = [
+//            'id' => $doctor->id,
+//            'specialty' => $request->input('specialization')
+//        ];
+
+//        if($this->setSpecialty($data)) {
+//            return redirect(route('doctor.index'));
+//        }
     }
 
     /**
@@ -117,7 +125,7 @@ class DoctorController extends Controller
         $doctor->name = $request->input('name');
         $doctor->password = $pass;
         $doctor->save();
-        return redirect(route('admin-doctor'));
+        return redirect(route('doctor.index'));
     }
 
     /**
@@ -131,7 +139,25 @@ class DoctorController extends Controller
         $doctor = Doctor::find($id);
         $doctor->delete();
 
-        return redirect (route('admin-doctor'));
+        return redirect (route('doctor.index'));
     }
+
+
+    // Set Specialization_id on DoctorDetail
+//    private function setSpecialty($data) {
+//        $specialty = new DoctorDetail();
+//        $specialty->doctor_id = $data['id'];
+//        $specialty->specialization_id = $data['specialty'];
+//
+//        if($specialty->save()) {
+//            return true;
+//        }
+//        return false;
+//    }
+
+    // Set Hospital_id on DoctorDetail
+//    private function setHospital($data) {
+//
+//    }
 }
 
