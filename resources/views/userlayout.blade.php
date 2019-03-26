@@ -7,7 +7,7 @@
     <div class="row">
             <div class="card col-md-3" style="width: 18rem;">
                     <br> <br>
-                    <img src="{{ asset('storage/images/test1.jpg') }}" class="card-user-profile-photo " alt="...">
+                    <img src="{{ asset('storage/images/Contoh.jpg') }}" class="card-user-profile-photo " alt="...">
                     {{-- Yang dibawah itu bentuknya square --}}
                     {{-- <img src="{{ asset('storage/images/test1.jpg') }}" class="card-img-top" alt="..."> --}}
                     <div class="card-body card-user-profile-inner">
@@ -25,5 +25,30 @@
                       <a class="btn btn-primary" href="/User/Edit" role="button">Edit Profil</a>
                     </div>
                   </div>
+
+                  <div class="row">
+                    <div class="col md 3">
+                      <h1>Diskusi</h1>
+                      <hr>
+                      <div class="col md 6">
+                      <div class="card mb-3" style="max-width: 520px;">
+                          <div class="row no-gutters">
+                            <div class="col-md-4">
+                              <img src="{{ asset('storage/images/Contoh.jpg') }}" class="profile-avatar-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                              <div class="card-body">
+                                <h5 class="card-title text-info">Kenapa Kamu Tidak Mencintaiku?</h5>
+                                <p class="card-text">Aku mencintaimu tapi kok kamu artis. Kamu adalah kemungkinan yang aku semogakan</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+                  </div>
+                  
+                    </div>
+                  
     </div>
 </div>

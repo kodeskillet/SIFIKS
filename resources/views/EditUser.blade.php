@@ -28,38 +28,42 @@
                   </div>
                   <div class="nav nav-tabs col-md-6">
                     <div class="row">
-                      <div class="col md 3">
+                      <div class="col md 4">
                         <h1>Edit Data</h1>
+                        <hr>
                         <div class="form-group row">
-                            <label for="name" class="col-md-6 col-form-label text-md-right">Nama Lengkap</label>
+                            <label for="name" class="col-md-3 col-form-label text-md-right">Nama Lengkap</label>
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="" required="" autofocus="">
         
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="name" class="col-md-6 col-form-label text-md-right">Bio</label>
+                            <label for="name" class="col-md-3 col-form-label text-md-right">Bio</label>
                             <div class="col-md-6">
                               <textarea class="form-control" name="" id="" cols="80" rows="5"></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="name" class="col-md-6 col-form-label text-md-right">Kata Sandi Baru</label>
+                            <label for="name" class="col-md-3 col-form-label text-md-right">Kata Sandi Baru</label>
                             <div class="col-md-6">
                                 <input id="name" type="password" class="form-control" name="name" value="" required="" autofocus="" placeholder="Kata Sandi Baru">
         
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="name" class="col-md-6 col-form-label text-md-right">Ulangi Kata Sandi</label>
+                            <label for="name" class="col-md-3 col-form-label text-md-right">Ulangi Kata Sandi</label>
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="" required="" autofocus="" placeholder="Ulangi Kata Sandi">
                             </div>
                         </div>
                         <div class="form-group row">
-                          <div class="col md 6">
+                            <label for="name" class="col-md-7 col-form-label text-md-right"></label>
+                            <div class="col md 6">
                                   <button type="button" class="btn btn-primary">Perbarui</button>
-                          </div>
+                            </div>
+                                  
+                          
                             
                         </div>
                         

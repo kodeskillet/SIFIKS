@@ -46,4 +46,10 @@
         padding: 45px 15px;
         text-align: center;
     }
+
+    .profile-avatar-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    }
     </style>
