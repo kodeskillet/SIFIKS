@@ -184,11 +184,19 @@ class AdminController extends Controller
 
     //==========================MEMBER AREA====================================MEMBER AREA========================
 
-    public function thread() {
-        return view('pages.thread');
-    }
+    //============================================================================================================
+
+    //HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====
 
     public function hospital() {
         return view('pages.hospital');
     }
+
+    //HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====
+
+    public function thread() {
+        return view('pages.thread');
+    }
+
+
 }
