@@ -46,4 +46,15 @@ class Doctor extends Authenticatable
     public function detail() {
         return $this->hasMany('App\DoctorDetail');
     }
+
+    public function specialty() {
+        return $this->belongsTo('App\DoctorSpecialization', 'specialization_id');
+    }
+
+    public function trimStr($str) {
+        if(strlen($str) > 20) {
+            return substr($str, 0, 20)."...";
+        }
+        return $str;
+    }
 }

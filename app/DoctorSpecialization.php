@@ -10,7 +10,10 @@ class DoctorSpecialization extends Model
     public $primaryKey = 'id';
     public $timestamps = true;
 
-    public function detail() {
-        return $this->hasMany('App\DoctorDetail');
+    public function trimStr($str) {
+        if(strlen($str) > 50) {
+            return substr($str, 0, 50)."...";
+        }
+        return $str;
     }
 }
