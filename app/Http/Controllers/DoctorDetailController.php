@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\DoctorDetail;
 use Illuminate\Http\Request;
-use App\DoctorSpecialization;
 
-class SpecializationController extends Controller
+class DoctorDetailController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-//    public function index()
-//    {
-//        //
-//    }
+    public function index()
+    {
+        //
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +24,7 @@ class SpecializationController extends Controller
      */
     public function create()
     {
-        return view('pages.ext.add-specialty');
+        //
     }
 
     /**
@@ -35,29 +35,16 @@ class SpecializationController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'degree' => 'required',
-            'name' => 'required',
-            'detail' => 'required|min:300'
-        ]);
-
-        $specialty = new DoctorSpecialization;
-        $specialty->degree = $request->input('degree');
-        $specialty->name = $request->input('name');
-        $specialty->detail = $request->input('detail');
-
-        if($specialty->save()) {
-            return redirect(route('doctor.index'));
-        }
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\DoctorDetail  $doctorDetail
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(DoctorDetail $doctorDetail)
     {
         //
     }
@@ -65,22 +52,22 @@ class SpecializationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\DoctorDetail  $doctorDetail
      * @return \Illuminate\Http\Response
      */
-//    public function edit($id)
-//    {
-//        //
-//    }
+    public function edit(DoctorDetail $doctorDetail)
+    {
+        //
+    }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\DoctorDetail  $doctorDetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, DoctorDetail $doctorDetail)
     {
         //
     }
@@ -88,10 +75,10 @@ class SpecializationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\DoctorDetail  $doctorDetail
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(DoctorDetail $doctorDetail)
     {
         //
     }

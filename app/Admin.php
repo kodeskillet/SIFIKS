@@ -38,4 +38,8 @@ class Admin extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function article() {
+        return $this->hasMany('App\Articles');
+    }
 }

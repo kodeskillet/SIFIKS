@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDoctorDetailsTable extends Migration
+class AddStatusToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateDoctorDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('doctor_details', function (Blueprint $table) {
-            $table->integer('doctor_id');
-            $table->integer('hospital_id');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('status')->after('provider_id')->default(true);
         });
     }
 
@@ -27,6 +25,8 @@ class CreateDoctorDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctor_details');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('status');
+        });
     }
 }

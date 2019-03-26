@@ -16,14 +16,7 @@
     <section class="content container-fluid">
         <div class="box">
             <div class="box-header with-border">
-                {{-- <a href="/administrator/artikel/tambah/" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Tambah artikel</a> --}}
-                {{--<div class="box-tools pull-right">--}}
-                {{--<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"--}}
-                {{--title="Collapse">--}}
-                {{--<i class="fa fa-minus"></i></button>--}}
-                {{--<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">--}}
-                {{--<i clasbhbbs="fa fa-times"></i></button>--}}
-                {{--</div>--}}
+                <strong>Daftar Member</strong>
             </div>
             <div class="box-body">
                 <div class="box-body">
@@ -38,23 +31,54 @@
                                 <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                                     <thead>
                                     <tr role="row">
-                                        <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Nama</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Email</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Dibuat pada tgl</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Action</th>
+                                        <th class="sorting-asc">Nama</th>
+                                        <th class="sorting">Email</th>
+                                        <th class="sorting">Bergabung</th>
+                                        <th class="sorting text-center" title="Via Google OAuth"><i class="fa fa-google fa-lg"></i></th>
+                                        <th class="sorting">Status</th>
+                                        <th class="sorting"></th>
                                     </tr>
                                     </thead>
                                     @foreach($data['user'] as $user)
                                     <tbody>
                                     <tr role="row" class="odd">
-                                        <td>{{$user->name}}</td>
-                                        <td>{{$user->email}}</td>
-                                        <td>{{$user->created_at}}</td>
-                                        <td><a href="" class="btn btn-danger "><i class="fa fa-trash"></i>Hapus</a></td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->created_at->format("d M Y") }}</td>
+                                        <td class="text-center">
+                                            @if($user->provider_id != null)
+                                                <strong><i class="fa fa-check text-green"></i> </strong>
+                                            @else
+                                                <strong><i class="fa fa-times text-red"></i> </strong>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if($user->status == 0)
+                                                <span class="text-red">Diblokir</span>
+                                            @else
+                                                <span class="text-green">Aktif</span>
+                                            @endif
+
+                                        </td>
+                                        <td class="text-center">
+                                            <form method="post" action="{{ route('member.update', ['id' => $user->id]) }}">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="PUT">
+                                                @if($user->status == 0)
+                                                    <input type="hidden" name="cond" value="{{ __(1) }}">
+                                                    <button type="submit" class="btn btn-success btn-sm" title="Aktifkan">
+                                                        <i class="fa fa-unlock"></i>
+                                                    </button>
+                                                @else
+                                                    <input type="hidden" name="cond" value="{{ __(0) }}">
+                                                    <button type="submit" class="btn btn-danger btn-sm" title="Blokir">
+                                                        <i class="fa fa-ban"></i>
+                                                    </button>
+                                                @endif
+                                            </form>
+                                        </td>
                                     </tr>
                                     </tbody>
-                                    <tfoot>
-                                    </tfoot>
                                     @endforeach
                                 </table>
                                 {{$data['user']->links()}} {{--  {{Pagination harus di bawah}} --}}
