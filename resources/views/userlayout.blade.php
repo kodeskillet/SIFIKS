@@ -40,7 +40,14 @@
                               <div class="card-body">
                                 <h5 class="card-title text-info">Kenapa Kamu Tidak Mencintaiku?</h5>
                                 <p class="card-text">Aku mencintaimu tapi kok kamu artis. Kamu adalah kemungkinan yang aku semogakan</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <div class="answer-by">
+                                  <img src="{{ asset('storage/images/checklist.png') }}" width=14px; height=14px; alt="">
+                                    <span>Pertanyaan Telah Terjawab</span>
+                                </div>
+                                <div class="answer-by">
+                                    <img src="{{ asset('storage/images/clock.png') }}" width=14px; height=14px; alt="">
+                                      <span>3 Jam Yang Lalu</span>
+                                  </div>
                               </div>
                             </div>
                           </div>
@@ -57,7 +64,10 @@
                             <div class="card-body">
                               <h5 class="card-title text-info">Kenapa Kamu Tidak Mencintaiku?</h5>
                               <p class="card-text">Aku mencintaimu tapi kok kamu artis. Kamu adalah kemungkinan yang aku semogakan</p>
-                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                              <div class="answer-by">
+                                  <img src="{{ asset('storage/images/clock.png') }}" width=14px; height=14px; alt="">
+                                    <span>3 Jam Yang Lalu</span>
+                                </div>
                             </div>
                           </div>
                         </div>

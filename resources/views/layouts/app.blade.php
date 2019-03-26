@@ -52,4 +52,9 @@
     height: 100px;
     border-radius: 100%;
     }
+
+    .answer-by {
+    font-size: 10px;
+    height: 20px;
+    }
     </style>

@@ -38,12 +38,14 @@
         
                             </div>
                         </div>
+                        <br>
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Bio</label>
                             <div class="col-md-6">
                               <textarea class="form-control" name="" id="" cols="80" rows="5"></textarea>
                             </div>
                         </div>
+                        <br>
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Kata Sandi Baru</label>
                             <div class="col-md-6">
@@ -51,26 +53,22 @@
         
                             </div>
                         </div>
+                        <br>
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Ulangi Kata Sandi</label>
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="" required="" autofocus="" placeholder="Ulangi Kata Sandi">
                             </div>
                         </div>
+                        <br>
                         <div class="form-group row">
                             <label for="name" class="col-md-8 col-form-label text-md-right"></label>
                             <div class="col md 6">
                                   <button type="button" class="btn btn-primary">Perbarui</button>
                             </div>
-                                  
-                          
-                            
                         </div>
-                        
                       </div>
-                        
                     </div>
-                        
                       </div>
     </div>
     
