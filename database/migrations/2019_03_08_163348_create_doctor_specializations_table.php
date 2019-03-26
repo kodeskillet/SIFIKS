@@ -15,7 +15,9 @@ class CreateDoctorSpecializationsTable extends Migration
     {
         Schema::create('doctor_specializations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('specialization_name');
+            $table->string('degree');
+            $table->string('name');
+            $table->string('detail')->nullable();
             $table->timestamps();
         });
     }

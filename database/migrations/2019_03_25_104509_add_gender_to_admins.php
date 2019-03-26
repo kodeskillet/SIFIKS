@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDoctorDetailsTable extends Migration
+class AddGenderToAdmins extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateDoctorDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('doctor_details', function (Blueprint $table) {
-            $table->integer('doctor_id');
-            $table->integer('specialization_id')->nullable();
-            $table->integer('hospital_id')->nullable();
-            $table->timestamps();
+        Schema::table('admins', function (Blueprint $table) {
+            $table->enum('gender', ['Laki - laki', 'Perempuan'])->after('name')->nullable();
         });
     }
 
@@ -28,6 +25,8 @@ class CreateDoctorDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctor_details');
+        Schema::table('admins', function (Blueprint $table) {
+            $table->dropColumn('gender');
+        });
     }
 }
