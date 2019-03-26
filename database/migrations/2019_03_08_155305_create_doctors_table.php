@@ -15,13 +15,12 @@ class CreateDoctorsTable extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('specialization_id');
-            $table->integer('city_id');
+            $table->integer('city_id')->nullable();
             $table->string('name');
             $table->string('license');
-            $table->text('biography');
+            $table->text('biography')->nullable();
             $table->string('profile_picture')->nullable();
-            $table->enum('gender', ['Male', 'Female']);
+            $table->enum('gender', ['Laki - laki', 'Perempuan'])->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
