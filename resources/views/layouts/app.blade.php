@@ -22,3 +22,39 @@
 </body>
 <script src="{{ asset('js/app.js') }}"></script>
 </html>
+
+
+
+<style>
+        .card-user-profile-photo {
+        margin: auto;
+        margin-bottom: 15px;
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        background-color: #ccc;
+    }
+    
+    .card-user-profile {
+        word-wrap: break-word;
+        margin-bottom: 25px;
+        line-height: 1.44;
+        color: rgba(59, 55, 56, 0.7);
+    }
+    
+    .card-user-profile-inner {
+        padding: 45px 15px;
+        text-align: center;
+    }
+
+    .profile-avatar-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    }
+
+    .answer-by {
+    font-size: 10px;
+    height: 20px;
+    }
+    </style>

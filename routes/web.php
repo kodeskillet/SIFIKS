@@ -27,69 +27,87 @@ Route::get('/SearchRS', function() {
     return view('SearchRS');
 });
 
+Route::get('/User', function() {
+    return view('userlayout');
+});
+
+Route::get('/User/Edit', function() {
+    return view('EditUser');
+});
+
+Route::get('/listdoctor', function() {
+    return view('listDoctor');
+});
+
+Route::get('/listhospital', function() {
+    return view('listHospital');
+});
+
 Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.articles');
 
 Auth::routes();
 
 Route::get('/home', 'UserController@index')->name('home');
 
+
+// Admin Privileges ======================================================>
 Route::prefix('admin')->group( function() {
-    // Auth -->
+    // Authentication -->
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 
-    // Pages -->
-    Route::get('/article', 'AdminController@article')->name('admin-article');
-    Route::get('/thread', 'AdminController@thread')->name('admin-thread');
-    Route::get('/admin', 'AdminController@admin')->name('admin-admin');
-    Route::get('/doctor', 'AdminController@doctor')->name('admin-doctor');
-    Route::get('/member', 'AdminController@member')->name('admin-member');
-    Route::get('/hospital', 'AdminController@hospital')->name('admin-hospital');
+    // Admin Controller -->
+    Route::resource('admin', 'AdminController');
+    Route::get('/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 
-    // Create Admin
-    Route::get('/admin/create', 'AdminController@create')->name('admin.create');
-    Route::post('/admin/create','AdminController@store')->name('admin.post');
-
-    // Create Doctor
-    Route::get('/doctor/create', 'AdminController@createdoctor')->name('doctor.create');
-    Route::post('/doctor/create','AdminController@storedoctor')->name('doctor.store');
-
-    //Delete Doctor
-    Route::delete('/doctor/{id}','AdminController@destroydoctor')->name('doctor.destroy');
-
-    //Edit Doctor
-    Route::get('/doctor/{id}/edit','AdminController@editdoctor')->name('doctor.edit');
-    Route::put('/doctor/{id}','AdminController@updatedoctor')->name('doctor.update');
-
-    // Article Access
-    Route::resource('articles', 'ArticleController');
-
+    //Resourced Controller -->
+    Route::resources([
+        'member' => 'MemberController',
+        'doctor' => 'DoctorController',
+        'specialty' => 'SpecializationController',
+        'article' => 'ArticleController',
+        'hospital' => 'HospitalController',
+        'thread' => 'ThreadController',
+    ]);
 
     // Home
     Route::get('/', 'AdminController@index')->name('admin.index');
 });
+// END-OF
+// Admin Privileges ======================================================>
 
+
+// Doctor Privileges ======================================================>
 Route::prefix('doctor')->group( function() {
-    // Auth -->
+    // Authentication -->
     Route::get('/login', 'Auth\DoctorLoginController@showLoginForm')->name('doctor.login');
     Route::post('/login', 'Auth\DoctorLoginController@login')->name('doctor.login.submit');
 
-    // Pages
-    Route::get('/article', 'DoctorController@article')->name('doctor-article');
-    Route::get('/thread', 'DoctorController@thread')->name('doctor-thread');
+    // Article Access -->
+    Route::resources([
+        'article' => 'ArticleController',
+        'doc' => 'DocController'
+    ]);
 
-    // Article Access
-    Route::resource('articles', 'ArticleController');
-
-    // Home
-    Route::get('/', 'DoctorController@index')->name('doctor-index');
+    // Home -->
+    Route::get('/', 'DoctorController@index')->name('doc.index');
 
 });
+// END-OF
+// Doctor Privileges ======================================================>
+
 
 // Socialite Open-Authentication
 Route::get('oauth/{provider}', 'Auth\OAuthController@redirectToProvider')->name('api.login');
 Route::get('oauth/{provider}/callback', 'Auth\OAuthController@handleProviderCallback')->name('api.login.submit');
 
+
+Route::get('/ask', function() {
+    return view('AskToDoctor');
+});
+Route::get('/ask-detail', function() {
+    return view('DetailQuestions');
+});
 
 
 

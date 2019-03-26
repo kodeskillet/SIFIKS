@@ -2,15 +2,15 @@
 @section('content')
     <section class="content-header">
         <h1>
-            <a href="{{ route('admin-admin') }}" class="btn btn-default">
+            <a href="{{ route('admin.index') }}" class="btn btn-default">
                 <i class="fa fa-chevron-left"></i>
             </a>&nbsp;&nbsp;&nbsp;
-            Buat Artikel
+            Daftarkan Admin
             <small></small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
-            <li class="active"><a href="{{ route('admin-admin') }}">Admin</a></li>
+            <li class="active"><a href="{{ route('admin.index') }}">Admin</a></li>
             <li class="active">Tambah Admin</li>
 
         </ol>
@@ -22,9 +22,9 @@
             <br>
             {!! Form::open(['action' => 'AdminController@store','method'=> 'POST', 'enctype' => 'multipart/data']) !!}
             <div class="form-group row">
-                {{Form::label ('name','Username',['class'=>'col-md-2 col-form-label text-md-right'])}}
+                {{Form::label ('name','Nama',['class'=>'col-md-2 col-form-label text-md-right'])}}
                 <div class="col-md-4">
-                        {{Form::text ('name','',['class'=>'form-control float-right','placeholder'=>'Masukkan Username'])}}
+                        {{Form::text ('name','',['class'=>'form-control float-right','placeholder'=>'Masukkan Nama'])}}
                         @if($errors->has('name'))
                             <div class="text-danger">
                                 {{$errors->first('name')}}
@@ -66,7 +66,7 @@
                 </div>
             </div>
             {{Form::submit('Add',['class'=>'btn btn-primary'])}}
-            <a href="{{ route('admin-admin') }}" class="btn btn-danger">Batal</a>
+            <a href="{{ route('admin.index') }}" class="btn btn-danger">Batal</a>
             {!! Form::close() !!}
         </div>
     </section>

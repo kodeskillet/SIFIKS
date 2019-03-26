@@ -16,10 +16,11 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->enum('category', ['penyakit', 'obat', 'hidup-sehat', 'keluarga', 'kesehatan']);
-            $table->integer('writer_id');
+            $table->enum('writer', ['Admin', 'Doctor'])->nullable();
+            $table->integer('writer_id')->nullable();
             $table->string('title');
             $table->mediumText('content');
-            $table->text('cover_image');
+            $table->string('cover_image')->nullable();
             $table->timestamps();
         });
     }
