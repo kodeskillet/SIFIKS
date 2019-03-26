@@ -46,37 +46,37 @@
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
           <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-          <a href="#" class="btn btn-primary">Dokter Anak</a>
+          <a href="/listdoctor" class="btn btn-primary">Dokter Anak</a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
             <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="#" class="btn btn-primary">Dokter Paru-Paru</a>
+            <a href="/listdoctor" class="btn btn-primary">Dokter Paru-Paru</a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
             <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="#" class="btn btn-primary">Dokter Kehamilan</a>
+            <a href="/listdoctor" class="btn btn-primary">Dokter Kehamilan</a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
             <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="#" class="btn btn-primary">Dokter Jantung</a>
+            <a href="/listdoctor" class="btn btn-primary">Dokter Jantung</a>
         </div>
       </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
             <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="#" class="btn btn-primary">Dokter Reproduksi</a>
+            <a href="/listdoctor" class="btn btn-primary">Dokter Reproduksi</a>
         </div>
       </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
           <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-          <a href="#" class="btn btn-primary">Dokter Mata</a>
+          <a href="/listdoctor" class="btn btn-primary">Dokter Mata</a>
             </div>
           </div>
   </div>

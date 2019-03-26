@@ -44,37 +44,37 @@
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
           <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-          <a href="#" class="btn btn-primary">Kandungan</a>
+          <a href="/listhospital" class="btn btn-primary">Kandungan</a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
             <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="#" class="btn btn-primary">Laboratorium</a>
+            <a href="/listhospital" class="btn btn-primary">Laboratorium</a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
             <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="#" class="btn btn-primary">Radiologi</a>
+            <a href="/listhospital" class="btn btn-primary">Radiologi</a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
             <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="#" class="btn btn-primary">Jantung</a>
+            <a href="/listhospital" class="btn btn-primary">Jantung</a>
         </div>
       </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
             <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="#" class="btn btn-primary">Paru-Paru</a>
+            <a href="/listhospital" class="btn btn-primary">Paru-Paru</a>
         </div>
       </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
           <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-          <a href="#" class="btn btn-primary">Sistem Pencernaan</a>
+          <a href="/listhospital" class="btn btn-primary">Sistem Pencernaan</a>
             </div>
           </div>
   </div>
