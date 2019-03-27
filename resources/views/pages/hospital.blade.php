@@ -57,7 +57,13 @@
                                         <td>{{$hospital->biography}}</td>
                                         <td>{{$hospital->medical_services}}</td>
                                         <td>{{$hospital->public_services}}</td>
-                                        <td><a href="" class="btn btn-danger "><i class="fa fa-trash"></i>Hapus</a></td>
+                                        <td><form method="post" action="{{ route('hospital.destroy', $hospital->id) }}">
+                                            @csrf
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="id" value="{{ $hospital->id }}">
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fa fa-trash-o"></i>
+                                            </button></td>
                                     </tr>
                                     </tbody>
                                     <tfoot>

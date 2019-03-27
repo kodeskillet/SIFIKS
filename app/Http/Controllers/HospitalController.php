@@ -106,6 +106,9 @@ class HospitalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hospital = Hospital::find($id);
+        $hospital->delete();
+
+        return redirect (route('hospital.index'));
     }
 }
