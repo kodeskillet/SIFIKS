@@ -15,7 +15,7 @@ class HospitalController extends Controller
      */
     public function index()
     {
-        $hospital = Hospital::all();
+        $hospital = Hospital::orderBy('city_id','asc')->paginate(10);
         $data = [
             'role' => session('role'),
             'hospital' => $hospital
