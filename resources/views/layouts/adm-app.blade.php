@@ -221,9 +221,8 @@
 <script src="{{ asset("bower_components/admin-lte/dist/js/demo.js") }}"></script>
 <script src="{{ asset("bower_components/ckeditor/ckeditor.js") }}"></script>
 <script>
-    let editor = CKEDITOR.replace('editor1');
-    editor.config.height = 350;
-    // editor.config.resize_enabled = false;
+    CKEDITOR.replaceAll('ckeditor');
+
 
     $(document).ready( function() {
         $('form').attr('autocomplete', 'off');
