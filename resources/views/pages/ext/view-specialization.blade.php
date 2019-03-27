@@ -13,7 +13,7 @@
             <li><a href="{{ route('doctor.index') }}">Dokter</a></li>
             <li><a href="{{ route('doctor.create') }}">Tambah Dokter</a></li>
             <li><a href="{{ route('specialty.index') }}">Spesialis</a></li>
-            <li class="active">Detail Spesialis</li>
+            <li class="active">Detail Spesialis<small>({{ $specialty->id }})</small></li>
         </ol>
     </section>
 
