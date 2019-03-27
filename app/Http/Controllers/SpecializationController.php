@@ -14,7 +14,7 @@ class SpecializationController extends Controller
      */
     public function index()
     {
-        $specialization = DoctorSpecialization::orderBy('name', 'asc')->paginate(5);
+        $specialization = DoctorSpecialization::orderBy('name', 'asc')->paginate(10);
         $data = [
             'specialization' => $specialization
         ];
@@ -64,7 +64,8 @@ class SpecializationController extends Controller
      */
     public function show($id)
     {
-        //
+        $specialization = DoctorSpecialization::find($id);
+        return view('pages.ext.view-specialization')->with('specialty', $specialization);
     }
 
     /**
