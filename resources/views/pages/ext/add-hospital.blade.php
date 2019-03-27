@@ -72,20 +72,20 @@
                 </div>
             </div>
             <div class="form-group">
-                {{Form::label ('medical_service','Pelayanan Kesehatan',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                {{Form::textarea ('medical_service','',['class'=>'form-control'])}}
-                    @if($errors->has('medical_service'))
+                {{Form::label ('medical_services','Pelayanan Kesehatan',['class'=>'col-md-2 col-form-label text-md-right'])}}
+                {{Form::textarea ('medical_services','',['class'=>'form-control'])}}
+                    @if($errors->has('medical_services'))
                         <div class="text-danger">
-                            {{$errors->first('medical_service')}}
+                            {{$errors->first('medical_services')}}
                         </div>
                     @endif
             </div>
             <div class="form-group">
-                {{Form::label ('public_service','Pelayanan Publik',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                {{Form::textarea ('public_service','',['class'=>'form-control'])}}
-                    @if($errors->has('public_service'))
+                {{Form::label ('public_services','Pelayanan Publik',['class'=>'col-md-2 col-form-label text-md-right'])}}
+                {{Form::textarea ('public_services','',['class'=>'form-control'])}}
+                    @if($errors->has('public_services'))
                         <div class="text-danger">
-                            {{$errors->first('public_service')}}
+                            {{$errors->first('public_services')}}
                         </div>
                     @endif
             </div>

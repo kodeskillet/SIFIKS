@@ -48,7 +48,7 @@ class HospitalController extends Controller
             'biography'=>'required',
             'address'=>'required|min:3',
             'medical_services'=>'required',
-            'public_services'=>'required'
+            'public_services'=>'required',
         ]);
 
         $hospital = new Hospital;

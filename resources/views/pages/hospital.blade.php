@@ -45,14 +45,14 @@
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Biografi</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Pelayanan Medis</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Pelayanan Publik</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">""</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"></th>
                                     </tr>
                                     </thead>
                                     @foreach($data['hospital'] as $hospital)
                                     <tbody>
                                     <tr role="row" class="odd">
                                         <td>{{$hospital->name}}</td>
-                                        <td>{{$hospital->city_id}}</td>
+                                        <td>{{$hospital->City->name}}</td>
                                         <td>{{$hospital->address}}</td>
                                         <td>{{$hospital->biography}}</td>
                                         <td>{{$hospital->medical_services}}</td>
