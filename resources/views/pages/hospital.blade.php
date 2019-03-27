@@ -63,7 +63,7 @@
                                             <input type="hidden" name="id" value="{{ $hospital->id }}">
                                             <button type="submit" class="btn btn-danger btn-sm">
                                                 <i class="fa fa-trash-o"></i>
-                                            </button><a href="{{route('hospital.edit',['id'=>$hospital->id])}}"><i class="fa fa-refresh"></i></a></td>
+                                            </button>  <a href="{{route('hospital.edit',['id'=>$hospital->id])}}" class="btn btn-warning btn-sm"><i class="fa fa-refresh"></i></a></td>
                                     </tr>
                                     </tbody>
                                     <tfoot>
