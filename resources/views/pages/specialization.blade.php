@@ -25,12 +25,15 @@
             <div class="box-header with-border">
                 <strong>Daftar Spesialis</strong>
                 <div class="pull-right">
-                    <a href="{{route('specialty.create')}}" class="btn btn-success"><i class="fa fa-plus"></i>
-                        Tambah Spesialis
+                    <a href="{{route('specialty.create')}}" class="btn btn-success">
+                        <strong>
+                            <i class="fa fa-plus"></i>
+                            &nbsp;Tambah Spesialis
+                        </strong>
                     </a>
-                    <button type="button" class="btn btn-warning" data-widget="collapse" data-toggle="tooltip" title="Toggle">
-                        <i class="fa fa-minus"></i>
-                    </button>
+                    {{--<button type="button" class="btn btn-warning" data-widget="collapse" data-toggle="tooltip" title="Toggle">--}}
+                        {{--<i class="fa fa-minus"></i>--}}
+                    {{--</button>--}}
                 </div>
             </div>
             <div class="box-body">
@@ -59,7 +62,11 @@
                                             <tr role="row" class="odd">
                                                 <td>{{ $specialty->degree }}</td>
                                                 <td>{{ $specialty->name }}</td>
-                                                <td>{{ $specialty->trimStr($specialty->detail) }}</td>
+                                                <td>
+                                                    <a href="{{ route('specialty.show', $specialty->id) }}" title="Click to show detail">
+                                                        {{ $specialty->trimStr($specialty->detail) }}
+                                                    </a>
+                                                </td>
                                                 <td>{{ $specialty->created_at->format("d M Y") }}</td>
                                                 <td>{{ $specialty->updated_at->format("d M Y | h:i") }}</td>
                                                 <td class="text-center">
@@ -80,7 +87,9 @@
                                             </tbody>
                                         @endforeach
                                     </table>
-                                    {{ $data['specialization']->links() }}
+                                    <div class="text-center">
+                                        {{ $data['specialization']->links() }}
+                                    </div>
                                 @else
                                     <div class="row">
                                         <div class="col-md-6 col-md-offset-3">

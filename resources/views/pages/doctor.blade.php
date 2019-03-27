@@ -83,8 +83,10 @@
                                     </tr>
                                     </tbody>
                                     @endforeach
-                                    {{$data['doctor']->links()}}
                                 </table>
+                                <div class="text-center">
+                                    {{ $data['doctor']->links() }}
+                                </div>
                                 @else
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3">
