@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/{id}', 'HomeController@show')->name('display.article');
 
 Route::get('/viewarticle', function() {
     return view('viewarticle');

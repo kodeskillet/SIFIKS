@@ -13,6 +13,7 @@ class HomeController extends Controller
     }
 
     public function show($id){
-
+        $article = Articles::find($id);
+        return view('viewarticle')->with('article',$article);
     }
 }
