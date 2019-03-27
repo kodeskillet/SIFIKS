@@ -11,6 +11,7 @@
         <ol class="breadcrumb">
             <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
             <li><a href="{{ route('doctor.index') }}">Dokter</a></li>
+            <li><a href="{{ route('doctor.create') }}">Tambah Dokter</a></li>
             <li><a href="{{ route('specialty.index') }}">Spesialis</a></li>
             <li class="active">Tambah Spesialis</li>
         </ol>

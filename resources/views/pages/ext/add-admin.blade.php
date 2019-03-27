@@ -2,7 +2,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            <a href="{{ route('admin.index') }}" class="btn btn-default">
+            <a href="{{ route('admin.dashboard') }}" class="btn btn-default">
                 <i class="fa fa-chevron-left"></i>
             </a>&nbsp;&nbsp;&nbsp;
             Daftarkan Admin
@@ -46,7 +46,7 @@
             <div class="form-group row">
                 {{Form::label ('password','Password',['class'=>'col-md-2 col-form-label text-md-right'])}}
                 <div class="col-md-6">
-                    {{Form::password ('password',['class'=>'form-control','placeholder'=>'**********'])}}
+                    {{Form::password ('password',['class'=>'form-control','placeholder'=>'&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'])}}
                         @if($errors->has('password'))
                             <div class="text-danger">
                                 {{$errors->first('password')}}
@@ -57,7 +57,7 @@
             <div class="form-group row">
                 {{Form::label ('password_confirmation','Ulangi Password',['class'=>'col-md-2 col-form-label text-md-right'])}}
                 <div class="col-md-6">
-                    {{Form::password ('password_confirmation',['class'=>'form-control','placeholder'=>'**********'])}}
+                    {{Form::password ('password_confirmation',['class'=>'form-control','placeholder'=>'&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'])}}
                         @if($errors->has('password_confirmation'))
                             <div class="text-danger">
                                 {{$errors->first('password_confirmation')}}

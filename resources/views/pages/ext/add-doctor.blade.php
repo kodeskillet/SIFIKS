@@ -22,7 +22,7 @@
             {!! Form::open(['action' => 'DoctorController@store','method'=> 'POST', 'enctype' => 'multipart/data']) !!}
             <div class="form-group row">
                 {{Form::label ('name','Nama',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                <div class="col-md-4">
+                <div class="col-md-6">
                         {{Form::text ('name','',['class'=>'form-control float-right','placeholder'=>'Masukkan nama dokter'])}}
                         @if($errors->has('name'))
                             <div class="text-danger">
@@ -49,8 +49,9 @@
                         @endif
                 </div>
                 <div class="col-md-2">
-                    <a href="{{ route('specialty.index') }}" class="btn btn-primary">
-                        Semua Spesialis
+                    <a href="{{ route('specialty.index') }}" class="btn btn-primary form-control">
+                        <i class="fa fa-table"></i>
+                        &nbsp;Daftar Spesialis
                     </a>
                 </div>
             </div>
@@ -67,7 +68,7 @@
             </div>
             <div class="form-group row">
                 {{Form::label ('email','E-Mail',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                <div class="col-md-4">
+                <div class="col-md-6">
                         {{Form::email('email','',['class'=>'form-control float-right','placeholder'=>'faurinta@sifiksdoc.com'])}}
                         @if($errors->has('email'))
                             <div class="text-danger">
@@ -78,8 +79,8 @@
             </div>
             <div class="form-group row">
                 {{Form::label ('password','Password',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                <div class="col-md-6">
-                    {{Form::password ('password',['class'=>'form-control','placeholder'=>'***************'])}}
+                <div class="col-md-4">
+                    {{Form::password ('password',['class'=>'form-control','placeholder'=>'&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'])}}
                         @if($errors->has('password'))
                             <div class="text-danger">
                                 {{$errors->first('password')}}
@@ -89,8 +90,8 @@
             </div>
             <div class="form-group row">
                 {{Form::label ('password_confirmation','Ulangi Password',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                <div class="col-md-6">
-                    {{Form::password ('password_confirmation',['class'=>'form-control','placeholder'=>'***************'])}}
+                <div class="col-md-4">
+                    {{Form::password ('password_confirmation',['class'=>'form-control','placeholder'=>'&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'])}}
                         @if($errors->has('password_confirmation'))
                             <div class="text-danger">
                                 {{$errors->first('password_confirmation')}}
