@@ -2,7 +2,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            <a href="{{ route('doctor.index') }}" class="btn btn-default">
+            <a href="{{ route('specialty.index') }}" class="btn btn-default">
                 <i class="fa fa-chevron-left"></i>
             </a>&nbsp;&nbsp;&nbsp;
             Tambah Spesialis
@@ -10,7 +10,9 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
-            <li class="active"><a href="{{ route('doctor.index') }}">Dokter</a></li>
+            <li><a href="{{ route('doctor.index') }}">Dokter</a></li>
+            <li><a href="{{ route('doctor.create') }}">Tambah Dokter</a></li>
+            <li><a href="{{ route('specialty.index') }}">Spesialis</a></li>
             <li class="active">Tambah Spesialis</li>
         </ol>
     </section>
@@ -45,7 +47,7 @@
 
             <div class="form-group">
                 {{Form::label ('detail','Detil Spesialis')}}
-                {{Form::textarea ('detail','',['id'=>'editor2','class'=>'form-control','placeholder' => 'Masukkan detil spesialis'])}}
+                {{Form::textarea ('detail','',['class' => ['form-control', 'ckeditor'],'placeholder' => 'Masukkan detil spesialis'])}}
                 @if($errors->has('detail'))
                     <br>
                     <div class="text-danger">
@@ -53,7 +55,7 @@
                     </div>
                 @endif
             </div>
-            {{Form::submit('Add',['class'=>'btn btn-primary'])}}
+            {{Form::submit('Tambah',['class'=>'btn btn-success'])}}
             <a href="{{ route('doctor.index') }}" class="btn btn-danger">Batal</a>
             {!! Form::close() !!}
         </div>

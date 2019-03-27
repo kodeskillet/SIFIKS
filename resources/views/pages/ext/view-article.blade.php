@@ -34,6 +34,7 @@
                 </strong>
             </div>
             <hr>
+            <h2>{{ $article->title }}</h2><br>
             {!! $article->content !!}
         </div>
     </section>

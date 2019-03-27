@@ -12,10 +12,15 @@ class SpecializationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-//    public function index()
-//    {
-//        //
-//    }
+    public function index()
+    {
+        $specialization = DoctorSpecialization::orderBy('updated_at', 'desc')->paginate(10);
+        $data = [
+            'specialization' => $specialization
+        ];
+
+        return view('pages.specialization')->with('data', $data);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +29,7 @@ class SpecializationController extends Controller
      */
     public function create()
     {
-        return view('pages.ext.add-specialty');
+        return view('pages.ext.add-specialization');
     }
 
     /**
@@ -47,7 +52,7 @@ class SpecializationController extends Controller
         $specialty->detail = $request->input('detail');
 
         if($specialty->save()) {
-            return redirect(route('doctor.index'));
+            return redirect(route('specialty.index'));
         }
     }
 
@@ -59,7 +64,8 @@ class SpecializationController extends Controller
      */
     public function show($id)
     {
-        //
+        $specialization = DoctorSpecialization::find($id);
+        return view('pages.ext.view-specialization')->with('specialty', $specialization);
     }
 
     /**
@@ -68,10 +74,11 @@ class SpecializationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-//    public function edit($id)
-//    {
-//        //
-//    }
+    public function edit($id)
+    {
+        $specialty = DoctorSpecialization::find($id);
+        return view('pages.ext.edit-specialization')->with('specialty', $specialty);
+    }
 
     /**
      * Update the specified resource in storage.
@@ -82,7 +89,20 @@ class SpecializationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'degree' => 'required',
+            'name' => 'required',
+            'detail' => 'required|min:300'
+        ]);
+
+        $specialty = DoctorSpecialization::find($id);
+        $specialty->degree = $request->input('degree');
+        $specialty->name = $request->input('name');
+        $specialty->detail = $request->input('detail');
+
+        if($specialty->save()) {
+            return redirect(route('specialty.index'));
+        }
     }
 
     /**
@@ -93,6 +113,9 @@ class SpecializationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $specialty = DoctorSpecialization::find($id);
+        if($specialty->delete()) {
+            return redirect(route('specialty.index'));
+        }
     }
 }

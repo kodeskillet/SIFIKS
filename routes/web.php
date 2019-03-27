@@ -71,7 +71,7 @@ Route::prefix('admin')->group( function() {
     ]);
 
     // Home
-    Route::get('/', 'AdminController@index')->name('admin.index');
+    Route::get('/', 'AdminController@dashboard')->name('admin.dashboard');
 });
 // END-OF
 // Admin Privileges ======================================================>

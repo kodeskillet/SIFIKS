@@ -43,7 +43,7 @@
             </div>
             <div class="form-group">
                 {{Form::label ('content','Content')}}
-                {{Form::textarea ('content',$data['article']->content,['id'=>'editor1','class'=>'form-control','placeholder' => 'Masukkan Konten'])}}
+                {{Form::textarea ('content',$data['article']->content,['class' => ['form-control', 'ckeditor'],'placeholder' => 'Masukkan Konten'])}}
             </div>
             {{--<div class="form-group">--}}
                 {{--{{Form::file('cover_image')}}--}}

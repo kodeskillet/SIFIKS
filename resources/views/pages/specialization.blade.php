@@ -3,26 +3,38 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Artikel
+            <a href="{{ route('doctor.create') }}" class="btn btn-default">
+                <i class="fa fa-chevron-left"></i>
+            </a>&nbsp;&nbsp;&nbsp;
+            Spesialis
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
-            <li class="active">Artikel</li>
+            <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li><a href="{{ route('doctor.index') }}">Dokter</a></li>
+            <li><a href="{{ route('doctor.create') }}">Tambah Dokter</a></li>
+            <li class="active">Spesialis</li>
         </ol>
     </section>
 
     <!-- Main content -->
     <section class="content container-fluid">
+
+        <!-- Specialty List -->
         <div class="box">
             <div class="box-header with-border">
-                <strong>Daftar Artikel</strong>
-                <a href="{{ route('article.create') }}" class="btn btn-success pull-right">
-                    <strong>
-                        <i class="fa fa-pencil"></i>
-                        &nbsp;Buat artikel
-                    </strong>
-                </a>
+                <strong>Daftar Spesialis</strong>
+                <div class="pull-right">
+                    <a href="{{route('specialty.create')}}" class="btn btn-success">
+                        <strong>
+                            <i class="fa fa-plus"></i>
+                            &nbsp;Tambah Spesialis
+                        </strong>
+                    </a>
+                    {{--<button type="button" class="btn btn-warning" data-widget="collapse" data-toggle="tooltip" title="Toggle">--}}
+                        {{--<i class="fa fa-minus"></i>--}}
+                    {{--</button>--}}
+                </div>
             </div>
             <div class="box-body">
                 <div class="box-body">
@@ -33,60 +45,51 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                @if(count($data['articles'])>0)
+                                @if(count($data['specialization'])>0)
                                     <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                                         <thead>
                                         <tr role="row">
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Category</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Judul</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Artikel</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Penulis</th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Gelar</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Nama</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Detail</th>
                                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Ditinjau</th>
                                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Terakhir diubah</th>
                                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"></th>
                                         </tr>
                                         </thead>
-                                        @foreach($data['articles'] as $article)
+                                        @foreach($data['specialization'] as $specialty)
                                             <tbody>
                                             <tr role="row" class="odd">
-                                                <td>{{ ucwords($article->category) }}</td>
-                                                <td>{{ $article->trimStr($article->title) }}</td>
-                                                <td class="text-center">
-                                                    <a href="{{ route('article.show', ['id' => $article->id]) }}" class="btn btn-info">
-                                                        <i class="fa fa-eye"></i>
+                                                <td>{{ $specialty->degree }}</td>
+                                                <td>{{ $specialty->name }}</td>
+                                                <td>
+                                                    <a href="{{ route('specialty.show', $specialty->id) }}" title="Click to show detail">
+                                                        {{ $specialty->trimStr($specialty->detail) }}
                                                     </a>
                                                 </td>
-                                                <td>
-                                                    <strong>({{ $article->writer }})</strong>
-                                                    @if($article->writer == "Admin")
-                                                        {{ $article->admin->name }}
-                                                    @else
-                                                        {{ $article->doctor->name }}
-                                                    @endif
-
-                                                </td>
-                                                <td>{{ $article->created_at->format("d M Y") }}</td>
-                                                <td>{{ $article->updated_at->format("d M Y | h:i A") }}</td>
+                                                <td>{{ $specialty->created_at->format("d M Y") }}</td>
+                                                <td>{{ $specialty->updated_at->format("d M Y | h:i") }}</td>
                                                 <td class="text-center">
-                                                    <form method="post" action="{{ route('article.destroy', $article->id) }}">
+                                                    <form method="post" action="{{ route('specialty.destroy', $specialty->id) }}">
                                                         @csrf
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <input type="hidden" name="id" value="{{ $article->id }}">
+                                                        <input type="hidden" name="id" value="{{ $specialty->id }}">
                                                         <button type="submit" class="btn btn-danger btn-sm">
                                                             <i class="fa fa-trash-o"></i>
                                                         </button>
 
-                                                        <a href="{{ route('article.edit', ['id' => $article->id]) }}" class="btn btn-warning btn-sm">
+                                                        <a href="{{ route('specialty.edit', ['id' => $specialty->id]) }}" class="btn btn-warning btn-sm">
                                                             <i class="fa fa-refresh"></i>
                                                         </a>
                                                     </form>
                                                 </td>
                                             </tr>
                                             </tbody>
-
                                         @endforeach
-                                        {{$data['articles']->links()}} {{--  {{Pagination harus di bawah}} --}}
                                     </table>
+                                    <div class="text-center">
+                                        {{ $data['specialization']->links() }}
+                                    </div>
                                 @else
                                     <div class="row">
                                         <div class="col-md-6 col-md-offset-3">
@@ -101,9 +104,7 @@
                     </div>
                 </div>
             </div>
-            <!-- /.box-body -->
         </div>
         <!-- /.box -->
     </section>
-
 @endsection

@@ -11,8 +11,8 @@ class DoctorSpecialization extends Model
     public $timestamps = true;
 
     public function trimStr($str) {
-        if(strlen($str) > 50) {
-            return substr($str, 0, 50)."...";
+        if(strlen($str) > 15) {
+            return substr($str, 0, 15)."...";
         }
         return $str;
     }
