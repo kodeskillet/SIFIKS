@@ -54,9 +54,9 @@
                                         <td>{{$hospital->name}}</td>
                                         <td>{{$hospital->City->name}}</td>
                                         <td>{{$hospital->address}}</td>
-                                        <td>{{$hospital->biography}}</td>
-                                        <td>{{$hospital->medical_services}}</td>
-                                        <td>{{$hospital->public_services}}</td>
+                                        <td>{{$hospital->trimStr($hospital->biography)}}</td>
+                                        <td>{{$hospital->trimStr($hospital->medical_services)}}</td>
+                                        <td>{{$hospital->trimStr($hospital->public_services)}}</td>
                                         <td><form method="post" action="{{ route('hospital.destroy', $hospital->id) }}">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">

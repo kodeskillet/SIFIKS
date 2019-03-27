@@ -13,4 +13,11 @@ class Hospital extends Model
     public function city(){
         return $this->belongsTo('App\City','city_id');
     }
+
+    public function trimStr($str) {
+        if(strlen($str) > 10) {
+            return substr($str, 0, 10)."...";
+        }
+        return $str;
+    }
 }
