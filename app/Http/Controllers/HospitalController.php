@@ -42,7 +42,26 @@ class HospitalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name'=>'required|min:3',
+            'city_id'=>'required',
+            'biography'=>'required',
+            'address'=>'required|min:3',
+            'medical_services'=>'required',
+            'public_services'=>'required'
+        ]);
+
+        $hospital = new Hospital;
+        $hospital->name = $request->input('name');
+        $hospital->city_id = $request->input('city_id');
+        $hospital->biography = $request->input('biography');
+        $hospital->address = $request->input('address');
+        $hospital->medical_services = $request->input('medical_services');
+        $hospital->public_services = $request->input('public_services');
+        $hospital->cover_images_id = 1;
+        $hospital->save();
+
+        return redirect(route('hospital.index'));
     }
 
     /**
