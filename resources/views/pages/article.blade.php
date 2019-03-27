@@ -14,7 +14,7 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
-        <div class="box">
+        <div class="box box-primary">
             <div class="box-header with-border">
                 <strong>Daftar Artikel</strong>
                 <a href="{{ route('article.create') }}" class="btn btn-success pull-right">

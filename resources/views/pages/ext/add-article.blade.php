@@ -55,7 +55,7 @@
             </div>
             <div class="form-group">
                 {{Form::label ('content','Content')}}
-                {{Form::textarea ('content','',['class'=>['form-control', 'ckeditor'],'placeholder' => 'Masukkan Konten'])}}
+                {{Form::textarea ('content','',['class'=>['form-control', 'ckdefault'],'placeholder' => 'Masukkan Konten'])}}
                 @if($errors->has('content'))
                 <br>
                     <div class="text-danger">

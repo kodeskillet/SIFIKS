@@ -16,7 +16,7 @@
     <section class="content container-fluid">
 
         <!-- Doctor List -->
-        <div class="box">
+        <div class="box box-primary">
             <div class="box-header with-border">
                 <strong>Daftar Dokter</strong>
                 <div class="pull-right">

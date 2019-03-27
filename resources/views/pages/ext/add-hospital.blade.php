@@ -11,7 +11,7 @@
         <ol class="breadcrumb">
             <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
             <li class="active"><a href="{{ route('hospital.index') }}">Rumah Sakit</a></li>
-            <li class="active">Tambah Rumah sakit</li>
+            <li class="active">Tambah Rumah Sakit</li>
         </ol>
     </section>
 
@@ -23,12 +23,12 @@
             <div class="form-group row">
                 {{Form::label ('name','Nama Rumah Sakit',['class'=>'col-md-2 col-form-label text-md-right'])}}
                 <div class="col-md-4">
-                        {{Form::text ('name','',['class'=>'form-control float-right','placeholder'=>'Ex:RS.Lavalette'])}}
-                        @if($errors->has('name'))
-                            <div class="text-danger">
-                                {{$errors->first('name')}}
-                            </div>
-                        @endif
+                    {{Form::text ('name','',['class'=>'form-control float-right','placeholder'=>'Ex:RS.Lavalette'])}}
+                    @if($errors->has('name'))
+                        <div class="text-danger">
+                            {{$errors->first('name')}}
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="form-group row">
@@ -42,52 +42,52 @@
                             'placeholder' => 'Pilih Kota'
                         ]
                     )}}
-                        @if($errors->has('city_id'))
-                            <div class="text-danger">
-                                {{$errors->first('city_id')}}
-                            </div>
-                        @endif
+                    @if($errors->has('city_id'))
+                        <div class="text-danger">
+                            {{$errors->first('city_id')}}
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="form-group row">
                 {{Form::label ('address','Alamat',['class'=>'col-md-2 col-form-label text-md-right'])}}
                 <div class="col-md-6">
                     {{Form::text ('address','',['class'=>'form-control','placeholder'=>'Ex:Jl.Kalimosodo 12 no 9'])}}
-                        @if($errors->has('address'))
-                            <div class="text-danger">
-                                {{$errors->first('address')}}
-                            </div>
-                        @endif
-                </div>
-            </div>
-            <div class="form-group row">
-                {{Form::label ('biography','Biografi',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                <div class="col-md-4">
-                        {{Form::text('biography','',['class'=>'form-control float-right','placeholder'=>'Silahkan masukkan biografi rumah sakit'])}}
-                        @if($errors->has('biography'))
-                            <div class="text-danger">
-                                {{$errors->first('biography')}}
-                            </div>
-                        @endif
+                    @if($errors->has('address'))
+                        <div class="text-danger">
+                            {{$errors->first('address')}}
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="form-group">
-                {{Form::label ('medical_services','Pelayanan Kesehatan',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                {{Form::textarea ('medical_services','',['class'=>'form-control'])}}
+                {{Form::label ('biography','Biografi')}}
+                {{Form::textarea('biography','',['class'=> ['ckdefault', 'form-control']])}}
+                @if($errors->has('biography'))
+                    <div class="text-danger">
+                        {{$errors->first('biography')}}
+                    </div>
+                @endif
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    {{Form::label ('medical_services','Pelayanan Kesehatan')}}
+                    {{Form::textarea ('medical_services','',['id' => 'ckmini1', 'class' => ['form-control']])}}
                     @if($errors->has('medical_services'))
                         <div class="text-danger">
                             {{$errors->first('medical_services')}}
                         </div>
                     @endif
-            </div>
-            <div class="form-group">
-                {{Form::label ('public_services','Pelayanan Publik',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                {{Form::textarea ('public_services','',['class'=>'form-control'])}}
+                </div>
+                <div class="form-group col-md-6">
+                    {{Form::label ('public_services','Pelayanan Publik')}}
+                    {{Form::textarea ('public_services','',['id' => 'ckmini2', 'class' => ['form-control']])}}
                     @if($errors->has('public_services'))
                         <div class="text-danger">
                             {{$errors->first('public_services')}}
                         </div>
                     @endif
+                </div>
             </div>
             {{Form::submit('Add',['class'=>'btn btn-primary'])}}
             <a href="{{ route('hospital.index') }}" class="btn btn-danger">Batal</a>
