@@ -83,7 +83,14 @@ class HospitalController extends Controller
      */
     public function edit($id)
     {
-        //
+        $hospital = Hospital::find($id);
+        $city_id = City::pluck('name', 'id');
+        $data = [
+            'role' => session('role'),
+            'hospital' => $hospital,
+            'city_id' => $city_id
+        ];
+        return view('pages.ext.edit-hospital')->with('data', $data);
     }
 
     /**
