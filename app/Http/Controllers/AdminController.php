@@ -70,13 +70,13 @@ class AdminController extends Controller
         return redirect ('/admin/admin');
     }
 
-    public function create(){
+    // public function create(){
 
-        $data = [
-            'role' => session('role')
-        ];
-        return view ('pages.ext.add-admin')->with('data',$data);
-    }
+    //     $data = [
+    //         'role' => session('role')
+    //     ];
+    //     return view ('pages.ext.add-admin')->with('data',$data);
+    // }
 
     //======================================================CRUD_ADMIN============================================
 
