@@ -6,7 +6,7 @@
     <title>SIFIKS  |
         @if(session('role') == "Doctor")
             {{ __('Doctors') }}
-        @else
+        @elseif(session('role') == "Admin")
             {{ __('Administrator') }}
         @endif
     </title>
@@ -222,7 +222,6 @@
 <script src="{{ asset("bower_components/ckeditor/ckeditor.js") }}"></script>
 <script>
     CKEDITOR.replaceAll('ckeditor');
-
 
     $(document).ready( function() {
         $('form').attr('autocomplete', 'off');

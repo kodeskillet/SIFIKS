@@ -6,13 +6,13 @@
                 <i class="fa fa-chevron-left"></i>
             </a>&nbsp;&nbsp;&nbsp;
             Edit Spesialis
-            <small></small>
+            <small><b>( {{ $specialty->degree }} )</b></small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
             <li><a href="{{ route('doctor.index') }}">Dokter</a></li>
             <li><a href="{{ route('specialty.index') }}">Spesialis</a></li>
-            <li class="active">Edit Spesialis</li>
+            <li class="active">Edit Spesialis<small>({{ $specialty->id }})</small></li>
         </ol>
     </section>
 
@@ -46,7 +46,7 @@
 
             <div class="form-group">
                 {{Form::label ('detail','Detil Spesialis')}}
-                {{Form::textarea ('detail',$specialty->detail,['id'=>'editor1','class'=>'form-control','placeholder' => 'Masukkan detil spesialis'])}}
+                {{Form::textarea ('detail',$specialty->detail,['class' => ['form-control', 'ckeditor'],'placeholder' => 'Masukkan detil spesialis'])}}
                 @if($errors->has('detail'))
                     <br>
                     <div class="text-danger">
@@ -55,8 +55,8 @@
                 @endif
             </div>
             {{ Form::hidden('_method', 'PUT') }}
-            {{ Form::submit('Add',['class'=>'btn btn-primary']) }}
-            <a href="{{ route('doctor.index') }}" class="btn btn-danger">Batal</a>
+            {{ Form::submit('Update',['class'=>'btn btn-primary']) }}
+            <a href="{{ route('specialty.index') }}" class="btn btn-danger">Batal</a>
             {!! Form::close() !!}
         </div>
     </section>

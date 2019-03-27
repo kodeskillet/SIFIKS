@@ -6,7 +6,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SIFIKS</title>
+    <title>
+        SIFIKS
+    </title>
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>

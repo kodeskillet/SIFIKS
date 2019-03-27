@@ -99,7 +99,7 @@
                         @endif
                 </div>
             </div>
-            {{Form::submit('Add',['class'=>'btn btn-primary'])}}
+            {{Form::submit('Tambah',['class'=>'btn btn-success'])}}
             <a href="{{ route('doctor.index') }}" class="btn btn-danger">Batal</a>
             {!! Form::close() !!}
         </div>
