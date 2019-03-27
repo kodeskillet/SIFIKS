@@ -11,4 +11,8 @@ class HomeController extends Controller
         $article = Articles::orderBy('created_at','desc')->take(3)->get();
         return view('home')->with('article', $article);
     }
+
+    public function show($id){
+
+    }
 }
