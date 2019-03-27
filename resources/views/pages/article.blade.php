@@ -17,7 +17,12 @@
         <div class="box">
             <div class="box-header with-border">
                 <strong>Daftar Artikel</strong>
-                <a href="{{ route('article.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus"></i>&nbsp;&nbsp;<b>Buat artikel</b></a>
+                <a href="{{ route('article.create') }}" class="btn btn-success pull-right">
+                    <strong>
+                        <i class="fa fa-pencil"></i>
+                        &nbsp;Buat artikel
+                    </strong>
+                </a>
             </div>
             <div class="box-body">
                 <div class="box-body">

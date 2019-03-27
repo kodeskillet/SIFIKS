@@ -20,8 +20,11 @@
             <div class="box-header with-border">
                 <strong>Daftar Dokter</strong>
                 <div class="pull-right">
-                    <a href="{{route('doctor.create')}}" class="btn btn-success"><i class="fa fa-plus"></i>
-                        Tambah Dokter
+                    <a href="{{route('doctor.create')}}" class="btn btn-success">
+                        <strong>
+                            <i class="fa fa-plus"></i>
+                            &nbsp;Tambah Dokter
+                        </strong>
                     </a>
                     {{--<button type="button" class="btn btn-warning" data-widget="collapse" data-toggle="tooltip" title="Toggle">--}}
                         {{--<i class="fa fa-minus"></i>--}}
