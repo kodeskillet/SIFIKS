@@ -33,5 +33,9 @@ CKEDITOR.editorConfig = function( config ) {
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 
+	// Set CKEDITOR global skin
 	config.skin = 'moono-dark';
+
+	// Set CKEDITOR global height
+    config.height = 350;
 };
