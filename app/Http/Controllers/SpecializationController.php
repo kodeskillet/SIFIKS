@@ -14,7 +14,7 @@ class SpecializationController extends Controller
      */
     public function index()
     {
-        $specialization = DoctorSpecialization::orderBy('name', 'asc')->paginate(10);
+        $specialization = DoctorSpecialization::orderBy('updated_at', 'desc')->paginate(10);
         $data = [
             'specialization' => $specialization
         ];
@@ -52,7 +52,7 @@ class SpecializationController extends Controller
         $specialty->detail = $request->input('detail');
 
         if($specialty->save()) {
-            return redirect(route('doctor.index'));
+            return redirect(route('specialty.index'));
         }
     }
 
@@ -89,7 +89,20 @@ class SpecializationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'degree' => 'required',
+            'name' => 'required',
+            'detail' => 'required|min:300'
+        ]);
+
+        $specialty = DoctorSpecialization::find($id);
+        $specialty->degree = $request->input('degree');
+        $specialty->name = $request->input('name');
+        $specialty->detail = $request->input('detail');
+
+        if($specialty->save()) {
+            return redirect(route('specialty.index'));
+        }
     }
 
     /**
@@ -102,7 +115,7 @@ class SpecializationController extends Controller
     {
         $specialty = DoctorSpecialization::find($id);
         if($specialty->delete()) {
-            return redirect(route('doctor.index'));
+            return redirect(route('specialty.index'));
         }
     }
 }

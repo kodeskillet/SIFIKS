@@ -44,7 +44,7 @@ class ArticleController extends Controller
         $this->validate($request,[
             'category' => 'required',
             'title' => 'required',
-            'content' => 'required',
+            'content' => 'required|min:500',
         ]);
 
         $article = new Articles;
@@ -120,7 +120,7 @@ class ArticleController extends Controller
         $this->validate($request,[
             'category' => 'required',
             'title' => 'required',
-            'content' => 'required',
+            'content' => 'required|min:500',
         ]);
 
         $article = Articles::find($id);
