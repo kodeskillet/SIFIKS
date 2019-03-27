@@ -38,7 +38,7 @@
                             <div class="btn-group">
                                 <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                             </div>
-                            <small class="text-muted">9 mins</small>
+                            <small class="text-muted">{{$art->created_at}}</small>
                         </div>
                     </div>
                 </div>

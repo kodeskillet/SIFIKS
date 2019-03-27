@@ -8,7 +8,7 @@ use App\Articles;
 class HomeController extends Controller
 {
     public function index(){
-        $article = Articles::orderBy('title','asc')->take(3)->get();
+        $article = Articles::orderBy('created_at','desc')->take(3)->get();
         return view('home')->with('article', $article);
     }
 }
