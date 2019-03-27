@@ -17,7 +17,7 @@
 
         <div class="box">
             <div class="box-header with-border">
-                <a href={{route('hospital.create')}} class="btn btn-success pull-right"><i class="fa fa-plus"></i>Tambah artikel</a>
+                <a href={{route('hospital.create')}} class="btn btn-success pull-right"><i class="fa fa-plus"></i>Tambah rumah sakit</a>
                 {{--<div class="box-tools pull-right">--}}
                 {{--<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"--}}
                 {{--title="Collapse">--}}
@@ -68,9 +68,9 @@
                                     </tbody>
                                     <tfoot>
                                     </tfoot>
+                                    @endforeach
+                                    {{$data['hospital']->links()}}
                                 </table>
-                                @endforeach
-                                {{$data['hospital']->links()}}
                                 @else
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3">
