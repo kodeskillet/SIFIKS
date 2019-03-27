@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Hospital;
+use App\City;
 
 class HospitalController extends Controller
 {
@@ -15,12 +16,13 @@ class HospitalController extends Controller
     public function index()
     {
         $hospital = Hospital::all();
-
+        $city = City::all();
         $data = [
             'role' => session('role'),
             'hospital' => $hospital,
+            'city' => $city
         ];
-        return view('pages.hospital');
+        return view('pages.hospital')->with('data',$data);
     }
 
     /**
