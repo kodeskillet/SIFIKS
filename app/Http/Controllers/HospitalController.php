@@ -30,7 +30,8 @@ class HospitalController extends Controller
      */
     public function create()
     {
-        //
+        $city_id = City::pluck('name', 'id');
+        return view('pages.ext.add-hospital')->with('city_id', $city_id);
     }
 
     /**
