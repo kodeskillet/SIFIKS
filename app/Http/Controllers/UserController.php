@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Articles;
 
 class UserController extends Controller
 {
@@ -23,6 +24,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $article = Articles::OrderBy('created_at','asc')->take(5);
+        return view('home')->with('article', $article);
     }
 }
