@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-sm-12">
             <article>
-                <h1>Breaking News: Cat does not give a damn</h1>
+                <h1>{{$article->title}}</h1>
 
                 <div>
                     <img src="#">
@@ -14,16 +14,12 @@
                 </div>
 
                 <p>
-
+                    {!!$article->content!!}
                 </p>
-
                 <p>
-
+                    <strong>Author:</strong> {{$article->writer}},
                 </p>
-
-                <p>
-                    <strong>Author:</strong> Bill Clinton, <strong>Published:</strong> Yesterday
-                </p>
+                <p><strong>Published:</strong> {{$article->created_at}}</p>
 
             </article>
         </div>
