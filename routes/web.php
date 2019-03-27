@@ -34,7 +34,7 @@ Route::get('/User', function() {
 Route::get('/User/Edit', function() {
     return view('EditUser');
 });
-           
+
 Route::get('/listdoctor', function() {
     return view('listDoctor');
 });
