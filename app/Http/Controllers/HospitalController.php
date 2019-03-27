@@ -16,11 +16,9 @@ class HospitalController extends Controller
     public function index()
     {
         $hospital = Hospital::all();
-        $city = City::all();
         $data = [
             'role' => session('role'),
-            'hospital' => $hospital,
-            'city' => $city
+            'hospital' => $hospital
         ];
         return view('pages.hospital')->with('data',$data);
     }
