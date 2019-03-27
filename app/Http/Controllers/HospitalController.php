@@ -120,6 +120,8 @@ class HospitalController extends Controller
         $hospital->public_services = $request->input('public_services');
         $hospital->cover_images_id = 1;
         $hospital->save();
+
+        return redirect (route('hospital.index'));
     }
 
     /**
