@@ -46,8 +46,9 @@ Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.ar
 
 Auth::routes();
 
-Route::prefix('/home')->group(function(){
+Route::get('/', 'UserController@index');
 
+Route::prefix('/home')->group(function(){
     Route::get('/', 'UserController@index')->name('home');
     Route::get('/{id}','UserController@show')->name('user');
     Route::get('/{id}/edit','UserController@edit')->name('edituser');
