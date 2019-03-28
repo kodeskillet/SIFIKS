@@ -23,7 +23,7 @@ class AdminController extends Controller
 
         $data = [
             'role' => session('role'),
-            'since' => $since
+            'since' => $since,
         ];
         return view('adm-home')->with('data', $data);
     }
@@ -66,5 +66,8 @@ class AdminController extends Controller
 
         return redirect ('/admin/admin');
     }
+
+
+
 
 }

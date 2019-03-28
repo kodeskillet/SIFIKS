@@ -40,7 +40,7 @@ class RoomController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'price' => 'required|numeric|min:6',
-            'description' => 'required|min:300',
+            'description' => 'required|min:150',
         ]);
 
         $room = new Room;
@@ -92,7 +92,7 @@ class RoomController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'price' => 'required|numeric|min:6',
-            'description' => 'required|min:300',
+            'description' => 'required|min:150',
         ]);
 
         $room = Room::find($id);
