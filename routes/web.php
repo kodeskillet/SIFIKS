@@ -65,6 +65,7 @@ Route::prefix('admin')->group( function() {
         'member' => 'MemberController',
         'doctor' => 'DoctorController',
         'specialty' => 'SpecializationController',
+        'room' => 'RoomController',
         'article' => 'ArticleController',
         'hospital' => 'HospitalController',
         'thread' => 'ThreadController',
