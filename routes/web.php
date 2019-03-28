@@ -31,9 +31,9 @@ Route::get('/User', function() {
     return view('userlayout');
 });
 
-Route::get('/User/Edit', function() {
-    return view('EditUser');
-})->name('edituser');
+// Route::get('/User/Edit', function() {
+//     return view('EditUser');
+// })->name('edituser');
 
 Route::get('/listdoctor', function() {
     return view('listDoctor');
@@ -48,7 +48,7 @@ Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.ar
 Auth::routes();
 
 Route::get('/home', 'UserController@index')->name('home');
-
+Route::get('/home/{id}/edit','UserController@edit')->name('edituser');
 
 // Admin Privileges ======================================================>
 Route::prefix('admin')->group( function() {
