@@ -7,7 +7,7 @@
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i>{{ session('role') }}</a></li>
             <li class="active">Rumah Sakit</li>
         </ol>
     </section>
@@ -59,7 +59,7 @@
                                         <td>{{ $hospital->name }}</td>
                                         <td>{{ $hospital->city->name }}</td>
                                         <td class="text-center">
-                                            <a href="#" class="btn btn-info">
+                                            <a href="{{ route('hospital.show', ['id' => $hospital->id]) }}" class="btn btn-info">
                                                 <i class="fa fa-eye"></i>
                                             </a>
                                         </td>
@@ -81,7 +81,7 @@
                                     </tr>
                                     </tbody>
                                     @endforeach
-                                    {{$data['hospital']->links()}}
+                                    {{ $data['hospital']->links() }}
                                 </table>
                                 @else
                                 <div class="row">
