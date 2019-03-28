@@ -11,7 +11,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
-            <li class="active"><a href="{{ route('hospital.index') }}">Rumah Sakit</a></li>
+            <li><a href="{{ route('hospital.index') }}">Rumah Sakit</a></li>
             <li class="active">
                 {{ $data['hospital']->name  }}
             </li>
@@ -110,7 +110,7 @@
                                                 <td>{{ $room->name }}</td>
                                                 <td>Rp. {{ number_format($room->price_per_night, 2, ",", ".") }}</td>
                                                 <td class="text-center">
-                                                    <a href="#" class="btn btn-info">
+                                                    <a href="{{ route('room.show', ['room_id' => $room->id, 'hospital_id' => $data['hospital']->id]) }}" class="btn btn-info">
                                                         <i class="fa fa-eye"></i>
                                                     </a>
                                                 </td>

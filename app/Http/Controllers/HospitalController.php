@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Room;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Hospital;
 use App\City;
-use Illuminate\Support\Facades\DB;
 
 class HospitalController extends Controller
 {
@@ -74,15 +75,10 @@ class HospitalController extends Controller
     public function show($id)
     {
         $hospital = Hospital::find($id);
-        $rooms = DB::table('rooms')
-            ->selectRaw(DB::raw('rooms.*'))
-            ->leftJoin('room_details', 'rooms.id', '=', 'room_details.room_id')
-            ->where('room_details.hospital_id','=',$id)
-            ->get();
 
         $data = [
             'hospital' => $hospital,
-            'rooms' => $rooms,
+            'rooms' => $this->getRooms($id),
         ];
 
         return view('pages.ext.view-hospital')->with('data', $data);
@@ -145,6 +141,41 @@ class HospitalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hospital = Hospital::find($id);
+        $rooms = $this->deleteRoomsAndRoomDetail($id);
+
+        if($hospital->delete() && $rooms) {
+            return redirect(route('hospital.index'));
+        }
+
+    }
+
+
+    private function deleteRoomsAndRoomDetail($hospital_id)
+    {
+        $rooms = $this->getRooms($hospital_id);
+        $ids = $rooms->pluck('id')->toArray();
+
+        $delroom = Room::whereIn('id', $ids)->delete();
+        $deldetail = DB::table('room_details')
+            ->where('hospital_id', '=', $hospital_id)
+            ->delete();
+
+        if($delroom && $deldetail) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private function getRooms($hospital_id)
+    {
+        $rooms = DB::table('rooms')
+            ->selectRaw(DB::raw('rooms.*'))
+            ->leftJoin('room_details', 'rooms.id', '=', 'room_details.room_id')
+            ->where('room_details.hospital_id','=',$hospital_id)
+            ->get();
+
+        return $rooms;
     }
 }

@@ -75,9 +75,13 @@ class RoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $hospital_id)
     {
-        //
+        $data = [
+            'hospital' => Hospital::find($hospital_id),
+            'room' => Room::find($id)
+        ];
+        return view('pages.ext.view-room')->with('data', $data);
     }
 
     /**
