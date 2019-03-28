@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function() {
-    return view('home');
-});
+// Route::get('/', 'HomeController@index');
+// Route::get('/{id}', 'HomeController@show')->name('display.article');
 
 Route::get('/viewarticle', function() {
     return view('viewarticle');
@@ -55,13 +54,15 @@ Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.ar
 
 Auth::routes();
 
-Route::prefix('home')->group(function(){
+Route::get('/', 'UserController@index');
 
+Route::prefix('/home')->group(function(){
     Route::get('/', 'UserController@index')->name('home');
     Route::get('/{id}','UserController@show')->name('user');
     Route::get('/{id}/edit','UserController@edit')->name('edituser');
     Route::put('/{id}','UserController@update')->name('updateuser');
     Route::get('/{id}/editpassword','UserController@editpassword')->name('passworduser');
+    Route::get('/view/{id}','UserController@showarticle')->name('article');
 });
 // Admin Privileges ======================================================>
 Route::prefix('admin')->group( function() {
