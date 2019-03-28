@@ -43,6 +43,10 @@ Route::get('/listhospital', function() {
     return view('listHospital');
 });
 
+Route::get('/viewdoctor', function() {
+    return view('viewDoctor');
+});
+
 Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.articles');
 
 Auth::routes();
