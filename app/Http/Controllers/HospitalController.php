@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Hospital;
 use App\City;
+use Illuminate\Support\Facades\DB;
 
 class HospitalController extends Controller
 {
@@ -72,7 +73,20 @@ class HospitalController extends Controller
      */
     public function show($id)
     {
-        //
+        $hospital = Hospital::find($id);
+        $rooms = DB::table('hospitals')
+            ->selectRaw(DB::raw('rooms.*'))
+            ->leftJoin('room_details', 'hospitals.id', 'room_details.hospital_id')
+            ->leftJoin('rooms', 'hospitals.id', 'room_details.hospital_id')
+            ->where('hospitals.id', '=', $id)
+            ->get();
+
+        $data = [
+            'hospital' => $hospital,
+            'rooms' => $rooms,
+        ];
+
+        return view('pages.ext.view-hospital')->with('data', $data);
     }
 
     /**
