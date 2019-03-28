@@ -25,8 +25,13 @@
                       <p class="card-text">Email</p>
                       <div class="card-user-profile">{{$user->email}}</div>
 
-                      <p class="card-text">Diskusi</p>
-                      <div class="card-user-profile">1</div>
+                      @if($user->gender == null)
+
+                      @else
+
+                      <p class="card-text">Jenis Kelamin</p>
+                      <div class="card-user-profile">{{$user->gender}}</div>
+                      @endif
                       <a class="btn btn-primary" href="/User" role="button">Diskusi</a>
                       <a class="btn btn-primary" href="{{route('edituser',['id' => $user->id])}}" role="button">Edit Profil</a>
                     </div>
