@@ -10,7 +10,7 @@ class Hospital extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
 
-    public function city(){
+    public function city() {
         return $this->belongsTo('App\City','city_id');
     }
 
