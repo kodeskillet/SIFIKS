@@ -167,7 +167,7 @@
                 </li>
                 <li>
                     <a href="{{ route('thread.index') }}">
-                        <i class="fa fa-commenting"></i> <span>QNA</span>
+                        <i class="fa fa-commenting"></i> <span>Forum</span>
                     </a>
                 </li>
                 @if(Auth::guard('admin')->check())
@@ -221,7 +221,15 @@
 <script src="{{ asset("bower_components/admin-lte/dist/js/demo.js") }}"></script>
 <script src="{{ asset("bower_components/ckeditor/ckeditor.js") }}"></script>
 <script>
-    CKEDITOR.replaceAll('ckeditor');
+    CKEDITOR.replaceClass = 'ckdefault';
+
+    CKEDITOR.replace( 'ckmini1', {
+        customConfig: 'custom/ckmini-config.js'
+    });
+
+    CKEDITOR.replace( 'ckmini2', {
+        customConfig: 'custom/ckmini-config.js'
+    });
 
     $(document).ready( function() {
         $('form').attr('autocomplete', 'off');

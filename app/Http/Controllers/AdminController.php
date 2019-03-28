@@ -7,7 +7,6 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Admin;
-use App\User;
 
 class AdminController extends Controller
 {
@@ -31,9 +30,7 @@ class AdminController extends Controller
 
 
     //==============================================================================================================================
-
     //======================================================CRUD_ADMIN==============================================================
-
     public function index() {
         $admin = Admin::all();
         $data = [
@@ -68,45 +65,6 @@ class AdminController extends Controller
         $admin->save();
 
         return redirect ('/admin/admin');
-    }
-
-    // public function create(){
-
-    //     $data = [
-    //         'role' => session('role')
-    //     ];
-    //     return view ('pages.ext.add-admin')->with('data',$data);
-    // }
-
-    //======================================================CRUD_ADMIN============================================
-
-    //============================================================================================================
-
-    //==========================MEMBER AREA====================================MEMBER AREA========================
-
-    public function member() {
-        $user = User::orderBy('name','asc')->paginate(10);
-        $data = [
-            'role' => session('role'),
-            'user' => $user,
-        ];
-        return view('pages.member')->with('data',$data);
-    }
-
-    //==========================MEMBER AREA====================================MEMBER AREA========================
-
-    //============================================================================================================
-
-    //HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====
-
-    public function hospital() {
-        return view('pages.hospital');
-    }
-
-    //HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====HOSPITAL====
-
-    public function thread() {
-        return view('pages.thread');
     }
 
 }

@@ -15,12 +15,12 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'links' },
 		{ name: 'insert' },
 		// { name: 'forms' },
-		// { name: 'tools' },
 		// { name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
-		{ name: 'styles' },
-		{ name: 'colors' }
+		// { name: 'styles' },
+		// { name: 'colors' },
+        { name: 'tools' },
 	];
 
 	// Remove some buttons provided by the standard plugins, which are
@@ -34,8 +34,8 @@ CKEDITOR.editorConfig = function( config ) {
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 
 	// Set CKEDITOR global skin
-	config.skin = 'moono-dark';
+	config.skin = 'kama';
 
 	// Set CKEDITOR global height
-    config.height = 350;
+    config.height = 300;
 };
