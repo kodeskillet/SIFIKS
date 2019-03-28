@@ -67,7 +67,7 @@
                 {{--{{Form::file('cover_image')}}--}}
             {{--</div>--}}
 
-            {{Form::submit('Add',['class'=>'btn btn-primary'])}}
+            {{Form::submit('Simpan',['class'=>'btn btn-success'])}}
             <a href="{{ route('article.index') }}" class="btn btn-danger">Batal</a>
             {!! Form::close() !!}
         </div>

@@ -21,7 +21,7 @@
                 <a href="{{ route('admin.create') }}" class="btn btn-success pull-right">
                     <strong>
                         <i class="fa fa-plus"></i>
-                        &nbsp;Tambah Admin
+                        &nbsp;Daftarkan Admin
                     </strong>
                 </a>
             </div>

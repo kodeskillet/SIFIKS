@@ -75,11 +75,11 @@
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <input type="hidden" name="id" value="{{ $specialty->id }}">
                                                         <button type="submit" class="btn btn-danger btn-sm">
-                                                            <i class="fa fa-trash-o"></i>
+                                                            <i class="fa fas fa-trash"></i>
                                                         </button>
 
                                                         <a href="{{ route('specialty.edit', ['id' => $specialty->id]) }}" class="btn btn-warning btn-sm">
-                                                            <i class="fa fa-refresh"></i>
+                                                            <i class="fa fas fa-sync"></i>
                                                         </a>
                                                     </form>
                                                 </td>

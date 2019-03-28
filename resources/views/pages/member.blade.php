@@ -35,7 +35,7 @@
                                         <th class="sorting">Email</th>
                                         <th class="sorting">Bergabung</th>
                                         <th class="sorting">Terakhir diubah</th>
-                                        <th class="sorting text-center" title="Via Google OAuth"><i class="fa fa-google fa-lg"></i></th>
+                                        <th class="sorting text-center" title="Via Google OAuth"><i class="fab fa-google fa-lg"></i></th>
                                         <th class="sorting">Status</th>
                                         <th class="sorting"></th>
                                     </tr>

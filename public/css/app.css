@@ -16433,10 +16433,6 @@ readers do not read off random characters that represent icons */
   padding: 20px 0;
 }
 
-.disabled {
-  cursor: not-allowed !important;
-}
-
 .form-signin {
   width: 50%;
   padding: 10px;

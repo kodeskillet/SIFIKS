@@ -19,7 +19,7 @@
                 <strong>Daftar Artikel</strong>
                 <a href="{{ route('article.create') }}" class="btn btn-success pull-right">
                     <strong>
-                        <i class="fa fa-pencil"></i>
+                        <i class="fa fa fa-pencil-alt"></i>
                         &nbsp;Buat artikel
                     </strong>
                 </a>
@@ -73,11 +73,11 @@
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <input type="hidden" name="id" value="{{ $article->id }}">
                                                         <button type="submit" class="btn btn-danger btn-sm">
-                                                            <i class="fa fa-trash-o"></i>
+                                                            <i class="fa fas fa-trash"></i>
                                                         </button>
 
                                                         <a href="{{ route('article.edit', ['id' => $article->id]) }}" class="btn btn-warning btn-sm">
-                                                            <i class="fa fa-refresh"></i>
+                                                            <i class="fa fas fa-sync"></i>
                                                         </a>
                                                     </form>
                                                 </td>
