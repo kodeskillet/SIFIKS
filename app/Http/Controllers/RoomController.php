@@ -63,7 +63,7 @@ class RoomController extends Controller
                 'room_id' => $room_id
             ];
 
-            if($this->updateRoomDetails($data)) {
+            if($this->insertRoomDetails($data) && $this->updateHospitalUpdatedAt($hospital_id)) {
                 return redirect(route('hospital.show', $hospital_id));
             }
         }
@@ -130,19 +130,18 @@ class RoomController extends Controller
      * @param  int  $hospital_id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, $hospital_id)
+    public function destroy($room_id, $hospital_id)
     {
-        $room = Room::find($id);
+        $room = Room::find($room_id);
+        $hospital = $this->updateHospitalUpdatedAt($hospital_id);
+        $detail = $this->deleteRoomDetails($room_id, $hospital_id);
 
-        $hospital = Hospital::find($hospital_id);
-        $hospital->updated_at = Carbon::now();
-
-        if($room->save() && $hospital->save()) {
+        if($room && $hospital && $detail) {
             return redirect(route('hospital.show', ['id' => $hospital_id]));
         }
     }
 
-    private function updateRoomDetails($data) {
+    private function insertRoomDetails($data) {
         $insert = DB::table('room_details')
             ->insert([
                 'room_id' => $data['room_id'],
@@ -150,6 +149,19 @@ class RoomController extends Controller
             ]);
 
         if($insert) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private function deleteRoomDetails($room_id, $hospital_id) {
+        $delete = DB::table('room_details')
+            ->where('room_id', '=', $room_id)
+            ->where('hospital_id', '=', $hospital_id)
+            ->delete();
+
+        if($delete) {
             return true;
         }
 
