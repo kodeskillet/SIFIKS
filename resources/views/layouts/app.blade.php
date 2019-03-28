@@ -59,4 +59,20 @@
     font-size: 10px;
     height: 20px;
     }
+
+    .side-container {
+    width: 300px;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    padding-top: 63px;
+    }
+
+    .main-container {
+    width: 667px;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    padding-top: 63px;
+}
     </style>
