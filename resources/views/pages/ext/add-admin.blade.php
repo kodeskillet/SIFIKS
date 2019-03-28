@@ -9,9 +9,9 @@
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li><a href="{{ route('admin.dashboard') }}"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
             <li class="active"><a href="{{ route('admin.index') }}">Admin</a></li>
-            <li class="active">Tambah Admin</li>
+            <li class="active">Daftarkan Admin</li>
 
         </ol>
     </section>
@@ -65,7 +65,7 @@
                         @endif
                 </div>
             </div>
-            {{Form::submit('Add',['class'=>'btn btn-primary'])}}
+            {{Form::submit('Daftarkan',['class'=>'btn btn-success'])}}
             <a href="{{ route('admin.index') }}" class="btn btn-danger">Batal</a>
             {!! Form::close() !!}
         </div>

@@ -7,7 +7,7 @@
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li><a href="/admin"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
             <li class="active">Member</li>
         </ol>
     </section>
@@ -34,7 +34,8 @@
                                         <th class="sorting-asc">Nama</th>
                                         <th class="sorting">Email</th>
                                         <th class="sorting">Bergabung</th>
-                                        <th class="sorting text-center" title="Via Google OAuth"><i class="fa fa-google fa-lg"></i></th>
+                                        <th class="sorting">Terakhir diubah</th>
+                                        <th class="sorting text-center" title="Via Google OAuth"><i class="fab fa-google fa-lg"></i></th>
                                         <th class="sorting">Status</th>
                                         <th class="sorting"></th>
                                     </tr>
@@ -45,6 +46,7 @@
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->created_at->format("d M Y") }}</td>
+                                        <td>{{ $user->updated_at->diffForHumans() }}</td>
                                         <td class="text-center">
                                             @if($user->provider_id != null)
                                                 <strong><i class="fa fa-check text-green"></i> </strong>

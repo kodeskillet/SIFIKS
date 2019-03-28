@@ -9,6 +9,10 @@ class Articles extends Model
     protected $table = 'articles';
     public $primaryKey = 'id';
     public $timestamps = true;
+    protected $dates = [
+        'created_at',
+        'updated_at'
+    ];
 
     public function admin() {
         return $this->belongsTo('App\Admin', 'writer_id');

@@ -7,7 +7,7 @@
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li><a href="/admin"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
             <li class="active">Dokter</li>
         </ol>
     </section>
@@ -65,18 +65,18 @@
                                         <td>{{ $doctor->city_id }}</td>
                                         <td>{{ $doctor->email }}</td>
                                         <td>{{ $doctor->created_at->format("d M Y") }}</td>
-                                        <td>{{ $doctor->updated_at->format("d M Y | h:i") }}</td>
+                                        <td>{{ $doctor->updated_at->diffForHumans() }}</td>
                                         <td class="text-center">
                                             <form method="post" action="{{ route('doctor.destroy', $doctor->id) }}">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="id" value="{{ $doctor->id }}">
                                                 <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-trash-o"></i>
+                                                    <i class="fa fas fa-trash"></i>
                                                 </button>
 
                                                 <a href="{{ route('doctor.edit', ['id' => $doctor->id]) }}" class="btn btn-warning btn-sm">
-                                                    <i class="fa fa-refresh"></i>
+                                                    <i class="fa fas fa-sync"></i>
                                                 </a>
                                             </form>
                                         </td>

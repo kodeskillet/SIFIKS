@@ -9,9 +9,9 @@
             <small><b>( {{$data['article']->title}} )</b></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li><a href="/admin"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
             <li class="active"><a href="{{ route('article.index') }}">Artikel</a></li>
-            <li class="active">Edit Artikel</li>
+            <li class="active">Edit Artikel<small>({{ $data['article']->id }})</small></li>
         </ol>
     </section>
 
@@ -49,7 +49,7 @@
                 {{--{{Form::file('cover_image')}}--}}
             {{--</div>--}}
             {{Form::hidden('_method', 'PUT')}}
-            {{Form::submit('Update',['class'=>'btn btn-primary'])}}
+            {{Form::submit('Simpan',['class'=>'btn btn-success'])}}
             <a href="{{ route('article.index') }}" class="btn btn-danger">Batal</a>
             {!! Form::close() !!}
         </div>

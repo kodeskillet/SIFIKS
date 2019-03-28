@@ -7,7 +7,7 @@
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li><a href="#"><i class="fa fas fa-tachometer-alt"></i>{{ session('role') }}</a></li>
             <li class="active">Rumah Sakit</li>
         </ol>
     </section>
@@ -59,29 +59,29 @@
                                         <td>{{ $hospital->name }}</td>
                                         <td>{{ $hospital->city->name }}</td>
                                         <td class="text-center">
-                                            <a href="#" class="btn btn-info">
+                                            <a href="{{ route('hospital.show', ['id' => $hospital->id]) }}" class="btn btn-info">
                                                 <i class="fa fa-eye"></i>
                                             </a>
                                         </td>
                                         <td>{{ $hospital->created_at->format("d M Y") }}</td>
-                                        <td>{{ $hospital->updated_at->format("d M Y | h:i") }}</td>
+                                        <td>{{ $hospital->updated_at->diffForHumans() }}</td>
                                         <td class="text-center">
                                             <form method="post" action="{{ route('hospital.destroy', $hospital->id) }}">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="id" value="{{ $hospital->id }}">
                                                 <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-trash-o"></i>
+                                                    <i class="fa fas fa-trash"></i>
                                                 </button>
                                                 <a href="{{ route('hospital.edit', [ 'id' => $hospital->id]) }}" class="btn btn-warning btn-sm">
-                                                    <i class="fa fa-refresh"></i>
+                                                    <i class="fa fas fa-sync"></i>
                                                 </a>
                                             </form>
                                         </td>
                                     </tr>
                                     </tbody>
                                     @endforeach
-                                    {{$data['hospital']->links()}}
+                                    {{ $data['hospital']->links() }}
                                 </table>
                                 @else
                                 <div class="row">

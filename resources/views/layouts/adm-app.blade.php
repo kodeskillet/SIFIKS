@@ -12,7 +12,7 @@
     </title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="{{ asset("bower_components/bootstrap/dist/css/bootstrap.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("bower_components/font-awesome/css/font-awesome.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("bower_components/font-awesome/css/all.css") }}">
     <link rel="stylesheet" href="{{ asset("bower_components/Ionicons/css/ionicons.min.css") }}">
     <link rel="stylesheet" href="{{ asset("bower_components/admin-lte/dist/css/AdminLTE.min.css") }}">
     <link rel="stylesheet" href="{{ asset("bower_components/admin-lte/dist/css/skins/_all-skins.min.css") }}">
@@ -157,38 +157,44 @@
                             #
                         @endif
                     ">
-                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    <i class="fa fas fa-tachometer-alt"></i> <span>Dashboard</span>
                   </a>
                 </li>
                 <li>
                     <a href="{{ route('article.index') }}">
-                        <i class="fa fa-file-text"></i> <span>Artikel</span>
+                        <i class="fa far fa-newspaper"></i>
+                        <span>Artikel</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('thread.index') }}">
-                        <i class="fa fa-commenting"></i> <span>Forum</span>
+                        <i class="fa far fa-comments"></i>
+                        <span>Forum</span>
                     </a>
                 </li>
                 @if(Auth::guard('admin')->check())
                     <li>
                         <a href="{{ route('admin.index') }}">
-                            <i class="fa fa-user-secret"></i> <span>Admin</span>
+                            <i class="fa fa-user-secret"></i>
+                            <span>Admin</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('doctor.index') }}">
-                            <i class="fa fa-user-md"></i> <span>Dokter</span>
+                            <i class="fa fa-user-md"></i>
+                            <span>Dokter</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('member.index') }}">
-                            <i class="fa fa-users"></i> <span>Member</span>
+                            <i class="fa fa-users"></i>
+                            <span>Member</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('hospital.index') }}">
-                            <i class="fa fa-hospital-o"></i> <span>Rumah Sakit</span>
+                            <i class="fa fas fa-hospital"></i>
+                            <span>Rumah Sakit</span>
                         </a>
                     </li>
                 @endif

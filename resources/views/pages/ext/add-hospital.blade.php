@@ -9,7 +9,7 @@
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li><a href="/admin"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
             <li class="active"><a href="{{ route('hospital.index') }}">Rumah Sakit</a></li>
             <li class="active">Tambah Rumah Sakit</li>
         </ol>
@@ -22,8 +22,8 @@
             {!! Form::open(['action' => 'HospitalController@store','method'=> 'POST', 'enctype' => 'multipart/data']) !!}
             <div class="form-group row">
                 {{Form::label ('name','Nama Rumah Sakit',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                <div class="col-md-4">
-                    {{Form::text ('name','',['class'=>'form-control float-right','placeholder'=>'Ex:RS.Lavalette'])}}
+                <div class="col-md-6">
+                    {{Form::text ('name','',['class'=>'form-control float-right','placeholder'=>'E.g. RS. Lavalette'])}}
                     @if($errors->has('name'))
                         <div class="text-danger">
                             {{$errors->first('name')}}
@@ -52,7 +52,7 @@
             <div class="form-group row">
                 {{Form::label ('address','Alamat',['class'=>'col-md-2 col-form-label text-md-right'])}}
                 <div class="col-md-6">
-                    {{Form::text ('address','',['class'=>'form-control','placeholder'=>'Ex:Jl.Kalimosodo 12 no 9'])}}
+                    {{Form::textarea ('address','',['class'=>'form-control','placeholder'=>'E.g. Jl.Kalimosodo 12 No. 9', 'rows' => 3])}}
                     @if($errors->has('address'))
                         <div class="text-danger">
                             {{$errors->first('address')}}

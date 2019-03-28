@@ -10,7 +10,7 @@
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li><a href="/admin"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
             <li><a href="{{ route('doctor.index') }}">Dokter</a></li>
             <li><a href="{{ route('doctor.create') }}">Tambah Dokter</a></li>
             <li class="active">Spesialis</li>
@@ -68,18 +68,18 @@
                                                     </a>
                                                 </td>
                                                 <td>{{ $specialty->created_at->format("d M Y") }}</td>
-                                                <td>{{ $specialty->updated_at->format("d M Y | h:i") }}</td>
+                                                <td>{{ $specialty->updated_at->diffForHumans() }}</td>
                                                 <td class="text-center">
                                                     <form method="post" action="{{ route('specialty.destroy', $specialty->id) }}">
                                                         @csrf
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <input type="hidden" name="id" value="{{ $specialty->id }}">
                                                         <button type="submit" class="btn btn-danger btn-sm">
-                                                            <i class="fa fa-trash-o"></i>
+                                                            <i class="fa fas fa-trash"></i>
                                                         </button>
 
                                                         <a href="{{ route('specialty.edit', ['id' => $specialty->id]) }}" class="btn btn-warning btn-sm">
-                                                            <i class="fa fa-refresh"></i>
+                                                            <i class="fa fas fa-sync"></i>
                                                         </a>
                                                     </form>
                                                 </td>

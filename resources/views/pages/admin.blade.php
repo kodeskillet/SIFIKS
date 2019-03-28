@@ -7,7 +7,7 @@
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li><a href="{{ route('admin.dashboard') }}"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
             <li class="active">Admin</li>
         </ol>
     </section>
@@ -21,7 +21,7 @@
                 <a href="{{ route('admin.create') }}" class="btn btn-success pull-right">
                     <strong>
                         <i class="fa fa-plus"></i>
-                        &nbsp;Tambah Admin
+                        &nbsp;Daftarkan Admin
                     </strong>
                 </a>
             </div>
@@ -50,7 +50,7 @@
                                         <td>{{ $admin->name }}</td></td>
                                         <td>{{ $admin->email }}</td>
                                         <td>{{ $admin->created_at->format("d M Y") }}</td>
-                                        <td>{{ $admin->updated_at->format("d M Y | h:i A") }}</td>
+                                        <td>{{ $admin->updated_at->diffForHumans() }}</td>
                                     </tr>
                                     </tbody>
                                     @endforeach

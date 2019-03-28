@@ -7,7 +7,7 @@
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li><a href="#"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
             <li class="active">Artikel</li>
         </ol>
     </section>
@@ -19,7 +19,7 @@
                 <strong>Daftar Artikel</strong>
                 <a href="{{ route('article.create') }}" class="btn btn-success pull-right">
                     <strong>
-                        <i class="fa fa-pencil"></i>
+                        <i class="fa fa fa-pencil-alt"></i>
                         &nbsp;Buat artikel
                     </strong>
                 </a>
@@ -66,18 +66,18 @@
 
                                                 </td>
                                                 <td>{{ $article->created_at->format("d M Y") }}</td>
-                                                <td>{{ $article->updated_at->format("d M Y | h:i A") }}</td>
+                                                <td>{{ $article->updated_at->diffForHumans() }}</td>
                                                 <td class="text-center">
                                                     <form method="post" action="{{ route('article.destroy', $article->id) }}">
                                                         @csrf
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <input type="hidden" name="id" value="{{ $article->id }}">
                                                         <button type="submit" class="btn btn-danger btn-sm">
-                                                            <i class="fa fa-trash-o"></i>
+                                                            <i class="fa fas fa-trash"></i>
                                                         </button>
 
                                                         <a href="{{ route('article.edit', ['id' => $article->id]) }}" class="btn btn-warning btn-sm">
-                                                            <i class="fa fa-refresh"></i>
+                                                            <i class="fa fas fa-sync"></i>
                                                         </a>
                                                     </form>
                                                 </td>
