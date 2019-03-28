@@ -26,13 +26,13 @@ Route::get('/SearchRS', function() {
     return view('SearchRS');
 });
 
-Route::get('/User', function() {
-    return view('userlayout');
-});
+// Route::get('/User', function() {
+//     return view('userlayout');
+// });
 
-Route::get('/User/Edit', function() {
-    return view('EditUser');
-});
+// Route::get('/User/Edit', function() {
+//     return view('EditUser');
+// })->name('edituser');
 
 Route::get('/listdoctor', function() {
     return view('listDoctor');
@@ -46,9 +46,14 @@ Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.ar
 
 Auth::routes();
 
-Route::get('/home', 'UserController@index')->name('home');
+Route::prefix('home')->group(function(){
 
-
+    Route::get('/', 'UserController@index')->name('home');
+    Route::get('/{id}','UserController@show')->name('user');
+    Route::get('/{id}/edit','UserController@edit')->name('edituser');
+    Route::put('/{id}','UserController@update')->name('updateuser');
+    Route::get('/{id}/editpassword','UserController@editpassword')->name('passworduser');
+});
 // Admin Privileges ======================================================>
 Route::prefix('admin')->group( function() {
     // Authentication -->

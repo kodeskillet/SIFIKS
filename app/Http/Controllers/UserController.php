@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Articles;
+use App\User;
 
 class UserController extends Controller
 {
@@ -22,9 +23,16 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+
+    public function show($id){
+        $article = Articles::find($id);
+        return view('viewarticle')->with('article',$article);
+    }
+
     public function index()
     {
-        $article = Articles::OrderBy('created_at','asc')->take(5);
+        $article = Articles::orderBy('created_at','desc')->take(3)->get();
         return view('home')->with('article', $article);
     }
 }
