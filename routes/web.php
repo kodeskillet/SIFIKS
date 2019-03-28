@@ -47,10 +47,14 @@ Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.ar
 
 Auth::routes();
 
-Route::get('/home', 'UserController@index')->name('home');
-Route::get('/home/{id}','UserController@show')->name('user');
-Route::get('/home/{id}/edit','UserController@edit')->name('edituser');
+Route::prefix('home')->group(function(){
 
+    Route::get('/', 'UserController@index')->name('home');
+    Route::get('/{id}','UserController@show')->name('user');
+    Route::get('/{id}/edit','UserController@edit')->name('edituser');
+    Route::post('/{id}','UserController@update')->name('updateuser');
+
+});
 // Admin Privileges ======================================================>
 Route::prefix('admin')->group( function() {
     // Authentication -->
