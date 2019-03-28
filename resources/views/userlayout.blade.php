@@ -35,6 +35,7 @@
                       <a class="btn btn-primary" href="/User" role="button">Diskusi</a>
                       <a class="btn btn-primary" href="{{route('edituser',['id' => $user->id])}}" role="button">Edit Profil</a>
                     </div>
+                    <a href="{{route('passworduser',['id'=>$user->id])}}">Ganti password?</a>
                   </div>
 
                   <div class="row">
