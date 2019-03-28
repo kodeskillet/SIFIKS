@@ -72,6 +72,7 @@
                             </div>
                         </div>
                         <br>
+                        <input type="hidden" name="_method" value="PUT">
                         <div class="form-group row">
                             <label for="name" class="col-md-8 col-form-label text-md-right"></label>
                             <div class="col md 6">
