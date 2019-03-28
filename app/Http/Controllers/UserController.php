@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Articles;
 use App\User;
-use App\Articles;
 
 class UserController extends Controller
 {
@@ -50,6 +49,7 @@ class UserController extends Controller
         $user->biography = $request->input('biography');
         $user->gender = $request->input('gender');
         $user->save();
+    }
 
     public function showarticle($id){
         $article = Articles::find($id);
