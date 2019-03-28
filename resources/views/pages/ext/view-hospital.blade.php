@@ -21,12 +21,12 @@
     <!-- Main content -->
     <section class="content container-fluid">
 
-        <div class="box box-primary">
+        <div class="box box-primary collapsed-box">
             <div class="box-header with-border">
                 <strong>Tentang {{ $data['hospital']->name }}</strong>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                        <i class="fa fa-minus"></i>
+                        <i class="fa fa-plus"></i>
                     </button>
                     {{--<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">--}}
                         {{--<i class="fa fa-times"></i>--}}
@@ -117,7 +117,7 @@
                                                 <td>{{ \Carbon\Carbon::parse($room->created_at)->format("d M Y") }}</td>
                                                 <td>{{ \Carbon\Carbon::parse($room->updated_at)->diffForHumans() }}</td>
                                                 <td class="text-center">
-                                                    <form method="post" action="#">
+                                                    <form method="post" action="{{ route('room.destroy', ['room_id' => $room->id, 'hospital_id' => $data['hospital']->id]) }}">
                                                         @csrf
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <input type="hidden" name="id" value="">

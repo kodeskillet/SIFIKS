@@ -73,8 +73,9 @@ Route::prefix('admin')->group( function() {
     //Hospital's Rooms Controller -->
     Route::get('/room/{room_id}/{hospital_id}/edit', 'RoomController@edit')->name('room.edit');
     Route::get('/room/{hospital_id}/room/add', 'RoomController@create')->name('room.create');
+    Route::delete('/room/{room_id}/{hospital_id}/destroy', 'RoomController@destroy')->name('room.destroy');
     Route::resource('room', 'RoomController')->except([
-        'edit', 'create'
+        'edit', 'create', 'destroy'
     ]);
 
     // Home
