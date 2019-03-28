@@ -37,6 +37,8 @@
                       <div class="col md 5">
                         <h1>Edit Data</h1>
                         <hr>
+                        <form method="POST" action="{{route('updateuser',['id'=>$user->id])}}">
+                        @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Nama Lengkap</label>
                             <div class="col-md-6">
@@ -76,6 +78,7 @@
                                   <button type="button" class="btn btn-primary">Perbarui</button>
                             </div>
                         </div>
+                    </form>
                       </div>
                     </div>
                       </div>
