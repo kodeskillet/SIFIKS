@@ -38,12 +38,12 @@
               </div>
               <br>
               <h2 class="font-weight-bold"> Profil Rumah Sakit</h2>
-              <p>RS Premier Jatinegara secara resmi menggantikan nama RS Mitra Internasional mulai 12 Agustus 2010. RS Premier Jatinegara adalah sebuah rumah sakit swasta yang menjadi rujukan pelayanan kesehatan bagi dokter dan masyarakat yang membutuhkan. Beroperasi sejak 25 Maret 1989, RS Premier Jatinegara merupakan salah satu rumah sakit swasta terkemuka di Jakarta Timur yang memiliki keunggulan termasuk di dalamnya komitmen terhadap mutu, kemudahan akses, kualitas pelayanan, kelengkapan spesialistik dan alat penunjang medis.</p>
-              <p>Cakupan layanan kesehatan yang diberikan oleh RS Premier Jatinegara berbasis pada layanan Satu Atap di mana konsultasi dokter, pemeriksaan penunjang, tindakan operatif, layanan rawat inap hingga pasca rawat inap dapat dilakukan di RS Premier Jatinegara. RS Premier Jatinegara memberikan pelayanan kesehatan untuk pertama kali pada 25 Maret 1989.</p>
-              <p>RS Premier Jatinegara memiliki kapasitas 280 tempat tidur dengan fasilitas NICU/PICU (ICU untuk bayi dan anak), ruang perawatan khusus anak, ruang perawatan Stroke Unit, USG 3 D Dynamic, MRI 1,5 Tesla, MSCT Scan, fasilitas gedung parkir, fasilitas gedung rawat jalan.</p>
-              <p>Adapun layanan unggulan yang diberikan RS Premier Jatinegara, meliputi Kedokteran Umum, Kedokteran Gigi, Onkologi, Ginekologi, Pediatri, Kedokteran Kulit & Estetik (Kecantikan), promotif dan preventif, Rehabilitasi Medis, Endokrinologi, Optalmologi, Psikiatri, Rheumatologi, THT, Ortopedi, Neurologi, dan Gizi Klinik.</p>
+              <p>Theux Hospital Jombang secara resmi menggantikan nama RS Mitra Internasional mulai 12 Agustus 2010. Theux Hospital Jombang adalah sebuah rumah sakit swasta yang menjadi rujukan pelayanan kesehatan bagi dokter dan masyarakat yang membutuhkan. Beroperasi sejak 25 Maret 1989, Theux Hospital Jombang merupakan salah satu rumah sakit swasta terkemuka di Jakarta Timur yang memiliki keunggulan termasuk di dalamnya komitmen terhadap mutu, kemudahan akses, kualitas pelayanan, kelengkapan spesialistik dan alat penunjang medis.</p>
+              <p>Cakupan layanan kesehatan yang diberikan oleh Theux Hospital Jombang berbasis pada layanan Satu Atap di mana konsultasi dokter, pemeriksaan penunjang, tindakan operatif, layanan rawat inap hingga pasca rawat inap dapat dilakukan di Theux Hospital Jombang. Theux Hospital Jombang memberikan pelayanan kesehatan untuk pertama kali pada 25 Maret 1989.</p>
+              <p>Theux Hospital Jombang memiliki kapasitas 280 tempat tidur dengan fasilitas NICU/PICU (ICU untuk bayi dan anak), ruang perawatan khusus anak, ruang perawatan Stroke Unit, USG 3 D Dynamic, MRI 1,5 Tesla, MSCT Scan, fasilitas gedung parkir, fasilitas gedung rawat jalan.</p>
+              <p>Adapun layanan unggulan yang diberikan Theux Hospital Jombang, meliputi Kedokteran Umum, Kedokteran Gigi, Onkologi, Ginekologi, Pediatri, Kedokteran Kulit & Estetik (Kecantikan), promotif dan preventif, Rehabilitasi Medis, Endokrinologi, Optalmologi, Psikiatri, Rheumatologi, THT, Ortopedi, Neurologi, dan Gizi Klinik.</p>
               <h3 class="font-weight-bold"> Lokasi</h3>
-              <p>Jl. Raya Jatinegara Timur No. 85-87, RT.10/RW.2, Bali Mester, Jatinegara, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13310, Indonesia</p>
+              <p>Jl. Raya Jombang No. 85-87, RT.10/RW.2, Bali Mester, Jombang, Jawa Timur 61481, Indonesia</p>
               <h3 class="font-weight-bold">Layanan Medis</h3>
               <div>
                     <div class="layanan">
@@ -99,6 +99,68 @@
                                   <img src="{{ asset('storage/images/iconair.png') }}" width=18px; height=18px; alt=""> Kolam Renang
                             </div>
                     </div>
+              </div>
+              <h2 class="font-weight-bold">Tarif Kamar Rumah Sakit</h2>
+              <div class="list-group">
+                    <a class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1 font-weight-bold">Premier</h5>
+                            </div>
+                            <p class="mb-1">Mulai dari Rp.3.999.999</p>
+                            <p class="mb-1">Fasilistas :</p>
+                            <p class="mb-1 text-muted">-Tempat Tidur Elektrik</p>
+                            <p class="mb-1 text-muted">-Air Conditioner</p>
+                            <p class="mb-1 text-muted">-Kulkas</p>
+                          </a>
+                    <a class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1 font-weight-bold">Premier</h5>
+                            </div>
+                            <p class="mb-1">Mulai dari Rp.3.999.999</p>
+                            <p class="mb-1">Fasilistas :</p>
+                            <p class="mb-1 text-muted">-Tempat Tidur Elektrik</p>
+                            <p class="mb-1 text-muted">-Air Conditioner</p>
+                            <p class="mb-1 text-muted">-Kulkas</p>
+                          </a>
+                    <a class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                  <h5 class="mb-1 font-weight-bold">Premier</h5>
+                                </div>
+                                <p class="mb-1">Mulai dari Rp.3.999.999</p>
+                                <p class="mb-1">Fasilistas :</p>
+                                <p class="mb-1 text-muted">-Tempat Tidur Elektrik</p>
+                                <p class="mb-1 text-muted">-Air Conditioner</p>
+                                <p class="mb-1 text-muted">-Kulkas</p>
+                    </a>
+
+              </div>
+              <h2 class="font-weight-bold">Tindakan Medis</h2>
+              <div class="list-group">
+                    <a class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1 font-weight-bold">Laboratorium</h5>
+                            </div>
+                            <p class="mb-1 text-muted">-Tempat Tidur Elektrik</p>
+                            <p class="mb-1 text-muted">-Air Conditioner</p>
+                            <p class="mb-1 text-muted">-Kulkas</p>
+                          </a>
+                    <a class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1 font-weight-bold">Kedokteran Umum</h5>
+                            </div>
+                            <p class="mb-1 text-muted">-Tempat Tidur Elektrik</p>
+                            <p class="mb-1 text-muted">-Air Conditioner</p>
+                            <p class="mb-1 text-muted">-Kulkas</p>
+                          </a>
+                    <a class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                  <h5 class="mb-1 font-weight-bold">Bedah Umum</h5>
+                                </div>
+                                <p class="mb-1 text-muted">-Tempat Tidur Elektrik</p>
+                                <p class="mb-1 text-muted">-Air Conditioner</p>
+                                <p class="mb-1 text-muted">-Kulkas</p>
+                    </a>
+
               </div>
             </div>
         <div class="col md 2">
