@@ -74,5 +74,16 @@
     padding: 0;
     display: inline-block;
     padding-top: 63px;
+    }
+
+    .layanan {
+    width: 180px;
+    display: inline-block;
+    margin-bottom: 24px;
+    }
+
+    .layanan-icon {
+    float: left;
+    margin-right: 10px;
 }
     </style>
