@@ -65,10 +65,15 @@ Route::prefix('admin')->group( function() {
         'member' => 'MemberController',
         'doctor' => 'DoctorController',
         'specialty' => 'SpecializationController',
-        'room' => 'RoomController',
         'article' => 'ArticleController',
         'hospital' => 'HospitalController',
         'thread' => 'ThreadController',
+    ]);
+
+    //Hospital's Rooms Controller -->
+    Route::get('/room/{room_id}/{hospital_id}/edit', 'RoomController@edit')->name('room.edit');
+    Route::resource('room', 'RoomController')->except([
+        'edit'
     ]);
 
     // Home
