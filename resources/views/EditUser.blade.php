@@ -51,6 +51,24 @@
                             <textarea class="form-control"  name="biography" value="{{$user->biography}}" cols="80" rows="5"></textarea>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">Jenis Kelamin</label>
+                            <div class="col-md-6 p-2">
+                                <!-- Example split danger button -->
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"
+                                    {{ $user->gender == "Laki - laki" ? 'checked' : '' }}
+                                    >
+                                    <label class="form-check-label" for="inlineRadio1">Laki - Laki</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"
+                                    {{ $user->gender == "Perempuan" ? 'checked' : '' }}
+                                    >
+                                    <label class="form-check-label" for="inlineRadio2">Perempuan</label>
+                                </div>
+                            </div>
+                        </div>
                         <br>
                         <div class="form-group row">
                             <label for="name" class="col-md-8 col-form-label text-md-right"></label>
