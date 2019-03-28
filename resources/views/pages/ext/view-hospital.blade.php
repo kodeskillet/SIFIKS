@@ -69,7 +69,7 @@
         <div class="box box-primary">
             <div class="box-header with-border">
                 <strong>Daftar Kamar di {{ $data['hospital']->name }}</strong>
-                <a href="#" class="btn btn-success pull-right">
+                <a href="{{ route('room.create', $data['hospital']->id) }}" class="btn btn-success pull-right">
                     <strong>
                         <i class="fa fa-plus"></i>
                         &nbsp;Tambah Kamar
@@ -122,10 +122,10 @@
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <input type="hidden" name="id" value="">
                                                         <button type="submit" class="btn btn-danger btn-sm">
-                                                            <i class="fa fa-trash-o"></i>
+                                                            <i class="fa fas fa-trash"></i>
                                                         </button>
                                                         <a href="{{ route('room.edit', ['room_id' => $room->id, 'hospital_id' => $data['hospital']->id]) }}" class="btn btn-warning btn-sm">
-                                                            <i class="fa fa-refresh"></i>
+                                                            <i class="fa fas fa-sync"></i>
                                                         </a>
                                                     </form>
                                                 </td>

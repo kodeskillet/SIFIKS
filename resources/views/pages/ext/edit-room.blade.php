@@ -35,7 +35,7 @@
             <div class="form-group row">
                 {{Form::label ('price','Harga per malam(Rp.)',['class'=>'col-md-2 col-form-label text-md-right'])}}
                 <div class="col-md-4">
-                    {{Form::text ('price',$data['room']->price_per_night,['class'=>'form-control float-right'])}}
+                    {{Form::number ('price',$data['room']->price_per_night,['class'=>'form-control float-right'])}}
                     @if($errors->has('price'))
                         <div class="text-danger text-bold">
                             {{$errors->first('price')}}
@@ -52,6 +52,7 @@
                     </div>
                 @endif
             </div>
+            {{Form::hidden('hospital_id', $data['hospital']->id)}}
             {{Form::hidden('_method', 'PUT')}}
             {{Form::submit('Update',['class'=>'btn btn-primary'])}}
             <a href="{{ route('doctor.index') }}" class="btn btn-danger">Batal</a>
