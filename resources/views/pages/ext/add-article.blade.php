@@ -9,7 +9,7 @@
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li><a href="#"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
             <li class="active"><a href="{{ route('article.index') }}">Artikel</a></li>
             <li class="active">Buat Artikel</li>
         </ol>
