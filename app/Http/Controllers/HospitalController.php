@@ -74,11 +74,10 @@ class HospitalController extends Controller
     public function show($id)
     {
         $hospital = Hospital::find($id);
-        $rooms = DB::table('hospitals')
+        $rooms = DB::table('rooms')
             ->selectRaw(DB::raw('rooms.*'))
-            ->leftJoin('room_details', 'hospitals.id', 'room_details.hospital_id')
-            ->leftJoin('rooms', 'hospitals.id', 'room_details.hospital_id')
-            ->where('hospitals.id', '=', $id)
+            ->leftJoin('room_details', 'rooms.id', '=', 'room_details.room_id')
+            ->where('room_details.hospital_id','=',$id)
             ->get();
 
         $data = [
@@ -146,9 +145,6 @@ class HospitalController extends Controller
      */
     public function destroy($id)
     {
-        $hospital = Hospital::find($id);
-        $hospital->delete();
-
-        return redirect (route('hospital.index'));
+        //
     }
 }
