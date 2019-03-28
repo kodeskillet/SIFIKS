@@ -36,7 +36,7 @@
                         <p class="card-text">{!!$art->cutStr($art->content)!!}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a href="{{route('home',['id'=>$art->id])}}"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                                <a href="{{route('article',['id'=>$art->id])}}"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
                             </div>
                             <small class="text-muted">{{$art->created_at}}</small>
                         </div>
