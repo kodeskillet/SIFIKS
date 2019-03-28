@@ -21,7 +21,7 @@
     <section class="content container-fluid">
 
         <!-- Specialty List -->
-        <div class="box">
+        <div class="box box-primary">
             <div class="box-header with-border">
                 <strong>Daftar Spesialis</strong>
                 <div class="pull-right">
@@ -62,9 +62,9 @@
                                             <tr role="row" class="odd">
                                                 <td>{{ $specialty->degree }}</td>
                                                 <td>{{ $specialty->name }}</td>
-                                                <td>
-                                                    <a href="{{ route('specialty.show', $specialty->id) }}" title="Click to show detail">
-                                                        {{ $specialty->trimStr($specialty->detail) }}
+                                                <td class="text-center">
+                                                    <a href="{{ route('specialty.show', $specialty->id) }}" class="btn btn-info" title="Click to show detail">
+                                                        <i class="fa fa-eye"></i>
                                                     </a>
                                                 </td>
                                                 <td>{{ $specialty->created_at->format("d M Y") }}</td>

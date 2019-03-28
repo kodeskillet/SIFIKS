@@ -15,9 +15,15 @@
     <!-- Main content -->
     <section class="content container-fluid">
 
-        <div class="box">
+        <div class="box box-primary">
             <div class="box-header with-border">
-                <a href={{route('hospital.create')}} class="btn btn-success pull-right"><i class="fa fa-plus"></i>Tambah rumah sakit</a>
+                <strong>Daftar Rumah Sakit</strong>
+                <a href="{{route('hospital.create')}}" class="btn btn-success pull-right">
+                    <strong>
+                        <i class="fa fa-plus"></i>
+                        &nbsp;Tambah Rumah Sakit
+                    </strong>
+                </a>
                 {{--<div class="box-tools pull-right">--}}
                 {{--<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"--}}
                 {{--title="Collapse">--}}
@@ -41,33 +47,39 @@
                                     <tr role="row">
                                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Nama</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Kota</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Alamat</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Biografi</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Pelayanan Medis</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Pelayanan Publik</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Detil</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Ditinjau</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Terakhir diubah</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"></th>
                                     </tr>
                                     </thead>
                                     @foreach($data['hospital'] as $hospital)
                                     <tbody>
                                     <tr role="row" class="odd">
-                                        <td>{{$hospital->name}}</td>
-                                        <td>{{$hospital->City->name}}</td>
-                                        <td>{{$hospital->address}}</td>
-                                        <td>{{$hospital->trimStr($hospital->biography)}}</td>
-                                        <td>{{$hospital->trimStr($hospital->medical_services)}}</td>
-                                        <td>{{$hospital->trimStr($hospital->public_services)}}</td>
-                                        <td><form method="post" action="{{ route('hospital.destroy', $hospital->id) }}">
-                                            @csrf
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            <input type="hidden" name="id" value="{{ $hospital->id }}">
-                                            <button type="submit" class="btn btn-danger btn-sm">
-                                                <i class="fa fa-trash-o"></i>
-                                            </button>  <a href="{{ route('hospital.edit', ['id'=>$hospital->id])}}" class="btn btn-warning btn-sm"><i class="fa fa-refresh"></i></a></td>
+                                        <td>{{ $hospital->name }}</td>
+                                        <td>{{ $hospital->city->name }}</td>
+                                        <td class="text-center">
+                                            <a href="#" class="btn btn-info">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                        </td>
+                                        <td>{{ $hospital->created_at->format("d M Y") }}</td>
+                                        <td>{{ $hospital->updated_at->format("d M Y | h:i") }}</td>
+                                        <td class="text-center">
+                                            <form method="post" action="{{ route('hospital.destroy', $hospital->id) }}">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="id" value="{{ $hospital->id }}">
+                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                    <i class="fa fa-trash-o"></i>
+                                                </button>
+                                                <a href="{{ route('hospital.edit', [ 'id' => $hospital->id]) }}" class="btn btn-warning btn-sm">
+                                                    <i class="fa fa-refresh"></i>
+                                                </a>
+                                            </form>
+                                        </td>
                                     </tr>
                                     </tbody>
-                                    <tfoot>
-                                    </tfoot>
                                     @endforeach
                                     {{$data['hospital']->links()}}
                                 </table>

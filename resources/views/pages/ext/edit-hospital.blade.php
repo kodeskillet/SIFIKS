@@ -60,34 +60,34 @@
                         @endif
                 </div>
             </div>
-            <div class="form-group row">
-                {{Form::label ('biography','Biografi',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                <div class="col-md-4">
-                        {{Form::text('biography',$data['hospital']->biography,['class'=>'form-control float-right','placeholder'=>'Silahkan masukkan biografi rumah sakit'])}}
-                        @if($errors->has('biography'))
-                            <div class="text-danger">
-                                {{$errors->first('biography')}}
-                            </div>
-                        @endif
-                </div>
-            </div>
             <div class="form-group">
-                {{Form::label ('medical_services','Pelayanan Kesehatan',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                {{Form::textarea ('medical_services',$data['hospital']->medical_services,['class'=>'form-control'])}}
+                {{Form::label ('biography','Biografi')}}
+                {{Form::textarea('biography', $data['hospital']->biography ,['class'=> ['ckdefault', 'form-control']])}}
+                @if($errors->has('biography'))
+                    <div class="text-danger">
+                        {{$errors->first('biography')}}
+                    </div>
+                @endif
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    {{Form::label ('medical_services','Pelayanan Kesehatan')}}
+                    {{Form::textarea ('medical_services', $data['hospital']->medical_services ,['id' => 'ckmini1', 'class' => ['form-control']])}}
                     @if($errors->has('medical_services'))
                         <div class="text-danger">
                             {{$errors->first('medical_services')}}
                         </div>
                     @endif
-            </div>
-            <div class="form-group">
-                {{Form::label ('public_services','Pelayanan Publik',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                {{Form::textarea ('public_services',$data['hospital']->public_services,['class'=>'form-control'])}}
+                </div>
+                <div class="form-group col-md-6">
+                    {{Form::label ('public_services','Pelayanan Publik')}}
+                    {{Form::textarea ('public_services', $data['hospital']->public_services ,['id' => 'ckmini2', 'class' => ['form-control']])}}
                     @if($errors->has('public_services'))
                         <div class="text-danger">
                             {{$errors->first('public_services')}}
                         </div>
                     @endif
+                </div>
             </div>
             {{Form::hidden('_method','PUT')}}
             {{Form::submit('Update',['class'=>'btn btn-primary'])}}

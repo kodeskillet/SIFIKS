@@ -47,7 +47,7 @@
 
             <div class="form-group">
                 {{Form::label ('detail','Detil Spesialis')}}
-                {{Form::textarea ('detail','',['class' => ['form-control', 'ckeditor'],'placeholder' => 'Masukkan detil spesialis'])}}
+                {{Form::textarea ('detail','',['class' => ['form-control', 'ckdefault'],'placeholder' => 'Masukkan detil spesialis'])}}
                 @if($errors->has('detail'))
                     <br>
                     <div class="text-danger">
