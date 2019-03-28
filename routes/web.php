@@ -39,6 +39,10 @@ Route::get('/listdoctor', function() {
     return view('listDoctor');
 });
 
+Route::get('/viewhospital', function() {
+    return view('viewhospital');
+});
+
 Route::get('/listhospital', function() {
     return view('listHospital');
 });
