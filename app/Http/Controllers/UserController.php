@@ -51,4 +51,8 @@ class UserController extends Controller
         return redirect(route('user',['id'=>$user->id]));
 
     }
+
+    public function editpassword($id){
+
+    }
 }

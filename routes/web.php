@@ -53,7 +53,7 @@ Route::prefix('home')->group(function(){
     Route::get('/{id}','UserController@show')->name('user');
     Route::get('/{id}/edit','UserController@edit')->name('edituser');
     Route::put('/{id}','UserController@update')->name('updateuser');
-
+    Route::get('/{id}/editpassword','UserController@editpassword')->name('passworduser');
 });
 // Admin Privileges ======================================================>
 Route::prefix('admin')->group( function() {
