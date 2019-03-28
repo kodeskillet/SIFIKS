@@ -11,15 +11,15 @@
                     {{-- Yang dibawah itu bentuknya square --}}
                     {{-- <img src="{{ asset('storage/images/test1.jpg') }}" class="card-img-top" alt="..."> --}}
                     <div class="card-body card-user-profile-inner">
-                      
+
                       <h5 class="text-center text-info">Alfaza Satria Jalasena</h5>
                       <br>
                       <p class="card-text">Bio</p>
                       <div class="card-user-profile">Flying-Coders Crew</div>
-                      
+
                       <p class="card-text">Email</p>
                       <div class="card-user-profile">alfazasatria8@gmail.com</div>
-                      
+
                       <p class="card-text">Diskusi</p>
                       <div class="card-user-profile">1</div>
                       <a class="btn btn-primary" href="/User" role="button">Diskusi</a>
@@ -35,7 +35,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">Nama Lengkap</label>
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="" required="" autofocus="">
-        
+
                             </div>
                         </div>
                         <br>
@@ -50,7 +50,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">Kata Sandi Baru</label>
                             <div class="col-md-6">
                                 <input id="name" type="password" class="form-control" name="name" value="" required="" autofocus="" placeholder="Kata Sandi Baru">
-        
+
                             </div>
                         </div>
                         <br>
@@ -71,7 +71,7 @@
                     </div>
                       </div>
     </div>
-    
+
 
 </div>
 

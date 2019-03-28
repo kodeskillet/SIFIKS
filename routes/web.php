@@ -33,7 +33,7 @@ Route::get('/User', function() {
 
 Route::get('/User/Edit', function() {
     return view('EditUser');
-});
+})->name('edituser');
 
 Route::get('/listdoctor', function() {
     return view('listDoctor');
