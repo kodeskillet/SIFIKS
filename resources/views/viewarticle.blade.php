@@ -20,6 +20,7 @@
                     <strong>Author:</strong> {{$article->writer}},
                 </p>
                 <p><strong>Published:</strong> {{$article->created_at}}</p>
+                <a href="/"><button class="btn btn-primary">Back</button></a>
 
             </article>
         </div>
