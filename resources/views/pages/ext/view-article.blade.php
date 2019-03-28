@@ -12,7 +12,7 @@
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
             <li class="active"><a href="{{ route('article.index') }}">Artikel</a></li>
-            <li class="active">Preview<small>({{ $article->id }})</small></li>
+            <li class="active">{{ $article->title }}<small>(Preview)</small></li>
         </ol>
     </section>
 

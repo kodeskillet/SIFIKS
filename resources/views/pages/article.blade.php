@@ -66,7 +66,7 @@
 
                                                 </td>
                                                 <td>{{ $article->created_at->format("d M Y") }}</td>
-                                                <td>{{ $article->updated_at->format("d M Y | h:i A") }}</td>
+                                                <td>{{ $article->updated_at->diffForHumans() }}</td>
                                                 <td class="text-center">
                                                     <form method="post" action="{{ route('article.destroy', $article->id) }}">
                                                         @csrf

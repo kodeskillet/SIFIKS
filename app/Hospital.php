@@ -9,6 +9,10 @@ class Hospital extends Model
     protected $table = 'hospitals';
     protected $primaryKey = 'id';
     public $timestamps = true;
+    protected $dates = [
+        'created_at',
+        'updated_at'
+    ];
 
     public function city() {
         return $this->belongsTo('App\City','city_id');

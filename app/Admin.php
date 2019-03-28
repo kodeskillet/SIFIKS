@@ -39,6 +39,11 @@ class Admin extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $dates = [
+        'created_at',
+        'updated_at'
+    ];
+
     public function article() {
         return $this->hasMany('App\Articles');
     }

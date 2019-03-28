@@ -65,7 +65,7 @@
                                         <td>{{ $doctor->city_id }}</td>
                                         <td>{{ $doctor->email }}</td>
                                         <td>{{ $doctor->created_at->format("d M Y") }}</td>
-                                        <td>{{ $doctor->updated_at->format("d M Y | h:i") }}</td>
+                                        <td>{{ $doctor->updated_at->diffForHumans() }}</td>
                                         <td class="text-center">
                                             <form method="post" action="{{ route('doctor.destroy', $doctor->id) }}">
                                                 @csrf

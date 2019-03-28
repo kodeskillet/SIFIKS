@@ -68,7 +68,7 @@
                                                     </a>
                                                 </td>
                                                 <td>{{ $specialty->created_at->format("d M Y") }}</td>
-                                                <td>{{ $specialty->updated_at->format("d M Y | h:i") }}</td>
+                                                <td>{{ $specialty->updated_at->diffForHumans() }}</td>
                                                 <td class="text-center">
                                                     <form method="post" action="{{ route('specialty.destroy', $specialty->id) }}">
                                                         @csrf

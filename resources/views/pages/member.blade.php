@@ -34,6 +34,7 @@
                                         <th class="sorting-asc">Nama</th>
                                         <th class="sorting">Email</th>
                                         <th class="sorting">Bergabung</th>
+                                        <th class="sorting">Terakhir diubah</th>
                                         <th class="sorting text-center" title="Via Google OAuth"><i class="fa fa-google fa-lg"></i></th>
                                         <th class="sorting">Status</th>
                                         <th class="sorting"></th>
@@ -45,6 +46,7 @@
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->created_at->format("d M Y") }}</td>
+                                        <td>{{ $user->updated_at->diffForHumans() }}</td>
                                         <td class="text-center">
                                             @if($user->provider_id != null)
                                                 <strong><i class="fa fa-check text-green"></i> </strong>

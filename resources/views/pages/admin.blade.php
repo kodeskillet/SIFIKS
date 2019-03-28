@@ -50,7 +50,7 @@
                                         <td>{{ $admin->name }}</td></td>
                                         <td>{{ $admin->email }}</td>
                                         <td>{{ $admin->created_at->format("d M Y") }}</td>
-                                        <td>{{ $admin->updated_at->format("d M Y | h:i A") }}</td>
+                                        <td>{{ $admin->updated_at->diffForHumans() }}</td>
                                     </tr>
                                     </tbody>
                                     @endforeach
