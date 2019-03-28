@@ -27,9 +27,9 @@ Route::get('/SearchRS', function() {
     return view('SearchRS');
 });
 
-Route::get('/User', function() {
-    return view('userlayout');
-});
+// Route::get('/User', function() {
+//     return view('userlayout');
+// });
 
 // Route::get('/User/Edit', function() {
 //     return view('EditUser');
@@ -48,6 +48,7 @@ Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.ar
 Auth::routes();
 
 Route::get('/home', 'UserController@index')->name('home');
+Route::get('/home/{id}','UserController@show')->name('user');
 Route::get('/home/{id}/edit','UserController@edit')->name('edituser');
 
 // Admin Privileges ======================================================>

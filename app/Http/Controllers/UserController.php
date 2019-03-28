@@ -27,8 +27,13 @@ class UserController extends Controller
         return view('home');
     }
 
+    public function show ($id){
+        $user = User::find($id);
+        return view('userlayout')->with('user',$user);
+    }
+
     public function edit($id){
         $user = User::find($id);
-        return view ('EditUser')->with($user);
+        return view ('EditUser')->with('user',$user);
     }
 }
