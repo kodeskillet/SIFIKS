@@ -48,7 +48,7 @@ Auth::routes();
 
 Route::prefix('/home')->group(function(){
 
-    Route::get('/', 'UserController@index')->name('display.article');
+    Route::get('/', 'UserController@index')->name('home');
     Route::get('/{id}','UserController@show')->name('user');
     Route::get('/{id}/edit','UserController@edit')->name('edituser');
     Route::put('/{id}','UserController@update')->name('updateuser');
