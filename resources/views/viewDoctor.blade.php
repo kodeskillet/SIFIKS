@@ -11,7 +11,7 @@
             <a href="#" class="text-decoration-none"><h3>Dokter Penyakit Dalam</h3></a>
             <br>
 
-<!-- Profile Doctor -->
+<!-- Doctor Profile -->
             <p class="font-weight-bold">
                 Profil Dokter
             </p>
@@ -25,7 +25,7 @@
             <br>
 <!-- Doctor Education -->
             <p class="font-weight-bold">
-                Profil Dokter
+                Pendidikan Dokter
             </p>
                 
             <p>
@@ -34,7 +34,15 @@
             <p>
                 Sp.PD - Spesialis Penyakit Dalam - Poltekkses Malang, 2019
             </p>
-            
+            <br>
+<!-- Doctor Email -->
+            <p class="font-weight-bold">
+                Email Dokter
+            </p>
+
+            <p>
+                namiraatasya@gmail.com
+            </p>
         
         </div>
 
