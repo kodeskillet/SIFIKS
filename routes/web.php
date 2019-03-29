@@ -122,6 +122,9 @@ Route::get('/admin/profile', function() {
 Route::get('/admin/profile/article', function() {
     return view('/pages/ext/profile-articles');
 });
+Route::get('/admin/profile/edit', function() {
+    return view('/pages/ext/edit-profile');
+});
 
 
 
