@@ -7,7 +7,6 @@
 		<div class="col-sm-12">
             <article>
                 <h1>{{$article->title}}</h1>
-
                 <div>
                     <img src="#">
                     <span>Image source: The WEB</span>
@@ -21,7 +20,6 @@
                 </p>
                 <p><strong>Published:</strong> {{$article->created_at}}</p>
                 <a href="/"><button class="btn btn-primary">Back</button></a>
-
             </article>
         </div>
     </div>
