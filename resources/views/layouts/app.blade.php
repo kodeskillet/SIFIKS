@@ -85,5 +85,25 @@
     .layanan-icon {
     float: left;
     margin-right: 10px;
-}
+    }
+
+    .index-by-letter-button {
+    margin-top: 10px;
+    }
+
+    .index-by-letter-container ul {
+    padding: 20px 0 0 0;
+    margin: 0;
+    overflow: hidden;
+    }
+
+    .menu-children li {
+    width: 312px;
+    height: 70px;
+    list-style-type: none;
+    float: left;
+    font-size: 18px;
+    border-right: 1px solid #dadee4;
+    margin: 0 10px;
+    }
     </style>
