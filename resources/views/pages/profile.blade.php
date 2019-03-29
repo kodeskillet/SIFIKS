@@ -42,7 +42,7 @@
         </div>
         <div class="col col-md-8">
           <div class="box box-widget">
-            
+            @yield('content1')
           </div>
         </div>
     </section>
