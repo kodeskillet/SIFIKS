@@ -23,7 +23,7 @@
                 <p class="text-muted text-center">ahmadsyifaur11@gmail.com</p>
 
                 <a href="" data-toggle="modal" data-target="#modal-default"><p class="text text-center">Change Picture</p></a>
-                <a href="" data-toggle="modal" data-target="#modal-default"><p class="text text-center">Change Password</p></a>
+                <a href="/admin/profile/password"><p class="text text-center">Change Password</p></a>
                 <!-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
                   Change Picture
                 </button> -->

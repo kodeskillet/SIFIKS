@@ -125,6 +125,9 @@ Route::get('/admin/profile/article', function() {
 Route::get('/admin/profile/edit', function() {
     return view('/pages/ext/edit-profile');
 });
+Route::get('/admin/profile/password', function() {
+    return view('/pages/ext/edit-password');
+});
 
 
 
