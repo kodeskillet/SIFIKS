@@ -26,7 +26,7 @@
                 <hr>
                 <ul class="list-group list-group-unbordered sidebar-menu tree" data-widget="tree">
                     <li>
-                        <a href="">
+                        <a href="/admin/profile/edit">
                         <p class="text-center"><b><i class="fa fa-edit "></i> Edit Profile</b></p>
                         </a>
                     </li>
