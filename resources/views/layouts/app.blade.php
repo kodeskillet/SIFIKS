@@ -17,6 +17,7 @@
 @yield('content')
 
 <footer class="foot">
+    <hr>
     {{-- <p class="float-right"><a href="#">Back to top</a></p> --}}
     <p class="text-center">Copyright © 2019 <a href="https://flying-coders.github.io/" target="_blank">Flying Coders</a></p>
 </footer>
