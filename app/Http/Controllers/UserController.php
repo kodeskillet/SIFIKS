@@ -52,6 +52,8 @@ class UserController extends Controller
         $user->biography = $request->input('biography');
         $user->gender = $request->input('gender');
         $user->save();
+
+        return redirect (route('user',['id'=>$user->id]));
     }
 
     public function showarticle($id){
