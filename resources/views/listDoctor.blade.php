@@ -92,7 +92,7 @@
         
 <!-- filter day button -->
             <p>Filter : 
-                <a class="btn btn-light btn-sm border" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                <a class="btn btn-light btn-sm border" data-toggle="collapse" href="\viewdoctorcollapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                     Hari
                 </a>
             </p>
@@ -144,7 +144,7 @@
                     <div class="card-body">
                         <h5 class="card-title">dr. Marsha Hamrah, Sp.A</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-primary">Buat Janji</a>
+                        <a href="\viewdoctor" class="btn btn-primary">Buat Janji</a>
                     </div>
                 </div>
             </div>
@@ -159,7 +159,7 @@
                     <div class="card-body">
                         <h5 class="card-title">dr. Felicia Carissa, Sp.OG</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-primary">Buat Janji</a>
+                        <a href="\viewdoctor" class="btn btn-primary">Buat Janji</a>
                     </div>
                 </div>
             </div>
@@ -174,7 +174,7 @@
                     <div class="card-body">
                         <h5 class="card-title">dr. Key Alexae, Sp.JP</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-primary">Buat Janji</a>
+                        <a href="\viewdoctor" class="btn btn-primary">Buat Janji</a>
                     </div>
                 </div>
             </div>
@@ -189,7 +189,7 @@
                     <div class="card-body">
                         <h5 class="card-title">dr. Namira Atasya, Sp.PD</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-primary">Buat Janji</a>
+                        <a href="\viewdoctor" class="btn btn-primary">Buat Janji</a>
                     </div>
                 </div>
             </div>

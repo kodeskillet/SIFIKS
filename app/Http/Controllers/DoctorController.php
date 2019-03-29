@@ -2,36 +2,160 @@
 
 namespace App\Http\Controllers;
 
+use App\Doctor;
+use App\DoctorDetail;
+use App\DoctorSpecialization;
 use Illuminate\Http\Request;
-use App\Articles;
+use Illuminate\Support\Facades\Hash;
+
 
 class DoctorController extends Controller
 {
-
-    public function __construct()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        $this->middleware('auth:doctor');
-    }
-
-    public function index() {
-        return view('adm-home');
-    }
-
-    public function article() {
-        $articles = Articles::all();
+        $doctor = Doctor::orderBy('name','asc')->paginate(10);
         $data = [
-            'articles' => $articles
+            'role' => session('role'),
+            'doctor' => $doctor,
         ];
-        return view('pages.article')->with('data', $data);
+        return view('pages.doctor')->with('data',$data);
     }
 
-    public function thread() {
-        return view('pages.thread');
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $specialization = DoctorSpecialization::pluck('name', 'id');
+        return view('pages.ext.add-doctor')->with('specialization', $specialization);
     }
 
-    //==============================================CRUD_DOCTOR=============================================
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $this->validate($request,[
+            'specialty' => 'required',
+            'name' => 'required|min:3|max:50',
+            'license' => 'required|min:3|max:191',
+            'email' => 'required',
+            'password' => 'required_with:password_confirmation|same:password_confirmation|min:6',
+            'password_confirmation' => 'min:6'
+        ]);
 
 
+        $doctor = new Doctor;
+        $doctor->name = $request->input('name');
+        $doctor->specialization_id = $request->input('specialty');
+        $doctor->license = $request->input('license');
+        $doctor->email = $request->input('email');
+        $doctor->password = Hash::make($request->password);
 
-    //==============================================CRUD_DOCTOR=============================================
+        if($doctor->save()) {
+            return redirect(route('doctor.index'));
+        }
+
+//        $data = [
+//            'id' => $doctor->id,
+//            'specialty' => $request->input('specialization')
+//        ];
+
+//        if($this->setSpecialty($data)) {
+//            return redirect(route('doctor.index'));
+//        }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $doctor = Doctor::find($id);
+        $data = [
+            'role' => session('role'),
+            'doctor' => $doctor
+        ];
+        return view('pages.ext.edit-dokter')->with('data', $data);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $this->validate($request,[
+            'name' => 'required|min:3|max:50',
+            'password' => 'required_with:password_confirmation|same:password_confirmation|min:6',
+            'password_confirmation' => 'min:6'
+        ]);
+
+        $pass = Hash::make($request->password);
+        $doctor = Doctor::find($id);
+        $doctor->name = $request->input('name');
+        $doctor->password = $pass;
+        $doctor->save();
+        return redirect(route('doctor.index'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $doctor = Doctor::find($id);
+        $doctor->delete();
+
+        return redirect (route('doctor.index'));
+    }
+
+
+    // Set Specialization_id on DoctorDetail
+//    private function setSpecialty($data) {
+//        $specialty = new DoctorDetail();
+//        $specialty->doctor_id = $data['id'];
+//        $specialty->specialization_id = $data['specialty'];
+//
+//        if($specialty->save()) {
+//            return true;
+//        }
+//        return false;
+//    }
+
+    // Set Hospital_id on DoctorDetail
+//    private function setHospital($data) {
+//
+//    }
 }
+

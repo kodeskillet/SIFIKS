@@ -7,7 +7,7 @@
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="/admin"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
+            <li><a href="{{ route('admin.dashboard') }}"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
             <li class="active">Admin</li>
         </ol>
     </section>
@@ -15,16 +15,15 @@
     <!-- Main content -->
     <section class="content container-fluid">
 
-        <div class="box">
+        <div class="box box-primary">
             <div class="box-header with-border">
-                <a href="{{ route('admin.create') }}" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Tambah Admin</a>
-                {{--<div class="box-tools pull-right">--}}
-                {{--<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"--}}
-                {{--title="Collapse">--}}
-                {{--<i class="fa fa-minus"></i></button>--}}
-                {{--<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">--}}
-                {{--<i clasbhbbs="fa fa-times"></i></button>--}}
-                {{--</div>--}}
+                <strong>Daftar Admin</strong>
+                <a href="{{ route('admin.create') }}" class="btn btn-success pull-right">
+                    <strong>
+                        <i class="fa fa-plus"></i>
+                        &nbsp;Daftarkan Admin
+                    </strong>
+                </a>
             </div>
             <div class="box-body">
                 <div class="box-body">
@@ -41,17 +40,17 @@
                                     <tr role="row">
                                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Nama</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Email</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Di buat pada tgl</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Terakhir di update</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Didaftarkan</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Terakhir diubah</th>
                                     </tr>
                                     </thead>
                                     @foreach($data['admin'] as $admin)
                                     <tbody>
                                     <tr role="row" class="odd">
-                                        <td>{{$admin->name}}</td></td>
-                                        <td>{{$admin->email}}</td>
-                                        <td>{{$admin->created_at}}</td>
-                                        <td>{{$admin->updated_at}}</td>
+                                        <td>{{ $admin->name }}</td></td>
+                                        <td>{{ $admin->email }}</td>
+                                        <td>{{ $admin->created_at->format("d M Y") }}</td>
+                                        <td>{{ $admin->updated_at->diffForHumans() }}</td>
                                     </tr>
                                     </tbody>
                                     @endforeach

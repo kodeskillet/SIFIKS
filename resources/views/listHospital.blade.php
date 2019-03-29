@@ -105,9 +105,9 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Siloam Hospitals Bogor</h5>
+                        <h5 class="card-title">Theux Hospital Jombang</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-primary">Buat Janji</a>
+                        <a href="\viewhospital" class="btn btn-primary">Lihat Detail</a>
                     </div>
                 </div>
             </div>
@@ -122,7 +122,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Premiere Hospitals Surabaya</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-primary">Buat Janji</a>
+                        <a href="\viewhospital" class="btn btn-primary">Lihat Detail</a>
                     </div>
                 </div>
             </div>
@@ -137,7 +137,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Metro Hospitals Jakarta</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-primary">Buat Janji</a>
+                        <a href="\viewhospital" class="btn btn-primary">Lihat Detail</a>
                     </div>
                 </div>
             </div>
@@ -152,7 +152,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Yosemite Hospitals Palangkaraya</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-primary">Buat Janji</a>
+                        <a href="\viewhospital" class="btn btn-primary">Lihat Detail</a>
                     </div>
                 </div>
             </div>

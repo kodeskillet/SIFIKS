@@ -15,8 +15,7 @@ class CreateDoctorDetailsTable extends Migration
     {
         Schema::create('doctor_details', function (Blueprint $table) {
             $table->integer('doctor_id');
-            $table->integer('specialization_id')->nullable();
-            $table->integer('hospital_id')->nullable();
+            $table->integer('hospital_id');
             $table->timestamps();
         });
     }

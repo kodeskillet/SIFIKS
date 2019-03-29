@@ -2,15 +2,15 @@
 @section('content')
     <section class="content-header">
         <h1>
-            <a href="{{ route('admin-article') }}" class="btn btn-default">
+            <a href="{{ route('article.index') }}" class="btn btn-default">
                 <i class="fa fa-chevron-left"></i>
             </a>&nbsp;&nbsp;&nbsp;
             Buat Artikel
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
-            <li class="active"><a href="{{ route('admin-article') }}">Artikel</a></li>
+            <li><a href="#"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
+            <li class="active"><a href="{{ route('article.index') }}">Artikel</a></li>
             <li class="active">Buat Artikel</li>
         </ol>
     </section>
@@ -55,7 +55,7 @@
             </div>
             <div class="form-group">
                 {{Form::label ('content','Content')}}
-                {{Form::textarea ('content','',['id'=>'editor1','class'=>'form-control','placeholder' => 'Masukkan Konten'])}}
+                {{Form::textarea ('content','',['class'=>['form-control', 'ckdefault'],'placeholder' => 'Masukkan Konten'])}}
                 @if($errors->has('content'))
                 <br>
                     <div class="text-danger">
@@ -67,8 +67,8 @@
                 {{--{{Form::file('cover_image')}}--}}
             {{--</div>--}}
 
-            {{Form::submit('Add',['class'=>'btn btn-primary'])}}
-            <a href="{{ route('admin-article') }}" class="btn btn-danger">Batal</a>
+            {{Form::submit('Simpan',['class'=>'btn btn-success'])}}
+            <a href="{{ route('article.index') }}" class="btn btn-danger">Batal</a>
             {!! Form::close() !!}
         </div>
     </section>

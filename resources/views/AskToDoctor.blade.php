@@ -23,10 +23,9 @@
                             <input type="text" class="form-control" placeholder="Enter Topic">
                         </div>
                         <div class="form-group">
-                        {{Form::textarea ('content','',['id'=>'editor1','class'=>'form-control','placeholder' => 'Masukkan Konten'])}}
+                        {{Form::textarea ('content','',['class' => ['ckeditor', 'form-control'], 'placeholder' => 'Masukkan Konten'])}}
                         </div>
                         {{Form::submit('Kirim',['class'=>'btn btn-primary'])}}
-                        <a href="{{ route('admin-article') }}" class="btn btn-danger">Batal</a>
                         {!! Form::close() !!}
                     </div>
                     <!-- /.box-body -->
@@ -93,7 +92,4 @@
     <script src="{{ asset("bower_components/admin-lte/dist/js/adminlte.min.js") }}"></script>
     <script src="{{ asset("bower_components/admin-lte/dist/js/demo.js") }}"></script>
     <script src="{{ asset("bower_components/ckeditor/ckeditor.js") }}"></script>
-    <script>
-        CKEDITOR.replace('editor1');
-    </script>
 @endsection

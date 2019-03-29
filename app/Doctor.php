@@ -38,4 +38,28 @@ class Doctor extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $dates = [
+        'created_at',
+        'updated_at'
+    ];
+
+    public function article() {
+        return $this->hasMany('App\Article');
+    }
+
+    public function detail() {
+        return $this->hasMany('App\DoctorDetail');
+    }
+
+    public function specialty() {
+        return $this->belongsTo('App\DoctorSpecialization', 'specialization_id');
+    }
+
+    public function trimStr($str) {
+        if(strlen($str) > 20) {
+            return substr($str, 0, 20)."...";
+        }
+        return $str;
+    }
 }

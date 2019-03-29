@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function() {
-    return view('home');
-});
+// Route::get('/', 'HomeController@index');
+// Route::get('/{id}', 'HomeController@show')->name('display.article');
 
 Route::get('/viewarticle', function() {
     return view('viewarticle');
@@ -27,56 +26,83 @@ Route::get('/SearchRS', function() {
     return view('SearchRS');
 });
 
+// Route::get('/User', function() {
+//     return view('userlayout');
+// });
+
+// Route::get('/User/Edit', function() {
+//     return view('EditUser');
+// })->name('edituser');
+
 Route::get('/listdoctor', function() {
     return view('listDoctor');
+});
+
+Route::get('/viewhospital', function() {
+    return view('viewhospital');
 });
 
 Route::get('/listhospital', function() {
     return view('listHospital');
 });
 
+Route::get('/viewdoctor', function() {
+    return view('viewDoctor');
+});
+
+Route::get('/lihatsemuars', function() {
+    return view('LSRumahSakit');
+});
+
+Route::get('/lihatsemuadokter', function() {
+    return view('LSdoctor');
+});
+
 Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.articles');
 
 Auth::routes();
 
-Route::get('/home', 'UserController@index')->name('home');
+Route::get('/', 'UserController@index');
 
-
+Route::prefix('/home')->group(function(){
+    Route::get('/', 'UserController@index')->name('home');
+    Route::get('/{id}','UserController@show')->name('user');
+    Route::get('/{id}/edit','UserController@edit')->name('edituser');
+    Route::put('/{id}','UserController@update')->name('updateuser');
+    Route::get('/{id}/editpassword','UserController@editpassword')->name('passworduser');
+    Route::get('/view/{id}','UserController@showarticle')->name('article');
+});
 // Admin Privileges ======================================================>
 Route::prefix('admin')->group( function() {
-    // Auth -->
+    // Authentication -->
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 
-    // Pages -->
-    Route::get('/article', 'AdminController@article')->name('admin-article');
-    Route::get('/thread', 'AdminController@thread')->name('admin-thread');
-    Route::get('/admin', 'AdminController@admin')->name('admin-admin');
-    Route::get('/doctor', 'AdminController@doctor')->name('admin-doctor');
-    Route::get('/member', 'AdminController@member')->name('admin-member');
-    Route::get('/hospital', 'AdminController@hospital')->name('admin-hospital');
+    // Admin Controller -->
+    Route::resource('admin', 'AdminController');
+    Route::get('/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 
-    // Create Admin
-    Route::get('/admin/create', 'AdminController@create')->name('admin.create');
-    Route::post('/admin/create','AdminController@store')->name('admin.post');
+    //Resourced Controller -->
+    Route::resources([
+        'member' => 'MemberController',
+        'doctor' => 'DoctorController',
+        'specialty' => 'SpecializationController',
+        'article' => 'ArticleController',
+        'hospital' => 'HospitalController',
+        'thread' => 'ThreadController',
+    ]);
 
-    // Create Doctor
-    Route::get('/doctor/create', 'AdminController@createdoctor')->name('doctor.create');
-    Route::post('/doctor/create','AdminController@storedoctor')->name('doctor.store');
-
-    //Delete Doctor
-    Route::delete('/doctor/{id}','AdminController@destroydoctor')->name('doctor.destroy');
-
-    //Edit Doctor
-    Route::get('/doctor/{id}/edit','AdminController@editdoctor')->name('doctor.edit');
-    Route::put('/doctor/{id}','AdminController@updatedoctor')->name('doctor.update');
-
-    // Article Access
-    Route::resource('articles', 'ArticleController');
-
+    //Hospital's Rooms Controller -->
+    Route::get('/room/{room_id}/{hospital_id}/edit', 'RoomController@edit')->name('room.edit');
+    Route::get('/room/{hospital_id}/room/add', 'RoomController@create')->name('room.create');
+    Route::delete('/room/{room_id}/{hospital_id}/destroy', 'RoomController@destroy')->name('room.destroy');
+    Route::get('/room/{room_id}/{hospital_id}', 'RoomController@show')->name('room.show');
+    Route::resource('room', 'RoomController')->except([
+        'edit', 'create', 'destroy', 'show'
+    ]);
 
     // Home
-    Route::get('/', 'AdminController@index')->name('admin.index');
+    Route::get('/', 'AdminController@dashboard')->name('admin.dashboard');
 });
 // END-OF
 // Admin Privileges ======================================================>
@@ -84,19 +110,18 @@ Route::prefix('admin')->group( function() {
 
 // Doctor Privileges ======================================================>
 Route::prefix('doctor')->group( function() {
-    // Auth -->
+    // Authentication -->
     Route::get('/login', 'Auth\DoctorLoginController@showLoginForm')->name('doctor.login');
     Route::post('/login', 'Auth\DoctorLoginController@login')->name('doctor.login.submit');
 
-    // Pages
-    Route::get('/article', 'DoctorController@article')->name('doctor-article');
-    Route::get('/thread', 'DoctorController@thread')->name('doctor-thread');
+    // Article Access -->
+    Route::resources([
+        'article' => 'ArticleController',
+        'doc' => 'DocController'
+    ]);
 
-    // Article Access
-    Route::resource('articles', 'ArticleController');
-
-    // Home
-    Route::get('/', 'DoctorController@index')->name('doctor-index');
+    // Home -->
+    Route::get('/', 'DoctorController@index')->name('doc.index');
 
 });
 // END-OF
