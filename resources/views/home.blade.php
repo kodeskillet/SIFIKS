@@ -15,7 +15,7 @@
                             <button class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
                         </div>
                     </div>
-                    <a class="btn btn-primary" role="button" href="#">Tanya Dokter</a>
+                    <a class="btn btn-primary" role="button" href="/ask">Tanya Dokter</a>
                     <a class="btn btn-primary" role="button" href="/SearchDokter">Cari Dokter</a>
                     <a class="btn btn-primary" role="button" href="/SearchRS">Cari Rumah Sakit</a>
                 </div>
