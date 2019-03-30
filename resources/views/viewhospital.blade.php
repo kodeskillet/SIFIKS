@@ -101,67 +101,121 @@
                     </div>
               </div>
               <h2 class="font-weight-bold">Tarif Kamar Rumah Sakit</h2>
-              <div class="list-group">
-                    <a class="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                              <h5 class="mb-1 font-weight-bold">Premier</h5>
-                            </div>
-                            <p class="mb-1">Mulai dari Rp.3.999.999</p>
-                            <p class="mb-1">Fasilistas :</p>
-                            <p class="mb-1 text-muted">-Tempat Tidur Elektrik</p>
-                            <p class="mb-1 text-muted">-Air Conditioner</p>
-                            <p class="mb-1 text-muted">-Kulkas</p>
-                          </a>
-                    <a class="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                              <h5 class="mb-1 font-weight-bold">Premier</h5>
-                            </div>
-                            <p class="mb-1">Mulai dari Rp.3.999.999</p>
-                            <p class="mb-1">Fasilistas :</p>
-                            <p class="mb-1 text-muted">-Tempat Tidur Elektrik</p>
-                            <p class="mb-1 text-muted">-Air Conditioner</p>
-                            <p class="mb-1 text-muted">-Kulkas</p>
-                          </a>
-                    <a class="list-group-item list-group-item-action">
-                                <div class="d-flex w-100 justify-content-between">
-                                  <h5 class="mb-1 font-weight-bold">Premier</h5>
-                                </div>
-                                <p class="mb-1">Mulai dari Rp.3.999.999</p>
-                                <p class="mb-1">Fasilistas :</p>
-                                <p class="mb-1 text-muted">-Tempat Tidur Elektrik</p>
-                                <p class="mb-1 text-muted">-Air Conditioner</p>
-                                <p class="mb-1 text-muted">-Kulkas</p>
-                    </a>
-
-              </div>
+              <div class="accordion" id="accordionExample">
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h2 class="mb-0">
+                        <button class="btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Premiere
+                        </button>
+                      </h2>
+                    </div>
+                
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body">
+                        <p>Harga Mulai Dari Rp.3.999.999</p>
+                        <p>Fasilitas :</p>
+                        <p>-AC</p>
+                        <p>-Kulkas</p>
+                        <p>-Kasur Elektrik</p>
+                        <p>-Kamar Mandi</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingTwo">
+                      <h2 class="mb-0">
+                        <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          VVIP
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                      <div class="card-body">
+                        <p>Harga Mulai Dari Rp.2.999.999</p>
+                        <p>Fasilitas :</p>
+                        <p>-AC</p>
+                        <p>-Kulkas</p>
+                        <p>-Kasur Elektrik</p>
+                        <p>-Kamar Mandi</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingThree">
+                      <h2 class="mb-0">
+                        <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          VIP
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                      <div class="card-body">
+                        <p>Harga Mulai Dari Rp.2.799.999</p>
+                        <p>Fasilitas :</p>
+                        <p>-AC</p>
+                        <p>-Kulkas</p>
+                        <p>-Kasur Elektrik</p>
+                        <p>-Kamar Mandi</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               <h2 class="font-weight-bold">Tindakan Medis</h2>
-              <div class="list-group">
-                    <a class="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                              <h5 class="mb-1 font-weight-bold">Laboratorium</h5>
-                            </div>
-                            <p class="mb-1 text-muted">-Tempat Tidur Elektrik</p>
-                            <p class="mb-1 text-muted">-Air Conditioner</p>
-                            <p class="mb-1 text-muted">-Kulkas</p>
-                          </a>
-                    <a class="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                              <h5 class="mb-1 font-weight-bold">Kedokteran Umum</h5>
-                            </div>
-                            <p class="mb-1 text-muted">-Tempat Tidur Elektrik</p>
-                            <p class="mb-1 text-muted">-Air Conditioner</p>
-                            <p class="mb-1 text-muted">-Kulkas</p>
-                          </a>
-                    <a class="list-group-item list-group-item-action">
-                                <div class="d-flex w-100 justify-content-between">
-                                  <h5 class="mb-1 font-weight-bold">Bedah Umum</h5>
-                                </div>
-                                <p class="mb-1 text-muted">-Tempat Tidur Elektrik</p>
-                                <p class="mb-1 text-muted">-Air Conditioner</p>
-                                <p class="mb-1 text-muted">-Kulkas</p>
-                    </a>
-
-              </div>
+              <div class="accordion" id="accordionExample">
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h2 class="mb-0">
+                        <button class="btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Laboratorium
+                        </button>
+                      </h2>
+                    </div>
+                
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body">
+                        <p>Cek Golongan Darah</p>
+                        <p>Fungsi Ginjal</p>
+                        <p>Uji Fungsi Hati</p>
+                        <p>Profil Lemak</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingTwo">
+                      <h2 class="mb-0">
+                        <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Kedokteran Umum
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                      <div class="card-body">
+                        <p>Cek Golongan Darah</p>
+                        <p>Fungsi Ginjal</p>
+                        <p>Uji Fungsi Hati</p>
+                        <p>Profil Lemak</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingThree">
+                      <h2 class="mb-0">
+                        <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Bedah Umum
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                      <div class="card-body">
+                        <p>Cek Golongan Darah</p>
+                        <p>Fungsi Ginjal</p>
+                        <p>Uji Fungsi Hati</p>
+                        <p>Profil Lemak</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
         <div class="col md 2">
             <ul class="side-container">

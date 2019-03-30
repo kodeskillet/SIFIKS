@@ -50,6 +50,14 @@ Route::get('/viewdoctor', function() {
     return view('viewDoctor');
 });
 
+Route::get('/lihatsemuars', function() {
+    return view('LSRumahSakit');
+});
+
+Route::get('/lihatsemuadokter', function() {
+    return view('LSdoctor');
+});
+
 Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.articles');
 
 Auth::routes();
@@ -130,6 +138,20 @@ Route::get('/ask', function() {
 });
 Route::get('/ask-detail', function() {
     return view('DetailQuestions');
+});
+
+Route::get('/admin/profile', function() {
+    return view('/pages/profile');
+});
+
+Route::get('/admin/profile/article', function() {
+    return view('/pages/ext/profile-articles');
+});
+Route::get('/admin/profile/edit', function() {
+    return view('/pages/ext/edit-profile');
+});
+Route::get('/admin/profile/password', function() {
+    return view('/pages/ext/edit-password');
 });
 
 

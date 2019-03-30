@@ -78,9 +78,9 @@
             </div>
           </div>
   </div>
-  <p>
-      <button type="button" class="btn btn-primary ">Lihat Semua</button>
-  </p>
+  
+      <a type="button" class="btn btn-primary " href="/lihatsemuars">Lihat Semua</a>
+  
   
 </div>
     
