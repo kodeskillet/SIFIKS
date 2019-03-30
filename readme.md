@@ -76,7 +76,7 @@ and
     
     npm install
 this will install all the dependencies inside composer.json which is a ``composer`` dependency list, and package.json for ``npm``
->However in order to run composer and npm , you have to be online.
+>However in order to run composer and npm , you have to be <b>online</b>.
 
 <br>
 <br>
