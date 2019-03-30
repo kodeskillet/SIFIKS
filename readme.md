@@ -84,9 +84,9 @@ Once you've done that now you can start migrating the database by doing
     
     php artisan migrate
     
-This will migrate the entire SIFIKS database migrations stored inside the **[/database/migrations](https://github.com/flying-coders/SIFIKS/tree/master/database/migrations)** folder.
+This will migrate the entire SIFIKS database migrations stored inside the [/database/migrations](https://github.com/flying-coders/SIFIKS/tree/master/database/migrations) folder.
 
-Speaking of database , inside **[/database/databank](https://github.com/flying-coders/SIFIKS/tree/master/database/databank)** folder, we've provided you with databanks for populating your tables with boiler data, which is `cities` and `doctor_specializations`, each `.sql` files represent their table names. Of course it is your decision on to using them or not, but if you do want to use them, all you need to do is execute them on your DBMS SQL console with only modifying the database name like the example bellow : 
+Speaking of database , inside [/database/databank](https://github.com/flying-coders/SIFIKS/tree/master/database/databank) folder, we've provided you with databanks for populating your tables with boiler data, which is `cities` and `doctor_specializations`, each `.sql` files represent their table names. Of course it is your decision on to using them or not, but if you do want to use them, all you need to do is execute them on your DBMS SQL console with only modifying the database name like the example bellow : 
 
     # Modify this line based on your database name. e.g 'USE db_sifiks'
     
