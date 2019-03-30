@@ -21,10 +21,10 @@
 
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-            <a class="nav-link" href="/SearchRS">Find Hospital</a>
+            <a class="nav-link" href="/SearchDokter">Cari Dokter</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/SearchDokter">Find Doctor</a>
+            <a class="nav-link" href="/SearchRS">Cari Rumah Sakit</a>
         </li>
     </ul>
     <ul class="navbar-nav">

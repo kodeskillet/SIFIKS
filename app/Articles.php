@@ -35,4 +35,14 @@ class Articles extends Model
         }
         return $str;
     }
+
+    public function getCat($str) {
+        switch ($str) {
+            case "penyakit":    return "Penyakit";      break;
+            case "obat":        return "Obat - obatan"; break;
+            case "hidup-sehat": return "Hidup Sehat";   break;
+            case "keluarga":    return "Keluarga";      break;
+            case "kesehatan":   return "Kesehatan";     break;
+        }
+    }
 }
