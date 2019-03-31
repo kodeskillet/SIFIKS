@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Articles;
 use App\User;
+
 
 class UserController extends Controller
 {
@@ -17,46 +20,85 @@ class UserController extends Controller
     {
         $this->middleware('auth', ['except' => [
             'index',
-            'showarticle'
+            'showArticle'
         ]]);
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    // public function index()
-    // {
-    //     $article = Articles::OrderBy('created_at','asc')->take(5);
-    //     return view('home')->with('article', $article);
-    // }
-
-    public function show ($id){
-        $user = User::find($id);
-        return view('userlayout')->with('user',$user);
+    public function profile() {
+        $data = [
+            'user' => $this->currentUser()
+        ];
+        return view('profile')->with('data', $data);
     }
 
+
     public function edit($id){
-        $user = User::find($id);
-        return view ('EditUser')->with('user',$user);
+        $user = $this->currentUser();
+        if($user->id == $id) {
+            $data = [
+                'user' => $user
+            ];
+            return view ('profile-edit')->with('data', $data);
+        }
+        return redirect()->back();
     }
 
     public function update(Request $request, $id){
         $this->validate($request,[
-            'name' => 'required|min:3'
+            'name' => 'required|min:3',
+            'email' => 'required|email',
+            'image' => 'image|nullable|max:3999'
         ]);
 
-        $user = User::find($id);
-        $user->name = $request->input('name');
-        $user->biography = $request->input('biography');
-        $user->gender = $request->input('gender');
-        $user->save();
+        $img = null;
+        $user = $this->currentUser();
 
-        return redirect (route('user',['id'=>$user->id]));
+        if($request->hasFile('image')) {
+
+            if( $user->profile_picture != "user-default.jpg" &&
+                $user->profile_picture != "user-default-male.png" &&
+                $user->profile_picture != "user-default-female.png") {
+
+                Storage::delete('public/user_images/'.$user->profile_picture);
+            }
+
+            // Get Filename.ext
+            $fileNameWExt = $request->file('image')->getClientOriginalName();
+            // Get Filename
+            $fileName = pathinfo($fileNameWExt, PATHINFO_FILENAME);
+            // Get ext
+            $ext = $request->file('image')->getClientOriginalExtension();
+            // Filename To Store
+            $img = $fileName.'_'.time().'.'.$ext;
+            // Upload Image
+            $path = $request->file('image')->storeAs('public/user_images', $img);
+
+        } elseif($img == "user-default.jpg" || $img == "user-default-male.png" || $img == "user-default-female.png") {
+            if($request->input('gender') == "Laki - laki") {
+                $img = "user-default-male.png";
+            } else {
+                $img = "user-default-female.png";
+            }
+        }
+
+
+        if($this->currentUser()->id == $id) {
+            $user->name = $request->input('name');
+            $user->biography = $request->input('bio');
+            $user->gender = $request->input('gender');
+            if($request->hasFile('image')) {
+                $user->profile_picture = $img;
+            }
+            $user->save();
+
+            return redirect (route('user.profile.edit', ['id' => $id]));
+        }
+
+        return redirect()->back();
     }
 
-    public function showarticle($id){
+    public function showArticle($id)
+    {
         $article = Articles::find($id);
         return view('viewarticle')->with('article',$article);
     }
@@ -65,5 +107,41 @@ class UserController extends Controller
     {
         $article = Articles::orderBy('created_at','desc')->take(3)->get();
         return view('home')->with('article', $article);
+    }
+
+    public function removeImage() {
+        $user = $this->currentUser();
+
+        if( $user->profile_picture != "user-default.jpg" &&
+            $user->profile_picture != "user-default-male.png" &&
+            $user->profile_picture != "user-default-female.png") {
+
+            Storage::delete('public/user_images/'.$user->profile_picture);
+        }
+
+        $user->profile_picture = "user-default.jpg";
+        if($user->save()) {
+            return redirect(route('user.profile.edit', $user->id));
+        }
+    }
+
+    public function destroy() {
+        $user = $this->currentUser();
+        if( $user->profile_picture != "user-default.jpg" &&
+            $user->profile_picture != "user-default-male.png" &&
+            $user->profile_picture != "user-default-female.png") {
+
+            Storage::delete('public/user_images/'.$user->profile_picture);
+        }
+
+        if($user->delete()) {
+            session()->flush();
+            return redirect(route('home'));
+        }
+    }
+
+    private function currentUser() {
+        $current = Auth::guard('web')->user();
+        return $current;
     }
 }
