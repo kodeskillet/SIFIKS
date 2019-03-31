@@ -11,14 +11,17 @@
                 <div class="form-group row justify-content-center">
                     <label for="image" class="col-md-2 col-form-label">Foto Profil</label>
                     <div class="col-md-6">
-                        <div class="row col-md-6 ml-0" style="border: 1px solid #ddd">
-                            <img id="preview" src="{{ asset('storage/user_images/'.$data['user']->profile_picture) }}" class="img-fluid" alt="Foto Anda">
+                        <div class="ml-0 mb-md-4" style="border: 1px solid #ddd; width: 175px; height: 175px">
+                            <label for="image" style="cursor: pointer;">
+                                <img id="preview" src="{{ asset('storage/user_images/'.$data['user']->profile_picture) }}" class="img-fluid" alt="Foto Anda">
+                            </label>
+                            @if($data['user']->profile_picture != "user-default.jpg" && $data['user']->profile_picture != "user-default-male.png" && $data['user']->profile_picture != "user-default-female.png")
+                                <a href="{{ route('user.image.remove') }}" class="btn btn-danger btn-sm form-control">
+                                    <strong>Hapus foto</strong>
+                                </a>
+                            @endif
                         </div>
-                        @if($data['user']->profile_picture != "user-default.jpg")
-                            <a href="{{ route('user.image.remove') }}" class="btn btn-danger btn-sm form-control col-md-6">
-                                <strong>Hapus foto</strong>
-                            </a>
-                        @endif
+
                     </div>
                 </div>
                 <div class="form-group row justify-content-center">
@@ -26,7 +29,7 @@
                     <div class="col-md-6">
                         <div class="custom-file">
                             <input type="file" onchange="previewImage(this)" class="custom-file-input" name="image" id="image" accept="image/x-png,image/gif,image/jpeg">
-                            <label class="custom-file-label" for="picture">Choose file</label>
+                            <label class="custom-file-label" for="picture">Pilih gambar</label>
                         </div>
                     </div>
                 </div>
@@ -75,10 +78,10 @@
             </div>
             <div class="modal-footer">
                 <input type="hidden" name="_method" value="PUT">
-                <button type="submit" class="btn btn-success btn-sm">
+                <button type="submit" class="btn btn-success">
                     <strong>Simpan</strong>
                 </button>
-                <a href="{{ route('user.profile') }}" class="btn btn-danger btn-sm">
+                <a href="{{ route('user.profile') }}" class="btn btn-danger">
                     <strong>Batal</strong>
                 </a>
             </div>
