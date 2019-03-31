@@ -73,8 +73,8 @@ class UserController extends Controller
             // Upload Image
             $path = $request->file('image')->storeAs('public/user_images', $img);
 
-        } elseif($img == "user-default.jpg" || $img == "user-default-male.png" || $img == "user-default-female.png") {
-            if($request->input('gender') == "Laki - laki") {
+        } else {
+            if ($request->input('gender') == "Laki - laki") {
                 $img = "user-default-male.png";
             } else {
                 $img = "user-default-female.png";
@@ -86,9 +86,7 @@ class UserController extends Controller
             $user->name = $request->input('name');
             $user->biography = $request->input('bio');
             $user->gender = $request->input('gender');
-            if($request->hasFile('image')) {
-                $user->profile_picture = $img;
-            }
+            $user->profile_picture = $img;
             $user->save();
 
             return redirect (route('user.profile.edit', ['id' => $id]));
@@ -111,6 +109,7 @@ class UserController extends Controller
 
     public function removeImage() {
         $user = $this->currentUser();
+        $img = null;
 
         if( $user->profile_picture != "user-default.jpg" &&
             $user->profile_picture != "user-default-male.png" &&
@@ -119,7 +118,15 @@ class UserController extends Controller
             Storage::delete('public/user_images/'.$user->profile_picture);
         }
 
-        $user->profile_picture = "user-default.jpg";
+        if( $user->gender != null && $user->gender == "Laki - laki") {
+            $img = "user-default-male.png";
+        } elseif($user->gender != null && $user->gender == "Perempuan") {
+            $img = "user-default-female.png";
+        } else {
+            $img = "user-default.jpg";
+        }
+
+        $user->profile_picture = $img;
         if($user->save()) {
             return redirect(route('user.profile.edit', $user->id));
         }
