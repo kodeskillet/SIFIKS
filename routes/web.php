@@ -71,7 +71,7 @@ Route::prefix('user')->group( function() {
     Route::get('/profile/image/remove', 'UserController@removeImage')->name('user.image.remove');
 });
 Route::resource('user', 'UserController')->except([
-    'index', 'profile', 'edit', 'update', 'editPass', 'updatePass', 'destroy'
+    'show', 'index', 'profile', 'edit', 'update', 'editPass', 'updatePass', 'destroy'
 ]);
 Route::get('/article/{article}', 'UserController@showArticle')->name('user.article.show');
 Route::get('/', 'UserController@index')->name('home');
