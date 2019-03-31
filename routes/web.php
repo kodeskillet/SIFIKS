@@ -62,16 +62,23 @@ Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.ar
 
 Auth::routes();
 
-Route::get('/', 'UserController@index');
-
-Route::prefix('/home')->group(function(){
-    Route::get('/', 'UserController@index')->name('home');
-    Route::get('/{id}','UserController@show')->name('user');
-    Route::get('/{id}/edit','UserController@edit')->name('edituser');
-    Route::put('/{id}','UserController@update')->name('updateuser');
-    Route::get('/{id}/editpassword','UserController@editpassword')->name('passworduser');
-    Route::get('/view/{id}','UserController@showarticle')->name('article');
+// User Privileges =======================================================>
+Route::prefix('user')->group( function() {
+    Route::get('/profile', 'UserController@profile')->name('user.profile');
+    Route::get('/profile/{user}/edit', 'UserController@edit')->name('user.profile.edit');
+    Route::put('/profile/{user}/edit', 'UserController@update')->name('user.profile.edit.submit');
+    Route::delete('/destroy/me', 'UserController@destroy')->name('user.profile.destroy');
+    Route::get('/profile/image/remove', 'UserController@removeImage')->name('user.image.remove');
 });
+Route::resource('user', 'UserController')->except([
+    'index', 'profile', 'edit', 'update', 'editPass', 'updatePass', 'destroy'
+]);
+Route::get('/article/{article}', 'UserController@showArticle')->name('user.article.show');
+Route::get('/', 'UserController@index')->name('home');
+// END-OF
+// User Privileges ======================================================>
+
+
 // Admin Privileges ======================================================>
 Route::prefix('admin')->group( function() {
     // Authentication -->
@@ -122,7 +129,6 @@ Route::prefix('doctor')->group( function() {
 
     // Home -->
     Route::get('/', 'DoctorController@index')->name('doc.index');
-
 });
 // END-OF
 // Doctor Privileges ======================================================>
