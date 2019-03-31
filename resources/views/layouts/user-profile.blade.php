@@ -32,7 +32,7 @@
                             <div class="col-md-12 text-center">
                                 <small class="text-muted">Gender</small>
                                 @if($data['user']->gender == null)
-                                    <p class="text-muted"><i>Gender belum diatur.</i></p>
+                                    <p class="text-muted"><i>belum diatur</i></p>
                                 @else
                                     @if($data['user']->gender == "Laki - laki")
                                         <p class="text-info">
@@ -52,7 +52,7 @@
                             <div class="col-md-12 text-center">
                                 <small class="text-muted">Biografi</small>
                                 @if($data['user']->biography == null || $data['user']->biography == "")
-                                    <p class="text-muted"><i>Biografi belum diisi</i></p>
+                                    <p class="text-muted"><i>belum diatur</i></p>
                                 @else
                                     <p>{!! $data['user']->biography !!}</p>
                                 @endif
