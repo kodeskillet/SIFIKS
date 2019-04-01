@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use function GuzzleHttp\Promise\all;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -139,18 +140,18 @@ class UserController extends Controller
     public function updatePass(Request $request, $id)
     {
         $this->validate($request, [
-            'old' => 'required|min:6',
-            'new' => 'required_with:new_conf|same:new_conf|min:6',
-            'new_conf' => 'required|min:6'
+            'old_password' => 'required|min:6',
+            'new_password' => 'required_with:new_password_confirmation|same:new_password_confirmation|min:6',
+            'new_password_confirmation' => 'required|min:6'
         ]);
 
-        if($this->validatePass($request->input('old'))) {
+        if($this->validatePass($request->input('old_password'))) {
             $user = $this->currentUser();
             if($user->id == $id) {
-                $user->password = Hash::make($request->input('new'));
+                $user->password = Hash::make($request->input('new_password'));
                 $user->save();
 
-                return redirect(route('user.password.edit'));
+                return redirect(route('home'));
             }
         }
 
@@ -243,10 +244,10 @@ class UserController extends Controller
      * @param $pass
      * @return bool
      */
-    private function validatePass($pass) {
+    private function validatePass($pass)
+    {
         $user = $this->currentUser();
-        $pass = Hash::make($pass);
-        if($pass == $user->password) {
+        if(Hash::check($pass, $user->password)) {
             return true;
         }
         return false;
