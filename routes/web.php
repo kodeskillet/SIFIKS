@@ -88,6 +88,7 @@ Route::prefix('admin')->group( function() {
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 
     // Admin Controller -->
+    Route::get('/profile/{admin}', 'AdminController@profile')->name('admin.profile');
     Route::resource('admin', 'AdminController');
     Route::get('/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 
@@ -130,7 +131,7 @@ Route::prefix('doctor')->group( function() {
     ]);
 
     // Home -->
-    Route::get('/', 'DoctorController@index')->name('doc.index');
+    Route::get('/', 'DocController@index')->name('doc.index');
 });
 // END-OF
 // Doctor Privileges ======================================================>
@@ -146,10 +147,6 @@ Route::get('/ask', function() {
 });
 Route::get('/ask-detail', function() {
     return view('DetailQuestions');
-});
-
-Route::get('/admin/profile', function() {
-    return view('/pages/profile');
 });
 
 Route::get('/admin/profile/article', function() {
