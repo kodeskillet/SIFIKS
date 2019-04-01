@@ -2,25 +2,30 @@
 
 @include('layouts.inc.navbar')
 @section('content')
-<div class="container">
-	<div class="row">
-		<div class="col-sm-12">
-            <article>
-                <h1>{{$article->title}}</h1>
-                <div>
-                    <img src="#">
-                    <span>Image source: The WEB</span>
+<div class="container mt-4">
+		<div class="container">
+            <div class="row col-md-12">
+                <div class="col-md-6">
+                    <span class="text-muted">{{ $article->getCat($article->category) }}</span>
+                    <h1> {{ $article->title }} </h1>
+                    <p>
+                        <small>Ditinjau oleh </small>
+                        @if($article->admin_id == null)
+                            <strong>dr. {{ $article->doctor->name }} {{ $article->doctor->specialty->degree  }}</strong>
+                        @else
+                            <strong>Admin</strong>
+                        @endif
+                        <br>
+                        <small>{{ $article->created_at->diffForHumans() }}</small>
+                    </p>
                 </div>
-
-                <p>
-                    {!!$article->content!!}
-                </p>
-                <p>
-                    <strong>Author:</strong> {{$article->writer}},
-                </p>
-                <p><strong>Published:</strong> {{$article->created_at}}</p>
-                <a href="/"><button class="btn btn-primary">Back</button></a>
-            </article>
+            </div>
+            <hr>
+            <div class="row container">
+                <div class="col-md-12">
+                    {!! $article->content !!}
+                </div>
+            </div>
         </div>
     </div>
 </div>
