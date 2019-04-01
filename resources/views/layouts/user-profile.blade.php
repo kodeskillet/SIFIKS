@@ -73,8 +73,13 @@
                             <li class="list-group-item">
                                 <a href="{{ route('user.profile.edit', ['id' => $data['user']->id]) }}">Edit Profil</a>
                             </li>
-                            <li class="list-group-item">
-                                <a href="#">Ubah Password</a>
+                            <li class="list-group-item" title="{{ $data['user']->provider_id != null ? 'Anda terdaftar melalui Google.' : '' }}">
+                                @if($data['user']->provider_id == null)
+                                    <a href="{{ route('user.password.edit', ['id' => $data['user']->id]) }}">Ubah Password</a>
+                                @else
+                                    <span class="text-muted">Ubah Password</span>
+                                    <i class="fab fa-google fa-pull-right mt-1 text-muted"></i>
+                                @endif
                             </li>
                             <li class="list-group-item">
                                 <a class="text-danger" href="{{ route('user.profile.destroy') }}"
