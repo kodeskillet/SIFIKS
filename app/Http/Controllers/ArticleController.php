@@ -49,8 +49,11 @@ class ArticleController extends Controller
         $article->category = $request->input('category');
         $article->title = $request->input('title');
         $article->content = $request->input('content');
-        $article->writer = session('role');
-        $article->writer_id = Auth::guard(session('guard'))->user()->id;
+        if(session('guard') == 'admin') {
+            $article->admin_id = Auth::guard('admin')->user()->id;
+        } else {
+            $article->doctor_id = Auth::guard('doctor')->user()->id;
+        }
 //        $article->cover_image = "fauzan";
         $article->save();
 
