@@ -29,12 +29,12 @@ class Articles extends Model
         'updated_at'
     ];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
+//    /**
+//     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+//     */
     public function admin()
     {
-        return $this->belongsTo('App\Admin', 'writer_id');
+        return $this->belongsTo('App\Admin', 'admin_id', 'id');
     }
 
     /**
@@ -42,7 +42,7 @@ class Articles extends Model
      */
     public function doctor()
     {
-        return $this->belongsTo('App\Doctor', 'writer_id');
+        return $this->belongsTo('App\Doctor', 'doctor_id', 'id');
     }
 
     /**
