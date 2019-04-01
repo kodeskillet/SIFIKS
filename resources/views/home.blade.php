@@ -29,20 +29,18 @@
         <h1>Info Kesehatan Terkini</h1>
         <div class="row">
             @foreach($article as $art)
-            <div class="col-md-4">
+            <a href="{{route('user.article.show',['id'=>$art->id])}}" class="col-md-4 text-decoration-none">
                 <div class="card mb-4 shadow-sm">
-                    <img src="{{ asset('storage/images/dokter.jpg') }}"  alt="Buah" class="img-thumbnail" >
-                    <div class="card-body">
-                        <p class="card-text">{!!$art->cutStr($art->content)!!}</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a href="{{route('user.article.show',['id'=>$art->id])}}"><button type="button" class="btn btn-sm btn-outline-secondary">Lihat Selengkapnya</button></a>
-                            </div>
-                            <small class="text-muted">{{$art->created_at}}</small>
+                    <img src="{{ asset('storage/images/dokter.jpg') }}"  alt="Buah" class="img-fluid" >
+                    <div class="card-body text-black-50">
+                        <h4>{{ $art->title }}</h4>
+                        <p class="card-text">{!! $art->cutStr($art->content) !!}</p>
+                        <div class="d-flex justify-content-end align-items-center">
+                            <small class="text-muted">{{$art->created_at->diffForHumans()}}</small>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
             @endforeach
         </div>
     </div>
