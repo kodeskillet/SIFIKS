@@ -1,5 +1,5 @@
 <p align="center"><img src="https://i.ibb.co/fxTRWgL/sifiks4.png" alt="sifiks4" border="0" width="45%"></p>
-
+[![Build Status](https://travis-ci.com/flying-coders/SIFIKS.svg?branch=master)](https://travis-ci.com/flying-coders/SIFIKS)
 
 ## About SIFIKS
 
