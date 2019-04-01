@@ -69,6 +69,8 @@ Route::prefix('user')->group( function() {
     Route::put('/profile/{user}/edit', 'UserController@update')->name('user.profile.edit.submit');
     Route::delete('/destroy/me', 'UserController@destroy')->name('user.profile.destroy');
     Route::get('/profile/image/remove', 'UserController@removeImage')->name('user.image.remove');
+    Route::get('/profile/password/{user}/edit', 'UserController@editPass')->name('user.password.edit');
+    Route::put('/profile/password/{user}/edit', 'UserController@updatePass')->name('user.password.edit.submit');
 });
 Route::resource('user', 'UserController')->except([
     'show', 'index', 'profile', 'edit', 'update', 'editPass', 'updatePass', 'destroy'
