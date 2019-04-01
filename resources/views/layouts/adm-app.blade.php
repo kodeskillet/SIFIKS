@@ -43,7 +43,7 @@
         <!-- Logo -->
         <a href="
         @if(session('role') == "Doctor")
-            {{ route('doctor-index') }}
+            {{ route('doctor.index') }}
         @else
             {{ route('admin.index') }}
         @endif
@@ -98,7 +98,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="/admin/profile" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="{{ route('admin.profile', Auth::guard('admin')->user()->id ) }}" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
                                     <a  class="btn btn-default btn-flat" href="{{ route('logout') }}"
@@ -161,18 +161,32 @@
                   </a>
                 </li>
                 <li>
-                    <a href="{{ route('article.index') }}">
-                        <i class="fa far fa-newspaper"></i>
-                        <span>Artikel</span>
-                    </a>
+                    @if(session('role') == "Admin")
+                        <a href="{{ '/admin/article' }}">
+                            <i class="fa far fa-newspaper"></i>
+                            <span>Artikel</span>
+                        </a>
+                    @else
+                        <a href="{{ '/doctor/article' }}">
+                            <i class="fa far fa-newspaper"></i>
+                            <span>Artikel</span>
+                        </a>
+                    @endif
                 </li>
                 <li>
-                    <a href="{{ route('thread.index') }}">
-                        <i class="fa far fa-comments"></i>
-                        <span>Forum</span>
-                    </a>
+                    @if(session('role') == "Admin")
+                        <a href="{{ '/admin/thread' }}">
+                            <i class="fa far fa-comments"></i>
+                            <span>Forum</span>
+                        </a>
+                    @else
+                        <a href="{{ '/doctor/thread' }}">
+                            <i class="fa far fa-newspaper"></i>
+                            <span>Artikel</span>
+                        </a>
+                    @endif
                 </li>
-                @if(Auth::guard('admin')->check())
+                @if(session('role') == "Admin")
                     <li>
                         <a href="{{ route('admin.index') }}">
                             <i class="fa fa-user-secret"></i>
