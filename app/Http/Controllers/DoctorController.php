@@ -65,15 +65,6 @@ class DoctorController extends Controller
         if($doctor->save()) {
             return redirect(route('doctor.index'));
         }
-
-//        $data = [
-//            'id' => $doctor->id,
-//            'specialty' => $request->input('specialization')
-//        ];
-
-//        if($this->setSpecialty($data)) {
-//            return redirect(route('doctor.index'));
-//        }
     }
 
     /**
