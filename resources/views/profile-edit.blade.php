@@ -9,7 +9,7 @@
             @csrf
             <div class="modal-body">
                 <div class="form-group row justify-content-center">
-                    <label for="image" class="col-md-2 col-form-label">Foto Profil</label>
+                    <label for="image" class="col-md-3 col-form-label text-md-right">Foto Profil</label>
                     <div class="col-md-6">
                         <div class="ml-0 mb-md-4" style="border: 1px solid #ddd; width: 175px; height: 175px">
                             <label for="image" style="cursor: pointer;">
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="form-group row justify-content-center">
-                    <label for="image" class="col-md-2 col-form-label">&nbsp;</label>
+                    <label for="image" class="col-md-3 col-form-label">&nbsp;</label>
                     <div class="col-md-6">
                         <div class="custom-file">
                             <input type="file" onchange="previewImage(this)" class="custom-file-input" name="image" id="image" accept="image/x-png,image/gif,image/jpeg">
@@ -35,19 +35,19 @@
                 </div>
                 <hr>
                 <div class="form-group row justify-content-center">
-                    <label for="name" class="col-md-2 col-form-label">Nama</label>
+                    <label for="name" class="col-md-3 col-form-label text-md-right">Nama</label>
                     <div class="col-md-6">
                         <input type="text" class="form-control" id="name" name="name" value="{{ $data['user']->name }}">
                     </div>
                 </div>
                 <div class="form-group row justify-content-center">
-                    <label for="email" class="col-md-2 col-form-label">E-mail</label>
+                    <label for="email" class="col-md-3 col-form-label text-md-right">E-mail</label>
                     <div class="col-md-6">
                         <input type="text" class="form-control" id="email" name="email" value="{{ $data['user']->email }}">
                     </div>
                 </div>
                 <div class="form-group row justify-content-center">
-                    <label class="col-md-2 col-form-label">Gender</label>
+                    <label class="col-md-3 col-form-label text-md-right">Gender</label>
                     <div class="col-md-6">
                         <div class="row mt-2">
                             <div class="col-md-4">
@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="form-group row justify-content-center">
-                    <label for="bio" class="col-md-2 col-form-label">Biografi</label>
+                    <label for="bio" class="col-md-3 col-form-label text-md-right">Biografi</label>
                     <div class="col-md-6">
                         <textarea id="bio" name="bio" class="form-control">{{ $data['user']->biography }}</textarea>
                     </div>
