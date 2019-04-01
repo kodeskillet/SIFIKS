@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Articles;
-use App\User;
 
 
 class UserController extends Controller
@@ -24,7 +24,12 @@ class UserController extends Controller
         ]]);
     }
 
-    public function profile() {
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function profile()
+    {
         $data = [
             'user' => $this->currentUser()
         ];
@@ -32,7 +37,12 @@ class UserController extends Controller
     }
 
 
-    public function edit($id){
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
+    public function edit($id)
+    {
         $user = $this->currentUser();
         if($user->id == $id) {
             $data = [
@@ -43,7 +53,32 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    public function update(Request $request, $id){
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function editPass($id)
+    {
+        $user = $this->currentUser();
+        if($user->id == $id) {
+            $data = [
+                'user' => $user
+            ];
+            return view ('profile-password')->with('data', $data);
+        }
+        return redirect()->back();
+    }
+
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function update(Request $request, $id)
+    {
         $this->validate($request,[
             'name' => 'required|min:3',
             'email' => 'required|email',
@@ -95,19 +130,60 @@ class UserController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function updatePass(Request $request, $id)
+    {
+        $this->validate($request, [
+            'old' => 'required|min:6',
+            'new' => 'required_with:new_conf|same:new_conf|min:6',
+            'new_conf' => 'required|min:6'
+        ]);
+
+        if($this->validatePass($request->input('old'))) {
+            $user = $this->currentUser();
+            if($user->id == $id) {
+                $user->password = Hash::make($request->input('new'));
+                $user->save();
+
+                return redirect(route('user.password.edit'));
+            }
+        }
+
+        return redirect()->back();
+    }
+
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showArticle($id)
     {
         $article = Articles::find($id);
         return view('viewarticle')->with('article',$article);
     }
 
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $article = Articles::orderBy('created_at','desc')->take(3)->get();
         return view('home')->with('article', $article);
     }
 
-    public function removeImage() {
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function removeImage()
+    {
         $user = $this->currentUser();
         $img = null;
 
@@ -132,7 +208,12 @@ class UserController extends Controller
         }
     }
 
-    public function destroy() {
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function destroy()
+    {
         $user = $this->currentUser();
         if( $user->profile_picture != "user-default.jpg" &&
             $user->profile_picture != "user-default-male.png" &&
@@ -147,8 +228,27 @@ class UserController extends Controller
         }
     }
 
-    private function currentUser() {
+
+    /**
+     * @return mixed
+     */
+    private function currentUser()
+    {
         $current = Auth::guard('web')->user();
         return $current;
+    }
+
+
+    /**
+     * @param $pass
+     * @return bool
+     */
+    private function validatePass($pass) {
+        $user = $this->currentUser();
+        $pass = Hash::make($pass);
+        if($pass == $user->password) {
+            return true;
+        }
+        return false;
     }
 }
