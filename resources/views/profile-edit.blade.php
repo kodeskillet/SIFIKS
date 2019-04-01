@@ -38,12 +38,22 @@
                     <label for="name" class="col-md-3 col-form-label text-md-right">Nama</label>
                     <div class="col-md-6">
                         <input type="text" class="form-control" id="name" name="name" value="{{ $data['user']->name }}">
+                        @if($errors->has('name'))
+                            <div class="text-danger">
+                                {{$errors->first('name')}}
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <div class="form-group row justify-content-center">
                     <label for="email" class="col-md-3 col-form-label text-md-right">E-mail</label>
                     <div class="col-md-6">
                         <input type="text" class="form-control" id="email" name="email" value="{{ $data['user']->email }}">
+                        @if($errors->has('email'))
+                            <div class="text-danger">
+                                {{$errors->first('email')}}
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <div class="form-group row justify-content-center">
