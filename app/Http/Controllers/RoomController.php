@@ -11,16 +11,6 @@ use App\Room;
 class RoomController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-//    public function index()
-//    {
-//        //
-//    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -145,7 +135,12 @@ class RoomController extends Controller
         }
     }
 
-    private function insertRoomDetails($data) {
+    /**
+     * @param $data
+     * @return bool
+     */
+    private function insertRoomDetails($data)
+    {
         $insert = DB::table('room_details')
             ->insert([
                 'room_id' => $data['room_id'],
@@ -159,7 +154,13 @@ class RoomController extends Controller
         return false;
     }
 
-    private function deleteRoomDetails($room_id, $hospital_id) {
+    /**
+     * @param $room_id
+     * @param $hospital_id
+     * @return bool
+     */
+    private function deleteRoomDetails($room_id, $hospital_id)
+    {
         $delete = DB::table('room_details')
             ->where('room_id', '=', $room_id)
             ->where('hospital_id', '=', $hospital_id)
@@ -172,7 +173,12 @@ class RoomController extends Controller
         return false;
     }
 
-    private function updateHospitalUpdatedAt($id) {
+    /**
+     * @param $id
+     * @return bool
+     */
+    private function updateHospitalUpdatedAt($id)
+    {
         $hospital = Hospital::find($id);
         $hospital->updated_at = Carbon::now();
         if($hospital->save()) {

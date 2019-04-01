@@ -38,6 +38,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @var array
+     */
     protected $dates = [
         'created_at',
         'updated_at'

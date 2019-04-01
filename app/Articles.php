@@ -6,37 +6,75 @@ use Illuminate\Database\Eloquent\Model;
 
 class Articles extends Model
 {
+    /**
+     * @var string
+     */
     protected $table = 'articles';
+
+    /**
+     * @var string
+     */
     public $primaryKey = 'id';
+
+    /**
+     * @var bool
+     */
     public $timestamps = true;
+
+    /**
+     * @var array
+     */
     protected $dates = [
         'created_at',
         'updated_at'
     ];
 
-    public function admin() {
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function admin()
+    {
         return $this->belongsTo('App\Admin', 'writer_id');
     }
 
-    public function doctor() {
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function doctor()
+    {
         return $this->belongsTo('App\Doctor', 'writer_id');
     }
 
-    public function cutStr($str){
+    /**
+     * @param $str
+     * @return string
+     */
+    public function cutStr($str)
+    {
         if (strlen($str) > 200){
             return substr($str,0,200) . "...";
         }
         return $str;
     }
 
-    public function trimStr($str) {
+    /**
+     * @param $str
+     * @return string
+     */
+    public function trimStr($str)
+    {
         if(strlen($str) > 20) {
             return substr($str, 0, 20) . "...";
         }
         return $str;
     }
 
-    public function getCat($str) {
+    /**
+     * @param $str
+     * @return string
+     */
+    public function getCat($str)
+    {
         switch ($str) {
             case "penyakit":    return "Penyakit";      break;
             case "obat":        return "Obat - obatan"; break;

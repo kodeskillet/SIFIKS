@@ -10,13 +10,18 @@ use App\Admin;
 
 class AdminController extends Controller
 {
-
+    /**
+     * AdminController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth:admin');
     }
 
-
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Exception
+     */
     public function dashboard()
     {
         $since = new Carbon(Auth::user()->created_at);
@@ -29,9 +34,12 @@ class AdminController extends Controller
     }
 
 
-    //==============================================================================================================================
-    //======================================================CRUD_ADMIN==============================================================
-    public function index() {
+    /**
+     * START OF ADMIN CRUD
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index()
+    {
         $admin = Admin::all();
         $data = [
             'role' => session('role'),
@@ -40,7 +48,11 @@ class AdminController extends Controller
         return view('pages.admin')->with('data',$data);
     }
 
-    public function create(){
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function create()
+    {
 
         $data = [
             'role' => session('role')
@@ -48,7 +60,13 @@ class AdminController extends Controller
         return view ('pages.ext.add-admin')->with('data',$data);
     }
 
-    public function store(Request $request){
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function store(Request $request)
+    {
         $this->validate($request,[
             'name' => 'required|min:3|max:50',
             'email' => 'required',

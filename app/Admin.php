@@ -13,6 +13,7 @@ class Admin extends Authenticatable
 
     protected $guard = 'admin';
 
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +22,7 @@ class Admin extends Authenticatable
     protected $fillable = [
         'name', 'profile_picture', 'email', 'password',
     ];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -31,6 +33,7 @@ class Admin extends Authenticatable
         'password', 'remember_token',
     ];
 
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -40,16 +43,30 @@ class Admin extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+    /**
+     * @var array
+     */
     protected $dates = [
         'created_at',
         'updated_at'
     ];
 
-    public function article() {
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function article()
+    {
         return $this->hasMany('App\Articles');
     }
 
-    public function getGreetings() {
+
+    /**
+     * @return string
+     */
+    public function getGreetings()
+    {
         $h = Carbon::now()->format('H');
 
         if ($h >= 0 && $h < 6) {

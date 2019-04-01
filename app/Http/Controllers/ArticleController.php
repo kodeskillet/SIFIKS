@@ -11,34 +11,32 @@ use App\Doctor;
 
 class ArticleController extends Controller
 {
-
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $articles = Articles::orderBy('category','asc')->paginate(5);
-//        $writer = array();
-//
-//        foreach ($articles as $article) {
-//            if($article->writer == 'Admin') {
-//                array_push($writer, Admin::where('id', $article->writer_id)->name);
-//            } else {
-//
-//            }
-//        }
-
         $data = [
             'articles' => $articles
         ];
 
-        return view('pages.article')->with('data',$data);
+        return view('pages.article')->with('data', $data);
     }
 
-
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         return view('pages.ext.add-article');
     }
 
-
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function store(Request $request)
     {
         $this->validate($request,[
@@ -59,7 +57,10 @@ class ArticleController extends Controller
         return redirect ('/admin/article');
     }
 
-
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show($id)
     {
         $article = Articles::find($id);
@@ -72,7 +73,10 @@ class ArticleController extends Controller
         return view('pages.ext.view-article')->with('article', $article);
     }
 
-
+    /**
+     * @param $cat
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function listByCat($cat)
     {
         $category = null;
@@ -104,7 +108,10 @@ class ArticleController extends Controller
         return view('articles')->with('data', $data);
     }
 
-
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit($id)
     {
         $article = Articles::find($id);
@@ -114,7 +121,12 @@ class ArticleController extends Controller
         return view('pages.ext.edit-article')->with('data', $data);
     }
 
-
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function update(Request $request, $id)
     {
         $this->validate($request,[
@@ -134,7 +146,10 @@ class ArticleController extends Controller
         return redirect (route('article.index'));
     }
 
-
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function destroy($id)
     {
         $article = Articles::find($id);
