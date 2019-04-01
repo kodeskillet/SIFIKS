@@ -86,6 +86,25 @@ class AdminController extends Controller
     }
 
 
+    public function profile($id)
+    {
+        $admin = $this->currentUser();
+        if ($admin->id == $id) {
+            $data = [
+                'admin' => $admin
+            ];
+            return view('pages.profile')->with('data', $data);
+        }
+    }
+
+
+    /**
+     * @return mixed
+     */
+    private function currentUser()
+    {
+        return Auth::guard('admin')->user();
+    }
 
 
 }
