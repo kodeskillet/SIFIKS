@@ -45,4 +45,15 @@ class User extends Authenticatable
         'created_at',
         'updated_at'
     ];
+
+    /**
+     * @param string $str
+     */
+    public function trimStr(string $str)
+    {
+        if(strlen($str) > 50) {
+            return substr($str, '0', '50')."...";
+        }
+        return $str;
+    }
 }
