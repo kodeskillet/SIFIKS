@@ -89,6 +89,8 @@ Route::prefix('admin')->group( function() {
 
     // Admin Controller -->
     Route::get('/profile/{admin}', 'AdminController@profile')->name('admin.profile');
+    Route::get('/profile/{admin}/edit', 'AdminController@editProfile')->name('admin.profile.edit');
+    Route::put('/profile/{admin}/edit', 'AdminController@updateProfile')->name('admin.profile.edit.submit');
     Route::resource('admin', 'AdminController');
     Route::get('/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 
@@ -127,11 +129,16 @@ Route::prefix('doctor')->group( function() {
     // Article Access -->
     Route::resources([
         'article' => 'ArticleController',
-        'doc' => 'DocController'
+        'thread' => 'ThreadController'
     ]);
 
+
+    // Doc Controller -->
+
+
+
     // Home -->
-    Route::get('/', 'DocController@index')->name('doc.index');
+    Route::get('/', 'DocController@dashboard')->name('doc.dashboard');
 });
 // END-OF
 // Doctor Privileges ======================================================>
