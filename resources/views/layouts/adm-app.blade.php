@@ -79,13 +79,13 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="/bower_components/admin-lte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            <img src="{{ asset('storage/user_images/user-default.jpg') }}" class="user-image" alt="User Image">
                             <span class="hidden-xs">{{ Auth::guard(session('guard'))->user()->name }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="/bower_components/admin-lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <img src="{{ asset('storage/user_images/user-default.jpg') }}" class="img-circle" alt="User Image">
 
                                 <p>
                                     {{ Auth::guard(session('guard'))->user()->name }}
@@ -98,13 +98,23 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="{{ route('admin.profile', Auth::guard('admin')->user()->id ) }}" class="btn btn-default btn-flat">Profile</a>
+                                    @if(session('role') == "Admin" && Auth::guard('admin')->check())
+                                        <a href="{{ route('admin.profile', Auth::guard('admin')->user()->id ) }}" class="btn btn-default btn-flat">
+                                            <i class="fa far fa-user"></i>
+                                            &nbsp;Profil
+                                        </a>
+                                    @elseif(session('role') == "Doctor" && Auth::guard('doctor')->check())
+                                        <a href="#" class="btn btn-default btn-flat">
+                                            <i class="fa far fa-user"></i>
+                                            &nbsp;Profil
+                                        </a>
+                                    @endif
                                 </div>
                                 <div class="pull-right">
-                                    <a  class="btn btn-default btn-flat" href="{{ route('logout') }}"
+                                    <a  class="btn btn-danger" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                        {{ __('Sign Out') }}
+                                        {{ __('Logout') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -128,7 +138,7 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="/bower_components/admin-lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="{{ asset('storage/user_images/user-default.jpg') }}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>{{ Auth::guard(session('guard'))->user()->name }}</p>
@@ -150,23 +160,25 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header text-center">WORKING SPACE</li>
                 <li>
-                    <a href="
-                        @if(Auth::guard('admin')->check())
-                            {{ route('admin.dashboard') }}
-                        @else
-                            #
-                        @endif
-                    ">
-                    <i class="fa fas fa-tachometer-alt"></i> <span>Dashboard</span>
-                  </a>
+                    @if(session('role') == "Admin" && Auth::guard('admin')->check())
+                        <a href="{{ route('admin.dashboard') }}">
+                            <i class="fa fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    @elseif(session('role') == "Doctor" && Auth::guard('doctor')->check())
+                        <a href="{{ route('doc.dashboard') }}">
+                            <i class="fa fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    @endif
                 </li>
                 <li>
-                    @if(session('role') == "Admin")
+                    @if(session('role') == "Admin" && Auth::guard('admin')->check())
                         <a href="{{ '/admin/article' }}">
                             <i class="fa far fa-newspaper"></i>
                             <span>Artikel</span>
                         </a>
-                    @else
+                    @elseif(session('role') == "Doctor" && Auth::guard('doctor')->check())
                         <a href="{{ '/doctor/article' }}">
                             <i class="fa far fa-newspaper"></i>
                             <span>Artikel</span>
@@ -174,15 +186,15 @@
                     @endif
                 </li>
                 <li>
-                    @if(session('role') == "Admin")
+                    @if(session('role') == "Admin" && Auth::guard('admin')->check())
                         <a href="{{ '/admin/thread' }}">
                             <i class="fa far fa-comments"></i>
                             <span>Forum</span>
                         </a>
-                    @else
+                    @elseif(session('role') == "Doctor" && Auth::guard('doctor')->check())
                         <a href="{{ '/doctor/thread' }}">
-                            <i class="fa far fa-newspaper"></i>
-                            <span>Artikel</span>
+                            <i class="fa far fa-comments"></i>
+                            <span>Forum</span>
                         </a>
                     @endif
                 </li>

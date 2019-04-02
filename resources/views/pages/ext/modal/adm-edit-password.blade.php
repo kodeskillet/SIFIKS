@@ -4,18 +4,30 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">Change Picture</h4>
+                <h4 class="modal-title">Ubah Password</h4>
             </div>
             <div class="modal-body">
-                <img class="center" src="/bower_components/admin-lte/dist/img/user4-128x128.jpg" alt="User profile picture">
-                <div class="form-group">
-                    <label for="exampleInputFile">Import From PC</label>
-                    <input type="file" id="exampleInputFile">
-                </div>
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="form-group">
+                                <label for="old">Password Lama</label>
+                                <input type="password" class="form-control" id="old"/>
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <label for="new">Password Baru</label>
+                                <input type="password" class="form-control" id="new"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="new_conf">Konfirmasi</label>
+                                <input type="password" class="form-control" id="new_conf"/>
+                            </div>
+                        </div>
+                    </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-success">Simpan</button>
             </div>
         </div>
     </div>

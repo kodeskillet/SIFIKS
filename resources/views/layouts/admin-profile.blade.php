@@ -17,21 +17,26 @@
         <div class="col col-md-3">
             <div class="box box-primary">
                 <div class="box-body box-profile">
-                    <img class="profile-user-img img-responsive img-circle" src="/bower_components/admin-lte/dist/img/user4-128x128.jpg" alt="User profile picture">
-                    <h3 class="profile-username text-center">{{ $data['admin']->name }}</h3>
-                    <p class="text-muted text-center">{{ $data['admin']->email }}</p>
+                    <img class="profile-user-img img-responsive img-circle" src="{{ asset('storage/user_images/user-default.jpg') }}" alt="User profile picture">
+                    <h3 class="profile-username text-center">
+                        {{ $data[session('guard')]->name }}
+                        <p class="text-muted text-center"><small>{{ $data[session('guard')]->email }}</small></p>
+                    </h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="#">
+                            <a href="{{ route('admin.profile', $data[session('guard')]->id) }}">
                                 <b>Artikel anda</b>
-                                <span class="pull-right">
-                                    {{ count($data['admin']->article) }}
+                                <span class="pull-right text-bold">
+                                    {{ count($data[session('guard')]->article) }}
                                 </span>
                             </a>
                         </li>
                         <li class="list-group-item">
                             <a href="#">
                                 <b>Log Aktivitas</b>
+                                <span class="pull-right">
+                                    <i class="fas fa-chart-line"></i>
+                                </span>
                             </a>
                         </li>
                     </ul>
@@ -39,7 +44,7 @@
                 <div class="box-footer text-center">
                     <ul class="list-group list-group-unbordered">
                         <li class="list-group-item">
-                            <a href="#">Edit Profil</a>
+                            <a href="{{ route('admin.profile.edit', $data[session('guard')]->id) }}">Edit Profil</a>
                         </li>
                         <li class="list-group-item">
                             <a href="#" data-toggle="modal" data-target="#editPassword">Ubah Password</a>
@@ -51,7 +56,7 @@
                 </div>
             </div>
         </div>
-        <div class="col col-md-8">
+        <div class="col col-md-9">
             <div class="box box-widget">
                 @yield('admin-content')
             </div>
@@ -59,4 +64,5 @@
     </section>
 
     @include('pages.ext.modal.adm-edit-password')
+
 @endsection

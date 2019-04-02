@@ -49,17 +49,17 @@
                             </div>
                         </div>
                         <div class="row justify-content-center">
-                            <div class="col-md-12 text-center">
+                            <div class="col-md-8 text-center">
                                 <small class="text-muted">Biografi</small>
                                 @if($data['user']->biography == null || $data['user']->biography == "")
                                     <p class="text-muted"><i>belum diatur</i></p>
                                 @else
-                                    <p>{!! $data['user']->biography !!}</p>
+                                    <p>{!! $data['user']->trimStr($data['user']->biography) !!}</p>
                                 @endif
                             </div>
                         </div>
                         <div class="row justify-content-center">
-                            <div class="col-md-12 text-center">
+                            <div class="col-md-8 text-center">
                                 <small class="text-muted">Jumlah diskusi</small>
                                 <p style="font-size: 1.4rem;">0</p>
                             </div>
