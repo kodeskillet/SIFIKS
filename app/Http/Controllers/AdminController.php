@@ -95,6 +95,32 @@ class AdminController extends Controller
             ];
             return view('pages.profile')->with('data', $data);
         }
+
+        return redirect()->back();
+    }
+
+
+
+    public function editProfile($id)
+    {
+        $admin = $this->currentUser();
+        if ($admin->id == $id) {
+            $data = [
+                'admin' => $admin
+            ];
+            return view('pages.profile-edit')->with('data', $data);
+        }
+
+        return redirect()->back();
+    }
+
+
+    public function updateProfile(Request $request, $id)
+    {
+        $admin = $this->currentUser();
+        if ($admin->id == $id) {
+            return true;
+        }
     }
 
 
