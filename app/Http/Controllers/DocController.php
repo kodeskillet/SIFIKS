@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DocController extends Controller
 {
@@ -17,13 +19,13 @@ class DocController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function dashboard()
     {
-        $since = new Carbon(Auth::user()->created_at);
+        $since = new Carbon(Auth::guard('doctor')->user()->created_at);
 
         $data = [
             'role' => session('role'),
-            'since' => $since
+            'since' => $since,
         ];
         return view('adm-home')->with('data', $data);
     }
