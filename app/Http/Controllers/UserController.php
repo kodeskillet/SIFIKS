@@ -29,6 +29,16 @@ class UserController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
+    public function index()
+    {
+        $article = Articles::orderBy('created_at','desc')->take(3)->get();
+        return view('home')->with('article', $article);
+    }
+
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function profile()
     {
         $data = [
@@ -51,7 +61,7 @@ class UserController extends Controller
             ];
             return view ('profile-edit')->with('data', $data);
         }
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Anda tidak berhak untuk mengakses laman tersebut.');
     }
 
 
@@ -68,7 +78,7 @@ class UserController extends Controller
             ];
             return view ('profile-password')->with('data', $data);
         }
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Anda tidak berhak untuk mengakses laman tersebut.');
     }
 
 
@@ -125,10 +135,10 @@ class UserController extends Controller
             $user->profile_picture = $img;
             $user->save();
 
-            return redirect (route('user.profile.edit', ['id' => $id]));
+            return redirect (route('user.profile.edit', ['id' => $id]))->with('success', 'Profil berhasil diperbarui !');
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Anda tidak berhak untuk mengakses laman tersebut.');
     }
 
     /**
@@ -145,17 +155,19 @@ class UserController extends Controller
             'new_password_confirmation' => 'required|min:6'
         ]);
 
-        if($this->validatePass($request->input('old_password'))) {
-            $user = $this->currentUser();
-            if($user->id == $id) {
-                $user->password = Hash::make($request->input('new_password'));
-                $user->save();
+        $user = $this->currentUser();
 
-                return redirect(route('home'));
+        if($this->validatePass($request->input('old_password'))) {
+            $user->password = Hash::make($request->input('new_password'));
+
+            if($user->save()) {
+                session()->flush();
+
+                return redirect(route('login'))->with('success', 'Password berhasil diubah ! Silahkan login kembali.');
             }
         }
 
-        return redirect()->back();
+        return redirect(route('user.password.edit', $user->id))->with('failed', 'Password lama tidak cocok.');
     }
 
 
@@ -167,16 +179,6 @@ class UserController extends Controller
     {
         $article = Articles::find($id);
         return view('viewarticle')->with('article',$article);
-    }
-
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function index()
-    {
-        $article = Articles::orderBy('created_at','desc')->take(3)->get();
-        return view('home')->with('article', $article);
     }
 
 
@@ -205,7 +207,7 @@ class UserController extends Controller
 
         $user->profile_picture = $img;
         if($user->save()) {
-            return redirect(route('user.profile.edit', $user->id));
+            return redirect(route('user.profile.edit', $user->id))->with('success', 'Foto profil dihapus !');
         }
     }
 
@@ -225,7 +227,7 @@ class UserController extends Controller
 
         if($user->delete()) {
             session()->flush();
-            return redirect(route('home'));
+            return redirect(route('home'))->with('success', 'Akun berhasil dihapus !');
         }
     }
 
@@ -235,19 +237,18 @@ class UserController extends Controller
      */
     private function currentUser()
     {
-        $current = Auth::guard('web')->user();
-        return $current;
+        return Auth::guard('web')->user();
     }
 
 
     /**
-     * @param $pass
+     * @param string $oldPassword
      * @return bool
      */
-    private function validatePass($pass)
+    private function validatePass(string $oldPassword)
     {
         $user = $this->currentUser();
-        if(Hash::check($pass, $user->password)) {
+        if(Hash::check($oldPassword, $user->password)) {
             return true;
         }
         return false;
