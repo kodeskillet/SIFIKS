@@ -79,19 +79,18 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('storage/user_images/user-default.jpg') }}" class="user-image" alt="User Image">
+                            <img src="{{ asset('storage/user_images/'.Auth::guard(session('guard'))->user()->profile_picture) }}" class="user-image" alt="User Image">
                             <span class="hidden-xs">{{ Auth::guard(session('guard'))->user()->name }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="{{ asset('storage/user_images/user-default.jpg') }}" class="img-circle" alt="User Image">
+                                <img src="{{ asset('storage/user_images/'.Auth::guard(session('guard'))->user()->profile_picture) }}" class="img-circle" alt="User Image">
 
                                 <p>
                                     {{ Auth::guard(session('guard'))->user()->name }}
                                     <small>
-                                        Member since:&nbsp;
-                                        {{ __('22 Feb 2019') }}
+                                        {{ Auth::guard(session('guard'))->user()->email }}
                                     </small>
                                 </p>
                             </li>
@@ -138,7 +137,7 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{ asset('storage/user_images/user-default.jpg') }}" class="img-circle" alt="User Image">
+                    <img src="{{ asset('storage/user_images/'.Auth::guard(session('guard'))->user()->profile_picture) }}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>{{ Auth::guard(session('guard'))->user()->name }}</p>

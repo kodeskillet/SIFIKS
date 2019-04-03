@@ -17,7 +17,7 @@
         <div class="col col-md-3">
             <div class="box box-primary">
                 <div class="box-body box-profile">
-                    <img class="profile-user-img img-responsive img-circle" src="{{ asset('storage/user_images/user-default.jpg') }}" alt="User profile picture">
+                    <img class="profile-user-img img-responsive img-circle" src="{{ asset('storage/user_images/'.$data[session('guard')]->profile_picture) }}" alt="User profile picture">
                     <h3 class="profile-username text-center">
                         {{ $data[session('guard')]->name }}
                         <p class="text-muted text-center"><small>{{ $data[session('guard')]->email }}</small></p>
@@ -47,7 +47,7 @@
                             <a href="{{ route('admin.profile.edit', $data[session('guard')]->id) }}">Edit Profil</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="#" data-toggle="modal" data-target="#editPassword">Ubah Password</a>
+                            <a href="{{ route('admin.password.edit', $data[session('guard')]->id) }}">Ubah Password</a>
                         </li>
                         <li class="list-group-item list-group-item-danger">
                             <a href="#" class="text-danger">Hapus Akun</a>
@@ -62,7 +62,4 @@
             </div>
         </div>
     </section>
-
-    @include('pages.ext.modal.adm-edit-password')
-
 @endsection
