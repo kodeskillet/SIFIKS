@@ -14,12 +14,14 @@
                         <div class="col-md-12 form-group">
                             <div class="col-md-4">
                                 <div style="width: 121px; height: 121px; border: 1px solid #ddd">
-                                    <img id="prev" class="img-responsive" src="{{ asset('storage/user_images/'.$data[session('guard')]->profile_picture) }}">
+                                    <img id="preview" class="img-responsive" src="{{ asset('storage/user_images/'.$data[session('guard')]->profile_picture) }}">
                                 </div>
-                                <a href="{{ route('admin.image.remove') }}" class="btn btn-danger btn-sm" style="width: 121px">Hapus Foto</a>
+                                @if($data[session('guard')]->profile_picture != "user-default.jpg")
+                                    <a href="{{ route('admin.image.remove') }}" class="btn btn-danger btn-sm" style="width: 121px">Hapus Foto</a>
+                                @endif
                             </div>
                             <div class="col-md-6">
-                                <input id="image" type="file" name="profile_picture" accept="image/*">
+                                <input id="image" type="file" name="profile_picture" accept="image/*" onchange="previewImage(this)">
                                 @if($errors->has('profile_picture'))
                                     <div class="text-danger text-bold">
                                         <i>*{{ $errors->first('profile_picture') }}</i>
@@ -57,4 +59,19 @@
             </div>
         </form>
     </div>
+
+    <script type="text/javascript">
+        function previewImage(input) {
+            let preview = document.getElementById('preview');
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.setAttribute('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                preview.setAttribute('src', 'placeholder.png');
+            }
+        }
+    </script>
 @endsection
