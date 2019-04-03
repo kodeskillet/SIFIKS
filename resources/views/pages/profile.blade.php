@@ -16,13 +16,13 @@
                 @foreach($data[session('guard')]->article as $article)
                     <div class="container col-md-12">
                         <div class="post">
-                        {{--                        <div class="user-block">--}}
-                        {{--                            <img class="img-circle img-bordered-sm" src="{{ asset('storage/user_images/user-default.jpg') }}" alt="Image">--}}
-                        {{--                            <span class="username">--}}
-                        {{--                              {{ $article->admin->name }}--}}
-                        {{--                            </span>--}}
-                        {{--                            <span class="description">{{ $article->created_at->diffForHumans() }}</span>--}}
-                        {{--                        </div>--}}
+{{--                            <div class="user-block">--}}
+{{--                                <img class="img-circle img-bordered-sm" src="{{ asset('storage/user_images/user-default.jpg') }}" alt="Image">--}}
+{{--                                <span class="username">--}}
+{{--                                  {{ $article->admin->name }}--}}
+{{--                                </span>--}}
+{{--                                <span class="description">{{ $article->created_at->diffForHumans() }}</span>--}}
+{{--                            </div>--}}
                         <!-- /.user-block -->
                             <h4>
                                 <strong>{{ $article->title }}</strong>
@@ -53,8 +53,8 @@
                 @endforeach
             @else
                 <br>
-                <div class="container col-md-8 col-md-offset-2 alert alert-danger text-center text-bold">
-                    Anda belum menulis artikel apapun.
+                <div class="container col-md-8 col-md-offset-2 alert alert-warning text-center text-bold">
+                    Anda belum membuat artikel apapun.
                 </div>
             @endif
         </div>
