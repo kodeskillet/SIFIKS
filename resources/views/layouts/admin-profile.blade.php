@@ -40,23 +40,31 @@
                             </a>
                         </li>
                     </ul>
-                </div>
-                <div class="box-footer text-center">
-                    <ul class="list-group list-group-unbordered">
+
+                    <ul class="list-group">
                         <li class="list-group-item">
                             <a href="{{ route('admin.profile.edit', $data[session('guard')]->id) }}">Edit Profil</a>
                         </li>
                         <li class="list-group-item">
                             <a href="{{ route('admin.password.edit', $data[session('guard')]->id) }}">Ubah Password</a>
                         </li>
+                    </ul>
+                </div>
+                <div class="box-footer text-center">
+                    <ul class="list-group list-group-unbordered">
                         <li class="list-group-item list-group-item-danger">
-                            <a href="#" class="text-danger">Hapus Akun</a>
+                            <form onsubmit="return confirm('Yakin ingin hapus akun?')" action="{{ route('admin.profile.destroy', $data[session('guard')]->id) }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="submit" class="btn btn-danger" value="Hapus Akun">
+                            </form>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="col col-md-9">
+            @include('layouts.inc.messages')
             <div class="box box-widget">
                 @yield('admin-content')
             </div>
