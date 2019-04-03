@@ -14,7 +14,7 @@ class AddGenderToAdmins extends Migration
     public function up()
     {
         Schema::table('admins', function (Blueprint $table) {
-            $table->enum('gender', ['Laki - laki', 'Perempuan'])->after('name')->nullable();
+            $table->enum('gender', ['Laki - laki', 'Perempuan'])->after('profile_picture')->nullable();
         });
     }
 

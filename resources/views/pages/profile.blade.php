@@ -1,78 +1,62 @@
-@extends('layouts.adm-app')
+@extends('layouts.admin-profile')
 
-@section('content')
-<section class="content-header">
-        <h1>
-            Profile Admin
-            <small></small>
-        </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> {{ session('role') }}</a></li>
-            <li class="active">QNA</li>
-        </ol>
-    </section>
+@section('admin-content')
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <strong class="box-title">Artikel anda</strong>
+            <a href="{{ url('/admin/article/create') }}" class="btn btn-success btn-sm pull-right">
+                <strong>
+                    <i class="fa far fa-pencil-alt"></i>
+                    &nbsp;Buat Artikel
+                </strong>
+            </a>
+        </div>
+        <div class="box-body ">
+            @if( count($data[session('guard')]->article) > 0 )
+                @foreach($data[session('guard')]->article as $article)
+                    <div class="container col-md-12">
+                        <div class="post">
+{{--                            <div class="user-block">--}}
+{{--                                <img class="img-circle img-bordered-sm" src="{{ asset('storage/user_images/user-default.jpg') }}" alt="Image">--}}
+{{--                                <span class="username">--}}
+{{--                                  {{ $article->admin->name }}--}}
+{{--                                </span>--}}
+{{--                                <span class="description">{{ $article->created_at->diffForHumans() }}</span>--}}
+{{--                            </div>--}}
+                        <!-- /.user-block -->
+                            <h4>
+                                <strong>{{ $article->title }}</strong>
+                                <small class="pull-right text-bold">{{ $article->getCat($article->category) }}</small>
+                            </h4>
 
-    <!-- Main content -->
-    <section class="content container-fluid">
-        <div class="col col-md-3">
-            <div class="box box-primary">
-                <div class="box-body box-profile">
-                <img class="profile-user-img img-responsive img-circle" src="/bower_components/admin-lte/dist/img/user4-128x128.jpg" alt="User profile picture">
-
-                <h3 class="profile-username text-center">AhmadSyifaur</h3>
-                <p class="text-muted text-center">ahmadsyifaur11@gmail.com</p>
-
-                <a href="" data-toggle="modal" data-target="#modal-default"><p class="text text-center">Change Picture</p></a>
-                <a href="/admin/profile/password"><p class="text text-center">Change Password</p></a>
-                <!-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
-                  Change Picture
-                </button> -->
-                <!-- Modal -->
-                <div class="modal fade" id="modal-default" style="display: none;">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title">Change Picture</h4>
-                      </div>
-                      <div class="modal-body">
-                        <img class="center" src="/bower_components/admin-lte/dist/img/user4-128x128.jpg" alt="User profile picture">
-                        <div class="form-group">
-                          <label for="exampleInputFile">Import From PC</label>
-                          <input type="file" id="exampleInputFile">
+                            <p>
+                                {!! $article->cutStr($article->content) !!}
+                            </p>
+                            <ul class="list-inline">
+                                <li class="text-sm">
+                                    <a class="link-black" href="{{ url('/admin/article', $article->id) }}"><i class="fa fa-share margin-r-5"></i>Selengkapnya</a>
+                                </li>
+                                |
+                                <li class="text-sm">
+                                    <a class="text-success" href="{{ route('article.edit', $article->id) }}"><i class="fa far fa-pencil-alt margin-r-5"></i>Edit</a>
+                                </li>
+                                <li class="text-sm">
+                                    <a class="text-danger" href="#"><i class="fa far fa-trash margin-r-5"></i>Hapus</a>
+                                </li>
+                                <li class="pull-right">
+                                    <span class="text-sm">{{ $article->created_at->diffForHumans() }}</span>
+                                </li>
+                            </ul>
                         </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                      </div>
+                        <hr>
                     </div>
-                    <!-- /.modal-content -->
-                  </div>
-                  <!-- /.modal-dialog -->
+                @endforeach
+            @else
+                <br>
+                <div class="container col-md-8 col-md-offset-2 alert alert-warning text-center text-bold">
+                    Anda belum membuat artikel apapun.
                 </div>
-                <hr>
-                <ul class="list-group list-group-unbordered sidebar-menu tree" data-widget="tree">
-                    <li>
-                        <a href="/admin/profile/edit">
-                        <p class="text-center"><b><i class="fa fa-edit "></i> Edit Profile</b></p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/admin/profile/article">
-                        <p class="text-center"><b><i class="fa fa-file-text "></i> Articles</b></p>
-                        </a>
-                    </li>
-                </ul>
-                </div>
-                <!-- /.box-body -->
-            </div>
+            @endif
         </div>
-        <div class="col col-md-8">
-          <div class="box box-widget">
-            @yield('content1')
-          </div>
-        </div>
-    </section>
+    </div>
 @endsection

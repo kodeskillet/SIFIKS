@@ -14,7 +14,7 @@ class AddProfilePictureToAdmins extends Migration
     public function up()
     {
         Schema::table('admins', function (Blueprint $table) {
-            $table->string('profile_picture')->nullable();
+            $table->string('profile_picture')->default('user-default.jpg')->after('name');
         });
     }
 

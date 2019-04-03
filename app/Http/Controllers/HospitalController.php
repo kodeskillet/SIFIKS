@@ -150,7 +150,10 @@ class HospitalController extends Controller
 
     }
 
-
+    /**
+     * @param $hospital_id
+     * @return bool
+     */
     private function deleteRoomsAndRoomDetail($hospital_id)
     {
         $rooms = $this->getRooms($hospital_id);
@@ -168,6 +171,10 @@ class HospitalController extends Controller
         return false;
     }
 
+    /**
+     * @param $hospital_id
+     * @return \Illuminate\Support\Collection
+     */
     private function getRooms($hospital_id)
     {
         $rooms = DB::table('rooms')

@@ -28,7 +28,7 @@
 
 
 <style>
-        .card-user-profile-photo {
+    .card-user-profile-photo {
         margin: auto;
         margin-bottom: 15px;
         width: 150px;
@@ -50,60 +50,60 @@
     }
 
     .profile-avatar-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
     }
 
     .answer-by {
-    font-size: 10px;
-    height: 20px;
+        font-size: 10px;
+        height: 20px;
     }
 
     .side-container {
-    width: 300px;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    padding-top: 63px;
+        width: 300px;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        padding-top: 63px;
     }
 
     .main-container {
-    width: 667px;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    padding-top: 63px;
+        width: 667px;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        padding-top: 63px;
     }
 
     .layanan {
-    width: 180px;
-    display: inline-block;
-    margin-bottom: 24px;
+        width: 180px;
+        display: inline-block;
+        margin-bottom: 24px;
     }
 
     .layanan-icon {
-    float: left;
-    margin-right: 10px;
+        float: left;
+        margin-right: 10px;
     }
 
     .index-by-letter-button {
-    margin-top: 10px;
+        margin-top: 10px;
     }
 
     .index-by-letter-container ul {
-    padding: 20px 0 0 0;
-    margin: 0;
-    overflow: hidden;
+        padding: 20px 0 0 0;
+        margin: 0;
+        overflow: hidden;
     }
 
     .menu-children li {
-    width: 312px;
-    height: 70px;
-    list-style-type: none;
-    float: left;
-    font-size: 18px;
-    border-right: 1px solid #dadee4;
-    margin: 0 10px;
+        width: 312px;
+        height: 70px;
+        list-style-type: none;
+        float: left;
+        font-size: 18px;
+        border-right: 1px solid #dadee4;
+        margin: 0 10px;
     }
-    </style>
+</style>

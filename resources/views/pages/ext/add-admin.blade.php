@@ -2,7 +2,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            <a href="{{ route('admin.index') }}" class="btn btn-default">
+            <a href="{{ url()->previous() }}" class="btn btn-default">
                 <i class="fa fa-chevron-left"></i>
             </a>&nbsp;&nbsp;&nbsp;
             Daftarkan Admin
@@ -23,7 +23,7 @@
             {!! Form::open(['action' => 'AdminController@store','method'=> 'POST', 'enctype' => 'multipart/data']) !!}
             <div class="form-group row">
                 {{Form::label ('name','Nama',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                <div class="col-md-4">
+                <div class="col-md-6">
                         {{Form::text ('name','',['class'=>'form-control float-right','placeholder'=>'Masukkan Nama'])}}
                         @if($errors->has('name'))
                             <div class="text-danger">
@@ -45,7 +45,7 @@
             </div>
             <div class="form-group row">
                 {{Form::label ('password','Password',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                <div class="col-md-6">
+                <div class="col-md-4">
                     {{Form::password ('password',['class'=>'form-control','placeholder'=>'&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'])}}
                         @if($errors->has('password'))
                             <div class="text-danger">
@@ -56,7 +56,7 @@
             </div>
             <div class="form-group row">
                 {{Form::label ('password_confirmation','Ulangi Password',['class'=>'col-md-2 col-form-label text-md-right'])}}
-                <div class="col-md-6">
+                <div class="col-md-4">
                     {{Form::password ('password_confirmation',['class'=>'form-control','placeholder'=>'&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'])}}
                         @if($errors->has('password_confirmation'))
                             <div class="text-danger">
@@ -65,6 +65,7 @@
                         @endif
                 </div>
             </div>
+            <br>
             {{Form::submit('Daftarkan',['class'=>'btn btn-success'])}}
             <a href="{{ route('admin.index') }}" class="btn btn-danger">Batal</a>
             {!! Form::close() !!}

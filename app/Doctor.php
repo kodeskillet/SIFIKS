@@ -40,31 +40,55 @@ class Doctor extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @var array
+     */
     protected $dates = [
         'created_at',
         'updated_at'
     ];
 
-    public function article() {
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function article()
+    {
         return $this->hasMany('App\Article');
     }
 
-    public function detail() {
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function detail()
+    {
         return $this->hasMany('App\DoctorDetail');
     }
 
-    public function specialty() {
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function specialty()
+    {
         return $this->belongsTo('App\DoctorSpecialization', 'specialization_id');
     }
 
-    public function trimStr($str) {
+    /**
+     * @param $str
+     * @return string
+     */
+    public function trimStr($str)
+    {
         if(strlen($str) > 20) {
             return substr($str, 0, 20)."...";
         }
         return $str;
     }
 
-    public function getGreetings() {
+    /**
+     * @return string
+     */
+    public function getGreetings()
+    {
         $h = Carbon::now()->format('H');
 
         if ($h >= 0 && $h < 6) {

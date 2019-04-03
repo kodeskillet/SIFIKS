@@ -6071,9 +6071,9 @@ a.close.disabled {
 }
 
 .modal-footer {
-  display: flex;
+  /*display: flex;*/
   align-items: center;
-  justify-content: flex-end;
+  /*justify-content: flex-end;*/
   padding: 1rem;
   border-top: 1px solid #dee2e6;
   border-bottom-right-radius: 0.3rem;
@@ -16456,5 +16456,18 @@ readers do not read off random characters that represent icons */
 .btn-facebook {
   background: #3B5998 !important;
   color: white !important;
+}
+
+.profile-pict {
+  border: 1px solid #ddd;
+  border-radius: 50%;
+}
+
+.text-pink {
+  color: pink;
+}
+
+.text-bold {
+  font-weight: bold !important;
 }
 

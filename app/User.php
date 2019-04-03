@@ -38,8 +38,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @var array
+     */
     protected $dates = [
         'created_at',
         'updated_at'
     ];
+
+    /**
+     * @param string $str
+     */
+    public function trimStr(string $str)
+    {
+        if(strlen($str) > 50) {
+            return substr($str, '0', '50')."...";
+        }
+        return $str;
+    }
 }
