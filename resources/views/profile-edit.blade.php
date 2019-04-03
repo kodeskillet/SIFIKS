@@ -9,12 +9,10 @@
             @csrf
             <div class="modal-body">
                 <div class="form-group row justify-content-center">
-                    <label for="image" class="col-md-3 col-form-label text-md-right">Foto Profil</label>
+                    <label class="col-md-3 col-form-label text-md-right">Foto Profil</label>
                     <div class="col-md-6">
                         <div class="ml-0 mb-md-4" style="border: 1px solid #ddd; width: 175px; height: 175px">
-                            <label for="image" style="cursor: pointer;">
-                                <img id="preview" src="{{ asset('storage/user_images/'.$data['user']->profile_picture) }}" class="img-fluid" alt="Foto Anda">
-                            </label>
+                            <img id="preview" src="{{ asset('storage/user_images/'.$data['user']->profile_picture) }}" class="img-fluid" alt="Foto Anda">
                             @if($data['user']->profile_picture != "user-default.jpg" && $data['user']->profile_picture != "user-default-male.png" && $data['user']->profile_picture != "user-default-female.png")
                                 <a href="{{ route('user.image.remove') }}" class="btn btn-danger btn-sm form-control">
                                     <strong>Hapus foto</strong>
@@ -31,6 +29,11 @@
                             <input type="file" onchange="previewImage(this)" class="custom-file-input" name="image" id="image" accept="image/x-png,image/gif,image/jpeg">
                             <label class="custom-file-label" for="picture">Pilih gambar</label>
                         </div>
+                        @if($errors->has('image'))
+                            <div class="text-danger">
+                                {{$errors->first('image')}}
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <hr>

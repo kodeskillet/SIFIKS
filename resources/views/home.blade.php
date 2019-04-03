@@ -4,6 +4,9 @@
 
 @section('content')
     <div class="container-fluid">
+
+        @include('layouts.inc.messages')
+
         <div class="jumbotron p-4 p-md-5 text-white rounded bg-info">
             <div class="row">
                 <div class="col-md-6 px-0">
