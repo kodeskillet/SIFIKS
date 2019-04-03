@@ -91,7 +91,12 @@ Route::prefix('admin')->group( function() {
     Route::get('/profile/{admin}', 'AdminController@profile')->name('admin.profile');
     Route::get('/profile/{admin}/edit', 'AdminController@editProfile')->name('admin.profile.edit');
     Route::put('/profile/{admin}/edit', 'AdminController@updateProfile')->name('admin.profile.edit.submit');
-    Route::resource('admin', 'AdminController');
+    Route::get('/profile/password/{admin}/edit', 'AdminController@editPass')->name('admin.password.edit');
+    Route::put('/profile/password/{admin}/edit', 'AdminController@updatePass')->name('admin.password.edit.submit');
+    Route::get('/profile/image/remove', 'AdminController@removeImage')->name('admin.image.remove');
+    Route::resource('admin', 'AdminController')->except([
+        'profile', 'editProfile', 'editPass'
+    ]);
     Route::get('/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 
     //Resourced Controller -->
