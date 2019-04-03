@@ -4,6 +4,8 @@
     @include('layouts.inc.navbar')
 
     <div class="container">
+        @include('layouts.inc.messages')
+
         <div class="row mt-4">
             <div class="col-md-4">
 
@@ -82,15 +84,10 @@
                                 @endif
                             </li>
                             <li class="list-group-item">
-                                <a class="text-danger" href="{{ route('user.profile.destroy') }}"
-                                    onclick="event.preventDefault();
-                                    document.getElementById('destroy-me').submit();">
-                                    {{ __('Hapus Akun Anda') }}
-                                </a>
-
-                                <form id="destroy-me" action="{{ route('user.profile.destroy') }}" method="POST" style="display: none;">
+                                <form onsubmit="return confirm('Yakin ingin hapus akun?')" action="{{ route('user.profile.destroy') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
+                                    <input type="submit" class="btn btn-danger btn-sm form-control text-bold" value="Hapus Akun">
                                 </form>
                             </li>
                         </ul>
