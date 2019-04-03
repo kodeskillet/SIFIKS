@@ -16467,3 +16467,7 @@ readers do not read off random characters that represent icons */
   color: pink;
 }
 
+.text-bold {
+  font-weight: bold !important;
+}
+
