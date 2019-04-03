@@ -19,6 +19,7 @@ class AdminController extends Controller
         $this->middleware('auth:admin');
     }
 
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Exception
@@ -49,6 +50,7 @@ class AdminController extends Controller
         return view('pages.admin')->with('data',$data);
     }
 
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -60,6 +62,7 @@ class AdminController extends Controller
         ];
         return view ('pages.ext.add-admin')->with('data',$data);
     }
+
 
     /**
      * @param Request $request
@@ -84,6 +87,7 @@ class AdminController extends Controller
         return redirect ('/admin/admin');
     }
 
+
     /**
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
@@ -98,7 +102,7 @@ class AdminController extends Controller
             return view('pages.profile')->with('data', $data);
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Anda tidak berhak mengakses laman tersebut.');
     }
 
 
@@ -116,8 +120,9 @@ class AdminController extends Controller
             return view('pages.profile-edit')->with('data', $data);
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Anda tidak berhak mengakses laman tersebut.');
     }
+
 
     /**
      * @param Request $request
@@ -165,10 +170,14 @@ class AdminController extends Controller
             return redirect(route('admin.profile', $admin->id));
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Anda tidak berhak melakukan transaksi tersebut.');
     }
 
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function editPass($id)
     {
         $admin = $this->currentUser();
@@ -179,8 +188,9 @@ class AdminController extends Controller
             return view('pages.profile-password')->with('data', $data);
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Anda tidak berhak mengakses laman tersebut.');
     }
+
 
     /**
      * @param Request $request
@@ -203,27 +213,46 @@ class AdminController extends Controller
                 $admin->password = Hash::make($request->input('new_password'));
                 $admin->save();
 
-                return redirect(route('admin.profile', $admin->id));
+                return redirect(route('admin.profile', $admin->id))->with('success', 'Password berhasil diubah !');
             }
-            $message = [
-                'error' => 'Old password does not match.',
-            ];
-            return redirect(route('admin.profile', $admin->id))->with('message', $message);
+
+            return redirect(route('admin.password', $admin->id))->with('failed', 'Password lama tidak cocok.');
         }
+
         return false;
     }
 
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function removeImage()
     {
         $admin = $this->currentUser();
-        if( $admin->profile_picture != "user-default.jpg") {
+        if($admin->profile_picture != "user-default.jpg") {
             Storage::delete('public/user_images/'.$admin->profile_picture);
         }
 
         $admin->profile_picture = "user-default.jpg";
         if($admin->save()) {
-            return redirect(route('admin.profile.edit', $admin->id));
+            return redirect(route('admin.profile.edit', $admin->id))->with('success', 'Foto profil berhasil dihapus !');
         }
+    }
+
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function destroy() {
+        $admin = $this->currentUser();
+
+        if($admin->delete()) {
+
+            session()->flush();
+            return redirect(route('admin.login', $admin->id))->with('success', 'Akun berhasil dihapus !');
+        }
+        return redirect(route('admin.profile', $admin->id))->with('failed', 'Gagal menghapus akun !');
+
     }
 
 
@@ -234,6 +263,7 @@ class AdminController extends Controller
     {
         return Auth::guard('admin')->user();
     }
+
 
     /**
      * @param string $oldPassword
