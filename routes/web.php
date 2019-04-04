@@ -59,6 +59,7 @@ Route::get('/lihatsemuadokter', function() {
 });
 
 Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.articles');
+Route::get('/articles/{category}/{key}','ArticleController@listByName')->name('listName.articles');
 
 Auth::routes();
 
