@@ -17,6 +17,9 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
+
+        @include('layouts.inc.messages')
+
         <div class="box box-primary container" style="padding-bottom:20px;">
             <br>
             {!! Form::open(['action' => 'ArticleController@store','method'=> 'POST', 'enctype' => 'multipart/data']) !!}

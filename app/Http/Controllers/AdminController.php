@@ -167,7 +167,7 @@ class AdminController extends Controller
             }
             $admin->save();
 
-            return redirect(route('admin.profile', $admin->id));
+            return redirect(route('admin.profile', $admin->id))->with('success', 'Profil berhasil diubah !');
         }
 
         return redirect()->back()->with('warning', 'Anda tidak berhak melakukan transaksi tersebut.');

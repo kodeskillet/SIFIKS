@@ -54,10 +54,12 @@ class ArticleController extends Controller
         } else {
             $article->doctor_id = Auth::guard('doctor')->user()->id;
         }
-//        $article->cover_image = "fauzan";
-        $article->save();
 
-        return redirect ('/admin/article');
+        if($article->save()) {
+            return redirect (route('article.index'))->with('success', 'Artikel baru berhasil ditambahkan !');
+        }
+
+        return redirect(route('article.create'))->with('failed', 'Gagal menambahkan artikel.');
     }
 
     /**
@@ -67,12 +69,6 @@ class ArticleController extends Controller
     public function show($id)
     {
         $article = Articles::find($id);
-//        $writer = null;
-
-/*        if($article->writer == "Admin") {
-            $writer = $article->admin()->name;
-        }*/
-
         return view('pages.ext.view-article')->with('article', $article);
     }
 
@@ -142,11 +138,12 @@ class ArticleController extends Controller
         $article->category = $request->input('category');
         $article->title = $request->input('title');
         $article->content = $request->input('content');
-        // $article->writer_id = 1;
-        $article->cover_image = "fauzan";
-        $article->save();
 
-        return redirect (route('article.index'));
+        if($article->save()) {
+            return redirect (route('article.index'))->with('success', 'Artikel berhasil diubah !');
+        }
+
+        return redirect (route('article.edit', $id))->with('failed', 'Gagal mengubah artikel !');
     }
 
     /**
@@ -156,8 +153,11 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         $article = Articles::find($id);
-        $article->delete();
 
-        return redirect (route('article.index'));
+        if($article->delete()) {
+            return redirect()->back()->with('success', 'Artikel dihapus !');
+        }
+
+        return redirect()->back()->with('failed', 'Gagal menghapus artikel.');
     }
 }

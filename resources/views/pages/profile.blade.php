@@ -41,7 +41,14 @@
                                     <a class="text-success" href="{{ route('article.edit', $article->id) }}"><i class="fa far fa-pencil-alt margin-r-5"></i>Edit</a>
                                 </li>
                                 <li class="text-sm">
-                                    <a class="text-danger" href="#"><i class="fa far fa-trash margin-r-5"></i>Hapus</a>
+                                    <a class="text-danger" href="#" onclick="destroy()">
+                                        <i class="fa far fa-trash margin-r-5"></i>
+                                        Hapus
+                                    </a>
+                                    <form onsubmit="return confirm('Yakin ingin menghapus artikel ini?')" action="{{ route('article.destroy', $article->id) }}" method="POST" id="delete">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE">
+                                    </form>
                                 </li>
                                 <li class="pull-right">
                                     <span class="text-sm">{{ $article->created_at->diffForHumans() }}</span>
@@ -59,4 +66,10 @@
             @endif
         </div>
     </div>
+
+    <script type="text/javascript">
+        function destroy() {
+            $('#delete').submit();
+        }
+    </script>
 @endsection

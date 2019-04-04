@@ -14,6 +14,9 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
+
+        @include('layouts.inc.messages')
+
         <div class="box box-primary">
             <div class="box-header with-border">
                 <strong>Daftar Artikel</strong>
@@ -69,32 +72,28 @@
                                                 <td>{{ $article->updated_at->diffForHumans() }}</td>
                                                 @if(session('role') == "Admin" && Auth::guard('admin')->user()->id == $article->admin_id)
                                                     <td class="text-center">
-                                                        <form method="post" action="{{ route('article.destroy', $article->id) }}">
+                                                        <button type="button" onclick="destroy()" class="btn btn-danger btn-sm">
+                                                            <i class="fa fas fa-trash"></i>
+                                                        </button>
+                                                        <a href="{{ route('article.edit', ['id' => $article->id]) }}" class="btn btn-warning btn-sm">
+                                                            <i class="fa fas fa-sync"></i>
+                                                        </a>
+                                                        <form onsubmit="return confirm('Yakin ingin menghapus artikel ini?')" id="delete" method="post" action="{{ route('article.destroy', $article->id) }}">
                                                             @csrf
                                                             <input type="hidden" name="_method" value="DELETE">
-                                                            <input type="hidden" name="id" value="{{ $article->id }}">
-                                                            <button type="submit" class="btn btn-danger btn-sm">
-                                                                <i class="fa fas fa-trash"></i>
-                                                            </button>
-
-                                                            <a href="{{ route('article.edit', ['id' => $article->id]) }}" class="btn btn-warning btn-sm">
-                                                                <i class="fa fas fa-sync"></i>
-                                                            </a>
                                                         </form>
                                                     </td>
                                                 @elseif(session('role') == "Doctor" && Auth::guard('doctor')->user()->id == $article->doctor_id)
                                                     <td class="text-center">
-                                                        <form method="post" action="{{ route('article.destroy', $article->id) }}">
+                                                        <button type="button" onclick="destroy()" class="btn btn-danger btn-sm">
+                                                            <i class="fa fas fa-trash"></i>
+                                                        </button>
+                                                        <a href="{{ route('article.edit', ['id' => $article->id]) }}" class="btn btn-warning btn-sm">
+                                                            <i class="fa fas fa-sync"></i>
+                                                        </a>
+                                                        <form onsubmit="return confirm('Yakin ingin menghapus artikel ini?')" id="delete" method="post" action="{{ route('article.destroy', $article->id) }}">
                                                             @csrf
                                                             <input type="hidden" name="_method" value="DELETE">
-                                                            <input type="hidden" name="id" value="{{ $article->id }}">
-                                                            <button type="submit" class="btn btn-danger btn-sm">
-                                                                <i class="fa fas fa-trash"></i>
-                                                            </button>
-
-                                                            <a href="{{ route('article.edit', ['id' => $article->id]) }}" class="btn btn-warning btn-sm">
-                                                                <i class="fa fas fa-sync"></i>
-                                                            </a>
                                                         </form>
                                                     </td>
                                                 @else
@@ -126,5 +125,11 @@
         </div>
         <!-- /.box -->
     </section>
+    <script type="text/javascript">
 
+        function destroy() {
+            $('#delete').submit();
+        }
+
+    </script>
 @endsection
