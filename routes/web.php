@@ -58,6 +58,10 @@ Route::get('/lihatsemuadokter', function() {
     return view('LSdoctor');
 });
 
+Route::get('/mainsearch', function() {
+    return view('MainSearch');
+});
+
 Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.articles');
 
 Auth::routes();
