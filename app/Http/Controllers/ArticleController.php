@@ -107,10 +107,38 @@ class ArticleController extends Controller
         return view('articles')->with('data', $data);
     }
 
-    // public function listByName($cat, $name)
-    // {
+    public function listByName($cat, $name)
+    {
+        $category = null;
 
-    // }
+        switch ($cat) {
+            case "penyakit":
+                $category = "Penyakit";
+                break;
+            case "obat":
+                $category = "Obat - obatan";
+                break;
+            case "hidup-sehat":
+                $category = "Hidup Sehat";
+                break;
+            case "keluarga":
+                $category = "Keluarga";
+                break;
+            case "kesehatan":
+                $category = "Kesehatan";
+                break;
+        }
+
+        $data = [
+            'articles' => Articles::where('category', $cat)
+                                    ->where('title','LIKE',$name.'%')
+                                    ->orderBy('title','asc')
+                                    ->get(),
+            'category' => $category,
+            'cat' => $cat
+        ];
+        return view('articles')->with('data', $data);
+    }
 
     /**
      * @param $id

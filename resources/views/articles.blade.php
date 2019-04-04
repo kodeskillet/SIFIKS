@@ -19,7 +19,7 @@
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                 @foreach(range('A', 'Z') as $key)
                     <div class="btn-group mr-2">
-                        <a href="#" class="btn btn-primary btn-sm">{{ $key }}</a>
+                        <a href="" class="btn btn-primary btn-sm">{{ $key }}</a>
                     </div>
                 @endforeach
             </div>
