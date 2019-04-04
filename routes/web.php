@@ -58,8 +58,16 @@ Route::get('/lihatsemuadokter', function() {
     return view('LSdoctor');
 });
 
-Route::get('/mainsearch', function() {
-    return view('MainSearch');
+Route::get('/mainsearch-article', function() {
+    return view('MainSearchArt');
+});
+
+Route::get('/mainsearch-doctor', function() {
+    return view('MainSearchDoc');
+});
+
+Route::get('/mainsearch-hospital', function() {
+    return view('MainSearchHos');
 });
 
 Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.articles');
