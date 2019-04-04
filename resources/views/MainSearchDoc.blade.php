@@ -41,11 +41,11 @@
         <div class="card mb-3">
             <div class="row no-gutters">
                 <div class="col-md-3">
-                    <img src="{{ asset('storage/images/iconambulan.jpg') }}" alt="..." class="card-img">               
+                    <img src="{{ asset('storage/images/namira2.jpg') }}" alt="..." class="card-img">               
                 </div>
                 <div class="col-md-9">
                     <div class="card-body">
-                        <h5 class="card-title">Artikel Jantung</h5>
+                        <h5 class="card-title">Dokter Jantung</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                         <a href="\viewdoctor" class="btn btn-primary">Baca Selengkapnya</a>
                     </div>
@@ -56,11 +56,11 @@
         <div class="card mb-3">
             <div class="row no-gutters">
                 <div class="col-md-3">
-                    <img src="{{ asset('storage/images/iconambulan.jpg') }}" alt="..." class="card-img">               
+                    <img src="{{ asset('storage/images/namira.jpg') }}" alt="..." class="card-img">               
                 </div>
                 <div class="col-md-9">
                     <div class="card-body">
-                        <h5 class="card-title">Artikel Jantung</h5>
+                        <h5 class="card-title">Dokter Jantung</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                         <a href="\viewdoctor" class="btn btn-primary">Baca Selengkapnya</a>
                     </div>
