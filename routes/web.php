@@ -67,7 +67,7 @@ Route::get('/mainsearch-doctor', function() {
 });
 
 Route::get('/mainsearch-hospital', function() {
-    return view('MainSearchHos');
+    return view('MainSearchHosp');
 });
 
 Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.articles');
