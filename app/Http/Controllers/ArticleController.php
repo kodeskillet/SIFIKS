@@ -99,13 +99,18 @@ class ArticleController extends Controller
         }
 
         $data = [
-            'articles' => Articles::where('category', $cat),
+            'articles' => Articles::where('category', $cat)->orderBy('title','asc   ')->get(),
             'category' => $category,
             'cat' => $cat
         ];
 
         return view('articles')->with('data', $data);
     }
+
+    // public function listByName($cat, $name)
+    // {
+
+    // }
 
     /**
      * @param $id
