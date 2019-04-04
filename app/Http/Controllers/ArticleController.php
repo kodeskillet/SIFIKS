@@ -99,7 +99,7 @@ class ArticleController extends Controller
         }
 
         $data = [
-            'articles' => Articles::where('category', $cat)->orderBy('title','asc   ')->get(),
+            'articles' => Articles::where('category', $cat)->orderBy('title','asc')->get(),
             'category' => $category,
             'cat' => $cat
         ];
