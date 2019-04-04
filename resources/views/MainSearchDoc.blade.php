@@ -23,10 +23,10 @@
     <div class="row">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" href="/mainsearch-article">Info dan Diskusi</a>
+                <a class="nav-link" href="/mainsearch-article">Info dan Diskusi</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/mainsearch-doctor">Dokter dan Spesialis</a>
+                <a class="nav-link active" href="/mainsearch-doctor">Dokter dan Spesialis</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/mainsearch-hospital">Rumah Sakit dan Tindakan Medis</a>
