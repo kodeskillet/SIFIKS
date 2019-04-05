@@ -129,14 +129,26 @@ class ArticleController extends Controller
                 break;
         }
 
-        $data = [
-            'articles' => Articles::where('category', $cat)
-                                    ->where('title','LIKE',$name.'%')
-                                    ->orderBy('title','asc')
-                                    ->get(),
-            'category' => $category,
-            'cat' => $cat
-        ];
+        if (strlen($name)>1){
+            $data = [
+                'articles' => Articles::where('category', $cat)
+                                        ->where('content','LIKE',$name.'%')
+                                        ->orderBy('title','asc')
+                                        ->get(),
+                'category' => $category,
+                'cat' => $cat
+            ];
+        }
+        else{
+            $data = [
+                'articles' => Articles::where('category', $cat)
+                                        ->where('title','LIKE',$name.'%')
+                                        ->orderBy('title','asc')
+                                        ->get(),
+                'category' => $category,
+                'cat' => $cat
+            ];
+        }
         return view('articles')->with('data', $data);
     }
 
