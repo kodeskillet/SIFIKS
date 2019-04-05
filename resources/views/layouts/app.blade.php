@@ -10,6 +10,7 @@
         SIFIKS
     </title>
 
+    <link rel="icon" href="{{ asset("favicon.ico") }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
