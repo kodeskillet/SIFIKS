@@ -1,6 +1,11 @@
 <p align="center"><img src="https://i.ibb.co/fxTRWgL/sifiks4.png" alt="sifiks4" border="0" width="45%"></p>
 <p align="center">
-    <a href="https://travis-ci.com/flying-coders/SIFIKS"><img src="https://travis-ci.com/flying-coders/SIFIKS.svg?branch=master"></a>
+    <a href="https://travis-ci.com/flying-coders/SIFIKS">
+        <img src="https://travis-ci.com/flying-coders/SIFIKS.svg?branch=master" alt="Build Status">
+    </a>
+    <a href="https://scrutinizer-ci.com/g/flying-coders/SIFIKS/?branch=master">
+        <img src="https://img.shields.io/scrutinizer/g/flying-coders/SIFIKS.svg" alt="Code Quality">
+    </a>
 </p>
 
 
