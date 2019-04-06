@@ -22,13 +22,12 @@
     <div id="bodyContent" style="display: none">
         @yield('content')
         <footer class="foot">
-            {{-- <p class="float-right"><a href="#">Back to top</a></p> --}}
             <p class="text-center">Copyright © 2019 <a href="https://flying-coders.github.io/" target="_blank">Flying Coders</a></p>
         </footer>
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+
     <script type="text/javascript">
         $(window).on('load', function() {
             $('#loading').fadeOut( function() {
