@@ -1,13 +1,13 @@
 <p align="center">
-    <a href="https://sifiks.kodeskillet.com">
+    <a href="https://sifiks.kodeskillet.com" target="_blank">
         <img src="https://i.ibb.co/fxTRWgL/sifiks4.png" alt="sifiks4" border="0" width="45%">
     </a>
 </p>
 <p align="center">
-    <a href="https://travis-ci.com/flying-coders/SIFIKS">
+    <a href="https://travis-ci.com/flying-coders/SIFIKS" target="_blank">
         <img src="https://travis-ci.com/flying-coders/SIFIKS.svg?branch=master" alt="Build Status">
     </a>
-    <a href="https://scrutinizer-ci.com/g/flying-coders/SIFIKS/?branch=master">
+    <a href="https://scrutinizer-ci.com/g/flying-coders/SIFIKS/?branch=master" target="_blank">
         <img src="https://img.shields.io/scrutinizer/g/flying-coders/SIFIKS.svg" alt="Code Quality">
     </a>
 </p>
