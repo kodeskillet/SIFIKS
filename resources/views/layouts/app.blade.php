@@ -14,16 +14,24 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
+    <div class="loading-box" id="loading">
+        <img class="loading-img" src="{{ asset('storage/images/loading.gif') }}">
+    </div>
 
-@yield('content')
+    @yield('content')
 
-<footer class="foot">
-    {{-- <p class="float-right"><a href="#">Back to top</a></p> --}}
-    <p class="text-center">Copyright © 2019 <a href="https://flying-coders.github.io/" target="_blank">Flying Coders</a></p>
-</footer>
-
+    <footer class="foot">
+        {{-- <p class="float-right"><a href="#">Back to top</a></p> --}}
+        <p class="text-center">Copyright © 2019 <a href="https://flying-coders.github.io/" target="_blank">Flying Coders</a></p>
+    </footer>
 </body>
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+<script type="text/javascript">
+    $(window).on('load', function() {
+        $('#loading').fadeOut();
+    })
+</script>
 </html>
 
 
