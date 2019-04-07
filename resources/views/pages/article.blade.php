@@ -14,6 +14,9 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
+
+        @include('layouts.inc.messages')
+
         <div class="box box-primary">
             <div class="box-header with-border">
                 <strong>Daftar Artikel</strong>
@@ -57,30 +60,42 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <strong>({{ $article->writer }})</strong>
-                                                    @if($article->writer == "Admin")
-                                                        {{ $article->admin->name }}
-                                                    @else
-                                                        {{ $article->doctor->name }}
-                                                    @endif
-
+                                                    <strong>({{ $article->writer()['role'] }})</strong>
+                                                    {{ $article->writer()['data']->name }}
                                                 </td>
                                                 <td>{{ $article->created_at->format("d M Y") }}</td>
                                                 <td>{{ $article->updated_at->diffForHumans() }}</td>
-                                                <td class="text-center">
-                                                    <form method="post" action="{{ route('article.destroy', $article->id) }}">
-                                                        @csrf
-                                                        <input type="hidden" name="_method" value="DELETE">
-                                                        <input type="hidden" name="id" value="{{ $article->id }}">
-                                                        <button type="submit" class="btn btn-danger btn-sm">
+                                                @if(session('role') == "Admin" && Auth::guard('admin')->user()->id == $article->admin_id)
+                                                    <td class="text-center">
+                                                        <button type="button" onclick="destroy()" class="btn btn-danger btn-sm">
                                                             <i class="fa fas fa-trash"></i>
                                                         </button>
-
                                                         <a href="{{ route('article.edit', ['id' => $article->id]) }}" class="btn btn-warning btn-sm">
                                                             <i class="fa fas fa-sync"></i>
                                                         </a>
-                                                    </form>
-                                                </td>
+                                                        <form onsubmit="return confirm('Yakin ingin menghapus artikel ini?')" id="delete" method="post" action="{{ route('article.destroy', $article->id) }}">
+                                                            @csrf
+                                                            <input type="hidden" name="_method" value="DELETE">
+                                                        </form>
+                                                    </td>
+                                                @elseif(session('role') == "Doctor" && Auth::guard('doctor')->user()->id == $article->doctor_id)
+                                                    <td class="text-center">
+                                                        <button type="button" onclick="destroy()" class="btn btn-danger btn-sm">
+                                                            <i class="fa fas fa-trash"></i>
+                                                        </button>
+                                                        <a href="{{ route('article.edit', ['id' => $article->id]) }}" class="btn btn-warning btn-sm">
+                                                            <i class="fa fas fa-sync"></i>
+                                                        </a>
+                                                        <form onsubmit="return confirm('Yakin ingin menghapus artikel ini?')" id="delete" method="post" action="{{ route('article.destroy', $article->id) }}">
+                                                            @csrf
+                                                            <input type="hidden" name="_method" value="DELETE">
+                                                        </form>
+                                                    </td>
+                                                @else
+                                                    <td class="text-center">
+                                                        <span class="text-danger">Tidak Tersedia</span>
+                                                    </td>
+                                                @endif
                                             </tr>
                                             </tbody>
 
@@ -105,5 +120,11 @@
         </div>
         <!-- /.box -->
     </section>
+    <script type="text/javascript">
 
+        function destroy() {
+            $('#delete').submit();
+        }
+
+    </script>
 @endsection

@@ -1,7 +1,9 @@
 @extends('layouts.app')
-@include('layouts.inc.navbar')
 
 @section('content')
+
+    @include('layouts.inc.navbar')
+
 <div class="jumbotron p-4 p-md-5 text-white rounded bg-info">
         <div class="row">
           <div class="col-md-6 px-0">
@@ -78,9 +80,9 @@
             </div>
           </div>
   </div>
-  <p>
-      <button type="button" class="btn btn-primary ">Lihat Semua</button>
-  </p>
+  
+      <a type="button" class="btn btn-primary " href="/lihatsemuars">Lihat Semua</a>
+  
   
 </div>
     

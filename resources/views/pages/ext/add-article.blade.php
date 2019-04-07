@@ -2,7 +2,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            <a href="{{ route('article.index') }}" class="btn btn-default">
+            <a href="{{ url()->previous() }}" class="btn btn-default">
                 <i class="fa fa-chevron-left"></i>
             </a>&nbsp;&nbsp;&nbsp;
             Buat Artikel
@@ -17,6 +17,9 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
+
+        @include('layouts.inc.messages')
+
         <div class="box box-primary container" style="padding-bottom:20px;">
             <br>
             {!! Form::open(['action' => 'ArticleController@store','method'=> 'POST', 'enctype' => 'multipart/data']) !!}

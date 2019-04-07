@@ -2,7 +2,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            <a href="{{ route('hospital.index') }}" class="btn btn-default">
+            <a href="{{ url()->previous() }}" class="btn btn-default">
                 <i class="fa fa-chevron-left"></i>
             </a>&nbsp;&nbsp;&nbsp;
             Tambah Rumah Sakit
@@ -89,7 +89,7 @@
                     @endif
                 </div>
             </div>
-            {{Form::submit('Add',['class'=>'btn btn-primary'])}}
+            {{Form::submit('Tambah',['class'=>'btn btn-success'])}}
             <a href="{{ route('hospital.index') }}" class="btn btn-danger">Batal</a>
             {!! Form::close() !!}
         </div>

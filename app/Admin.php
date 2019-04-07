@@ -13,6 +13,7 @@ class Admin extends Authenticatable
 
     protected $guard = 'admin';
 
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +22,7 @@ class Admin extends Authenticatable
     protected $fillable = [
         'name', 'profile_picture', 'email', 'password',
     ];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -31,6 +33,7 @@ class Admin extends Authenticatable
         'password', 'remember_token',
     ];
 
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -40,27 +43,43 @@ class Admin extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+    /**
+     * @var array
+     */
     protected $dates = [
         'created_at',
         'updated_at'
     ];
 
-    public function article() {
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function article()
+    {
         return $this->hasMany('App\Articles');
     }
 
-    public function getGreetings() {
-        $hour = Carbon::now()->format('H');
 
-        if ($hour >= 0) {
+    /**
+     * @return string
+     */
+    public function getGreetings()
+    {
+        $h = Carbon::now()->format('H');
+
+        if ($h >= 0 && $h < 6) {
             return "<i class='fa far fa-surprise fa-2x'></i>&nbsp;&nbsp;Wow, ini masih pagi loh ";
-        } elseif ($hour >= 6) {
-            return "<i class='fa far fa-smile-o fa-2x'></i>&nbsp;&nbsp;Selamat pagi ";
-        } elseif ($hour >= 12) {
+        } elseif ($h >= 6 && $h < 11) {
+            return "<i class='fa far fa-laugh-beam fa-2x'></i>&nbsp;&nbsp;Selamat pagi ";
+        } elseif ($h >= 11 && $h <= 14) {
             return "<i class='fa far fa-smile-wink fa-2x'></i>&nbsp;&nbsp;Selamat siang ";
-        } elseif ($hour >= 17) {
+        } elseif ($h > 14 && $h <= 16) {
+            return "<i class='fa far fa-smile-beam fa-2x'></i>&nbsp;&nbsp;Selamat sore ";
+        } elseif ($h >= 17 && $h < 20) {
             return "<i class='fa far fa-grin-stars fa-2x'></i>&nbsp;&nbsp;Senja yang indah ya ";
-        } elseif ($hour >= 22 ) {
+        } else {
             return "<i class='fa far fa-bed fa-2x'></i>&nbsp;&nbsp;Sudah malam, sebaiknya kamu istirahat ";
         }
     }
