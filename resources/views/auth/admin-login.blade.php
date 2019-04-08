@@ -38,18 +38,19 @@
                     @endif
                 </div>
             </div>
-            <div class="form-group row justify-content-center">
-                <div class="col-md-6 text-center">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                        &nbsp;
-                        <label class="form-check-label" for="remember">
-                            Remember Me
-                        </label>
-                    </div>
-                </div>
-            </div>
+{{--            <div class="form-group row justify-content-center">--}}
+{{--                <div class="col-md-6 text-center">--}}
+{{--                    <div class="form-check">--}}
+{{--                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>--}}
+{{--                        &nbsp;--}}
+{{--                        <label class="form-check-label" for="remember">--}}
+{{--                            Remember Me--}}
+{{--                        </label>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
+            <br>
             <br>
 
             <div class="row">

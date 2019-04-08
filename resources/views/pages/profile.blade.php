@@ -4,7 +4,7 @@
     <div class="box box-primary">
         <div class="box-header with-border">
             <strong class="box-title">Artikel anda</strong>
-            <a href="{{ url('/admin/article/create') }}" class="btn btn-success btn-sm pull-right">
+            <a href="{{ session('role') == "Admin" ? url('/admin/article/create') : url('/doctor/article/create') }}" class="btn btn-success pull-right">
                 <strong>
                     <i class="fa far fa-pencil-alt"></i>
                     &nbsp;Buat Artikel

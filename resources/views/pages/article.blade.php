@@ -20,7 +20,7 @@
         <div class="box box-primary">
             <div class="box-header with-border">
                 <strong>Daftar Artikel</strong>
-                <a href="{{ route('article.create') }}" class="btn btn-success pull-right">
+                <a href="{{ session('role') == "Admin" ? url('/admin/article/create') : url('/doctor/article/create') }}" class="btn btn-success pull-right">
                     <strong>
                         <i class="fa fa fa-pencil-alt"></i>
                         &nbsp;Buat artikel
