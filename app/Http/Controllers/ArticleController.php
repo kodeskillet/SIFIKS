@@ -128,19 +128,6 @@ class ArticleController extends Controller
                 $category = "Kesehatan";
                 break;
         }
-
-        if (strlen($name)>1){
-            $name = \Request::get('name');
-            $data = [
-                'articles' => Articles::where('category', $cat)
-                                        ->where('content','LIKE',$name.'%')
-                                        ->orderBy('title','asc')
-                                        ->get(),
-                'category' => $category,
-                'cat' => $cat
-            ];
-        }
-        else{
             $data = [
                 'articles' => Articles::where('category', $cat)
                                         ->where('title','LIKE',$name.'%')
@@ -149,7 +136,40 @@ class ArticleController extends Controller
                 'category' => $category,
                 'cat' => $cat
             ];
+
+        return view('articles')->with('data', $data);
+    }
+
+    public function search(Request $request, $cat)
+    {
+        $category = null;
+        $cari = $request->cari;
+
+        switch ($cat) {
+            case "penyakit":
+                $category = "Penyakit";
+                break;
+            case "obat":
+                $category = "Obat - obatan";
+                break;
+            case "hidup-sehat":
+                $category = "Hidup Sehat";
+                break;
+            case "keluarga":
+                $category = "Keluarga";
+                break;
+            case "kesehatan":
+                $category = "Kesehatan";
+                break;
         }
+        $data = [
+            'articles' => Articles::where('category', $cat)
+                                    ->where('content','LIKE','%'.$cari.'%')
+                                    ->orderBy('title','asc')
+                                    ->get(),
+            'category' => $category,
+            'cat' => $cat
+        ];
         return view('articles')->with('data', $data);
     }
 
