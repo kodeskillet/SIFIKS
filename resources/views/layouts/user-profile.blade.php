@@ -89,7 +89,7 @@
                                     @endif
                                     >
                                         <span class="text-muted">Ubah Password</span>
-                                        <i class="fab fa-{{ $data['user']->provider }} fa-pull-right mt-1 text-muted"></i>
+                                        <i class="fab fa-{{ $data['user']->provider }} fa-pull-right fa-lg mt-1 text-muted"></i>
                                     </div>
                                 @endif
                             </li>
