@@ -130,6 +130,7 @@ class ArticleController extends Controller
         }
 
         if (strlen($name)>1){
+            $name = \Request::get('name');
             $data = [
                 'articles' => Articles::where('category', $cat)
                                         ->where('content','LIKE',$name.'%')
