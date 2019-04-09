@@ -1,4 +1,5 @@
 @extends('layouts.adm-app')
+
 @section('content')
     <section class="content-header">
         <h1>
