@@ -37,7 +37,7 @@
                     <img src="{{ asset('storage/images/dokter.jpg') }}"  alt="Buah" class="img-fluid" >
                     <div class="card-body text-black-50">
                         <h4>{{ $art->title }}</h4>
-                        <p class="card-text">{!! $art->cutStr($art->content) !!}</p>
+                        <p class="card-text">{!! Str::limit($art->content, 190) !!}</p>
                         <div class="d-flex justify-content-end align-items-center">
                             <small class="text-muted">{{$art->created_at->diffForHumans()}}</small>
                         </div>
