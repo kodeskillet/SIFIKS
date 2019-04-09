@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
-@include('layouts.inc.navbar')
-
 @section('content')
+
+    @include('layouts.inc.navbar')
+
     <div class="container-fluid">
 
         @include('layouts.inc.messages')
