@@ -131,22 +131,5 @@ class DoctorController extends Controller
         return redirect (route('doctor.index'));
     }
 
-
-    // Set Specialization_id on DoctorDetail
-//    private function setSpecialty($data) {
-//        $specialty = new DoctorDetail();
-//        $specialty->doctor_id = $data['id'];
-//        $specialty->specialization_id = $data['specialty'];
-//
-//        if($specialty->save()) {
-//            return true;
-//        }
-//        return false;
-//    }
-
-    // Set Hospital_id on DoctorDetail
-//    private function setHospital($data) {
-//
-//    }
 }
 
