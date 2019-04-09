@@ -142,9 +142,12 @@ class ArticleController extends Controller
 
     public function search(Request $request, $cat)
     {
-        $category = null;
         $cari = $request->cari;
-
+        $articles = Articles::where('category', $cat)
+                        ->where('content','LIKE','%'.$cari.'%')
+                        ->orderBy('title','asc')
+                        ->get();
+        $category = null;
         switch ($cat) {
             case "penyakit":
                 $category = "Penyakit";
@@ -162,11 +165,9 @@ class ArticleController extends Controller
                 $category = "Kesehatan";
                 break;
         }
+
         $data = [
-            'articles' => Articles::where('category', $cat)
-                                    ->where('content','LIKE','%'.$cari.'%')
-                                    ->orderBy('title','asc')
-                                    ->get(),
+            'articles' => $articles,
             'category' => $category,
             'cat' => $cat
         ];

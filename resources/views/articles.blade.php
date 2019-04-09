@@ -5,11 +5,11 @@
     @include('layouts.inc.navbar')
     <div class="container">
         <div class="text-center mt-4 mb-4"><h3>{{ $data['category'] }}</h3></div>
-        <form action="{{route('cari.articles',['category' => $data['cat'], 'cari'])}}" method="GET" role="search">
+        <form action="{{route('cari.articles', ['category' => $data['cat'], 'cari'])}}" method="POST" role="search">
+        @csrf
         <div class="row">
             <div class="col-sm-12">
                 <div class="input-group">
-                        {{-- {{ csrf_field() }} --}}
                         <input type="text" class="form-control" placeholder="Cari tentang {{ $data['category'] }}..." name='cari' value="{{ old('cari') }}">
                         <div class="input-group-append">
                             <button class="btn btn-outline-primary" type="submit" id="button-addon2" value="CARI">Cari</button>
@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-    </form>
+        </form>
         <div class="row justify-content-center mt-4">
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                 @foreach(range('A', 'Z') as $key)
