@@ -24,9 +24,39 @@
                 @endforeach
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-
+        <div class="container">
+            <br>
+            <br>
+            <div class="row">
+                <div class="col col-md-8">
+                    <div class="row">
+                        <div class="col col-md-2">
+                        </div>
+                        <div class="col col-md-5">
+                            <a href=""><h3>Lorem Ipsum</h3></a>
+                            <br>
+                            <a href=""><h3>Lorem Ipsum</h3></a>
+                            <br>
+                            <a href=""><h3>Lorem Ipsum</h3></a>
+                            <br>
+                            <a href=""><h3>Lorem Ipsum</h3></a>
+                            <br>
+                            <a href=""><h3>Lorem Ipsum</h3></a>
+                        </div>
+                        <div class="col col-md-5">
+                            <a href=""><h3>Lorem Ipsum</h3></a>
+                            <br>
+                            <a href=""><h3>Lorem Ipsum</h3></a>
+                            <br>
+                            <a href=""><h3>Lorem Ipsum</h3></a>
+                            <br>
+                            <a href=""><h3>Lorem Ipsum</h3></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <img src="https://i.ibb.co/tCWCnKK/doctor.png" alt="doctor" border="0" width="350">
+                </div>
             </div>
         </div>
     </div>

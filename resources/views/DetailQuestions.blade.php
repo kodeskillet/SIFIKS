@@ -40,7 +40,7 @@
 
                             <div class="comment-text">
                                 <span class="username">
-                                    Dokter Mentari
+                                    Dokter Laura
                                     <span class="text-muted pull-right">3 days ago</span>
                                 </span><!-- /.username -->
                             Hai Syifaur , sini main ke rumah ibu , nanti ibu obatin
