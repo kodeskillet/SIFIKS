@@ -55,6 +55,7 @@
                     </div>
                 </div>
                 <div class="col col-md-4">
+                    <img src="https://i.ibb.co/tCWCnKK/doctor.png" alt="doctor" border="0" width="350">
                 </div>
             </div>
         </div>
