@@ -152,7 +152,8 @@ Route::prefix('doctor')->group( function() {
 
 
     // Doc Controller -->
-
+    Route::get('/profile/{doctor}', 'DocController@profile')->name('doctor.profile');
+    Route::get('/profile/{doctor}/edit', 'DocController@edit')->name('doctor.profile.edit');
 
 
     // Home -->
