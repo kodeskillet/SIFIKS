@@ -104,7 +104,7 @@
                                             &nbsp;Profil
                                         </a>
                                     @elseif(session('role') == "Doctor" && Auth::guard('doctor')->check())
-                                        <a href="#" class="btn btn-default btn-flat">
+                                        <a href="{{ route('doctor.profile', Auth::guard('doctor')->user()->id) }}" class="btn btn-default btn-flat">
                                             <i class="fa far fa-user"></i>
                                             &nbsp;Profil
                                         </a>

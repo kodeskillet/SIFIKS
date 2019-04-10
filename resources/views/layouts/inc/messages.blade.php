@@ -3,6 +3,7 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
+        <i class="fa far fa-check pull-left float-left fa-3x"></i>
         <strong>Sukses !</strong><br>
         {{ session('success') }}
     </div>
@@ -13,6 +14,7 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
+        <i class="fa far fa-ban pull-left float-left fa-3x"></i>
         <strong>Gagal !</strong><br>
         {{ session('failed') }}
     </div>
@@ -23,6 +25,7 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
+    <i class="fa far fa-exclamation pull-left float-left fa-3x"></i>
     <strong>Informasi !</strong><br>
     {{ session('info') }}
 </div>
@@ -33,6 +36,7 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
+    <i class="fa far fa-exclamation-triangle pull-left float-left fa-3x"></i>
     <strong>Peringatan !</strong><br>
     {{ session('warning') }}
 </div>
