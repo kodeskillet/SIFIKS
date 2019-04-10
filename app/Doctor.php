@@ -53,7 +53,7 @@ class Doctor extends Authenticatable
      */
     public function article()
     {
-        return $this->hasMany('App\Article');
+        return $this->hasMany('App\Articles');
     }
 
     /**
