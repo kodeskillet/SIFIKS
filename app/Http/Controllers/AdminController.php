@@ -32,7 +32,7 @@ class AdminController extends Controller
             'role' => session('role'),
             'since' => $since,
         ];
-        return view('adm-home')->with('data', $data);
+        return view('pages.dashboard')->with('data', $data);
     }
 
 
@@ -117,7 +117,7 @@ class AdminController extends Controller
             $data = [
                 'admin' => $admin
             ];
-            return view('pages.profile-edit')->with('data', $data);
+            return view('pages.admin-profile-edit')->with('data', $data);
         }
 
         return redirect()->back()->with('warning', 'Anda tidak berhak mengakses laman tersebut.');
