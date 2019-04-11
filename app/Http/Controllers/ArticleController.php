@@ -47,9 +47,9 @@ class ArticleController extends Controller
         ]);
 
         if($request->hasFile('cover_image')){
-            $filenameWithExt = $request->file('cover_image')->getClientOriginalImage();
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('cover_image')->getOriginalClientExtension();
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
         }else {
@@ -65,6 +65,7 @@ class ArticleController extends Controller
         } else {
             $article->doctor_id = Auth::guard('doctor')->user()->id;
         }
+        $article->cover_image = $fileNameToStore;
 
         if($article->save()) {
             return redirect (route('article.index'))->with('success', 'Artikel baru berhasil ditambahkan !');
