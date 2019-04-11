@@ -108,10 +108,12 @@ class Doctor extends Authenticatable
         }
     }
 
-    // public function getSpecialty()
-    // {
-    //     return $specialty = DoctorSpecialization::all();
-    // }
+    public function getSpecialty()
+    {
+        $specialtyId = $this->getAttributeValue('specialization_id');
+
+        return $specialty = DoctorSpecialization::find($specialtyId);
+    }
 
     public function getLocation()
     {
