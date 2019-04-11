@@ -3,12 +3,13 @@
 @section('content')
 
     @include('layouts.inc.navbar')
-
-<div class="jumbotron p-4 p-md-5 text-white rounded bg-info">
-        <div class="row">
+<div class="container-fluid">
+    <div class="jumbotron p-4 p-md-5 text-white rounded bg-primary">
+        <div class="row justify-content-center">
           <div class="col-md-6 px-0">
             <h1 class="display-4 font-bold" >Cari Tindakan Medis</h1>
             <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
+            <hr>
             <div class="row">
                 <div class="col-md-5">
                     <label for="tentang">Saya mencari informasi tentang:</label>
@@ -29,6 +30,8 @@
           </div>
         </div>
     </div>
+
+</div>
 
 
 

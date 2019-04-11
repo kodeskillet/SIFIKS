@@ -10,7 +10,7 @@
                   {{-- <img src="https://i.ibb.co/JQbV1BQ/sifiks5.png" width="45%" alt="sifiks5" border="0"> --}}
                 <h1 class="display-4 font-bold" >Cari Nama Dokter/ Spesialis</h1>
                 <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
-                <hr>
+                {{-- <hr> --}}
                 <ul>
                   <li>Kemudahan dalam mencari Dokter yang di inginkan</li>
                   <li>Terdapat berbagai spesialis dokter yang tersedia</li>
@@ -35,8 +35,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
-                  <img src="{{ asset('storage/images/dokterbackground.png') }}" alt="Dokter" class="float-right" width="110%">
+                <div class="col-md-3">
+                  <img src="{{ asset('storage/images/dokterhome.png') }}" alt="Dokter" class="float-right" width="150%">
               </div>
             </div>
         </div>
