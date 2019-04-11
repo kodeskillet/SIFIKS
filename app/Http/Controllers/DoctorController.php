@@ -116,8 +116,8 @@ class DoctorController extends Controller
         $doctor = Doctor::find($id);
         $doctor->name = $request->input('name');
         $doctor->password = $pass;
-        if($admin->save()) {
-            return redirect (route('admin.index'))->with('success', 'Admin berhasil di update !');
+        if($doctor->save()) {
+            return redirect (route('admin.index'))->with('success', 'Doctor berhasil di update !');
         }
 
         return redirect (route('admin.edit', $id))->with('failed', 'Gagal memperbaharui dokter !');
