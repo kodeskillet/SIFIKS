@@ -96,7 +96,7 @@
           </div>
   </div>
 
-      <a type="button" class="btn btn-primary " href="/lihatsemuadokter">Lihat Semua</a>
+      <a type="button" class="btn btn-primary " href="{{route('list.doctor')}}">Lihat Semua</a>
 
 
 </div>
