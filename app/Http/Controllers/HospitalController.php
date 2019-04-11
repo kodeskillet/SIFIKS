@@ -61,9 +61,12 @@ class HospitalController extends Controller
         $hospital->medical_services = $request->input('medical_services');
         $hospital->public_services = $request->input('public_services');
         $hospital->cover_images_id = 1;
-        $hospital->save();
 
-        return redirect(route('hospital.index'));
+        if($hospital->save()) {
+            return redirect (route('hospital.index'))->with('success', 'Rumah sakit berhasil di tambahkan !');
+        }
+
+        return redirect (route('hospital.index'))->with('failed', 'Gagal menambahkan rumah sakit !');
     }
 
     /**
@@ -128,9 +131,12 @@ class HospitalController extends Controller
         $hospital->medical_services = $request->input('medical_services');
         $hospital->public_services = $request->input('public_services');
         $hospital->cover_images_id = 1;
-        $hospital->save();
 
-        return redirect (route('hospital.index'));
+        if($hospital->save()) {
+            return redirect (route('hospital.index'))->with('success', 'Rumah sakit berhasil di perbaharui');
+        }
+
+        return redirect (route('hospital.edit', $id))->with('failed', 'Gagal memperbaharui rumah sakit !');
     }
 
     /**
