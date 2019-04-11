@@ -71,6 +71,11 @@
                                         >
                                         Perempuan
                                     </label>
+                                    @if($errors->has('city_id'))
+                                        <div class="text-danger text-bold">
+                                            {{$errors->first('city_id')}}
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
@@ -112,9 +117,9 @@
                             <div class="col-md-12 form-group">
                                 <label for="biography">Biografi</label>
                                 <textarea id="biography" name="biography" class="form-control" placeholder="Ceritakan tentang diri anda...">{{ $data['doctor']->biography }}</textarea>
-                                @if($errors->has('specialization_id'))
+                                @if($errors->has('biography'))
                                     <div class="text-danger text-bold">
-                                        {{$errors->first('specialization_id')}}
+                                        {{$errors->first('biography')}}
                                     </div>
                                 @endif
                             </div>

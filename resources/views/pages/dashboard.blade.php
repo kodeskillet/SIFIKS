@@ -29,14 +29,18 @@
                 </h3>
                 <i>Awali dengan Doa, Bekerja dengan Semangat, Pulang dengan Selamat, Amiin.</i>
             </div>
-            <div class="alert alert-warning alert-dismissible text-center mt-2 mb-2" role="alert" style="margin-top: 20px">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <i class="fa far fa-exclamation-triangle pull-left float-left fa-3x"></i>
-                <strong>Peringatan !</strong><br>
-                {{ $data['warning'] }}
-            </div>
+            @auth('doctor')
+                @if( $data['doctor']->city_id == null || $data['doctor']->gender == null || $data['doctor']->biography == null || $data['doctor']->profile_picture == 'user-default.jpg')
+                    <div class="alert alert-warning alert-dismissible text-center mt-2 mb-2" role="alert" style="margin-top: 20px">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <i class="fa far fa-exclamation-triangle pull-left float-left fa-3x"></i>
+                        <strong>Peringatan !</strong><br>
+                        {{ $data['warning'] }}
+                    </div>
+                @endif
+            @endauth
         </div>
 
     </section>
