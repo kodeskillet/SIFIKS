@@ -211,12 +211,25 @@ class ArticleController extends Controller
             'category' => 'required',
             'title' => 'required',
             'content' => 'required|min:500',
+            'cover_image' => 'image|nullable|max:3999'
+
         ]);
+
+        if($request->hasFile('cover_image')){
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        }
 
         $article = Articles::find($id);
         $article->category = $request->input('category');
         $article->title = $request->input('title');
         $article->content = $request->input('content');
+        if($request->hasFile('cover_image')){
+            $article->cover_image = $fileNameToStore;
+        }
 
         if($article->save()) {
             return redirect (route('article.index'))->with('success', 'Artikel berhasil diubah !');
