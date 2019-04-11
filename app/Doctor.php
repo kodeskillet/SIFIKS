@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use App\City;
+use App\DoctorSpecialization;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -105,6 +106,13 @@ class Doctor extends Authenticatable
         } else {
             return "<i class='fa far fa-bed fa-2x'></i>&nbsp;&nbsp;Sudah malam, sebaiknya kamu istirahat ";
         }
+    }
+
+    public function getSpecialty()
+    {
+        $specialtyId = $this->getAttributeValue('specialization_id');
+
+        return $specialty = DoctorSpecialization::find($specialtyId);
     }
 
     public function getLocation()

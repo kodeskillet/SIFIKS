@@ -64,7 +64,13 @@
                                                 {{ $doctor->trimStr($doctor->specialty->name) }}
                                             </a>
                                         </td>
-                                        <td>{{ $doctor->getLocation()->name}}</td>
+                                        <td>
+                                            @if($doctor->city_id != null)
+                                                {{ $doctor->getLocation()->name}}
+                                            @else
+                                                null
+                                            @endif
+                                        </td>
                                         <td>{{ $doctor->email }}</td>
                                         <td>{{ $doctor->created_at->format("d M Y") }}</td>
                                         <td>{{ $doctor->updated_at->diffForHumans() }}</td>

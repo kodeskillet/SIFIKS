@@ -24,63 +24,9 @@
             <div class="index-by-letter-button">
                 <div class="index-by-letter">
                     <ul class="menu-children">
-
-                    <li class="index-item"><a href="/listdoctor">Ahli Estetika</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Anak</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Anestesi</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Bedah</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Bedah Anak</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Bedah Plastik</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Endokrin</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Gastroenterologi</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Gigi</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Ginjal</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Gizi</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Jantung</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Kandungan</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Kulit</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Mata</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Onkologi</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Ortopedi</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Paru</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Penyakit Dalam</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Radiologi</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Rehabilitasi Medis</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Reumatologi</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Saraf</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter THT</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Umum</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Dokter Urologi</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Psikiater</a></li>
-
-                    <li class="index-item"><a href="/listdoctor">Psikolog</a></li>
-
+                        @foreach($data['specialization'] as $specialty)
+                            <li class="index-item"><a href="{{route('list.doctorSpecialty', ['specialty' => $specialty->id])}}">{{$specialty->name}}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

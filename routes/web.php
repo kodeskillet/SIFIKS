@@ -18,10 +18,6 @@ Route::get('/viewarticle', function() {
     return view('viewarticle');
 });
 
-Route::get('/SearchDokter', function() {
-    return view('SearchDokter');
-});
-
 Route::get('/SearchRS', function() {
     return view('SearchRS');
 });
@@ -34,9 +30,12 @@ Route::get('/SearchRS', function() {
 //     return view('EditUser');
 // })->name('edituser');
 
-Route::get('/listdoctor', function() {
-    return view('listDoctor');
-});
+// Route::get('/listdoctor', function() {
+//     return view('listDoctor');
+// });
+
+Route::get('/listdoctors/{specialty}', 'DoctorController@show')->name('list.doctorSpecialty');
+Route::get('/listdoctors/viewdoctor/{id}', 'DoctorController@showDoctor')->name('show.doctor');
 
 Route::get('/viewhospital', function() {
     return view('viewhospital');
@@ -54,9 +53,15 @@ Route::get('/lihatsemuars', function() {
     return view('LSRumahSakit');
 });
 
-Route::get('/lihatsemuadokter', function() {
-    return view('LSdoctor');
-});
+// Route::get('/lihatsemuadokter', function() {
+//     return view('LSdoctor');
+// });
+Route::get('/listdoctors', 'SpecializationController@indexUser')->name('list.doctor');
+Route::get('/searchdoctor','SpecializationController@indexSearch')->name('search.doctor');
+
+// Route::get('/SearchDokter', function() {
+//     return view('SearchDokter');
+// });
 
 Route::get('/mainsearch-article', function() {
     return view('MainSearchArt');

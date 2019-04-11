@@ -77,9 +77,19 @@ class DoctorController extends Controller
      */
     public function show($id)
     {
-        //
+        $doctor = Doctor::where('specialization_id',$id)->orderBy('name','asc')->paginate(5);
+        $data = [
+            'doctor' => $doctor
+        ];
+        return view('listDoctor')->with('data',$data);
     }
 
+    public function showDoctor($id)
+    {
+        $doctor = Doctor::find($id);
+
+        return view('viewDoctor')->with('doctor',$doctor);
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -122,6 +132,11 @@ class DoctorController extends Controller
 
         return redirect (route('doctor.edit', $id))->with('failed', 'Gagal memperbaharui dokter !');
     }
+
+    // public function showSpecialty()
+    // {
+
+    // }
 
     /**
      * Remove the specified resource from storage.

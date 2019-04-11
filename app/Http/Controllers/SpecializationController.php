@@ -14,7 +14,7 @@ class SpecializationController extends Controller
      */
     public function index()
     {
-        $specialization = DoctorSpecialization::orderBy('updated_at', 'desc')->paginate(10);
+        $specialization = DoctorSpecialization::orderBy('name', 'desc')->paginate(10);
         $data = [
             'specialization' => $specialization
         ];
@@ -122,5 +122,25 @@ class SpecializationController extends Controller
         if($specialty->delete()) {
             return redirect(route('specialty.index'));
         }
+    }
+
+    public function indexUser()
+    {
+        $specialization = DoctorSpecialization::orderBy('name', 'asc')->get();
+        $data = [
+            'specialization' => $specialization
+        ];
+
+        return view('LSdoctor')->with('data', $data);
+    }
+
+    public function indexSearch()
+    {
+        $specialization = DoctorSpecialization::orderBy('created_at','desc')->orderBy('name', 'asc')->take(6)->get();
+        $data = [
+            'specialization' => $specialization
+        ];
+
+        return view('SearchDokter')->with('data', $data);
     }
 }

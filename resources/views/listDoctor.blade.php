@@ -136,71 +136,36 @@
     <!-- list doctor -->
                 <br>
                 <h1 class="font-weight-bold">Cari Jadwal Dokter</h1>
-
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="{{ asset('storage/images/marsha.jpg') }}" alt="..." class="card-img" >
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">dr. Marsha Hamrah, Sp.A</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="\viewdoctor" class="btn btn-primary">Buat Janji</a>
+                @if(count($data['doctor'])>0)
+                @foreach($data['doctor'] as $doctor)
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="{{ asset('storage/user_images/').'/'.$doctor->profile_picture }}" alt="{{$doctor->name}}" class="card-img" >
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Dr. {{$doctor->name}}, {{$doctor->getSpecialty()->degree}}</h5>
+                                    <p class="card-text">{{Str::limit($doctor->biography)}}</p>
+                                    <a href="{{route('show.doctor',['id'=>$doctor->id])}}" class="btn btn-primary">Buat Janji</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="{{ asset('storage/images/felicia.jpg') }}" alt="..." class="card-img" >
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">dr. Felicia Carissa, Sp.OG</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="\viewdoctor" class="btn btn-primary">Buat Janji</a>
+                @endforeach
+                @else
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="alert alert-danger text-center">
+                                <strong>Maaf tidak ada dokter.</strong>
+                            </div>
                         </div>
                     </div>
+                @endif
+                <div class="text-center">
+                    {{ $data['doctor']->links() }}
                 </div>
             </div>
-
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="{{ asset('storage/images/key.jpg') }}" alt="..." class="card-img" >
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">dr. Key Alexae, Sp.JP</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="\viewdoctor" class="btn btn-primary">Buat Janji</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="{{ asset('storage/images/namira.jpg') }}" alt="..." class="card-img" >
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">dr. Namira Atasya, Sp.PD</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="\viewdoctor" class="btn btn-primary">Buat Janji</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            </div>
-
-
-
 
         </div>
     </div>
