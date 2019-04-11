@@ -42,9 +42,9 @@
               </div>
             </div>
         </div>
-    
+
     </div>
-    
+
 
 
 
@@ -95,10 +95,10 @@
             </div>
           </div>
   </div>
-  
+
       <a type="button" class="btn btn-primary " href="/lihatsemuadokter">Lihat Semua</a>
-  
-  
+
+
 </div>
-    
+
 @endsection

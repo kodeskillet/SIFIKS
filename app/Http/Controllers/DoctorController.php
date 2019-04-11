@@ -63,8 +63,10 @@ class DoctorController extends Controller
         $doctor->password = Hash::make($request->password);
 
         if($doctor->save()) {
-            return redirect(route('doctor.index'));
+            return redirect (route('doctor.index'))->with('success', 'Berhasil Menambahkan Dokter !');
         }
+
+        return redirect (route('doctor.index'))->with('failed', 'Gagal menambah dokter !');
     }
 
     /**
@@ -114,8 +116,11 @@ class DoctorController extends Controller
         $doctor = Doctor::find($id);
         $doctor->name = $request->input('name');
         $doctor->password = $pass;
-        $doctor->save();
-        return redirect(route('doctor.index'));
+        if($admin->save()) {
+            return redirect (route('admin.index'))->with('success', 'Admin berhasil di update !');
+        }
+
+        return redirect (route('admin.edit', $id))->with('failed', 'Gagal memperbaharui dokter !');
     }
 
     /**
