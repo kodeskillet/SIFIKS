@@ -15,6 +15,8 @@
     <!-- Main content -->
     <section class="content container-fluid">
 
+        @include('layouts.inc.messages')
+
         <!-- Doctor List -->
         <div class="box box-primary">
             <div class="box-header with-border">
@@ -62,7 +64,7 @@
                                                 {{ $doctor->trimStr($doctor->specialty->name) }}
                                             </a>
                                         </td>
-                                        <td>{{ $doctor->city_id }}</td>
+                                        <td>{{ $doctor->getLocation()->name}}</td>
                                         <td>{{ $doctor->email }}</td>
                                         <td>{{ $doctor->created_at->format("d M Y") }}</td>
                                         <td>{{ $doctor->updated_at->diffForHumans() }}</td>

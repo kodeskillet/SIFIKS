@@ -117,10 +117,10 @@ class DoctorController extends Controller
         $doctor->name = $request->input('name');
         $doctor->password = $pass;
         if($doctor->save()) {
-            return redirect (route('admin.index'))->with('success', 'Doctor berhasil di update !');
+            return redirect (route('doctor.index'))->with('success', 'Doktor berhasil di update !');
         }
 
-        return redirect (route('admin.edit', $id))->with('failed', 'Gagal memperbaharui dokter !');
+        return redirect (route('doctor.edit', $id))->with('failed', 'Gagal memperbaharui dokter !');
     }
 
     /**

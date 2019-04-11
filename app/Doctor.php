@@ -3,6 +3,7 @@
 namespace App;
 
 use Carbon\Carbon;
+use App\City;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -104,5 +105,12 @@ class Doctor extends Authenticatable
         } else {
             return "<i class='fa far fa-bed fa-2x'></i>&nbsp;&nbsp;Sudah malam, sebaiknya kamu istirahat ";
         }
+    }
+
+    public function getLocation()
+    {
+        $locationId = $this->getAttributeValue('city_id');
+
+        return $loc = City::find($locationId);
     }
 }
