@@ -35,12 +35,17 @@ class DocController extends Controller
 
         $since = new Carbon(Auth::guard('doctor')->user()->created_at);
         $data = [
+            'doctor' => $doctor,
             'role' => session('role'),
             'since' => $since,
             'warning' => null
         ];
 
-        if($doctor->city_id == null || $doctor->gender == null || $doctor->biography == null) {
+        if( $doctor->city_id == null ||
+            $doctor->gender == null ||
+            $doctor->biography == null ||
+            $doctor->profile_picture == 'user-default.jpg') {
+
             $data['warning'] = 'Sepertinya anda belum melengkapi data diri anda, segera lengkapi data diri anda.';
         }
         return view('pages.dashboard')->with('data', $data);
@@ -131,13 +136,18 @@ class DocController extends Controller
         $doctor->name = $request->input('name');
         $doctor->email = $request->input('email');
         $doctor->city_id = $request->input('city_id');
+        $doctor->gender = $request->input('gender');
         $doctor->specialization_id = $request->input('specialization_id');
         $doctor->biography = $request->input('biography');
         if($request->hasFile('profile_picture')) {
             $doctor->profile_picture = $img;
         }
 
-        return redirect(route('doctor.profile', $doctor->id))->with('success', 'Profil berhasil diperbarui !');
+        if($doctor->save()) {
+            return redirect(route('doctor.profile', $doctor->id))->with('success', 'Profil berhasil diperbarui !');
+        }
+
+        return redirect(route('doctor.profile.edit', $doctor->id))->with('failed', 'Pembaruan profil gagal !');
     }
 
     /**
@@ -201,14 +211,18 @@ class DocController extends Controller
         if($doctor->save()) {
             return redirect(route('admin.profile.edit', $doctor->id))->with('success', 'Foto profil berhasil dihapus !');
         }
+        return redirect(route('admin.profile.edit', $doctor->id))->with('failed', 'Gagal menghapus foto profil.');
     }
 
-    public function destroy() {
+
+    public function destroy()
+    {
         $doctor = $this->currentUser();
         if($doctor->delete()) {
-            return redirect(route('admin.login'))->with('success', 'Akun telah dihapus !');
+            session()->flush();
+            return redirect(route('doctor.login'))->with('success', 'Akun telah dihapus !');
         }
-        return redirect(route('admin.dashboard'))->with('failed', 'Penghapusan akun gagal.');
+        return redirect(route('doctor.dashboard'))->with('failed', 'Penghapusan akun gagal.');
     }
 
     /**
