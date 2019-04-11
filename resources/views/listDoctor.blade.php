@@ -138,21 +138,21 @@
                 <h1 class="font-weight-bold">Cari Jadwal Dokter</h1>
 
                 @foreach($data['doctor'] as $doctor)
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="{{ asset('storage/images/marsha.jpg') }}" alt="{{$doctor->name}}" class="card-img" >
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Dr. {{$doctor->name}}, {{$doctor->getSpecialty()->degree}}</h5>
-                            <p class="card-text">{{Str::limit($doctor->biography)}}</p>
-                            <a href="\viewdoctor" class="btn btn-primary">Buat Janji</a>
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="{{ asset('storage/user_images/').'/'.$doctor->profile_picture }}" alt="{{$doctor->name}}" class="card-img" >
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Dr. {{$doctor->name}}, {{$doctor->getSpecialty()->degree}}</h5>
+                                    <p class="card-text">{{Str::limit($doctor->biography)}}</p>
+                                    <a href="\viewdoctor" class="btn btn-primary">Buat Janji</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
+                @endforeach
             </div>
 
         </div>

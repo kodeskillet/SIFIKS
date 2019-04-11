@@ -38,7 +38,7 @@ Route::get('/SearchRS', function() {
 //     return view('listDoctor');
 // });
 
-Route::get('/listdoctors/{specialty}', 'DoctorController@indexUser')->name('list.doctorSpecialty');
+Route::get('/listdoctors/{specialty}', 'DoctorController@show')->name('list.doctorSpecialty');
 
 Route::get('/viewhospital', function() {
     return view('viewhospital');
