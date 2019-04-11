@@ -35,7 +35,7 @@
             @foreach($article as $art)
             <a href="{{route('user.article.show',['id'=>$art->id])}}" class="col-md-4 text-decoration-none">
                 <div class="card mb-4 shadow-sm">
-                    <img src="{{ asset('storage/cover_image/{{$art->cover_image}}') }}"  alt="Buah" class="img-fluid" >
+                    <img src="{{ asset ('storage/cover_images/').'/'.$art->cover_image}}"  alt="Buah" class="img-fluid" >
                     <div class="card-body text-black-50">
                         <h4>{{ $art->title }}</h4>
                         <p class="card-text">{!! Str::limit($art->content, 190) !!}</p>
