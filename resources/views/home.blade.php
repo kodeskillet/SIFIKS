@@ -24,7 +24,7 @@
                     <a class="btn btn-primary" role="button" href="/SearchRS">Cari Rumah Sakit</a>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ asset('storage/images/dokter.jpg') }}" alt="Dokter" class="img-thumbnail float-right" >
+                    <img src="{{ asset('storage/images/dokterhome.png') }}" alt="Dokter" class="float-left" width="700px">
                 </div>
             </div>
         </div>
