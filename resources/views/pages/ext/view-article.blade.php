@@ -24,11 +24,10 @@
                 Ditinjau <strong>{{ $article->created_at->format("d M Y") }}</strong>
                 <br>
                 Oleh
-                @if($article->admin_id == null)
-                    <small>Dokter</small> <strong>{{ $article->doctor->name }}</strong>
-                @else
-                    <small>Admin</small> <strong>{{ $article->admin->name }}</strong>
-                @endif
+                <strong>
+                    <small>{{ $article->writer()['role'] }}</small>
+                    {{ $article->writer()['data']->name }}
+                </strong>
             </div>
             <hr>
             <h2>{{ $article->title }}</h2><br>
