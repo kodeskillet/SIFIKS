@@ -77,7 +77,11 @@ class DoctorController extends Controller
      */
     public function show($id)
     {
-        //
+        $doctor = Doctor::where('specialization_id',$id)->orderBy('name','asc')->paginate(5);
+        $data = [
+            'doctor' => $doctor
+        ];
+        return view('pages.doctor')->with('data',$data);
     }
 
     /**
