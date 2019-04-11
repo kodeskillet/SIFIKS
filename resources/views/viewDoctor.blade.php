@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <br>
             <h1>Dr. {{$doctor->name}}, {{$doctor->getSpecialty()->degree}}</h1>
-            <a href="#" class="text-decoration-none"><h3>{{$doctor->getSpecialty()->name}}</h3></a>
+            <a href="" class="text-decoration-none"><h3>{{$doctor->getSpecialty()->name}}</h3></a>
             <br>
 
 <!-- Doctor Profile -->
