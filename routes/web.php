@@ -150,11 +150,14 @@ Route::prefix('doctor')->group( function() {
         'thread' => 'ThreadController'
     ]);
 
-
     // Doc Controller -->
     Route::get('/profile/{doctor}', 'DocController@profile')->name('doctor.profile');
     Route::get('/profile/{doctor}/edit', 'DocController@edit')->name('doctor.profile.edit');
-
+    Route::put('/profile/{doctor}/edit', 'DocController@update')->name('doctor.profile.edit.submit');
+    Route::get('/profile/password/{doctor}/edit', 'DocController@editPass')->name('doctor.password.edit');
+    Route::put('/profile/password/{doctor}/edit', 'DocController@updatePass')->name('doctor.password.edit.submit');
+    Route::delete('/profile/image/remove', 'DocController@removeImage')->name('doctor.image.remove');
+    Route::delete('/destroy/me', 'DocController@destroy')->name('doctor.profile.destroy');
 
     // Home -->
     Route::get('/', 'DocController@dashboard')->name('doc.dashboard');
