@@ -84,6 +84,12 @@ class DoctorController extends Controller
         return view('listDoctor')->with('data',$data);
     }
 
+    public function showDoctor($id)
+    {
+        $doctor = Doctor::find($id);
+
+        return view('viewDoctor')->with('doctor',$doctor);
+    }
     /**
      * Show the form for editing the specified resource.
      *
