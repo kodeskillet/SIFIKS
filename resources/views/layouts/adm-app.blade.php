@@ -27,6 +27,29 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron">
+
+    <style>
+        .clock-box {
+            font-family: 'Orbitron', sans-serif !important;
+            background: #000;
+            padding:5px 10px;
+            width: 125px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            text-align: center;
+            filter: opacity(0.2);
+            text-shadow: 0 0 6px #ff0;
+            transition: all 0.2s ease-in-out;
+            cursor: default;
+            font-weight: 700;
+            vertical-align: middle;
+        }
+        .clock-box:hover {
+            filter: opacity(0.8);
+        }
+    </style>
 </head>
 <body class="
     @if(session('role') == "Doctor")
@@ -34,7 +57,7 @@
     @else
         skin-red
     @endif
-    hold-transition sidebar-mini
+    hold-transition sidebar-mini fixed
 ">
 <!-- Site wrapper -->
 

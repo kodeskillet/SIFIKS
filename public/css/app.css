@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito|Orbitron);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -16576,5 +16576,9 @@ readers do not read off random characters that represent icons */
   font-size: 18px;
   border-right: 1px solid #dadee4;
   margin: 0 10px;
+}
+
+.clock {
+  font-family: "Orbitron", sans-serif !important;
 }
 

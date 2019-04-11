@@ -89,14 +89,22 @@
                                     </span>
                                 </a>
                             </li>
+                            <li class="list-group-item">
+                                <a href="#">
+                                    <b>Rumah Sakit anda</b>
+                                    <span class="pull-right">
+                                        <i class="fas fa-hospital"></i>
+                                    </span>
+                                </a>
+                            </li>
                         @endauth
                         @auth('admin')
                             <li class="list-group-item">
                                 <a href="#">
                                     <b>Log Aktivitas</b>
                                     <span class="pull-right">
-                                    <i class="fas fa-chart-line"></i>
-                                </span>
+                                        <i class="fas fa-chart-line"></i>
+                                    </span>
                                 </a>
                             </li>
                         @endauth
@@ -115,7 +123,13 @@
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="{{ route('admin.password.edit', $data[session('guard')]->id) }}">
+                            <a
+                            @if(Auth::guard('admin')->check())
+                                href="{{ route('admin.password.edit', $data['admin']->id) }}"
+                            @elseif(Auth::guard('doctor')->check())
+                                href="{{ route('doctor.password.edit', $data['doctor']->id) }}"
+                            @endif
+                            >
                                 Ubah Password
                             </a>
                         </li>
@@ -124,7 +138,12 @@
                 <div class="box-footer text-center">
                     <ul class="list-group list-group-unbordered">
                         <li class="list-group-item list-group-item-danger">
-                            <form onsubmit="return confirm('Yakin ingin hapus akun?')" action="{{ route('admin.profile.destroy', $data[session('guard')]->id) }}" method="POST">
+                            <form onsubmit="return confirm('Yakin ingin hapus akun?')" method="POST"
+                            @if(Auth::guard('admin')->check())
+                                action="{{ route('admin.profile.destroy', $data['admin']->id) }}"
+                            @elseif(Auth::guard('doctor')->check())
+                            @endif
+                            >
                                 @csrf
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="submit" class="btn btn-danger" value="Hapus Akun">

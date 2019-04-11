@@ -1,6 +1,6 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Nunito|Orbitron');
 
 // Variables
 @import 'variables';
@@ -166,4 +166,8 @@
     font-size: 18px;
     border-right: 1px solid #dadee4;
     margin: 0 10px;
+}
+
+.clock {
+    font-family: 'Orbitron', sans-serif !important;
 }
