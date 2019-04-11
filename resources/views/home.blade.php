@@ -12,7 +12,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-6 px-0">
                     <img src="https://i.ibb.co/JQbV1BQ/sifiks5.png" width="45%" alt="sifiks5" border="0">
-                    <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
+                    <p class="lead my-3 font-bold" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
                     <br>
                     <div class="row">
                         <div class="col-md-8">

@@ -4,35 +4,45 @@
 
     @include('layouts.inc.navbar')
 <div class="container-fluid">
-    <div class="jumbotron p-4 p-md-5 text-white rounded bg-primary">
-        <div class="row justify-content-center">
-          <div class="col-md-6 px-0">
-            <h1 class="display-4 font-bold" >Cari Tindakan Medis</h1>
-            <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
-            <hr>
-            <div class="row">
-                <div class="col-md-5">
-                    <label for="tentang">Saya mencari informasi tentang:</label>
-                    <div class="input-group">
-                        <input id="tentang" type="text" class="form-control" placeholder="Cari Tindakan Medis">
-                    </div>
-                </div>  
-                <div class="col-md-5">
-                    <label for="lokasi">Lokasi</label>
-                    <div class="input-group">
-                        <input id="lokasi" type="text" class="form-control" placeholder="Semua Lokasi">
-                        <div class="input-group-append">
-                            <button class="btn btn-warning">Cari</button>
+        <div class="jumbotron p-4 p-md-5 text-white rounded bg-primary">
+            <div class="row justify-content-center">
+                <div class="col-md-6 px-0">
+                  {{-- <img src="https://i.ibb.co/JQbV1BQ/sifiks5.png" width="45%" alt="sifiks5" border="0"> --}}
+                <h1 class="display-4 font-bold" >Cari Tindakan Medis</h1>
+                <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
+                {{-- <hr> --}}
+                <ul>
+                  <li>Bandingkan estimasi antar rumah sakit yang anda inginkan</li>
+                  <li>Terdapat berbagai Tindakan medis yang anda inginkan</li>
+                  <li>Temukan Rumah Sakit yang terdekat dengan lokasi anda</li>
+                  
+                </ul>
+                <br>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label for="tentang">Saya mencari informasi tentang:</label>
+                            <div class="input-group">
+                            <input id="tentang" type="text" class="form-control" placeholder="Cari Nama Dokter/Spesialis">
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <label for="lokasi">Lokasi</label>
+                            <div class="input-group">
+                                <input id="lokasi" type="text" class="form-control" placeholder="Semua Lokasi">
+                                <div class="input-group-append">
+                                    <button class="btn btn-warning">Cari</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-3">
+                  <img src="{{ asset('storage/images/dokterhome.png') }}" alt="Dokter" class="float-right" width="150%">
+              </div>
             </div>
-          </div>
         </div>
+    
     </div>
-
-</div>
-
 
 
 
