@@ -8,7 +8,7 @@
 
         @include('layouts.inc.messages')
 
-        <div class="jumbotron p-4 p-md-5 text-white rounded bg-info">
+        <div class="jumbotron p-4 p-md-5 text-white rounded bg-primary">
             <div class="row">
                 <div class="col-md-6 px-0">
                     <img src="https://i.ibb.co/JQbV1BQ/sifiks5.png" width="45%" alt="sifiks5" border="0">
@@ -16,15 +16,15 @@
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Cari SIFIKS" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
+                            <button class="btn  btn-info" type="button" id="button-addon2">Cari</button>
                         </div>
                     </div>
-                    <a class="btn btn-primary" role="button" href="/ask">Tanya Dokter</a>
-                    <a class="btn btn-primary" role="button" href="/SearchDokter">Cari Dokter</a>
-                    <a class="btn btn-primary" role="button" href="/SearchRS">Cari Rumah Sakit</a>
+                    <a class="btn btn-light" role="button" href="/ask">Tanya Dokter</a>
+                    <a class="btn btn-light" role="button" href="/SearchDokter">Cari Dokter</a>
+                    <a class="btn btn-light" role="button" href="/SearchRS">Cari Rumah Sakit</a>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ asset('storage/images/dokterhome.png') }}" alt="Dokter" class="float-left" width="700px">
+                    <img src="{{ asset('storage/images/dokterhome.png') }}" alt="Dokter" class="float-right" width="700px">
                 </div>
             </div>
         </div>
