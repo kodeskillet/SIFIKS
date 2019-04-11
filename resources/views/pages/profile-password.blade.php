@@ -2,7 +2,13 @@
 
 @section('admin-content')
     <div class="box box-primary">
-        <form id="pass_edit" action="{{ route('admin.password.edit.submit', $data[session('guard')]->id) }}" method="POST">
+        <form id="pass_edit" method="POST"
+          @if(Auth::guard('admin')->check())
+            action="{{ route('admin.password.edit.submit', $data['admin']->id) }}"
+          @elseif(Auth::guard('doctor')->check())
+              action="{{ route('doctor.password.edit.submit', $data['doctor']->id) }}"
+          @endif
+        >
             @csrf
             <div class="box-header with-border">
                 <strong class="box-title">Ubah Password</strong>
@@ -22,7 +28,7 @@
                         <div class="col-md-12 form-group">
                             <hr>
                             <label for="new">Password Baru</label>
-                            <input id="new" type="password" name="new_password" class="form-control" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+                            <input id="new" type="password" name="new_password" class="form-control input-sm" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
                             @if($errors->has('new_password'))
                                 <div class="text-danger text-bold">
                                     <i>*{{ $errors->first('new_password') }}</i>
@@ -31,7 +37,7 @@
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="new_conf">Konfirmasi Password</label>
-                            <input id="new_conf" type="password" name="password_confirmation" class="form-control" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+                            <input id="new_conf" type="password" name="password_confirmation" class="form-control input-sm" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
                             @if($errors->has('password_confirmation'))
                                 <div class="text-danger text-bold">
                                     <i>*{{ $errors->first('password_confirmation') }}</i>

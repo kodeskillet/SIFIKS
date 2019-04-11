@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Doctor;
-use App\DoctorDetail;
 use App\DoctorSpecialization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -40,8 +39,9 @@ class DoctorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
@@ -97,9 +97,10 @@ class DoctorController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, $id)
     {
@@ -131,22 +132,5 @@ class DoctorController extends Controller
         return redirect (route('doctor.index'));
     }
 
-
-    // Set Specialization_id on DoctorDetail
-//    private function setSpecialty($data) {
-//        $specialty = new DoctorDetail();
-//        $specialty->doctor_id = $data['id'];
-//        $specialty->specialization_id = $data['specialty'];
-//
-//        if($specialty->save()) {
-//            return true;
-//        }
-//        return false;
-//    }
-
-    // Set Hospital_id on DoctorDetail
-//    private function setHospital($data) {
-//
-//    }
 }
 

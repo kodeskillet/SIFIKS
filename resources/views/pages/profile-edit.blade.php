@@ -2,7 +2,14 @@
 
 @section('admin-content')
     <div class="box box-primary">
-        <form action="{{ route('admin.profile.edit.submit', $data[session('guard')]->id) }}" method="POST" enctype="multipart/form-data">
+        <form
+            @if(Auth::guard('admin')->check())
+                action="{{ route('admin.profile.edit.submit', $data['admin']->id) }}"
+            @elseif(Auth::guard('doctor')->check())
+                action="{{ route('doctor.profile.edit.submit', $data['doctor']->id) }}"
+            @endif
+            method="POST" enctype="multipart/form-data"
+        >
             @csrf
             <div class="box-header with-border">
                 <strong class="box-title">Edit Profil</strong>
@@ -10,7 +17,7 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="image">Foto Profil</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="image">Foto Profil</label>
                         <div class="col-md-12 form-group">
                             <div class="col-md-4">
                                 <div style="width: 121px; height: 121px; border: 1px solid #ddd">
@@ -30,6 +37,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 form-group">
+                            <hr>
                             <label for="email">E-Mail</label>
                             <input id="email" type="text" name="email" class="form-control" value="{{ $data[session('guard')]->email }}">
                             @if($errors->has('email'))
@@ -47,6 +55,75 @@
                                 </div>
                             @endif
                         </div>
+                        @auth('doctor')
+                            <div class="col-md-12 form-group">
+                                <label>Jenis Kelamin</label>
+                                <div class="row col-md-12">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="gender" value="Laki - laki"
+                                            {{ $data['doctor']->gender == "Laki - laki" ? 'checked' : ''}}
+                                        >
+                                        Laki - laki
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="gender" value="Perempuan"
+                                            {{ $data['doctor']->gender == "Perempuan" ? 'checked' : ''}}
+                                        >
+                                        Perempuan
+                                    </label>
+                                    @if($errors->has('city_id'))
+                                        <div class="text-danger text-bold">
+                                            {{$errors->first('city_id')}}
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="city_id">Regional</label>
+                                {{ Form::select(
+                                    'city_id',
+                                    $data['cities'],
+                                    $data['doctor']->city_id,
+                                    [
+                                        'id' => 'city_id',
+                                        'class' => 'form-control',
+                                        'placeholder' => '-- Pilih Kota --'
+                                    ]
+                                )}}
+                                @if($errors->has('city_id'))
+                                    <div class="text-danger text-bold">
+                                        {{$errors->first('city_id')}}
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="specialization_id">Spesialisasi</label>
+                                {{ Form::select(
+                                    'specialization_id',
+                                    $data['specialization'],
+                                    $data['doctor']->specialization_id,
+                                    [
+                                        'id' => 'specialization_id' ,
+                                        'class' => 'form-control',
+                                        'placeholder' => '-- Pilih Spesialisasi --'
+                                    ]
+                                )}}
+                                @if($errors->has('specialization_id'))
+                                    <div class="text-danger text-bold">
+                                        {{$errors->first('specialization_id')}}
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="biography">Biografi</label>
+                                <textarea id="biography" name="biography" class="form-control" placeholder="Ceritakan tentang diri anda...">{{ $data['doctor']->biography }}</textarea>
+                                @if($errors->has('biography'))
+                                    <div class="text-danger text-bold">
+                                        {{$errors->first('biography')}}
+                                    </div>
+                                @endif
+                            </div>
+                        @endauth
                     </div>
                 </div>
             </div>

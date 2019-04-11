@@ -4,7 +4,7 @@
     <div class="box box-primary">
         <div class="box-header with-border">
             <strong class="box-title">Artikel anda</strong>
-            <a href="{{ url('/admin/article/create') }}" class="btn btn-success btn-sm pull-right">
+            <a href="{{ session('role') == "Admin" ? url('/admin/article/create') : url('/doctor/article/create') }}" class="btn btn-success pull-right">
                 <strong>
                     <i class="fa far fa-pencil-alt"></i>
                     &nbsp;Buat Artikel
@@ -34,11 +34,15 @@
                             </p>
                             <ul class="list-inline">
                                 <li class="text-sm">
-                                    <a class="link-black" href="{{ url('/admin/article', $article->id) }}"><i class="fa fa-share margin-r-5"></i>Selengkapnya</a>
+                                    <a class="link-black" href="{{ url('/admin/article', $article->id) }}">
+                                        <i class="fa fa-share margin-r-5"></i>Selengkapnya
+                                    </a>
                                 </li>
                                 |
                                 <li class="text-sm">
-                                    <a class="text-success" href="{{ route('article.edit', $article->id) }}"><i class="fa far fa-pencil-alt margin-r-5"></i>Edit</a>
+                                    <a class="text-success" href="{{ route('article.edit', $article->id) }}">
+                                        <i class="fa far fa-pencil-alt margin-r-5"></i>Edit
+                                    </a>
                                 </li>
                                 <li class="text-sm">
                                     <a class="text-danger" href="#" onclick="destroy()">

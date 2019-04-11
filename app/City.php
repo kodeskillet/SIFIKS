@@ -32,7 +32,8 @@ class City extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function hospital(){
+    public function hospital()
+    {
         return $this->hasMany('App\Hospital');
     }
 }

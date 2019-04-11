@@ -32,7 +32,8 @@ class Hospital extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function city() {
+    public function city()
+    {
         return $this->belongsTo('App\City','city_id');
     }
 
@@ -40,7 +41,8 @@ class Hospital extends Model
      * @param $str
      * @return string
      */
-    public function trimStr($str) {
+    public function trimStr($str)
+    {
         if(strlen($str) > 10) {
             return substr($str, 0, 10)."...";
         }
