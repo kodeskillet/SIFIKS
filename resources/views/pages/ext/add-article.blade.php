@@ -66,9 +66,9 @@
                     </div>
                 @endif
             </div>
-            {{--<div class="form-group">--}}
-                {{--{{Form::file('cover_image')}}--}}
-            {{--</div>--}}
+            <div class="form-group">--}}
+                {{Form::file('cover_image')}}
+            </div>
 
             {{Form::submit('Simpan',['class'=>'btn btn-success'])}}
             <a href="{{ route('article.index') }}" class="btn btn-danger">Batal</a>
