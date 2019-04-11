@@ -21,7 +21,7 @@
 
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-            <a class="nav-link" href="/SearchDokter">Cari Dokter</a>
+            <a class="nav-link" href="{{route('search.doctor')}}">Cari Dokter</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/SearchRS">Cari Rumah Sakit</a>
