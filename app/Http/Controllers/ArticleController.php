@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+Use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Articles;
 use App\Admin;
@@ -245,6 +246,10 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         $article = Articles::find($id);
+
+        if($article->cover_image != 'noimage.jpg'){
+            Storage::delete('public/cover_images/'.$article->cover_image);
+        }
 
         if($article->delete()) {
             return redirect()->back()->with('success', 'Artikel dihapus !');
