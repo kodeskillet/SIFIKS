@@ -16,7 +16,7 @@
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Cari SIFIKS" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <div class="input-group-append">
-                            <button class="btn  btn-info" type="button" id="button-addon2">Cari</button>
+                            <button class="btn  btn-warning" type="button" id="button-addon2">Cari</button>
                         </div>
                     </div>
                     <a class="btn btn-light" role="button" href="/ask">Tanya Dokter</a>
