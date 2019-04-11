@@ -25,7 +25,7 @@
                 <div class="index-by-letter">
                     <ul class="menu-children">
                         @foreach($data['specialization'] as $specialty)
-                            <li class="index-item"><a href="/listdoctor">{{$specialty->name}}</a></li>
+                            <li class="index-item"><a href="{{route('list.doctorSpecialty', ['specialty' => $specialty->id])}}">{{$specialty->name}}</a></li>
                         @endforeach
                     </ul>
                 </div>
