@@ -22,7 +22,7 @@
 
         <div class="box box-primary container" style="padding-bottom:20px;">
             <br>
-            {!! Form::open(['action' => 'ArticleController@store','method'=> 'POST', 'enctype' => 'multipart/data']) !!}
+            {!! Form::open(['action' => 'ArticleController@store','method'=> 'POST', 'enctype' => 'multipart/form-data']) !!}
             {{-- {{Form::hidden('user_id','{{Auth::user()->id}}')}} --}}
             <div class="form-group">
                 {{Form::label ('category','Category')}}
@@ -66,9 +66,9 @@
                     </div>
                 @endif
             </div>
-            {{--<div class="form-group">--}}
-                {{--{{Form::file('cover_image')}}--}}
-            {{--</div>--}}
+            <div class="form-group">
+                {{Form::file('cover_image')}}
+            </div>
 
             {{Form::submit('Simpan',['class'=>'btn btn-success'])}}
             <a href="{{ route('article.index') }}" class="btn btn-danger">Batal</a>

@@ -71,6 +71,8 @@ Route::get('/mainsearch-hospital', function() {
 });
 
 Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.articles');
+Route::get('/articles/{category}/{key}','ArticleController@listByName')->name('listName.articles');
+Route::post('/articles/{category}/{cari}','ArticleController@search')->name('cari.articles');
 
 Auth::routes();
 

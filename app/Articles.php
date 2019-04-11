@@ -67,18 +67,6 @@ class Articles extends Model
      * @param $str
      * @return string
      */
-    public function trimStr($str)
-    {
-        if(strlen($str) > 20) {
-            return substr($str, 0, 20) . "...";
-        }
-        return $str;
-    }
-
-    /**
-     * @param $str
-     * @return string
-     */
     public function getCat($str)
     {
         switch ($str) {

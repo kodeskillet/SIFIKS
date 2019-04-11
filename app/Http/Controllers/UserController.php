@@ -31,7 +31,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $article = Articles::orderBy('created_at','desc')->take(3)->get();
+        $article = Articles::where('category','penyakit')->orderBy('created_at','desc')->take(3)->get();
         return view('home')->with('article', $article);
     }
 

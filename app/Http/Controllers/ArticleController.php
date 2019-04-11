@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+Use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Articles;
 use App\Admin;
@@ -43,7 +44,18 @@ class ArticleController extends Controller
             'category' => 'required',
             'title' => 'required',
             'content' => 'required|min:500',
+            'cover_image' => 'image|nullable|max:3999 '
         ]);
+
+        if($request->hasFile('cover_image')){
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        }else {
+            $fileNameToStore = 'noimage.jpg';
+        }
 
         $article = new Articles;
         $article->category = $request->input('category');
@@ -54,6 +66,7 @@ class ArticleController extends Controller
         } else {
             $article->doctor_id = Auth::guard('doctor')->user()->id;
         }
+        $article->cover_image = $fileNameToStore;
 
         if($article->save()) {
             return redirect (route('article.index'))->with('success', 'Artikel baru berhasil ditambahkan !');
@@ -99,11 +112,78 @@ class ArticleController extends Controller
         }
 
         $data = [
-            'articles' => Articles::where('category', $cat),
+            'articles' => Articles::where('category', $cat)->orderBy('title','asc')->get(),
             'category' => $category,
             'cat' => $cat
         ];
 
+        return view('articles')->with('data', $data);
+    }
+
+    public function listByName($cat, $name)
+    {
+        $category = null;
+
+        switch ($cat) {
+            case "penyakit":
+                $category = "Penyakit";
+                break;
+            case "obat":
+                $category = "Obat - obatan";
+                break;
+            case "hidup-sehat":
+                $category = "Hidup Sehat";
+                break;
+            case "keluarga":
+                $category = "Keluarga";
+                break;
+            case "kesehatan":
+                $category = "Kesehatan";
+                break;
+        }
+            $data = [
+                'articles' => Articles::where('category', $cat)
+                                        ->where('title','LIKE',$name.'%')
+                                        ->orderBy('title','asc')
+                                        ->get(),
+                'category' => $category,
+                'cat' => $cat
+            ];
+
+        return view('articles')->with('data', $data);
+    }
+
+    public function search(Request $request, $cat)
+    {
+        $cari = $request->cari;
+        $articles = Articles::where('category', $cat)
+                        ->where('content','LIKE','%'.$cari.'%')
+                        ->orderBy('title','asc')
+                        ->get();
+        $category = null;
+        switch ($cat) {
+            case "penyakit":
+                $category = "Penyakit";
+                break;
+            case "obat":
+                $category = "Obat - obatan";
+                break;
+            case "hidup-sehat":
+                $category = "Hidup Sehat";
+                break;
+            case "keluarga":
+                $category = "Keluarga";
+                break;
+            case "kesehatan":
+                $category = "Kesehatan";
+                break;
+        }
+
+        $data = [
+            'articles' => $articles,
+            'category' => $category,
+            'cat' => $cat
+        ];
         return view('articles')->with('data', $data);
     }
 
@@ -132,12 +212,25 @@ class ArticleController extends Controller
             'category' => 'required',
             'title' => 'required',
             'content' => 'required|min:500',
+            'cover_image' => 'image|nullable|max:3999'
+
         ]);
+
+        if($request->hasFile('cover_image')){
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        }
 
         $article = Articles::find($id);
         $article->category = $request->input('category');
         $article->title = $request->input('title');
         $article->content = $request->input('content');
+        if($request->hasFile('cover_image')){
+            $article->cover_image = $fileNameToStore;
+        }
 
         if($article->save()) {
             return redirect (route('article.index'))->with('success', 'Artikel berhasil diubah !');
@@ -153,6 +246,10 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         $article = Articles::find($id);
+
+        if($article->cover_image != 'noimage.jpg'){
+            Storage::delete('public/cover_images/'.$article->cover_image);
+        }
 
         if($article->delete()) {
             return redirect()->back()->with('success', 'Artikel dihapus !');

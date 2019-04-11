@@ -6,13 +6,13 @@
                 <i class="fa fa-chevron-left"></i>
             </a>&nbsp;&nbsp;&nbsp;
             Preview Artikel
-            <small><b>( {{ $article->trimStr($article->title) }} )</b></small>
+            <small><b>( {{ Str::limit($article->title) }} )</b></small>
             <small></small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
             <li class="active"><a href="{{ route('article.index') }}">Artikel</a></li>
-            <li class="active">{{ $article->trimStr($article->title) }}<small>(Preview)</small></li>
+            <li class="active">{{ Str::limit($article->title) }}<small>(Preview)</small></li>
         </ol>
     </section>
 
@@ -31,6 +31,13 @@
                 @endif
             </div>
             <hr>
+            <div class="text-center">
+                @if ($article->cover_image != null)
+                    <img class="center size-full wp-image-1544282" src="{{ asset('storage/cover_images/').'/'.$article->cover_image}}" alt="{{$article->title}}" width="650" height="433">
+                @else
+                    <img class="alignnone size-full wp-image-1544282" src="{{ asset('storage/cover_images/noimage.jpg')}}" alt="{{$article->title}}" width="650" height="433">
+                @endif
+            </div>
             <h2>{{ $article->title }}</h2><br>
             {!! $article->content !!}
         </div>

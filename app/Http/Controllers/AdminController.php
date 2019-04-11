@@ -82,9 +82,12 @@ class AdminController extends Controller
         $admin->name = $request->input('name');
         $admin->email = $request->input('email');
         $admin->password = Hash::make($request->input('password'));
-        $admin->save();
 
-        return redirect ('/admin/admin');
+        if($admin->save()) {
+            return redirect (route('admin.index'))->with('success', 'Admin berhasil di tambahkan !');
+        }
+
+        return redirect (route('admin.index'))->with('failed', 'Gagal menambah admin !');
     }
 
 

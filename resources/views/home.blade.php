@@ -35,10 +35,14 @@
             @foreach($article as $art)
             <a href="{{route('user.article.show',['id'=>$art->id])}}" class="col-md-4 text-decoration-none">
                 <div class="card mb-4 shadow-sm">
-                    <img src="{{ asset('storage/images/dokter.jpg') }}"  alt="Buah" class="img-fluid" >
+                    @if($art->cover_image != null)
+                        <img src="{{ asset ('storage/cover_images/').'/'.$art->cover_image}}"  alt="{{$art->title}}" class="img-fluid" >
+                    @else
+                        <img src="{{ asset ('storage/cover_images/noimage.jpg')}}"  alt="{{$art->title}}" class="img-fluid" >
+                    @endif
                     <div class="card-body text-black-50">
-                        <h4>{{ $art->trimStr($art->title) }}</h4>
-                        <p class="card-text">{!! $art->cutStr($art->content) !!}</p>
+                        <h4>{{ $art->title }}</h4>
+                        <p class="card-text">{!! Str::limit($art->content, 190) !!}</p>
                         <div class="d-flex justify-content-end align-items-center">
                             <small class="text-muted">{{$art->created_at->diffForHumans()}}</small>
                         </div>
