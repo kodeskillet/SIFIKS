@@ -48,7 +48,7 @@
                 {{Form::label ('content','Content')}}
                 {{Form::textarea ('content',$data['article']->content,['class' => ['form-control', 'ckdefault'],'placeholder' => 'Masukkan Konten'])}}
             </div>
-            <div class="form-group">--}}
+            <div class="form-group">
                 {{Form::file('cover_image')}}
             </div>
             {{Form::hidden('_method', 'PUT')}}
