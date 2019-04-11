@@ -22,7 +22,7 @@
 
         <div class="box box-primary container" style="padding-bottom:20px;">
             <br>
-            {!! Form::open(['action' => ['ArticleController@update', $data['article']->id],'method'=> 'POST', 'enctype' => 'multipart/data']) !!}
+            {!! Form::open(['action' => ['ArticleController@update', $data['article']->id],'method'=> 'POST', 'enctype' => 'multipart/form-data']) !!}
             <div class="form-group">
                 {{Form::label ('category','Category')}}
                 {{ Form::select(
@@ -48,9 +48,9 @@
                 {{Form::label ('content','Content')}}
                 {{Form::textarea ('content',$data['article']->content,['class' => ['form-control', 'ckdefault'],'placeholder' => 'Masukkan Konten'])}}
             </div>
-            {{--<div class="form-group">--}}
-                {{--{{Form::file('cover_image')}}--}}
-            {{--</div>--}}
+            <div class="form-group">--}}
+                {{Form::file('cover_image')}}
+            </div>
             {{Form::hidden('_method', 'PUT')}}
             {{Form::submit('Simpan',['class'=>'btn btn-success'])}}
             <a href="{{ route('article.index') }}" class="btn btn-danger">Batal</a>
