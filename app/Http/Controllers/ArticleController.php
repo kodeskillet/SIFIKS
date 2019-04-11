@@ -43,8 +43,18 @@ class ArticleController extends Controller
             'category' => 'required',
             'title' => 'required',
             'content' => 'required|min:500',
-            'cover_image' => 'image|nullable|max:3999'
+            'cover_image' => 'image|nullable|max:3999 '
         ]);
+
+        if($request->hasFile('cover_image')){
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalImage();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('cover_image')->getOriginalClientExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        }else {
+            $fileNameToStore = 'noimage.jpg';
+        }
 
         $article = new Articles;
         $article->category = $request->input('category');
