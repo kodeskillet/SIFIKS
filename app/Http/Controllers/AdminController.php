@@ -209,14 +209,14 @@ class AdminController extends Controller
                 'password_confirmation' => 'required|min:6'
             ]);
 
-            if($this->validatePass($request->input('new_password'))) {
+            if($this->validatePass($request->input('old_password'))) {
                 $admin->password = Hash::make($request->input('new_password'));
                 $admin->save();
 
                 return redirect(route('admin.profile', $admin->id))->with('success', 'Password berhasil diubah !');
             }
 
-            return redirect(route('admin.password', $admin->id))->with('failed', 'Password lama tidak cocok.');
+            return redirect(route('admin.password.edit', $admin->id))->with('failed', 'Password lama tidak cocok.');
         }
 
         return false;
