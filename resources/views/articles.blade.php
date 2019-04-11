@@ -27,26 +27,24 @@
                 @endforeach
             </div>
         </div>
-        <div class="main-container">
-            <div class="helper-title">
-                <h1 class="h2">
-                    <p>Menampilkan hasil dari {{$data['category']}}</p>
-                </h1>
-            </div>
-            <div class="index-by-letter-button">
-                <div class="index-by-letter">
-                    <ul class="menu-children">
+        <div class="container">
+            <br><br>
+            <div class="row">
+                <div class="col col-md-8">
+                    <h2><b><p>Menampilkan hasil dari {{$data['category']}}</p></b></h2>
+                    <hr>
+                    <div class="row">
                         @foreach($data['articles'] as $article)
-                        <li class="index-item" style="display:block">
-                            <a href="{{route('user.article.show',['id'=>$article->id])}}">{{$article->title}}</a>
-                        </li>
+                        <div class="col col-md-6">
+                            <a href="{{route('user.article.show',['id'=>$article->id])}}"><h3>{{$article->title}}</h3></a>
+                            <br>
+                        </div>
                         @endforeach
-                    </ul>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
+                <div class="col col-md-4">
+                    <a href="/ask"><img src="https://i.ibb.co/tCWCnKK/doctor.png" alt="doctor" border="0"width="350"></a>
+                </div>
             </div>
         </div>
     </div>
