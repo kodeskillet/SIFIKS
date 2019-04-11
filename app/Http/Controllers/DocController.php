@@ -209,9 +209,9 @@ class DocController extends Controller
 
         $doctor->profile_picture = "user-default.jpg";
         if($doctor->save()) {
-            return redirect(route('admin.profile.edit', $doctor->id))->with('success', 'Foto profil berhasil dihapus !');
+            return redirect(route('doctor.profile.edit', $doctor->id))->with('success', 'Foto profil berhasil dihapus !');
         }
-        return redirect(route('admin.profile.edit', $doctor->id))->with('failed', 'Gagal menghapus foto profil.');
+        return redirect(route('doctor.profile.edit', $doctor->id))->with('failed', 'Gagal menghapus foto profil.');
     }
 
 
