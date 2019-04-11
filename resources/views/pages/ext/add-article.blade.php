@@ -18,7 +18,13 @@
     <!-- Main content -->
     <section class="content container-fluid">
 
-        @include('layouts.inc.messages')
+        <div class="alert alert-warning alert-dismissible text-center mt-2 mb-2" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Peringatan !</strong><br>
+            <strong>200 Karakter Pertama Harus Text Biasa Tanpa Ada BOLD Dan Sebagainya !</strong>
+        </div>
 
         <div class="box box-primary container" style="padding-bottom:20px;">
             <br>
