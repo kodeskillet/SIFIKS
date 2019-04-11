@@ -3,7 +3,7 @@
 @section('content')
 
     @include('layouts.inc.navbar')
-<div class="container-fluid">
+    <div class="container-fluid">
         <div class="jumbotron p-4 p-md-5 text-white rounded bg-primary">
             <div class="row justify-content-center">
                 <div class="col-md-6 px-0">
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                  <img src="{{ asset('storage/images/dokterhome.png') }}" alt="Dokter" class="float-left" width="160%">
+                  <img src="{{ asset('storage/images/dokterhome.png') }}" alt="Dokter" class="float-left thumbnail-fluid" width="180%">
               </div>
             </div>
         </div>
