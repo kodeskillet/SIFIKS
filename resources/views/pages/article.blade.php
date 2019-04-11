@@ -53,7 +53,7 @@
                                             <tbody>
                                             <tr role="row" class="odd">
                                                 <td>{{ ucwords($article->category) }}</td>
-                                                <td>{{ $article->trimStr($article->title) }}</td>
+                                                <td>{{ Str::limit($article->title) }}</td>
                                                 <td class="text-center">
                                                     <a href="{{ route('article.show', ['id' => $article->id]) }}" class="btn btn-info">
                                                         <i class="fa fa-eye"></i>
