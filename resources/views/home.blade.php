@@ -28,9 +28,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-
-                    <img src="{{ asset('storage/images/dokterhome.png') }}" alt="Dokter" class="float-right rounded-0" width="150%" >
+                <div class="col-md-6">
+                    <img src="{{ asset('storage/images/dokterhome.png') }}" alt="Dokter" class="float-right" width="100%" >
 
                 </div>
             </div>

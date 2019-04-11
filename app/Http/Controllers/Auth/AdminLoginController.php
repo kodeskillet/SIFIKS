@@ -16,11 +16,18 @@ class AdminLoginController extends Controller
         $this->middleware('guest:admin');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showLoginForm()
     {
         return view('auth.admin-login');
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|void
+     */
     public function login(Request $request)
     {
         $data = [
@@ -52,11 +59,14 @@ class AdminLoginController extends Controller
             ]);
             return redirect()->intended(route('admin.dashboard'));
         }
-        // If 'false' -> redirect back to admin.login
-        $this->sendFailedLoginResponse($request);
+        // If 'false' -> send failed login response
+        return $this->sendFailedLoginResponse($request);
 //        return redirect()->back()->withInput($request->only('email', 'remember'))->with('message', 'E-mail or Password invalid.');
     }
 
+    /**
+     * @param Request $request
+     */
     private function sendFailedLoginResponse(Request $request)
     {
         throw ValidationException::withMessages([

@@ -16,11 +16,18 @@ class DoctorLoginController extends Controller
         $this->middleware('guest:doctor');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showLoginForm()
     {
         return view('auth.doctor-login');
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|void
+     */
     public function login(Request $request)
     {
         $data = [
@@ -52,10 +59,13 @@ class DoctorLoginController extends Controller
             ]);
             return redirect()->intended(route('admin.dashboard'));
         }
-        // If 'false' -> redirect back to admin.login
-        $this->sendFailedLoginResponse($request);
+        // If 'false' -> send failed login response
+        return $this->sendFailedLoginResponse($request);
     }
 
+    /**
+     * @param Request $request
+     */
     private function sendFailedLoginResponse(Request $request)
     {
         throw ValidationException::withMessages([

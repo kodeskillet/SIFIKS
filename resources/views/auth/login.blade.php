@@ -33,17 +33,18 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group row justify-content-center">
-                    <div class="col-md-6 text-center">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                            &nbsp;
-                            <label class="form-check-label" for="remember">
-                                Ingat Saya
-                            </label>
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="form-group row justify-content-center">--}}
+{{--                    <div class="col-md-6 text-center">--}}
+{{--                        <div class="form-check">--}}
+{{--                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>--}}
+{{--                            &nbsp;--}}
+{{--                            <label class="form-check-label" for="remember">--}}
+{{--                                Ingat Saya--}}
+{{--                            </label>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+                <br>
                 <div class="row justify-content-center">
                     <div class="col-md-6 mt-3">
                         <button type="submit" class="btn btn-lg btn-primary btn-block">Log In</button>

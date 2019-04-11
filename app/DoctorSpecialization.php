@@ -33,7 +33,8 @@ class DoctorSpecialization extends Model
      * @param $str
      * @return string
      */
-    public function trimStr($str) {
+    public function trimStr($str)
+    {
         if(strlen($str) > 15) {
             return substr($str, 0, 15)."...";
         }
