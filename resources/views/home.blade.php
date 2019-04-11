@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <img src="{{ asset('storage/images/dokterhome.png') }}" alt="Dokter" class="float-right" width="700px">
+                    <img src="{{ asset('storage/images/dokterhome.png') }}" alt="Dokter" class="float-left" width="150%">
                 </div>
             </div>
         </div>
