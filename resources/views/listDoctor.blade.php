@@ -136,7 +136,7 @@
     <!-- list doctor -->
                 <br>
                 <h1 class="font-weight-bold">Cari Jadwal Dokter</h1>
-
+                @if(count($data['doctor'])>0)
                 @foreach($data['doctor'] as $doctor)
                     <div class="card mb-3">
                         <div class="row no-gutters">
@@ -153,6 +153,15 @@
                         </div>
                     </div>
                 @endforeach
+                @else
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="alert alert-danger text-center">
+                                <strong>Maaf tidak ada dokter.</strong>
+                            </div>
+                        </div>
+                    </div>
+                @endif
                 <div class="text-center">
                     {{ $data['doctor']->links() }}
                 </div>
