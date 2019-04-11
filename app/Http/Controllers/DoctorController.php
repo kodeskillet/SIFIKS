@@ -81,7 +81,7 @@ class DoctorController extends Controller
         $data = [
             'doctor' => $doctor
         ];
-        return view('pages.doctor')->with('data',$data);
+        return view('listDoctor')->with('data',$data);
     }
 
     /**

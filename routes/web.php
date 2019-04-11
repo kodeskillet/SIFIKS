@@ -38,6 +38,8 @@ Route::get('/listdoctor', function() {
     return view('listDoctor');
 });
 
+Route::get('/listdoctors/{specialty}', 'DoctorController@indexUser')->name('list.doctorSpecialty');
+
 Route::get('/viewhospital', function() {
     return view('viewhospital');
 });
