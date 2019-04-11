@@ -36,9 +36,9 @@
             <a href="{{route('user.article.show',['id'=>$art->id])}}" class="col-md-4 text-decoration-none">
                 <div class="card mb-4 shadow-sm">
                     @if($art->cover_image != null)
-                        <img src="{{ asset ('storage/cover_images/').'/'.$art->cover_image}}"  alt="Buah" class="img-fluid" >
+                        <img src="{{ asset ('storage/cover_images/').'/'.$art->cover_image}}"  alt="{{$art->title}}" class="img-fluid" >
                     @else
-                        <img src="{{ asset ('storage/cover_images/noimage.jpg')}}"  alt="Buah" class="img-fluid" >
+                        <img src="{{ asset ('storage/cover_images/noimage.jpg')}}"  alt="{{$art->title}}" class="img-fluid" >
                     @endif
                     <div class="card-body text-black-50">
                         <h4>{{ $art->title }}</h4>
