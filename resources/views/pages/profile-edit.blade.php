@@ -24,7 +24,15 @@
                                     <img id="preview" class="img-responsive" src="{{ asset('storage/user_images/'.$data[session('guard')]->profile_picture) }}">
                                 </div>
                                 @if($data[session('guard')]->profile_picture != "user-default.jpg")
-                                    <a href="{{ route('admin.image.remove') }}" class="btn btn-danger btn-sm" style="width: 121px">Hapus Foto</a>
+                                    <a class="btn btn-danger btn-sm" style="width: 121px"
+                                    @if(Auth::guard('admin')->check())
+                                        href="{{ route('admin.image.remove') }}"
+                                    @elseif(Auth::guard('doctor')->check())
+                                        href="{{ route('doctor.image.remove') }}"
+                                    @endif
+                                    >
+                                        Hapus Foto
+                                    </a>
                                 @endif
                             </div>
                             <div class="col-md-6">

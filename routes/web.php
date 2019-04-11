@@ -158,7 +158,7 @@ Route::prefix('doctor')->group( function() {
     Route::put('/profile/{doctor}/edit', 'DocController@update')->name('doctor.profile.edit.submit');
     Route::get('/profile/password/{doctor}/edit', 'DocController@editPass')->name('doctor.password.edit');
     Route::put('/profile/password/{doctor}/edit', 'DocController@updatePass')->name('doctor.password.edit.submit');
-    Route::delete('/profile/image/remove', 'DocController@removeImage')->name('doctor.image.remove');
+    Route::get('/profile/image/remove', 'DocController@removeImage')->name('doctor.image.remove');
     Route::delete('/destroy/me', 'DocController@destroy')->name('doctor.profile.destroy');
 
     // Home -->
