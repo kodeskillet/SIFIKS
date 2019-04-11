@@ -15,6 +15,8 @@
     <!-- Main content -->
     <section class="content container-fluid">
 
+        @include('layouts.inc.messages')
+
         <div class="box box-primary">
             <div class="box-header with-border">
                 <strong>Daftar Admin</strong>
