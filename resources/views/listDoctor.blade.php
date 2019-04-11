@@ -153,6 +153,9 @@
                         </div>
                     </div>
                 @endforeach
+                <div class="text-center">
+                    {{ $data['doctor']->links() }}
+                </div>
             </div>
 
         </div>
