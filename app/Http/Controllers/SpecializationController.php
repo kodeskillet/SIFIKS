@@ -52,8 +52,11 @@ class SpecializationController extends Controller
         $specialty->detail = $request->input('detail');
 
         if($specialty->save()) {
-            return redirect(route('specialty.index'));
+            return redirect (route('specialty.index'))->with('success', 'Spesialisasi telah di tambahkan');
         }
+
+        return redirect (route('specialty.index'))->with('failed', 'Gagal menambah spesialisasi !');
+
     }
 
     /**
