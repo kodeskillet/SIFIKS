@@ -133,4 +133,14 @@ class SpecializationController extends Controller
 
         return view('LSdoctor')->with('data', $data);
     }
+
+    public function indexSearch()
+    {
+        $specialization = DoctorSpecialization::orderBy('created_at','desc')->orderBy('name', 'asc')->take(6)->get();
+        $data = [
+            'specialization' => $specialization
+        ];
+
+        return view('SearchDokter')->with('data', $data);
+    }
 }

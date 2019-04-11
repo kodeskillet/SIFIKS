@@ -57,45 +57,16 @@
             </div>
         </div>
     </div>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card mb-4 shadow-sm">
-          <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-          <a href="/listdoctor" class="btn btn-primary">Dokter Anak</a>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card mb-4 shadow-sm">
-            <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="/listdoctor" class="btn btn-primary">Dokter Paru-Paru</a>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card mb-4 shadow-sm">
-            <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="/listdoctor" class="btn btn-primary">Dokter Kehamilan</a>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card mb-4 shadow-sm">
-            <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="/listdoctor" class="btn btn-primary">Dokter Jantung</a>
-        </div>
-      </div>
-    <div class="col-md-4">
-      <div class="card mb-4 shadow-sm">
-            <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="/listdoctor" class="btn btn-primary">Dokter Reproduksi</a>
-        </div>
-      </div>
-    <div class="col-md-4">
-      <div class="card mb-4 shadow-sm">
-          <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-          <a href="/listdoctor" class="btn btn-primary">Dokter Mata</a>
+    @foreach($data['specialization'] as $specialty)
+        <div class="row">
+            <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="{{ asset('storage/images/iconrad.png') }}"  alt="{{$specialty->name}}" class="img-thumbnail" >
+                <a href="{{route('list.doctorSpecialty', ['specialty' => $specialty->id])}}" class="btn btn-primary">{{$specialty->name}}</a>
             </div>
-          </div>
-  </div>
-
+            </div>
+        </div>
+    @endforeach
       <a type="button" class="btn btn-primary " href="{{route('list.doctor')}}">Lihat Semua</a>
 
 
