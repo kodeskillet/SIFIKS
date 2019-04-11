@@ -36,13 +36,13 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                  <img src="{{ asset('storage/images/dokterhome.png') }}" alt="Dokter" class="float-left thumbnail-fluid" width="180%">
+                  <img src="{{ asset('storage/images/dokterhome.png') }}" alt="Dokter" class="float-left thumbnail-fluid" width="170%">
               </div>
             </div>
         </div>
-    
+
     </div>
-    
+
 
 
 
@@ -93,10 +93,10 @@
             </div>
           </div>
   </div>
-  
+
       <a type="button" class="btn btn-primary " href="/lihatsemuadokter">Lihat Semua</a>
-  
-  
+
+
 </div>
-    
+
 @endsection
