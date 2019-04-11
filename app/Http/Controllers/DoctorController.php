@@ -123,6 +123,11 @@ class DoctorController extends Controller
         return redirect (route('doctor.edit', $id))->with('failed', 'Gagal memperbaharui dokter !');
     }
 
+    // public function showSpecialty()
+    // {
+
+    // }
+
     /**
      * Remove the specified resource from storage.
      *

@@ -57,6 +57,7 @@ Route::get('/lihatsemuars', function() {
 Route::get('/lihatsemuadokter', function() {
     return view('LSdoctor');
 });
+Route::get('/listdoctor', 'SpecializationController@indexUser')->name('list.doctor');
 
 Route::get('/mainsearch-article', function() {
     return view('MainSearchArt');
