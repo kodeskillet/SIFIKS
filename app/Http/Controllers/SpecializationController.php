@@ -126,7 +126,7 @@ class SpecializationController extends Controller
 
     public function indexUser()
     {
-        $specialization = DoctorSpecialization::orderBy('name', 'desc')->paginate(10);
+        $specialization = DoctorSpecialization::orderBy('name', 'asc')->get();
         $data = [
             'specialization' => $specialization
         ];
