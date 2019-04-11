@@ -43,6 +43,7 @@ class ArticleController extends Controller
             'category' => 'required',
             'title' => 'required',
             'content' => 'required|min:500',
+            'cover_image' => 'image|nullable|max:3999'
         ]);
 
         $article = new Articles;
