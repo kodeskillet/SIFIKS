@@ -56,6 +56,7 @@
             left: 0;
             position: fixed;
             display: block;
+            filter: opacity(0.7);
             background-color: #fff;
             z-index: 9999;
             text-align: center;
@@ -304,7 +305,7 @@
 <script src="{{ asset("bower_components/ckeditor/ckeditor.js") }}"></script>
 <script>
     $(window).on('load', function() {
-        $('#loading').fadeOut();
+        $('#loading').hide();
     })
 
     CKEDITOR.replaceClass = 'ckdefault';
