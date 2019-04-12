@@ -67,9 +67,9 @@
         <!-- Logo -->
         <a href="
         @if(session('role') == "Doctor")
-            {{ route('doctor.index') }}
+            {{ route('doctor.dashboard') }}
         @else
-            {{ route('admin.index') }}
+            {{ route('admin.dashboard') }}
         @endif
         " class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
