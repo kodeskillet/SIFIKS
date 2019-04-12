@@ -168,7 +168,7 @@ Route::prefix('doctor')->group( function() {
     Route::delete('/destroy/me', 'DocController@destroy')->name('doctor.profile.destroy');
 
     // Home -->
-    Route::get('/', 'DocController@dashboard')->name('doc.dashboard');
+    Route::get('/', 'DocController@dashboard')->name('doctor.dashboard');
 });
 // END-OF
 // Doctor Privileges ======================================================>

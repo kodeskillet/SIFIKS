@@ -189,7 +189,7 @@
                             <span>Dashboard</span>
                         </a>
                     @elseif(session('role') == "Doctor" && Auth::guard('doctor')->check())
-                        <a href="{{ route('doc.dashboard') }}">
+                        <a href="{{ route('doctor.dashboard') }}">
                             <i class="fa fas fa-tachometer-alt"></i>
                             <span>Dashboard</span>
                         </a>
