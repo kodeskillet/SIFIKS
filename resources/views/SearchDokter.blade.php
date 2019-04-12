@@ -17,20 +17,30 @@
                   <li>Gratis panduan kesehatan untuk anda</li>
                 </ul>
                 <br>
+                {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
                     <div class="row">
                         <div class="col-md-5">
-                            <label for="tentang">Saya mencari informasi tentang:</label>
+                            <label for="nama">Saya mencari informasi tentang:</label>
                             <div class="input-group">
-                            <input id="tentang" type="text" class="form-control" placeholder="Cari Nama Dokter/Spesialis">
+                                {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Nama Dokter/Spesialis'])}}
                             </div>
                         </div>
                         <div class="col-md-5">
-                            <label for="lokasi">Lokasi</label>
+                            <label for="location">Lokasi</label>
                             <div class="input-group">
-                                <input id="lokasi" type="text" class="form-control" placeholder="Semua Lokasi">
+                                {{ Form::select(
+                                    'location',
+                                    $data['location'],
+                                    null, [
+                                        'class' => 'form-control',
+                                        'placeholder' => 'Pilih Kota'
+                                    ]
+                                )}}
                                 <div class="input-group-append">
-                                    <button class="btn btn-warning">Cari</button>
+                                    {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
                                 </div>
+                                {!! Form::close() !!}
+
                             </div>
                         </div>
                     </div>
@@ -49,27 +59,24 @@
 
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-10">
-            <div class="col-md-6">
-                <h2>Pilih Spesialis Dokter</h2>
-            </div>
-        </div>
-    </div>
+    <div class="container">
         <div class="row">
-    @foreach($data['specialization'] as $specialty)
-            <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img src="{{ asset('storage/images/iconrad.png') }}"  alt="{{$specialty->name}}" class="img-thumbnail" >
-                <a href="{{route('list.doctorSpecialty', ['specialty' => $specialty->id])}}" class="btn btn-primary">{{$specialty->name}}</a>
+            <div class="col-md-10">
+                <div class="col-md-6">
+                    <h2>Pilih Spesialis Dokter</h2>
+                </div>
             </div>
-            </div>
-    @endforeach
         </div>
-      <a type="button" class="btn btn-primary " href="{{route('list.doctor')}}">Lihat Semua</a>
-
-
-</div>
-
+        <div class="row">
+            @foreach($data['specialization'] as $specialty)
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="{{ asset('storage/images/doctor-icon.png') }}"  alt="{{$specialty->name}}" class="img-thumbnail" >
+                        <a href="{{route('list.doctorSpecialty', ['specialty' => $specialty->id])}}" class="btn btn-primary">{{$specialty->name}}</a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <a type="button" class="btn btn-primary " href="{{route('list.doctor')}}">Lihat Semua</a>
+    </div>
 @endsection

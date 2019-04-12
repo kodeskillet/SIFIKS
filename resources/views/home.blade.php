@@ -23,7 +23,7 @@
                                         </div>
                                     </div>
                                     <a class="btn btn-light" role="button" href="/ask">Tanya Dokter</a>
-                                    <a class="btn btn-light" role="button" href="/SearchDokter">Cari Dokter</a>
+                                    <a class="btn btn-light" role="button" href="{{route('search.doctor')}}">Cari Dokter</a>
                                     <a class="btn btn-light" role="button" href="/SearchRS">Cari Rumah Sakit</a>
                         </div>
                     </div>
