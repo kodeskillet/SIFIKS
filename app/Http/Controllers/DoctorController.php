@@ -7,6 +7,7 @@ use App\City;
 use App\DoctorSpecialization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 
 class DoctorController extends Controller
@@ -18,10 +19,10 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctor = Doctor::orderBy('name','asc');
-//        if(!$doctor) {
-//            abort(500);
-//        }
+        $doctor = DB::table('doctors')->orderBy('name','asc')->paginate(10);
+        if(!$doctor) {
+            abort(500);
+        }
         $data = [
             'role' => session('role'),
             'doctor' => $doctor,
