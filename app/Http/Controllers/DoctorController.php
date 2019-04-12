@@ -19,7 +19,7 @@ class DoctorController extends Controller
     public function index()
     {
         $doctor = Doctor::orderBy('name','asc')->paginate(10);
-        if($doctor) {
+        if(!$doctor) {
             abort(500);
         }
         $data = [
