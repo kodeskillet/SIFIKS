@@ -18,19 +18,29 @@
                 </ul>
                 <br>
                     <div class="row">
+                        {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
                         <div class="col-md-5">
                             <label for="tentang">Saya mencari informasi tentang:</label>
                             <div class="input-group">
-                            <input id="tentang" type="text" class="form-control" placeholder="Cari Nama Dokter/Spesialis">
+                                {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Nama Dokter/Spesialis'])}}
                             </div>
                         </div>
                         <div class="col-md-5">
                             <label for="lokasi">Lokasi</label>
                             <div class="input-group">
-                                <input id="lokasi" type="text" class="form-control" placeholder="Semua Lokasi">
+                                {{ Form::select(
+                                    'location',
+                                    $data['location'],
+                                    null, [
+                                        'class' => 'form-control',
+                                        'placeholder' => 'Pilih Kota'
+                                    ]
+                                )}}
                                 <div class="input-group-append">
-                                    <button class="btn btn-warning">Cari</button>
+                                    {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
                                 </div>
+                                {!! Form::close() !!}
+
                             </div>
                         </div>
                     </div>
