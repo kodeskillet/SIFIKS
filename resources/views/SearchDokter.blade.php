@@ -61,7 +61,7 @@
     @foreach($data['specialization'] as $specialty)
             <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-                <img src="{{ asset('storage/images/iconrad.png') }}"  alt="{{$specialty->name}}" class="img-thumbnail" >
+                <img src="{{ asset('storage/images/doctor-icon.png') }}"  alt="{{$specialty->name}}" class="img-thumbnail" >
                 <a href="{{route('list.doctorSpecialty', ['specialty' => $specialty->id])}}" class="btn btn-primary">{{$specialty->name}}</a>
             </div>
             </div>
