@@ -10,23 +10,32 @@
 
                 <h1 class="display-4 font-bold" >Cari Nama Dokter/ Spesialis</h1>
                 <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
-                <div class="row">
-                    <div class="col-md-5">
-                        <label for="tentang">Saya mencari informasi tentang:</label>
-                        <div class="input-group">
-                            <input id="tentang" type="text" class="form-control" placeholder="Cari Nama Dokter/Spesialis">
+                {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label for="nama">Saya mencari informasi tentang:</label>
+                            <div class="input-group">
+                                {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Nama Dokter/Spesialis'])}}
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-5">
-                        <label for="lokasi">Lokasi</label>
-                        <div class="input-group">
-                            <input id="lokasi" type="text" class="form-control" placeholder="Semua Lokasi">
-                            <div class="input-group-append">
-                                <button class="btn btn-warning">Cari</button>
+                        <div class="col-md-5">
+                            <label for="location">Lokasi</label>
+                            <div class="input-group">
+                                {{ Form::select(
+                                    'location',
+                                    $data['location'],
+                                    null, [
+                                        'class' => 'form-control',
+                                        'placeholder' => 'Pilih Kota'
+                                    ]
+                                )}}
+                                <div class="input-group-append">
+                                    {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    {!! Form::close() !!}
               </div>
 
             </div>
