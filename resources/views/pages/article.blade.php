@@ -100,7 +100,7 @@
                                             </tbody>
 
                                         @endforeach
-                                        {{$data['articles']->links()}} {{--  {{Pagination harus di bawah}} --}}
+                                        {{ $data['articles']->links() }} {{--  {{Pagination harus di bawah}} --}}
                                     </table>
                                 @else
                                     <div class="row">
