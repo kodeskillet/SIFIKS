@@ -151,7 +151,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Dr. {{$doctor->name}}, {{$doctor->getSpecialty()->degree}}</h5>
                                     <p class="card-text">{{Str::limit($doctor->biography)}}</p>
-                                    <a href="{{route('show.doctor',['id'=>$doctor->id])}}" class="btn btn-primary">Buat Janji</a>
+                                    <a href="{{route('show.doctor',['id'=>$doctor->id])}}" class="btn btn-primary">Detail Dokter</a>
                                 </div>
                             </div>
                         </div>
