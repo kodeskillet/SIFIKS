@@ -20,13 +20,13 @@
                     <div class="row">
                         {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
                         <div class="col-md-5">
-                            <label for="tentang">Saya mencari informasi tentang:</label>
+                            <label for="nama">Saya mencari informasi tentang:</label>
                             <div class="input-group">
                                 {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Nama Dokter/Spesialis'])}}
                             </div>
                         </div>
                         <div class="col-md-5">
-                            <label for="lokasi">Lokasi</label>
+                            <label for="location">Lokasi</label>
                             <div class="input-group">
                                 {{ Form::select(
                                     'location',

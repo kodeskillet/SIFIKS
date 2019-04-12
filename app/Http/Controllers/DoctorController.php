@@ -133,6 +133,24 @@ class DoctorController extends Controller
         return redirect (route('doctor.edit', $id))->with('failed', 'Gagal memperbaharui dokter !');
     }
 
+    public function searchDoctor(Request $request)
+    {
+        if ($request->nama == null AND $request->location != null){
+            $doctor = Doctor::where('city_id',$request->location)->orderBy('name','asc')->paginate(5)->get();
+        }elseif ($request->location == null AND $request->nama != null){
+            $doctor = Doctor::where('name','LIKE','%'.$request->nama.'%')->orderBy('name','asc')->paginate(5)->get();
+        }else{
+            $doctor = Doctor::where('name','LIKE','%'.$request->nama.'%')->where('city_id',$request->location)->orderBy('name','asc')->paginate(5)->get();
+        }
+
+        $data = [
+            'doctor' => $doctor,
+        ];
+
+        return view('listDoctor')->with('data',$data);
+
+    }
+
     // public function showSpecialty()
     // {
 
