@@ -40,8 +40,11 @@
 <!-- card doctor -->
             <div class="card" style="width: 18rem;">
                 <br> <br>
-                <img src="{{ asset('storage/user_images/').'/'.$doctor->profile_picture }}" class="card-user-profile-photo " alt="...">
-
+                @if($doctor->profile_picture != null)
+                <img src="{{ asset('storage/user_images/').'/'.$doctor->profile_picture }}" class="card-user-profile-photo " alt="{{$doctor->name}}">
+                @else
+                <img src="{{ asset('storage/images/felicia.jpg')}}" class="card-user-profile-photo " alt="{{$doctor->name}}">
+                @endif
                 <div class="card-body ">
                     <h5 class="text-center">Dr. {{$doctor->name}}, {{$doctor->getSpecialty()->degree}}</h5>
                     <a href="#" class="text-decoration-none"><p class="text-center">{{$doctor->getSpecialty()->name}}</p></a>

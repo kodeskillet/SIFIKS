@@ -141,13 +141,17 @@
                     <div class="card mb-3">
                         <div class="row no-gutters">
                             <div class="col-md-4">
+                                @if($doctor->profile_picture != null)
                                 <img src="{{ asset('storage/user_images/').'/'.$doctor->profile_picture }}" alt="{{$doctor->name}}" class="card-img" >
+                                @else
+                                <img src="{{ asset('storage/images/felicia.jpg') }}" alt="{{$doctor->name}}" class="card-img" >
+                                @endif
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">Dr. {{$doctor->name}}, {{$doctor->getSpecialty()->degree}}</h5>
                                     <p class="card-text">{{Str::limit($doctor->biography)}}</p>
-                                    <a href="{{route('show.doctor',['id'=>$doctor->id])}}" class="btn btn-primary">Buat Janji</a>
+                                    <a href="{{route('show.doctor',['id'=>$doctor->id])}}" class="btn btn-primary">Detail Dokter</a>
                                 </div>
                             </div>
                         </div>
