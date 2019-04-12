@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\City;
 use App\DoctorSpecialization;
 
 class SpecializationController extends Controller
@@ -137,8 +138,10 @@ class SpecializationController extends Controller
     public function indexSearch()
     {
         $specialization = DoctorSpecialization::orderBy('created_at','desc')->orderBy('name', 'asc')->take(6)->get();
+        $location = City::pluck('name','id');
         $data = [
-            'specialization' => $specialization
+            'specialization' => $specialization,
+            'location' => $location
         ];
 
         return view('SearchDokter')->with('data', $data);
