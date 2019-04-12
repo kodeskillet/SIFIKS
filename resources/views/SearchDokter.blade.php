@@ -17,8 +17,8 @@
                   <li>Gratis panduan kesehatan untuk anda</li>
                 </ul>
                 <br>
+                {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
                     <div class="row">
-                        {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
                         <div class="col-md-5">
                             <label for="nama">Saya mencari informasi tentang:</label>
                             <div class="input-group">
