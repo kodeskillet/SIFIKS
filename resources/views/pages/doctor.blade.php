@@ -55,7 +55,7 @@
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"></th>
                                     </tr>
                                     </thead>
-                                    @foreach($data['doctor'] as $doctor)
+                                    @foreach($data['doctors'] as $doctor)
                                     <tbody>
                                     <tr role="row" class="odd">
                                         <td>{{ $doctor->name }}</td>
