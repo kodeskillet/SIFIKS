@@ -49,27 +49,24 @@
 
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-10">
-            <div class="col-md-6">
-                <h2>Pilih Spesialis Dokter</h2>
-            </div>
-        </div>
-    </div>
+    <div class="container">
         <div class="row">
-    @foreach($data['specialization'] as $specialty)
-            <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img src="{{ asset('storage/images/doctor-icon.png') }}"  alt="{{$specialty->name}}" class="img-thumbnail" >
-                <a href="{{route('list.doctorSpecialty', ['specialty' => $specialty->id])}}" class="btn btn-primary">{{$specialty->name}}</a>
+            <div class="col-md-10">
+                <div class="col-md-6">
+                    <h2>Pilih Spesialis Dokter</h2>
+                </div>
             </div>
-            </div>
-    @endforeach
         </div>
-      <a type="button" class="btn btn-primary " href="{{route('list.doctor')}}">Lihat Semua</a>
-
-
-</div>
-
+        <div class="row">
+            @foreach($data['specialization'] as $specialty)
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="{{ asset('storage/images/doctor-icon.png') }}"  alt="{{$specialty->name}}" class="img-thumbnail" >
+                        <a href="{{route('list.doctorSpecialty', ['specialty' => $specialty->id])}}" class="btn btn-primary">{{$specialty->name}}</a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <a type="button" class="btn btn-primary " href="{{route('list.doctor')}}">Lihat Semua</a>
+    </div>
 @endsection
