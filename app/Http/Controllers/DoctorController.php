@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Doctor;
+use App\City;
 use App\DoctorSpecialization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -78,8 +79,10 @@ class DoctorController extends Controller
     public function show($id)
     {
         $doctor = Doctor::where('specialization_id',$id)->orderBy('name','asc')->paginate(5);
+        $location = City::pluck('name','id');
         $data = [
-            'doctor' => $doctor
+            'doctor' => $doctor,
+            'location' => $location
         ];
         return view('listDoctor')->with('data',$data);
     }
@@ -142,9 +145,10 @@ class DoctorController extends Controller
         }else{
             $doctor = Doctor::where('name','LIKE','%'.$request->nama.'%')->where('city_id',$request->location)->orderBy('name','asc')->paginate(5);
         }
-
+        $location = City::pluck('name','id');
         $data = [
             'doctor' => $doctor,
+            'location' => $location
         ];
 
         return view('listDoctor')->with('data',$data);

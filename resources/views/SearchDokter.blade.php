@@ -39,11 +39,10 @@
                                 <div class="input-group-append">
                                     {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
                                 </div>
-                                {!! Form::close() !!}
-
                             </div>
                         </div>
                     </div>
+                    {!! Form::close() !!}
                 </div>
                 <div class="col-md-6" >
                   {{-- <div class="img-fluid"> --}}
