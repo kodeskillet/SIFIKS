@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 Use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Articles;
-use App\Admin;
-use App\Doctor;
 
 class ArticleController extends Controller
 {
