@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\DB;
 class DoctorController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Returning view with data resource
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
