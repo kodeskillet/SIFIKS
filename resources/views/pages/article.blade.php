@@ -83,7 +83,13 @@
                                                         <button type="button" onclick="destroy()" class="btn btn-danger btn-sm">
                                                             <i class="fa fas fa-trash"></i>
                                                         </button>
-                                                        <a href="{{ route('article.edit', ['id' => $article->id]) }}" class="btn btn-warning btn-sm">
+                                                        <a class="btn btn-warning btn-sm"
+                                                        @if(Auth::guard('admin')->check())
+                                                            href="{{ '/admin/article/'. $article->id .'/edit' }}"
+                                                        @elseif(Auth::guard('doctor')->check())
+                                                            href="{{ '/doctor/article/'. $article->id .'/edit' }}"
+                                                        @endif
+                                                        >
                                                             <i class="fa fas fa-sync"></i>
                                                         </a>
                                                         <form onsubmit="return confirm('Yakin ingin menghapus artikel ini?')" id="delete" method="post" action="{{ route('article.destroy', $article->id) }}">
@@ -100,7 +106,7 @@
                                             </tbody>
 
                                         @endforeach
-                                        {{ $data['articles']->links() }} {{--  {{Pagination harus di bawah}} --}}
+                                        {{ $data['articles']->links() }}
                                     </table>
                                 @else
                                     <div class="row">

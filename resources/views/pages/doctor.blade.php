@@ -75,7 +75,7 @@
                                         <td>{{ $doctor->created_at->format("d M Y") }}</td>
                                         <td>{{ $doctor->updated_at->diffForHumans() }}</td>
                                         <td class="text-center">
-                                            <form method="post" action="{{ route('doctor.destroy', $doctor->id) }}">
+                                            <form onsubmit="return confirm('Yakin ingin menghapus Dokter?')" method="post" action="{{ route('doctor.destroy', $doctor->id) }}">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="id" value="{{ $doctor->id }}">
@@ -93,7 +93,7 @@
                                     @endforeach
                                 </table>
                                 <div class="text-center">
-                                    {{ $data['doctor']->links() }}
+                                    {{ $data['doctors']->links() }}
                                 </div>
                                 @else
                                 <div class="row">

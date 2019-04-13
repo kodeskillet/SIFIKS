@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>404 HTML Template by Colorlib</title>
+    <title>
+        @yield('title-code')
+    </title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
