@@ -93,7 +93,7 @@
                                     @endforeach
                                 </table>
                                 <div class="text-center">
-                                    {{ $doctors->links() }}
+{{--                                    {{ $doctors->links() }}--}}
                                 </div>
                                 @else
                                 <div class="row">
