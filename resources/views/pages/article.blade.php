@@ -70,7 +70,7 @@
                                                         <button type="button" onclick="destroy()" class="btn btn-danger btn-sm">
                                                             <i class="fa fas fa-trash"></i>
                                                         </button>
-                                                        <a href="{{ route('article.edit', ['id' => $article->id]) }}" class="btn btn-warning btn-sm">
+                                                        <a href="{{ route('admin.article.edit', $article->id) }}" class="btn btn-warning btn-sm">
                                                             <i class="fa fas fa-sync"></i>
                                                         </a>
                                                         <form onsubmit="return confirm('Yakin ingin menghapus artikel ini?')" id="delete" method="post" action="{{ route('article.destroy', $article->id) }}">
@@ -83,13 +83,7 @@
                                                         <button type="button" onclick="destroy()" class="btn btn-danger btn-sm">
                                                             <i class="fa fas fa-trash"></i>
                                                         </button>
-                                                        <a class="btn btn-warning btn-sm"
-                                                        @if(Auth::guard('admin')->check())
-                                                            href="{{ '/admin/article/'. $article->id .'/edit' }}"
-                                                        @elseif(Auth::guard('doctor')->check())
-                                                            href="{{ '/doctor/article/'. $article->id .'/edit' }}"
-                                                        @endif
-                                                        >
+                                                        <a href="{{ route('doctor.article.edit', $article->id) }}" class="btn btn-warning btn-sm">
                                                             <i class="fa fas fa-sync"></i>
                                                         </a>
                                                         <form onsubmit="return confirm('Yakin ingin menghapus artikel ini?')" id="delete" method="post" action="{{ route('article.destroy', $article->id) }}">

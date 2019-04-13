@@ -40,7 +40,13 @@
                                 </li>
                                 |
                                 <li class="text-sm">
-                                    <a class="text-success" href="{{ route('article.edit', $article->id) }}">
+                                    <a class="text-success"
+                                    @if(Auth::guard('admin')->check())
+                                        href="{{ route('admin.article.edit', $article->id) }}"
+                                    @elseif(Auth::guard('doctor')->check())
+                                       href="{{ route('doctor.article.edit', $article->id) }}"
+                                    @endif
+                                    >
                                         <i class="fa far fa-pencil-alt margin-r-5"></i>Edit
                                     </a>
                                 </li>

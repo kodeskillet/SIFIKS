@@ -11,7 +11,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
-            <li class="active"><a href="{{ route('article.index') }}">Artikel</a></li>
+            <li class="active"><a href="{{ Auth::guard('admin')->check() ? route('admin.article.index') : route('doctor.article.index') }}">Artikel</a></li>
             <li class="active">{{ Str::limit($article->title) }}<small>(Preview)</small></li>
         </ol>
     </section>
