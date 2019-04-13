@@ -58,7 +58,7 @@
                             <div class="input-group">
                                     <input id="lokasi" type="text" class="form-control" placeholder="Tindakan Terkait">
                                     <div class="input-group-append">
-                                        <button class="btn btn-secondary">Cari</button>
+                                        <button class="btn btn-warning">Cari</button>
                                     </div>
                                 </div>
                     <br>
