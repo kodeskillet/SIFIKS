@@ -2,28 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use App\Doctor;
-use App\City;
 use App\DoctorSpecialization;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Doctor;
+use App\City;
+use Psy\Exception\ErrorException;
 
 
 class DoctorController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Returning view with data resource
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        $doctor = Doctor::orderBy('name','asc')->paginate(10);
-        $data = [
-            'role' => session('role'),
-            'doctor' => $doctor,
-        ];
-        return view('pages.doctor')->with('data',$data);
+        abort(503);
+
+        $doctors = Doctor::all();
+        if(!$doctors) {
+            abort(503);
+        }
+
+        try {
+            return view('pages.doctor', compact('doctors', $doctors));
+        } catch (ErrorException $exception) {
+            abort(503, $exception);
+        }
     }
 
     /**
@@ -153,12 +161,6 @@ class DoctorController extends Controller
 
         return view('listDoctor')->with('data',$data);
     }
-
-
-    // public function showSpecialty()
-    // {
-
-    // }
 
     /**
      * Remove the specified resource from storage.

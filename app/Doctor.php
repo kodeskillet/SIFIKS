@@ -58,20 +58,24 @@ class Doctor extends Authenticatable
         return $this->hasMany('App\Articles');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function detail()
-    {
-        return $this->hasMany('App\DoctorDetail');
-    }
+//    /**
+//     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+//     */
+//    public function detail()
+//    {
+//        return $this->hasMany('App\DoctorDetail');
+//    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function specialty()
     {
-        return $this->belongsTo('App\DoctorSpecialization', 'specialization_id');
+        return $this->belongsTo('App\DoctorSpecialization', 'id');
+    }
+
+    public function city() {
+        return $this->belongsTo('App\City', 'city_id');
     }
 
     /**
