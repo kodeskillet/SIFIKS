@@ -20,7 +20,7 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctors = Doctor::orderBy('created_at', 'asc')->get();
+        $doctors = Doctor::all();
         if(!$doctors) {
             abort(503);
         }
