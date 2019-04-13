@@ -42,7 +42,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                @if(count($data['doctors']) > 0)
+                                @if(count($doctors) > 0)
                                 <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                                     <thead>
                                     <tr role="row">
@@ -55,13 +55,13 @@
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"></th>
                                     </tr>
                                     </thead>
-                                    @foreach($data['doctors'] as $doctor)
+                                    @foreach($doctors as $doctor)
                                     <tbody>
                                     <tr role="row" class="odd">
                                         <td>{{ $doctor->name }}</td>
                                         <td>
-                                            <a href="#" title="{{ $doctor->specialty->name }}">
-                                                {{ $doctor->trimStr($doctor->specialty->name) }}
+                                            <a href="#" title="{{ $doctor->getSpecialty()->name }}">
+                                                {{ $doctor->trimStr($doctor->getSpecialty()->name) }}
                                             </a>
                                         </td>
                                         <td>
@@ -93,7 +93,7 @@
                                     @endforeach
                                 </table>
                                 <div class="text-center">
-                                    {{ $data['doctors']->links() }}
+                                    {{ $doctors->links() }}
                                 </div>
                                 @else
                                 <div class="row">

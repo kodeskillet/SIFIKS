@@ -20,13 +20,9 @@ class DoctorController extends Controller
     {
         $doctors = Doctor::orderBy('name', 'asc')->paginate(10);
         if(!$doctors) {
-            abort(500);
+            abort(503);
         }
-        $data = [
-            'role' => session('role'),
-            'doctors' => $doctors,
-        ];
-        return view('pages.doctor')->with('data',$data);
+        return view('pages.doctor')->with('doctors', $doctors);
     }
 
     /**
@@ -157,11 +153,6 @@ class DoctorController extends Controller
         return view('listDoctor')->with('data',$data);
 
     }
-
-    // public function showSpecialty()
-    // {
-
-    // }
 
     /**
      * Remove the specified resource from storage.
