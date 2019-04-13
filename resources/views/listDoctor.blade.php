@@ -4,19 +4,27 @@
 
     @include('layouts.inc.navbar')
 
-    <div class="jumbotron p-4 p-md-5 text-white rounded bg-info">
-            <div class="row">
-              <div class="col-md-6 px-0">
-
-                <h1 class="display-4 font-bold" >Cari Nama Dokter</h1>
+    <div class="container-fluid">
+        <div class="jumbotron p-4 p-md-5 text-white rounded bg-primary">
+            <div class="row justify-content-center">
+                <div class="col-md-6 px-0">
+                  {{-- <img src="https://i.ibb.co/JQbV1BQ/sifiks5.png" width="45%" alt="sifiks5" border="0"> --}}
+                <h1 class="display-4 font-bold" >Cari Nama Dokter/ Spesialis</h1>
                 <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
+                {{-- <hr> --}}
+                <ul>
+                  <li>Kemudahan dalam mencari Dokter yang di inginkan</li>
+                  <li>Terdapat berbagai spesialis dokter yang tersedia</li>
+                  <li>Gratis panduan kesehatan untuk anda</li>
+                </ul>
+                <br>
                 {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
-                    @csrf
+                @csrf
                     <div class="row">
                         <div class="col-md-5">
                             <label for="nama">Saya mencari informasi tentang:</label>
                             <div class="input-group">
-                                {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Nama Dokter/Spesialis'])}}
+                                {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Nama Dokter'])}}
                             </div>
                         </div>
                         <div class="col-md-5">
@@ -37,30 +45,45 @@
                         </div>
                     </div>
                     {!! Form::close() !!}
+                </div>
+                <div class="col-md-6" >
+                  {{-- <div class="img-fluid"> --}}
+                      <img src="{{ asset('storage/images/dokterhome.png') }}" class="float-right" alt="Dokter" width="100%">
+                  {{-- </div> --}}
               </div>
-
             </div>
         </div>
+
+    </div>
 
     <!-- filter city -->
     <div class="container">
         <div class="row">
             <div class="col-md-4">
             <h3>Pilih Kota</h3>
-            <hr>
-            {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
-                <div class="form-check">
-                    @foreach($data['location'] as $location)
-                        <label class="radioinline">
-                            {{ Form::radio('location', $location) }} {{$location}}
-                        </label>
-                        <br>
-                    @endforeach
-                </div>
-                <div class="input-group-append">
-                    {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
-                </div>
-                {!! Form::close() !!}
+            <div class="box-filter">
+                <ul class="dataList">
+                        <div class="input-group">
+                                <input id="lokasi" type="text" class="form-control" placeholder="Pilih Kota">
+                                <div class="input-group-append">
+                                    <button class="btn btn-warning">Cari</button>
+                                </div>
+                            </div>
+                        {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
+                        <div class="form-check">
+                            @foreach($data['location'] as $location)
+                                <label class="radioinline">
+                                    {{ Form::radio('location', $location) }} {{$location}}
+                                </label>
+                                <br>
+                            @endforeach
+                        </div>
+                        {!! Form::close() !!}
+                </ul>
+                {{-- <div class="input float-right">
+                        {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
+                    </div> --}}
+            </div>
             </div>
 
 
