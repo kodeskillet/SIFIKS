@@ -62,19 +62,23 @@
             <div class="col-md-4">
             <h3>Pilih Kota</h3>
             <hr>
-            {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
-                <div class="form-check">
-                    @foreach($data['location'] as $location)
-                        <label class="radioinline">
-                            {{ Form::radio('location', $location) }} {{$location}}
-                        </label>
-                        <br>
-                    @endforeach
-                </div>
-                <div class="input-group-append">
-                    {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
-                </div>
-                {!! Form::close() !!}
+            <div class="box-filter">
+                <ul class="dataList">
+                        {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
+                        <div class="form-check">
+                            @foreach($data['location'] as $location)
+                                <label class="radioinline">
+                                    {{ Form::radio('location', $location) }} {{$location}}
+                                </label>
+                                <br>
+                            @endforeach
+                        </div>
+                        <div class="input-group-append">
+                            {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
+                        </div>
+                        {!! Form::close() !!}
+                </ul>
+            </div>
             </div>
 
 
