@@ -60,9 +60,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-            <h3>Pilih Kota</h3>
-            <hr>
             <div class="box-filter">
+                <h3>Pilih Kota</h3>
+                <hr>
                 <ul class="dataList">
                         {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
                         <div class="form-check">
