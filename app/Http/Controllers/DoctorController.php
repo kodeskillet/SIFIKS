@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DoctorSpecialization;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Doctor;
@@ -18,10 +19,13 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctors = Doctor::orderBy('name', 'asc')->paginate(10);
-        if(!$doctors) {
-            abort(503);
+        $doctors = null;
+        try {
+            $doctors = Doctor::orderBy('name', 'asc')->paginate(10);
+        } catch (QueryException $exception) {
+            abort(503, $exception);
         }
+
         return view('pages.doctor')->with('doctors', $doctors);
     }
 
