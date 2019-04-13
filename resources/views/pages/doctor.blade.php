@@ -119,7 +119,7 @@
 @foreach($doctors as $doctor)
     <li>
         {{ $doctor->name }}
-        {{ $doctor->specialty->name }}
+        {{ $doctor->getSpecialty()->name }}
         {{ $doctor->city->name }}
     </li>
 @endforeach

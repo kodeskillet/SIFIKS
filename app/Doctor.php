@@ -67,15 +67,15 @@ class Doctor extends Authenticatable
 //    }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function specialty()
     {
-        return $this->hasOne('App\DoctorSpecialization', 'id');
+        return $this->belongsTo('App\DoctorSpecialization', 'id');
     }
 
     public function city() {
-        return $this->hasOne('App\City', 'id');
+        return $this->belongsTo('App\City', 'city_id');
     }
 
     /**

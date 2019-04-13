@@ -29,6 +29,10 @@ class DoctorSpecialization extends Model
         'updated_at'
     ];
 
+    public function doctor() {
+        return $this->hasOne('App\Doctor', 'specialization_id');
+    }
+
     /**
      * @param $str
      * @return string
