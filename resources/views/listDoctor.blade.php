@@ -49,8 +49,11 @@
             <h3>Pilih Kota</h3>
             <hr>
                 <div class="form-check">
+                    SEMUA KOTA {{Form::radio('location','', true)}}
+                    <br>
                     @foreach($data['location'] as $location)
-                    {{ Form::radio('location', $location) }} {{$location}}
+                        {{$location}} {{ Form::radio('location', $location) }}
+                        <br>
                     @endforeach
                 </div>
             </div>
