@@ -22,7 +22,7 @@
                         <div class="col-md-5">
                             <label for="nama">Saya mencari informasi tentang:</label>
                             <div class="input-group">
-                                {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Nama Dokter/Spesialis'])}}
+                                {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Nama Dokter'])}}
                             </div>
                         </div>
                         <div class="col-md-5">

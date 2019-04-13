@@ -8,7 +8,7 @@
             <div class="row">
               <div class="col-md-6 px-0">
 
-                <h1 class="display-4 font-bold" >Cari Nama Dokter/ Spesialis</h1>
+                <h1 class="display-4 font-bold" >Cari Nama Dokter</h1>
                 <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
                 {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
                     <div class="row">
