@@ -149,7 +149,7 @@ class SpecializationController extends Controller
 
     public function searchSpecialty(Request $request)
     {
-        $specialization = DoctorSpecialization::where('name','LIKE','%'.$request->specialty.'%')->orderBy('name','asc');
+        $specialization = DoctorSpecialization::where('name','LIKE','%'.$request->specialty.'%')->orderBy('name','asc')->get();
         $data = [
             'specialization' => $specialization
         ];
