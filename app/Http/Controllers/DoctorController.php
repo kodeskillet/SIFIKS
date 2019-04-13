@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Doctor;
 use App\City;
+use Psy\Exception\ErrorException;
 
 
 class DoctorController extends Controller
@@ -19,14 +20,16 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctors = null;
-        try {
-            $doctors = Doctor::orderBy('name', 'asc')->paginate(10);
-        } catch (QueryException $exception) {
-            abort(503, $exception);
+        $doctors = Doctor::orderBy('name', 'asc')->paginate(10);
+        if(!$doctors) {
+            abort(503);
         }
 
-        return view('pages.doctor')->with('doctors', $doctors);
+        try {
+            return view('pages.doctor')->with('doctors', $doctors);
+        } catch (ErrorException $exception) {
+            abort(503);
+        }
     }
 
     /**
