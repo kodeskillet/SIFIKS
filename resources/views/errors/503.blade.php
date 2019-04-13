@@ -4,4 +4,4 @@
 @section('title', __('503 Service Unavailable'))
 @section('code', '503')
 @section('oops', 'Oops ! Service is Unavailable.')
-@section('message', __($exception->getMessage() ? : 'The Service is currently Unavailable.'))
+@section('message', __($exception->getMessage() ? : 'The service is under maintenance and is currently unavailable.'))

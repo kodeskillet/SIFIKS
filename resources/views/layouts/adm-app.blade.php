@@ -148,17 +148,16 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        @if(session('role') == "Admin" && Auth::guard('admin')->check())
-                                            <a href="{{ route('admin.profile', Auth::guard('admin')->user()->id ) }}" class="btn btn-default btn-flat">
-                                                <i class="fa far fa-user"></i>
-                                                &nbsp;Profil
-                                            </a>
-                                        @elseif(session('role') == "Doctor" && Auth::guard('doctor')->check())
-                                            <a href="{{ route('doctor.profile', Auth::guard('doctor')->user()->id) }}" class="btn btn-default btn-flat">
-                                                <i class="fa far fa-user"></i>
-                                                &nbsp;Profil
-                                            </a>
+                                        <a class="btn btn-default btn-flat"
+                                        @if(Auth::guard('admin')->check())
+                                            href="{{ route('admin.profile', Auth::guard('admin')->user()->id ) }}"
+                                        @elseif(Auth::guard('doctor')->check())
+                                            href="{{ route('doctor.profile', Auth::guard('doctor')->user()->id ) }}"
                                         @endif
+                                        >
+                                            <i class="fa far fa-user"></i>
+                                            &nbsp;Profil
+                                        </a>
                                     </div>
                                     <div class="pull-right">
                                         <a  class="btn btn-danger" href="{{ route('logout') }}"
