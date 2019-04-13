@@ -79,7 +79,9 @@ class HospitalController extends Controller
     public function show($id)
     {
         $hospital = Hospital::find($id);
-
+        if(!$hospital) {
+            abort(401);
+        }
         $data = [
             'hospital' => $hospital,
             'rooms' => $this->getRooms($id),
