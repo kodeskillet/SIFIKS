@@ -115,5 +115,12 @@
 {{--    </section>--}}
 {{--@endsection--}}
 
-
-{{ $doctors }}
+<ul>
+@foreach($doctors as $doctor)
+    <li>
+        {{ $doctor->name }}
+        {{ $doctor->specialty->name }}
+        {{ $doctor->city->name }}
+    </li>
+@endforeach
+</ul>

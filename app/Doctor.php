@@ -74,6 +74,10 @@ class Doctor extends Authenticatable
         return $this->belongsTo('App\DoctorSpecialization', 'specialization_id');
     }
 
+    public function city() {
+        return $this->belongsTo('App\City', 'city_id');
+    }
+
     /**
      * @param $str
      * @return string
