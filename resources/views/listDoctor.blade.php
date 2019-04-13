@@ -11,6 +11,7 @@
                 <h1 class="display-4 font-bold" >Cari Nama Dokter</h1>
                 <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
                 {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
+                    @csrf
                     <div class="row">
                         <div class="col-md-5">
                             <label for="nama">Saya mencari informasi tentang:</label>

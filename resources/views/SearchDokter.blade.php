@@ -18,6 +18,7 @@
                 </ul>
                 <br>
                 {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
+                @csrf
                     <div class="row">
                         <div class="col-md-5">
                             <label for="nama">Saya mencari informasi tentang:</label>

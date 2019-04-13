@@ -146,4 +146,14 @@ class SpecializationController extends Controller
 
         return view('SearchDokter')->with('data', $data);
     }
+
+    public function searchSpecialty(Request $request)
+    {
+        $specialization = DoctorSpecialization::where('name','LIKE','%'.$request->specialty.'%')->orderBy('name','asc')->get();
+        $data = [
+            'specialization' => $specialization
+        ];
+
+        return view('LSdoctor')->with('data',$data);
+    }
 }
