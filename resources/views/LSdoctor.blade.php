@@ -9,13 +9,15 @@
         <div class="row">
             <div class="col-sm-12">
                 <br> <br>
+                {!! Form::open(['action' => 'SpecializationController@searchSpec','method'=> 'POST']) !!}
                 <div class="input-group">
                     {{-- <input type="text" class="form-control" placeholder="Cari tentang {{ $data['category'] }}..."> --}}
-                    <input type="text" class="form-control" placeholder="Cari Tindakan Medis">
+                    {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Spesialis'])}}
                     <div class="input-group-append">
-                        <button class="btn btn-outline-primary" type="button" id="button-addon2">Cari</button>
+                        {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
                     </div>
                 </div>
+                {!! Form::close() !!}
             </div>
         </div>
         <br>
