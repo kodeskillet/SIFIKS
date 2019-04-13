@@ -61,15 +61,15 @@
         <div class="row">
             <div class="col-md-4">
             <h3>Pilih Kota</h3>
+            {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
             <div class="box-filter">
                 <ul class="dataList">
                         <div class="input-group">
                                 <input id="lokasi" type="text" class="form-control" placeholder="Pilih Kota">
                                 <div class="input-group-append">
-                                    <button class="btn btn-warning">Cari</button>
+                                    {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
                                 </div>
                             </div>
-                        {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
                         <div class="form-check">
                             @foreach($data['location'] as $location)
                                 <label class="radioinline">
@@ -78,12 +78,9 @@
                                 <br>
                             @endforeach
                         </div>
-                        {!! Form::close() !!}
                 </ul>
-                {{-- <div class="input float-right">
-                        {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
-                    </div> --}}
             </div>
+            {!! Form::close() !!}
             </div>
 
 

@@ -18,10 +18,6 @@ Route::get('/viewarticle', function() {
     return view('viewarticle');
 });
 
-Route::get('/SearchRS', function() {
-    return view('SearchRS');
-});
-
 // Route::get('/User', function() {
 //     return view('userlayout');
 // });
@@ -33,6 +29,11 @@ Route::get('/SearchRS', function() {
 // Route::get('/listdoctor', function() {
 //     return view('listDoctor');
 // });
+
+Route::get('/SearchRS', function() {
+    return view('SearchRS');
+});
+
 
 Route::get('/listdoctors/{specialty}', 'DoctorController@show')->name('list.doctorSpecialty');
 Route::get('/listdoctors/viewdoctor/{id}', 'DoctorController@showDoctor')->name('show.doctor');
