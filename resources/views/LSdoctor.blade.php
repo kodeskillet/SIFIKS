@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <br> <br>
-                {!! Form::open(['action' => 'SpecializationController@searchSpec','method'=> 'POST']) !!}
+                {!! Form::open(['action' => 'SpecializationController@searchSpecialty','method'=> 'POST']) !!}
                 @csrf
                 <div class="input-group">
                     {{-- <input type="text" class="form-control" placeholder="Cari tentang {{ $data['category'] }}..."> --}}
