@@ -138,7 +138,7 @@ class SpecializationController extends Controller
     public function indexSearch()
     {
         $specialization = DoctorSpecialization::orderBy('created_at','desc')->orderBy('name', 'asc')->take(6)->get();
-        $location = City::pluck('name','id');
+        $location = City::orderBy('name','asc')->pluck('name','id');
         $data = [
             'specialization' => $specialization,
             'location' => $location
