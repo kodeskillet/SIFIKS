@@ -50,7 +50,6 @@
             <hr>
             {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
                 <div class="form-check">
-<<<<<<< HEAD
                     <label class="radioinline">
                         {{Form::radio('location','')}} SEMUA KOTA
                     </label>
@@ -59,12 +58,6 @@
                         <label class="radioinline">
                             {{ Form::radio('location', $location) }} {{$location}}
                         </label>
-=======
-                    SEMUA KOTA {{Form::radio('location','', true)}}
-                    <br>
-                    @foreach($data['location'] as $location)
-                        {{$location}} {{ Form::radio('location', $location) }}
->>>>>>> parent of 9f41076... Optimize radio position in listDoctor
                         <br>
                     @endforeach
                 </div>
