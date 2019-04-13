@@ -10,6 +10,7 @@
             <div class="col-sm-12">
                 <br> <br>
                 {!! Form::open(['action' => 'SpecializationController@searchSpec','method'=> 'POST']) !!}
+                @csrf
                 <div class="input-group">
                     {{-- <input type="text" class="form-control" placeholder="Cari tentang {{ $data['category'] }}..."> --}}
                     {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Spesialis'])}}
