@@ -73,11 +73,11 @@
                                 <br>
                             @endforeach
                         </div>
-                        <div class="input-group-append">
-                            {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
-                        </div>
                         {!! Form::close() !!}
                 </ul>
+                <div class="input float-right">
+                        {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
+                    </div>
             </div>
             </div>
 

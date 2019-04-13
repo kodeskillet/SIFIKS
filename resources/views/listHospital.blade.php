@@ -52,61 +52,65 @@
         <div class="row">
             <div class="col-md-4">
             <h3>Pilih Tindakan</h3>
-            <hr>
-
-            <div class="input-group">
-                            <input id="lokasi" type="text" class="form-control" placeholder="Tindakan Terkait">
-                            <div class="input-group-append">
-                                <button class="btn btn-secondary">Cari</button>
-                            </div>
+            
+                <div class="box-filter">
+                    <ul class="dataList">
+                            <div class="input-group">
+                                    <input id="lokasi" type="text" class="form-control" placeholder="Tindakan Terkait">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-secondary">Cari</button>
+                                    </div>
+                                </div>
+                    <br>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">Semua Tindakan</label>
                         </div>
-            <br>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                    <label class="form-check-label" for="exampleRadios1">Semua Tindakan</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                            <label class="form-check-label" for="exampleRadios2">Analisa Gas Darah</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                            <label class="form-check-label" for="exampleRadios3">Cek Asam Urat</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
+                            <label class="form-check-label" for="exampleRadios4">Cek Golongan Darah</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
+                            <label class="form-check-label" for="exampleRadios5">Cek Kolesterol</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
+                            <label class="form-check-label" for="exampleRadios6">Elektroforesis</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
+                            <label class="form-check-label" for="exampleRadios6">Fungsi Ginjal</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
+                            <label class="form-check-label" for="exampleRadios6">Hitung Darah Lengkap</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
+                            <label class="form-check-label" for="exampleRadios6">Patologi Anatomi</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
+                            <label class="form-check-label" for="exampleRadios6">Pemeriksaan Feses</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
+                            <label class="form-check-label" for="exampleRadios6">Pemeriksaan Kimia Klinik</label>
+                        </div>
+                    </div>
+        
+                    </ul>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">Analisa Gas Darah</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                    <label class="form-check-label" for="exampleRadios3">Cek Asam Urat</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-                    <label class="form-check-label" for="exampleRadios4">Cek Golongan Darah</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
-                    <label class="form-check-label" for="exampleRadios5">Cek Kolesterol</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
-                    <label class="form-check-label" for="exampleRadios6">Elektroforesis</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
-                    <label class="form-check-label" for="exampleRadios6">Fungsi Ginjal</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
-                    <label class="form-check-label" for="exampleRadios6">Hitung Darah Lengkap</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
-                    <label class="form-check-label" for="exampleRadios6">Patologi Anatomi</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
-                    <label class="form-check-label" for="exampleRadios6">Pemeriksaan Feses</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
-                    <label class="form-check-label" for="exampleRadios6">Pemeriksaan Kimia Klinik</label>
-                </div>
-            </div>
-
+            
 
 
             <div class="col-md-8">
