@@ -26,9 +26,9 @@ class DoctorController extends Controller
         }
 
         try {
-            return view('pages.doctor')->with('doctors', $doctors);
+            return view('pages.doctor', compact('doctors', $doctors));
         } catch (ErrorException $exception) {
-            abort(503);
+            abort(503, $exception);
         }
     }
 
