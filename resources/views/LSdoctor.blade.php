@@ -23,16 +23,26 @@
         </div>
         <br>
         <h2 class="font-weight-bold">Cari Spesialis</h2>
-        <div class="row">
-            <div class="index-by-letter-button">
-                <div class="index-by-letter">
-                    <ul class="menu-children">
-                        @foreach($data['specialization'] as $specialty)
-                            <li class="index-item"><a href="{{route('list.doctorSpecialty', ['specialty' => $specialty->id])}}">{{$specialty->name}}</a></li>
-                        @endforeach
-                    </ul>
+        @if(count($data['specialization'])>0)
+            <div class="row">
+                <div class="index-by-letter-button">
+                    <div class="index-by-letter">
+                        <ul class="menu-children">
+                            @foreach($data['specialization'] as $specialty)
+                                <li class="index-item"><a href="{{route('list.doctorSpecialty', ['specialty' => $specialty->id])}}">{{$specialty->name}}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
+        @else
+        <hr>
+            <div class="text-center">
+                <h4>Data Tidak Ditemukan Silahkan <a href="{{route('list.doctor')}}">Kembali</a></h4>
+                <br>
+                <img src="{{ asset('storage/images/sorry1.png') }}"  alt="Sorry">
+            </div>
+        <hr>
+        @endif
     </div>
 @endsection
