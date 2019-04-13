@@ -66,10 +66,10 @@ class ArticleController extends Controller
         $article->cover_image = $fileNameToStore;
 
         if($article->save()) {
-            return redirect (route('article.index'))->with('success', 'Artikel baru berhasil ditambahkan !');
+            return redirect (route(session('guard').'.article.index'))->with('success', 'Artikel baru berhasil ditambahkan !');
         }
 
-        return redirect(route('article.create'))->with('failed', 'Gagal menambahkan artikel.');
+        return redirect(route(session('guard').'.article.create'))->with('failed', 'Gagal menambahkan artikel.');
     }
 
     /**
@@ -241,10 +241,10 @@ class ArticleController extends Controller
         }
 
         if($article->save()) {
-            return redirect (route('article.index'))->with('success', 'Artikel berhasil diubah !');
+            return redirect (route(session('guard').'.article.index'))->with('success', 'Artikel berhasil diubah !');
         }
 
-        return redirect (route('article.edit', $id))->with('failed', 'Gagal mengubah artikel !');
+        return redirect (route(session('guard').'.article.edit', $id))->with('failed', 'Gagal mengubah artikel !');
     }
 
     /**
