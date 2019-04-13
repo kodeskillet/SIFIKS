@@ -50,10 +50,6 @@
             <hr>
             {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
                 <div class="form-check">
-                    <label class="radioinline">
-                        {{Form::radio('location','')}} SEMUA KOTA
-                    </label>
-                    <br>
                     @foreach($data['location'] as $location)
                         <label class="radioinline">
                             {{ Form::radio('location', $location) }} {{$location}}

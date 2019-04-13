@@ -152,8 +152,8 @@ class DoctorController extends Controller
         ];
 
         return view('listDoctor')->with('data',$data);
-
     }
+
 
     // public function showSpecialty()
     // {
