@@ -4,19 +4,27 @@
 
     @include('layouts.inc.navbar')
 
-    <div class="jumbotron p-4 p-md-5 text-white rounded bg-info">
-            <div class="row">
-              <div class="col-md-6 px-0">
-
-                <h1 class="display-4 font-bold" >Cari Nama Dokter</h1>
+    <div class="container-fluid">
+        <div class="jumbotron p-4 p-md-5 text-white rounded bg-primary">
+            <div class="row justify-content-center">
+                <div class="col-md-6 px-0">
+                  {{-- <img src="https://i.ibb.co/JQbV1BQ/sifiks5.png" width="45%" alt="sifiks5" border="0"> --}}
+                <h1 class="display-4 font-bold" >Cari Nama Dokter/ Spesialis</h1>
                 <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
+                {{-- <hr> --}}
+                <ul>
+                  <li>Kemudahan dalam mencari Dokter yang di inginkan</li>
+                  <li>Terdapat berbagai spesialis dokter yang tersedia</li>
+                  <li>Gratis panduan kesehatan untuk anda</li>
+                </ul>
+                <br>
                 {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
-                    @csrf
+                @csrf
                     <div class="row">
                         <div class="col-md-5">
                             <label for="nama">Saya mencari informasi tentang:</label>
                             <div class="input-group">
-                                {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Nama Dokter/Spesialis'])}}
+                                {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Nama Dokter'])}}
                             </div>
                         </div>
                         <div class="col-md-5">
@@ -37,10 +45,16 @@
                         </div>
                     </div>
                     {!! Form::close() !!}
+                </div>
+                <div class="col-md-6" >
+                  {{-- <div class="img-fluid"> --}}
+                      <img src="{{ asset('storage/images/dokterhome.png') }}" class="float-right" alt="Dokter" width="100%">
+                  {{-- </div> --}}
               </div>
-
             </div>
         </div>
+
+    </div>
 
     <!-- filter city -->
     <div class="container">
