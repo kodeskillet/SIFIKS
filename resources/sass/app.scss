@@ -171,3 +171,20 @@
 .clock {
     font-family: 'Orbitron', sans-serif !important;
 }
+
+.box-filter {
+    width: 300px;
+    border-radius: 3px;
+    background-color: #f9f9f9;
+    border: solid 1px #dadee4;
+    margin-bottom: 20px;
+}
+
+.dataList {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px;
+    overflow-y: auto;
+    max-height: 200px;
+    font-size: 14px;
+}

@@ -87,7 +87,7 @@ class DoctorController extends Controller
     public function show($id)
     {
         $doctor = Doctor::where('specialization_id',$id)->orderBy('name','asc')->paginate(5);
-        $location = City::pluck('name','id');
+        $location = City::orderBy('name','asc')->pluck('name','id');
         $data = [
             'doctor' => $doctor,
             'location' => $location
@@ -146,21 +146,20 @@ class DoctorController extends Controller
 
     public function searchDoctor(Request $request)
     {
-        if ($request->nama == null AND $request->location != null){
+        if($request->nama == null AND $request->location != null){
             $doctor = Doctor::where('city_id',$request->location)->orderBy('name','asc')->paginate(5);
         }elseif ($request->location == null AND $request->nama != null){
             $doctor = Doctor::where('name','LIKE','%'.$request->nama.'%')->orderBy('name','asc')->paginate(5);
         }else{
             $doctor = Doctor::where('name','LIKE','%'.$request->nama.'%')->where('city_id',$request->location)->orderBy('name','asc')->paginate(5);
         }
-        $location = City::pluck('name','id');
+        $location = City::orderBy('name','asc')->pluck('name','id');
         $data = [
             'doctor' => $doctor,
             'location' => $location
         ];
 
         return view('listDoctor')->with('data',$data);
-
     }
 
     /**

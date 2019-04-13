@@ -4,18 +4,27 @@
 
     @include('layouts.inc.navbar')
 
-    <div class="jumbotron p-4 p-md-5 text-white rounded bg-info">
-            <div class="row">
-              <div class="col-md-6 px-0">
-
+    <div class="container-fluid">
+        <div class="jumbotron p-4 p-md-5 text-white rounded bg-primary">
+            <div class="row justify-content-center">
+                <div class="col-md-6 px-0">
+                  {{-- <img src="https://i.ibb.co/JQbV1BQ/sifiks5.png" width="45%" alt="sifiks5" border="0"> --}}
                 <h1 class="display-4 font-bold" >Cari Nama Dokter/ Spesialis</h1>
                 <p class="lead my-3" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
+                {{-- <hr> --}}
+                <ul>
+                  <li>Kemudahan dalam mencari Dokter yang di inginkan</li>
+                  <li>Terdapat berbagai spesialis dokter yang tersedia</li>
+                  <li>Gratis panduan kesehatan untuk anda</li>
+                </ul>
+                <br>
                 {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
+                @csrf
                     <div class="row">
                         <div class="col-md-5">
                             <label for="nama">Saya mencari informasi tentang:</label>
                             <div class="input-group">
-                                {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Nama Dokter/Spesialis'])}}
+                                {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Nama Dokter'])}}
                             </div>
                         </div>
                         <div class="col-md-5">
@@ -36,65 +45,45 @@
                         </div>
                     </div>
                     {!! Form::close() !!}
+                </div>
+                <div class="col-md-6" >
+                  {{-- <div class="img-fluid"> --}}
+                      <img src="{{ asset('storage/images/dokterhome.png') }}" class="float-right" alt="Dokter" width="100%">
+                  {{-- </div> --}}
               </div>
-
             </div>
         </div>
+
+    </div>
 
     <!-- filter city -->
     <div class="container">
         <div class="row">
             <div class="col-md-4">
             <h3>Pilih Kota</h3>
-            <hr>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                    <label class="form-check-label" for="exampleRadios1">Semua Kota</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">Aceh</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                    <label class="form-check-label" for="exampleRadios3">Bali</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-                    <label class="form-check-label" for="exampleRadios4">Cirebon</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
-                    <label class="form-check-label" for="exampleRadios5">Depok</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
-                    <label class="form-check-label" for="exampleRadios6">Jakarta</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios7" value="option7">
-                    <label class="form-check-label" for="exampleRadios7">Labuan Bajo</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios8" value="option8">
-                    <label class="form-check-label" for="exampleRadios8">Makassar</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios9" value="option9">
-                    <label class="form-check-label" for="exampleRadios9">Palembang</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios10" value="option10">
-                    <label class="form-check-label" for="exampleRadios10">Surabaya</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios11" value="option11">
-                    <label class="form-check-label" for="exampleRadios11">Tanggerang</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios12" value="option12">
-                    <label class="form-check-label" for="exampleRadios12">Yogyakarta</label>
-                </div>
+            <div class="box-filter">
+                <ul class="dataList">
+                        <div class="input-group">
+                                <input id="lokasi" type="text" class="form-control" placeholder="Pilih Kota">
+                                <div class="input-group-append">
+                                    <button class="btn btn-warning">Cari</button>
+                                </div>
+                            </div>
+                        {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
+                        <div class="form-check">
+                            @foreach($data['location'] as $location)
+                                <label class="radioinline">
+                                    {{ Form::radio('location', $location) }} {{$location}}
+                                </label>
+                                <br>
+                            @endforeach
+                        </div>
+                        {!! Form::close() !!}
+                </ul>
+                {{-- <div class="input float-right">
+                        {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
+                    </div> --}}
+            </div>
             </div>
 
 
