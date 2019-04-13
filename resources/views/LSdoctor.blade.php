@@ -13,7 +13,7 @@
                 @csrf
                 <div class="input-group">
                     {{-- <input type="text" class="form-control" placeholder="Cari tentang {{ $data['category'] }}..."> --}}
-                    {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Spesialis'])}}
+                    {{Form::text ('specialty','',['class'=>'form-control','placeholder'=>'Cari Spesialis'])}}
                     <div class="input-group-append">
                         {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
                     </div>
