@@ -20,6 +20,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
+        abort(503);
+
         $doctors = Doctor::all();
         if(!$doctors) {
             abort(503);
