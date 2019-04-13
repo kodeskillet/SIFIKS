@@ -49,8 +49,8 @@
             <h3>Pilih Kota</h3>
             <hr>
                 <div class="form-check">
-                    @foreach($doctor['location'] as $location)
-                    {{ Form::radio('location', $location,) }} {{$location}}
+                    @foreach($data['location'] as $location)
+                    {{ Form::radio('location', $location) }} {{$location}}
                     @endforeach
                 </div>
             </div>
