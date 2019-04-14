@@ -162,6 +162,18 @@ class DoctorController extends Controller
         return view('listDoctor')->with('data',$data);
     }
 
+    public function searchByRadio(Request $request)
+    {
+        $locationId = City::where('name','LIKE','%'.$request->location.'%')->pluck('id','name');
+        $doctor = Doctor::where('city_id',$locationId)->orderBy('name','asc')->paginate(5);
+        $location = City::orderBy('name','asc')->pluck('name','id');
+        $data = [
+            'doctor'=>$doctor,
+            'location' => $location
+        ];
+        return view('listDoctor')->with('data',$data);
+    }
+
     /**
      * Remove the specified resource from storage.
      *

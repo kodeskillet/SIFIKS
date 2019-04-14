@@ -34,8 +34,9 @@ Route::get('/SearchRS', function() {
 Route::prefix('searchdoctor')->group(function(){
     Route::get('/listdoctors/{specialty}', 'DoctorController@show')->name('list.doctorSpecialty');
     Route::get('/listdoctors/viewdoctor/{id}', 'DoctorController@showDoctor')->name('show.doctor');
-    Route::post('/cari','DoctorController@searchDoctor')->name('search.doctors');
-    Route::get('/listdoctors/cari', 'SpecializationController@indexUser')->name('list.doctor');
+    Route::post('/listdoctors/cari','DoctorController@searchDoctor')->name('search.doctors');
+    Route::get('/listdoctors', 'SpecializationController@indexUser')->name('list.doctor');
+    Route::post('/listdoctors/cari-kota','DoctorController@searchByRadio')->name('search.radio');
     Route::post('/listdoctors/cari-spesialis', 'SpecializationController@searchSpecialty');
     Route::get('/','SpecializationController@indexSearch')->name('search.doctor');
 });

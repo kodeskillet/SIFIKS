@@ -61,7 +61,7 @@
         <div class="row">
             <div class="col-md-4">
             <h3>Pilih Kota</h3>
-            {!! Form::open(['action' => 'DoctorController@searchDoctor','method'=> 'POST']) !!}
+            {!! Form::open(['action' => 'DoctorController@searchByRadio','method'=> 'POST']) !!}
             <div class="box-filter">
                 <ul class="dataList">
                         <div class="input-group">
