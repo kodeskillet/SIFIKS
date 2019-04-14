@@ -202,8 +202,14 @@ class HospitalController extends Controller
         return view ('SearchRS')->with('location',$location);
     }
 
-    public function searchHospital()
+    public function searchHospital(Request $request)
     {
-
+        $hospital = Hospital::where('city_id',$request->location)->orderBy('name')->paginate(5);
+        $location = City::orderBy('name','asc')->pluck('name','id');
+        $data = [
+            $hospital = 'hospital',
+            $location = 'location'
+        ];
+        return view ('listHospital')->with('data',$data);
     }
 }
