@@ -40,17 +40,17 @@
                     <p>{!! $data['hospital']->public_services !!}</p>
               </div>
               <h2 class="font-weight-bold">Tarif Kamar Rumah Sakit</h2>
-              @foreach($data['room'] as $room)
-                <div class="accordion" id="accordionExample">
+              @foreach($data['room'] as $key => $room)
+                <div class="accordion" id="accordion{{$key}}">
                   <div class="card">
-                    <div class="card-header" id="headingOne">
+                    <div class="card-header" id="heading{{$key}}">
                       <h2 class="mb-0">
-                        <button class="btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button class="btn" type="button" data-toggle="collapse" data-target="#collapse{{$key}}" aria-expanded="true">
                             {{$room->name}}
                         </button>
                       </h2>
                     </div>
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapse{{$key}}" class="collapse " aria-labelledby="heading{{$key}}" data-parent="#accordion{{$key}}">
                       <div class="card-body">
                         <p>Harga Mulai Dari Rp. {{ number_format($room->price_per_night, 2, ",", ".") }}</p>
                         <p>{!! $room->description !!}</p>
@@ -58,6 +58,7 @@
                   </div>
                 </div>
                 @endforeach
+                <br>
               <h2 class="font-weight-bold">Tindakan Medis</h2>
               <div class="accordion" id="accordionExample">
                   <div class="card">
