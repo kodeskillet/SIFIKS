@@ -24,7 +24,7 @@
                         <div class="col-md-5">
                             <label for="tentang">Saya mencari informasi tentang:</label>
                             <div class="input-group">
-                                {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Nama Dokter'])}}
+                                {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Tindakan Medis'])}}
                             </div>
                         </div>
                         <div class="col-md-5">
