@@ -219,14 +219,9 @@ class HospitalController extends Controller
     public function viewHospital($id)
     {
         $hospital = Hospital::find($id);
-        $roomId = DB::table('room_details')->where('hospital_id',$hospital->id)->pluck('room_id');
-        $room = Room::where('id',$roomId)->orderBy('name','asc')->get();
-        if (count($roomId)<=0){
-            $roomId = null;
-        }
         $data = [
             'hospital' => $hospital,
-            'room' => $room
+            'room' => $this->getRooms($id),
         ];
         return view ('viewhospital')->with('data',$data);
     }
