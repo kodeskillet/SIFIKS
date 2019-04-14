@@ -57,64 +57,9 @@
                     </div>
                   </div>
                 </div>
-                @endforeach
-                <br>
-              <h2 class="font-weight-bold">Tindakan Medis</h2>
-              <div class="accordion" id="accordionExample">
-                  <div class="card">
-                    <div class="card-header" id="headingOne">
-                      <h2 class="mb-0">
-                        <button class="btn" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                          Laboratorium
-                        </button>
-                      </h2>
-                    </div>
-
-                    <div id="collapseFour" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>Cek Golongan Darah</p>
-                        <p>Fungsi Ginjal</p>
-                        <p>Uji Fungsi Hati</p>
-                        <p>Profil Lemak</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header" id="headingTwo">
-                      <h2 class="mb-0">
-                        <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                          Kedokteran Umum
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>Cek Golongan Darah</p>
-                        <p>Fungsi Ginjal</p>
-                        <p>Uji Fungsi Hati</p>
-                        <p>Profil Lemak</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header" id="headingThree">
-                      <h2 class="mb-0">
-                        <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                          Bedah Umum
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseSix" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>Cek Golongan Darah</p>
-                        <p>Fungsi Ginjal</p>
-                        <p>Uji Fungsi Hati</p>
-                        <p>Profil Lemak</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
             </div>
+                @endforeach
+
         <div class="col md 2">
             <ul class="side-container">
                 <br> <br>
