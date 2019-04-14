@@ -199,6 +199,9 @@ class HospitalController extends Controller
     public function indexUser()
     {
         $location = City::orderBy('name','asc')->pluck('name', 'id');
+        $data = [
+            'location' => $location,
+        ];
         return view ('SearchRS')->with('location',$location);
     }
 

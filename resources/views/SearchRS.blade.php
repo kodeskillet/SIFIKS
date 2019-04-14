@@ -32,7 +32,7 @@
                             <div class="input-group">
                                 {{ Form::select(
                                     'location',
-                                    $location,
+                                    $data['location'],
                                     null, [
                                         'class' => 'form-control',
                                         'placeholder' => 'Pilih Kota'
