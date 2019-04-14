@@ -195,4 +195,15 @@ class HospitalController extends Controller
 
         return $rooms;
     }
+
+    public function indexUser()
+    {
+        $location = City::orderBy('name','asc')->pluck('name', 'id');
+        return view ('SearchRS')->with('location',$location);
+    }
+
+    public function searchHospital()
+    {
+
+    }
 }
