@@ -104,10 +104,7 @@
             </div>
           </div>
   </div>
-
       <a type="button" class="btn btn-primary " href="/lihatsemuars">Lihat Semua</a>
-
-
 </div>
 
 @endsection
