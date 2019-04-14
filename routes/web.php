@@ -35,9 +35,16 @@ Route::get('/SearchRS', function() {
 });
 
 
-Route::get('/listdoctors/{specialty}', 'DoctorController@show')->name('list.doctorSpecialty');
-Route::get('/listdoctors/viewdoctor/{id}', 'DoctorController@showDoctor')->name('show.doctor');
-Route::post('/searchdoctor/cari','DoctorController@searchDoctor')->name('search.doctors');
+Route::prefix('searchdoctor')->group(function(){
+
+    Route::get('/listdoctors/{specialty}', 'DoctorController@show')->name('list.doctorSpecialty');
+    Route::get('/listdoctors/viewdoctor/{id}', 'DoctorController@showDoctor')->name('show.doctor');
+    Route::post('/cari','DoctorController@searchDoctor')->name('search.doctors');
+    Route::get('/listdoctors/cari', 'SpecializationController@indexUser')->name('list.doctor');
+    Route::post('/listdoctors/cari-spesialis', 'SpecializationController@searchSpecialty');
+    Route::get('/','SpecializationController@indexSearch')->name('search.doctor');
+
+});
 
 Route::get('/viewhospital', function() {
     return view('viewhospital');
@@ -58,10 +65,6 @@ Route::get('/lihatsemuars', function() {
 // Route::get('/lihatsemuadokter', function() {
 //     return view('LSdoctor');
 // });
-Route::get('/listdoctors', 'SpecializationController@indexUser')->name('list.doctor');
-Route::post('/listdoctors/cari', 'SpecializationController@searchSpecialty');
-Route::get('/searchdoctor','SpecializationController@indexSearch')->name('search.doctor');
-
 // Route::get('/SearchDokter', function() {
 //     return view('SearchDokter');
 // });
