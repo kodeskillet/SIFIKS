@@ -10,7 +10,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
-            <li class="active"><a href="{{ route('article.index') }}">Artikel</a></li>
+            <li class="active"><a href="{{ Auth::guard('admin')->check() ? route('admin.article.index') : route('doctor.article.index') }}">Artikel</a></li>
             <li class="active">Buat Artikel</li>
         </ol>
     </section>
@@ -77,7 +77,7 @@
             </div>
 
             {{Form::submit('Simpan',['class'=>'btn btn-success'])}}
-            <a href="{{ route('article.index') }}" class="btn btn-danger">Batal</a>
+            <a href="{{ Auth::guard('admin')->check() ? route('admin.article.index') : route('doctor.article.index') }}" class="btn btn-danger">Batal</a>
             {!! Form::close() !!}
         </div>
     </section>

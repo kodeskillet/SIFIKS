@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 Use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Articles;
-use App\Admin;
-use App\Doctor;
 
 class ArticleController extends Controller
 {
@@ -44,7 +41,7 @@ class ArticleController extends Controller
             'category' => 'required',
             'title' => 'required',
             'content' => 'required|min:500',
-            'cover_image' => 'image|nullable|max:3999 '
+            'cover_image' => 'image|nullable|max:3999'
         ]);
 
         if($request->hasFile('cover_image')){
@@ -69,10 +66,10 @@ class ArticleController extends Controller
         $article->cover_image = $fileNameToStore;
 
         if($article->save()) {
-            return redirect (route('article.index'))->with('success', 'Artikel baru berhasil ditambahkan !');
+            return redirect (route(session('guard').'.article.index'))->with('success', 'Artikel baru berhasil ditambahkan !');
         }
 
-        return redirect(route('article.create'))->with('failed', 'Gagal menambahkan artikel.');
+        return redirect(route(session('guard').'.article.create'))->with('failed', 'Gagal menambahkan artikel.');
     }
 
     /**
@@ -82,6 +79,9 @@ class ArticleController extends Controller
     public function show($id)
     {
         $article = Articles::find($id);
+        if(!$article) {
+            abort(404);
+        }
         return view('pages.ext.view-article')->with('article', $article);
     }
 
@@ -194,6 +194,14 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = Articles::find($id);
+        if(!$article) {
+            abort(404);
+        }
+
+        if($article->writer()['data']->id != Auth::guard(session('guard'))->user()->id) {
+            return redirect(session('guard').'/article')->with('warning', 'Anda tidak berhak untuk mengubah Artikel tersebut.');
+        }
+
         $data = [
             'article' => $article
         ];
@@ -233,10 +241,10 @@ class ArticleController extends Controller
         }
 
         if($article->save()) {
-            return redirect (route('article.index'))->with('success', 'Artikel berhasil diubah !');
+            return redirect (route(session('guard').'.article.index'))->with('success', 'Artikel berhasil diubah !');
         }
 
-        return redirect (route('article.edit', $id))->with('failed', 'Gagal mengubah artikel !');
+        return redirect (route(session('guard').'.article.edit', $id))->with('failed', 'Gagal mengubah artikel !');
     }
 
     /**

@@ -36,4 +36,8 @@ class City extends Model
     {
         return $this->hasMany('App\Hospital');
     }
+
+    public function doctor() {
+        return $this->hasOne('App\Doctor', 'city_id');
+    }
 }

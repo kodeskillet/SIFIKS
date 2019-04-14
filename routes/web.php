@@ -127,9 +127,18 @@ Route::prefix('admin')->group( function() {
         'member' => 'MemberController',
         'doctor' => 'DoctorController',
         'specialty' => 'SpecializationController',
-        'article' => 'ArticleController',
-        'hospital' => 'HospitalController',
-        'thread' => 'ThreadController',
+        'hospital' => 'HospitalController'
+    ]);
+
+    Route::get('/article', 'ArticleController@index')->name('admin.article.index');
+    Route::get('/article/{article}/edit', 'ArticleController@edit')->name('admin.article.edit');
+    Route::resource('article', 'ArticleController')->except([
+        'index', 'edit'
+    ]);
+
+    Route::get('/thread', 'ThreadController@index')->name('admin.thread.index');
+    Route::resource('thread', 'ThreadController')->except([
+        'index'
     ]);
 
     //Hospital's Rooms Controller -->
@@ -154,12 +163,6 @@ Route::prefix('doctor')->group( function() {
     Route::get('/login', 'Auth\DoctorLoginController@showLoginForm')->name('doctor.login');
     Route::post('/login', 'Auth\DoctorLoginController@login')->name('doctor.login.submit');
 
-    // Article Access -->
-    Route::resources([
-        'article' => 'ArticleController',
-        'thread' => 'ThreadController'
-    ]);
-
     // Doc Controller -->
     Route::get('/profile/{doctor}', 'DocController@profile')->name('doctor.profile');
     Route::get('/profile/{doctor}/edit', 'DocController@edit')->name('doctor.profile.edit');
@@ -168,6 +171,18 @@ Route::prefix('doctor')->group( function() {
     Route::put('/profile/password/{doctor}/edit', 'DocController@updatePass')->name('doctor.password.edit.submit');
     Route::get('/profile/image/remove', 'DocController@removeImage')->name('doctor.image.remove');
     Route::delete('/destroy/me', 'DocController@destroy')->name('doctor.profile.destroy');
+
+
+    Route::get('/article', 'ArticleController@index')->name('doctor.article.index');
+    Route::get('/article/{article}/edit', 'ArticleController@edit')->name('doctor.article.edit');
+    Route::resource('article', 'ArticleController')->except([
+        'index', 'edit'
+    ]);
+
+    Route::get('/thread', 'ThreadController@index')->name('doctor.thread.index');
+    Route::resource('thread', 'ThreadController')->except([
+        'index'
+    ]);
 
     // Home -->
     Route::get('/', 'DocController@dashboard')->name('doctor.dashboard');
