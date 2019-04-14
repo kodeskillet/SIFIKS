@@ -15,7 +15,7 @@
                   <li>Bandingkan estimasi antar rumah sakit yang anda inginkan</li>
                   <li>Terdapat berbagai Tindakan medis yang anda inginkan</li>
                   <li>Temukan Rumah Sakit yang terdekat dengan lokasi anda</li>
-                  
+
                 </ul>
                 <br>
                     <div class="row">
@@ -43,7 +43,7 @@
               </div>
             </div>
         </div>
-    
+
     </div>
 
 
@@ -95,10 +95,10 @@
             </div>
           </div>
   </div>
-  
+
       <a type="button" class="btn btn-primary " href="/lihatsemuars">Lihat Semua</a>
-  
-  
+
+
 </div>
-    
+
 @endsection
