@@ -27,13 +27,9 @@ Route::get('/viewarticle', function() {
 
 
 Route::get('/searchrs', 'HospitalController@indexUser')->name('search.index.hospital');
-
+Route::post('/searchrs/listhospital/cari', 'HospitalController@searchUser')->name('search.hospital');
 Route::get('/viewhospital', function() {
     return view('viewhospital');
-});
-
-Route::get('/listhospital', function() {
-    return view('listHospital');
 });
 
 Route::get('/lihatsemuars', function() {
