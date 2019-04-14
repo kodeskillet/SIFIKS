@@ -11,15 +11,9 @@
 |
 */
 
-// Route::get('/', 'HomeController@index');
-// Route::get('/{id}', 'HomeController@show')->name('display.article');
 
 Route::get('/viewarticle', function() {
     return view('viewarticle');
-});
-
-Route::get('/SearchRS', function() {
-    return view('SearchRS');
 });
 
 // Route::get('/User', function() {
@@ -30,13 +24,22 @@ Route::get('/SearchRS', function() {
 //     return view('EditUser');
 // })->name('edituser');
 
-// Route::get('/listdoctor', function() {
-//     return view('listDoctor');
-// });
 
-Route::get('/listdoctors/{specialty}', 'DoctorController@show')->name('list.doctorSpecialty');
-Route::get('/listdoctors/viewdoctor/{id}', 'DoctorController@showDoctor')->name('show.doctor');
-Route::post('/searchdoctor/cari','DoctorController@searchDoctor')->name('search.doctors');
+
+Route::get('/SearchRS', function() {
+    return view('SearchRS');
+});
+
+
+Route::prefix('searchdoctor')->group(function(){
+    Route::get('/listdoctors/{specialty}', 'DoctorController@show')->name('list.doctorSpecialty');
+    Route::get('/listdoctors/viewdoctor/{id}', 'DoctorController@showDoctor')->name('show.doctor');
+    Route::post('/listdoctors/cari','DoctorController@searchDoctor')->name('search.doctors');
+    Route::get('/listdoctors', 'SpecializationController@indexUser')->name('list.doctor');
+    Route::post('/listdoctors/cari-kota','DoctorController@searchByRadio')->name('search.radio');
+    Route::post('/listdoctors/cari-spesialis', 'SpecializationController@searchSpecialty');
+    Route::get('/','SpecializationController@indexSearch')->name('search.doctor');
+});
 
 Route::get('/viewhospital', function() {
     return view('viewhospital');
@@ -46,24 +49,11 @@ Route::get('/listhospital', function() {
     return view('listHospital');
 });
 
-Route::get('/viewdoctor', function() {
-    return view('viewDoctor');
-});
 
 Route::get('/lihatsemuars', function() {
     return view('LSRumahSakit');
 });
 
-// Route::get('/lihatsemuadokter', function() {
-//     return view('LSdoctor');
-// });
-Route::get('/listdoctors', 'SpecializationController@indexUser')->name('list.doctor');
-Route::post('/listdoctors/cari', 'SpecializationController@searchSpecialty');
-Route::get('/searchdoctor','SpecializationController@indexSearch')->name('search.doctor');
-
-// Route::get('/SearchDokter', function() {
-//     return view('SearchDokter');
-// });
 
 Route::get('/mainsearch-article', function() {
     return view('MainSearchArt');

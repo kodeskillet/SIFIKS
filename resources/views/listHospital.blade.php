@@ -16,7 +16,7 @@
                       <li>Bandingkan estimasi antar rumah sakit yang anda inginkan</li>
                       <li>Terdapat berbagai Tindakan medis yang anda inginkan</li>
                       <li>Temukan Rumah Sakit yang terdekat dengan lokasi anda</li>
-                      
+
                     </ul>
                     <br>
                         <div class="row">
@@ -44,7 +44,6 @@
                   </div>
                 </div>
             </div>
-        
         </div>
 
     <!-- filter city -->
@@ -52,7 +51,7 @@
         <div class="row">
             <div class="col-md-4">
             <h3>Pilih Tindakan</h3>
-            
+
                 <div class="box-filter">
                     <ul class="dataList">
                             <div class="input-group">
@@ -107,10 +106,10 @@
                             <label class="form-check-label" for="exampleRadios6">Pemeriksaan Kimia Klinik</label>
                         </div>
                     </div>
-        
+
                     </ul>
                 </div>
-            
+
 
 
             <div class="col-md-8">
