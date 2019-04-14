@@ -202,7 +202,7 @@ class HospitalController extends Controller
         $data = [
             'location' => $location,
         ];
-        return view ('SearchRS')->with('location',$location);
+        return view ('SearchRS')->with('data',$data);
     }
 
     public function searchHospital(Request $request)
@@ -214,5 +214,19 @@ class HospitalController extends Controller
             'location' => $location
         ];
         return view ('listHospital')->with('data',$data);
+    }
+
+    public function viewHospital($id)
+    {
+        $hospital = Hospital::find($id);
+        $roomId = DB::table('room_details')->where('hospital_id',$hospital->id);
+        if (count($roomId)<=0){
+            $roomId = null;
+        }
+        $data = [
+            'hospital' => $hospital,
+            'roomId' => $roomId
+        ];
+        return view ('viewhospital')->with('data',$data);
     }
 }

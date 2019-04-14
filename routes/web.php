@@ -28,10 +28,11 @@ Route::get('/viewarticle', function() {
 
 Route::get('/searchrs', 'HospitalController@indexUser')->name('search.index.hospital');
 Route::post('/searchrs/listhospital/cari', 'HospitalController@searchHospital')->name('search.hospital');
-Route::get('/viewhospital', function() {
-    return view('viewhospital');
-});
+Route::get('/searchrs/listhospital/viewhospital/{id}', 'HospitalController@viewHospital')->name('view.hospital');
 
+Route::get('/viewhospital', function () {
+    return view ('viewhospital');
+});
 Route::get('/lihatsemuars', function() {
     return view('LSRumahSakit');
 });
