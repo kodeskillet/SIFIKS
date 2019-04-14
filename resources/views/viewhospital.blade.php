@@ -101,121 +101,116 @@
                     </div>
               </div>
               <h2 class="font-weight-bold">Tarif Kamar Rumah Sakit</h2>
-              <div class="accordion" id="accordionExample">
-                  <div class="card">
-                    <div class="card-header" id="headingOne">
-                      <h2 class="mb-0">
-                        <button class="btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          Premiere
-                        </button>
-                      </h2>
-                    </div>
-                
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>Harga Mulai Dari Rp.3.999.999</p>
-                        <p>Fasilitas :</p>
-                        <p>-AC</p>
-                        <p>-Kulkas</p>
-                        <p>-Kasur Elektrik</p>
-                        <p>-Kamar Mandi</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header" id="headingTwo">
-                      <h2 class="mb-0">
-                        <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          VVIP
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>Harga Mulai Dari Rp.2.999.999</p>
-                        <p>Fasilitas :</p>
-                        <p>-AC</p>
-                        <p>-Kulkas</p>
-                        <p>-Kasur Elektrik</p>
-                        <p>-Kamar Mandi</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header" id="headingThree">
-                      <h2 class="mb-0">
-                        <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          VIP
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>Harga Mulai Dari Rp.2.799.999</p>
-                        <p>Fasilitas :</p>
-                        <p>-AC</p>
-                        <p>-Kulkas</p>
-                        <p>-Kasur Elektrik</p>
-                        <p>-Kamar Mandi</p>
-                      </div>
+              <div class="card" style="width: 30rem;">
+                  <img src="{{ asset('storage/images/rs1.jpeg') }}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h3 class="font-weight-bold">VVIP</h3>
+                    <hr>
+                    <div class="card-body">
+                      <p class="font-weight-bold text-primary">
+                        Harga Mulai dari Rp.4.900.000
+                      </p>
+                      Fasilitas : <br>
+                      Kamar Mandi Dalam <br>
+                      AC <br>
+                      Kasur <br>
+
                     </div>
                   </div>
                 </div>
+                <br>
+                <div class="card" style="width: 30rem;">
+                    <img src="{{ asset('storage/images/rs1.jpeg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h3 class="font-weight-bold">VVIP</h3>
+                      <hr>
+                      <div class="card-body">
+                        <p class="font-weight-bold text-primary">
+                          Harga Mulai dari Rp.4.900.000
+                        </p>
+                        Fasilitas : 
+                        <br>
+                        Kamar Mandi Dalam 
+                        <br>
+                        AC 
+                        <br>
+                        Kasur 
+                        <br>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="card" style="width: 30rem;">
+                      <img src="{{ asset('storage/images/rs1.jpeg') }}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h3 class="font-weight-bold">VVIP</h3>
+                        <hr>
+                        <div class="card-body">
+                          <p class="font-weight-bold text-primary">
+                            Harga Mulai dari Rp.4.900.000
+                          </p>
+                          Fasilitas : <br>
+                          Kamar Mandi Dalam <br>
+                          AC <br>
+                          Kasur <br>
+    
+                        </div>
+                      </div>
+                    </div>
+
+
               <h2 class="font-weight-bold">Tindakan Medis</h2>
-              <div class="accordion" id="accordionExample">
-                  <div class="card">
-                    <div class="card-header" id="headingOne">
-                      <h2 class="mb-0">
-                        <button class="btn" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                          Laboratorium
-                        </button>
-                      </h2>
-                    </div>
-                
-                    <div id="collapseFour" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>Cek Golongan Darah</p>
-                        <p>Fungsi Ginjal</p>
-                        <p>Uji Fungsi Hati</p>
-                        <p>Profil Lemak</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header" id="headingTwo">
-                      <h2 class="mb-0">
-                        <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                          Kedokteran Umum
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>Cek Golongan Darah</p>
-                        <p>Fungsi Ginjal</p>
-                        <p>Uji Fungsi Hati</p>
-                        <p>Profil Lemak</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header" id="headingThree">
-                      <h2 class="mb-0">
-                        <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                          Bedah Umum
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseSix" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>Cek Golongan Darah</p>
-                        <p>Fungsi Ginjal</p>
-                        <p>Uji Fungsi Hati</p>
-                        <p>Profil Lemak</p>
-                      </div>
+              <div class="card" style="width: 30rem;">
+                  <img src="{{ asset('storage/images/rs1.jpeg') }}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h3 class="font-weight-bold ">Kehamilan</h3>
+                    <hr>
+                    <div class="card-body">
+                      <p class="font-weight-bold text-primary">
+                        Harga Mulai dari Rp.4.900.000
+                      </p>
+                      Salah satu jenis pemeriksaan 
+                        dengan menggunakan bronkoskop (selang elastis dengan kamera dan lampu di ujungnya) yang dimasukkan ke dalam tenggorokan atau hidung 
+                        untuk melihat kondisi saluran pernapasan. Dalam pemeriksaan ini, dapat juga dilakukan pengambilan sampel jaringan (biopsi).
+                        * Harga belum termasuk biaya konsultasi dokter, laboratorium, obat-obatan dan lain-lain.
+
                     </div>
                   </div>
                 </div>
+                <br>
+                <div class="card" style="width: 30rem;">
+                    <img src="{{ asset('storage/images/rs1.jpeg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h3 class="font-weight-bold">Kedokteran Umum</h3>
+                      <hr>
+                      <div class="card-body">
+                        <p class="font-weight-bold text-primary">
+                          Harga Mulai dari Rp.4.900.000
+                        </p>
+                        Salah satu jenis pemeriksaan 
+                        dengan menggunakan bronkoskop (selang elastis dengan kamera dan lampu di ujungnya) yang dimasukkan ke dalam tenggorokan atau hidung 
+                        untuk melihat kondisi saluran pernapasan. Dalam pemeriksaan ini, dapat juga dilakukan pengambilan sampel jaringan (biopsi).
+                        * Harga belum termasuk biaya konsultasi dokter, laboratorium, obat-obatan dan lain-lain.
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="card" style="width: 30rem;">
+                      <img src="{{ asset('storage/images/rs1.jpeg') }}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h3 class="font-weight-bold">Laboratorium</h3>
+                        <hr>
+                        <div class="card-body">
+                          <p class="font-weight-bold text-primary">
+                            Harga Mulai dari Rp.4.900.000
+                          </p>
+                          Salah satu jenis pemeriksaan 
+                        dengan menggunakan bronkoskop (selang elastis dengan kamera dan lampu di ujungnya) yang dimasukkan ke dalam tenggorokan atau hidung 
+                        untuk melihat kondisi saluran pernapasan. Dalam pemeriksaan ini, dapat juga dilakukan pengambilan sampel jaringan (biopsi).
+                        * Harga belum termasuk biaya konsultasi dokter, laboratorium, obat-obatan dan lain-lain.
+                        </div>
+                      </div>
+                    </div>
             </div>
         <div class="col md 2">
             <ul class="side-container">
