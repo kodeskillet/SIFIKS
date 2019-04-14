@@ -115,21 +115,29 @@
                 <div class="col-md-8">
                     <br>
                     <h1 class="font-weight-bold">Estimasi Biaya Rumah Sakit</h1>
-
-                    <div class="card mb-3">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="{{ asset('storage/images/rs1.jpeg') }}" alt="..." class="card-img" >
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Theux Hospital Jombang</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <a href="\viewhospital" class="btn btn-primary">Lihat Detail</a>
+                    @if(count($data['hospital'])>0)
+                        @foreach($data['hospital'] as $hospital)
+                            <div class="card mb-3">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        @if($hospital->cover_images_id = null)
+                                            <img src="{{ asset('storage/images/hospital.jpg') }}" alt="{{$hospital->name}}" class="card-img" >
+                                        @else
+                                            <img src="{{ asset('storage/mages/hospital.jpg')}}" alt="{{$hospital->name}}" class="card-img">
+                                        @endif
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{$hospital->name}}</h5>
+                                            <p class="card-text">{!! Str::limit($hospital->biography) !!}</p>
+                                            <a href="\viewhospital" class="btn btn-primary">Lihat Detail</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        @endforeach
+                    @else
+                    @endif
                 </div>
         </div>
     </div>
