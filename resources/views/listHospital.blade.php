@@ -121,9 +121,9 @@
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
                                         @if($hospital->cover_images_id = null)
-                                            <img src="{{ asset('storage/images/hospital.jpg') }}" alt="{{$hospital->name}}" class="card-img" >
+                                            <img src="{{ asset('storage/images/hospital.jpg')}}" alt="{{$hospital->name}}" class="card-img" >
                                         @else
-                                            <img src="{{ asset('storage/mages/hospital.jpg')}}" alt="{{$hospital->name}}" class="card-img">
+                                            <img src="{{ asset('storage/images/hospital.jpg')}}" alt="{{$hospital->name}}" class="card-img">
                                         @endif
                                     </div>
                                     <div class="col-md-8">
