@@ -219,7 +219,7 @@ class HospitalController extends Controller
     public function viewHospital($id)
     {
         $hospital = Hospital::find($id);
-        $roomId = DB::table('room_details')->where('hospital_id',$hospital->id);
+        $roomId = DB::table('room_details')->where('hospital_id',$hospital->id)->get();
         if (count($roomId)<=0){
             $roomId = null;
         }

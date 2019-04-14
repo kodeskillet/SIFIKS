@@ -139,7 +139,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{$hospital->name}}</h5>
                                             <p class="card-text">{!! Str::limit($hospital->biography) !!}</p>
-                                            <a href="\viewhospital" class="btn btn-primary">Lihat Detail</a>
+                                            <a href="{{ route('view.hospital' , ['id' => $hospital->id])}}" class="btn btn-primary">Lihat Detail</a>
                                         </div>
                                     </div>
                                 </div>
