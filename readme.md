@@ -10,6 +10,9 @@
     <a href="https://scrutinizer-ci.com/g/flying-coders/SIFIKS/?branch=master" target="_blank">
         <img src="https://img.shields.io/scrutinizer/g/flying-coders/SIFIKS.svg" alt="Code Quality">
     </a>
+    <a href="https://codecov.io/gh/flying-coders/SIFIKS">
+      <img src="https://codecov.io/gh/flying-coders/SIFIKS/branch/master/graph/badge.svg" />
+    </a>
     <a href="https://github.com/flying-coders/SIFIKS/blob/master/LICENSE" target="_blank">
         <img src="https://img.shields.io/github/license/flying-coders/SIFIKS.svg" alt="License">
     </a>
