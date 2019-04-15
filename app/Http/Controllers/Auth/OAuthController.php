@@ -48,7 +48,7 @@ class OAuthController extends Controller
 
         if($attempt) {
             $msg = "Selamat Datang ".$authUser->name." !";
-            return redirect(route('home'))->with('info', $msg);
+            return redirect()->intended(route('home'))->with('info', $msg);
         }
 //        $this->sendFailedLoginResponse($req);
         return redirect(route('login'));
