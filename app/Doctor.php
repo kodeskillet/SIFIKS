@@ -71,7 +71,7 @@ class Doctor extends Authenticatable
      */
     public function specialty()
     {
-        return $this->belongsTo('App\DoctorSpecialization', 'id');
+        return $this->belongsTo('App\DoctorSpecialization', 'specialization_id');
     }
 
     public function city() {
@@ -112,6 +112,9 @@ class Doctor extends Authenticatable
         }
     }
 
+    /**
+     * @return mixed
+     */
     public function getSpecialty()
     {
         $specialtyId = $this->getAttributeValue('specialization_id');
@@ -119,6 +122,9 @@ class Doctor extends Authenticatable
         return $specialty = DoctorSpecialization::find($specialtyId);
     }
 
+    /**
+     * @return mixed
+     */
     public function getLocation()
     {
         $locationId = $this->getAttributeValue('city_id');
