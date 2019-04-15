@@ -38,6 +38,6 @@ class City extends Model
     }
 
     public function doctor() {
-        return $this->hasOne('App\Doctor', 'city_id');
+        return $this->belongsTo('App\Doctor');
     }
 }
