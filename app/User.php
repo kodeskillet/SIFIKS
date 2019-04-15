@@ -46,6 +46,10 @@ class User extends Authenticatable
         'updated_at'
     ];
 
+    public function thread() {
+        return $this->hasMany('App\Thread', 'user_id');
+    }
+
     /**
      * @param string $str
      */
