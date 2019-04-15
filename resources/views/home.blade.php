@@ -17,14 +17,14 @@
                     <div class="row">
                         <div class="col-md-8">
                                 <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Cari SIFIKS" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn  btn-warning" type="button" id="button-addon2">Cari</button>
-                                        </div>
+                                    <input type="text" class="form-control" placeholder="Cari SIFIKS" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn  btn-warning" type="button" id="button-addon2">Cari</button>
                                     </div>
-                                    <a class="btn btn-light" role="button" href="/ask">Tanya Dokter</a>
-                                    <a class="btn btn-light" role="button" href="{{route('search.doctor')}}">Cari Dokter</a>
-                                    <a class="btn btn-light" role="button" href="/SearchRS">Cari Rumah Sakit</a>
+                                </div>
+                                <a class="btn btn-light" role="button" href="{{ route('user.thread.index') }}">Tanya Dokter</a>
+                                <a class="btn btn-light" role="button" href="{{ route('search.doctor') }}">Cari Dokter</a>
+                                <a class="btn btn-light" role="button" href="/SearchRS">Cari Rumah Sakit</a>
                         </div>
                     </div>
                 </div>

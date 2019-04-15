@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="col col-md-4">
-                    <a href="/ask"><img src="https://i.ibb.co/tCWCnKK/doctor.png" alt="doctor" border="0"width="350"></a>
+                    <a href="{{ route('user.thread.create') }}"><img src="https://i.ibb.co/tCWCnKK/doctor.png" alt="doctor" border="0"width="350"></a>
                 </div>
             </div>
         </div>

@@ -16,22 +16,12 @@ Route::get('/viewarticle', function() {
     return view('viewarticle');
 });
 
-// Route::get('/User', function() {
-//     return view('userlayout');
-// });
-
-// Route::get('/User/Edit', function() {
-//     return view('EditUser');
-// })->name('edituser');
-
-
-
 Route::get('/SearchRS', function() {
     return view('SearchRS');
 });
 
 
-Route::prefix('searchdoctor')->group(function(){
+Route::prefix('searchdoctor')->group(function() {
     Route::get('/listdoctors/{specialty}', 'DoctorController@show')->name('list.doctorSpecialty');
     Route::get('/listdoctors/viewdoctor/{id}', 'DoctorController@showDoctor')->name('show.doctor');
     Route::post('/listdoctors/cari','DoctorController@searchDoctor')->name('search.doctors');
@@ -82,10 +72,11 @@ Route::prefix('user')->group( function() {
     Route::get('/profile/image/remove', 'UserController@removeImage')->name('user.image.remove');
     Route::get('/profile/password/{user}/edit', 'UserController@editPass')->name('user.password.edit');
     Route::put('/profile/password/{user}/edit', 'UserController@updatePass')->name('user.password.edit.submit');
+
+    Route::get('/thread/create', 'ThreadAskController@create')->name('user.thread.create');
+    Route::post('/thread/create', 'ThreadAskController@store')->name('user.thread.store');
 });
-Route::resource('user', 'UserController')->except([
-    'show', 'index', 'profile', 'edit', 'update', 'editPass', 'updatePass', 'destroy'
-]);
+Route::get('/thread', 'ThreadAskController@index')->name('user.thread.index');
 Route::get('/article/{article}', 'UserController@showArticle')->name('user.article.show');
 Route::get('/', 'UserController@index')->name('home');
 // END-OF
@@ -125,10 +116,10 @@ Route::prefix('admin')->group( function() {
         'index', 'edit'
     ]);
 
-    Route::get('/thread', 'ThreadController@index')->name('admin.thread.index');
-    Route::resource('thread', 'ThreadController')->except([
-        'index'
-    ]);
+//    Route::get('/thread', 'ThreadController@index')->name('admin.thread.index');
+//    Route::resource('thread', 'ThreadController')->except([
+//        'index'
+//    ]);
 
     //Hospital's Rooms Controller -->
     Route::get('/room/{room_id}/{hospital_id}/edit', 'RoomController@edit')->name('room.edit');
@@ -168,10 +159,10 @@ Route::prefix('doctor')->group( function() {
         'index', 'edit'
     ]);
 
-    Route::get('/thread', 'ThreadController@index')->name('doctor.thread.index');
-    Route::resource('thread', 'ThreadController')->except([
-        'index'
-    ]);
+//    Route::get('/thread', 'ThreadController@index')->name('doctor.thread.index');
+//    Route::resource('thread', 'ThreadController')->except([
+//        'index'
+//    ]);
 
     // Home -->
     Route::get('/', 'DocController@dashboard')->name('doctor.dashboard');
@@ -192,15 +183,6 @@ Route::get('/ask-detail', function() {
     return view('DetailQuestions');
 });
 
-Route::get('/admin/profile/article', function() {
-    return view('/pages/ext/profile-articles');
-});
-Route::get('/admin/profile/edit', function() {
-    return view('/pages/ext/edit-profile');
-});
-Route::get('/admin/profile/password', function() {
-    return view('/pages/ext/edit-password');
-});
 
 
 
