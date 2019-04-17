@@ -16424,6 +16424,10 @@ readers do not read off random characters that represent icons */
   font-weight: 900;
 }
 
+a {
+  outline: none !important;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

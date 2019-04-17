@@ -13,7 +13,7 @@ class ThreadController extends Controller
      */
     public function index()
     {
-        abort(503);
+//        abort(503);
         return view('pages.thread');
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Thread;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -37,12 +38,29 @@ class UserController extends Controller
 
 
     /**
+     * Return user profile view with discussion data based on given query
+     *
+     * @param $query
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function profile()
+    public function profile($query)
     {
+        $threads = null;
+        if($query == "all") {
+            $threads = Thread::where('user_id', $this->currentUser()->id)
+                            ->orderBy('created_at', 'desc')
+                            ->paginate(3);
+        } elseif($query == "answered") {
+            $threads = Thread::where('user_id', $this->currentUser()->id)
+                            ->where('status', true)
+                            ->orderBy('created_at', 'desc')
+                            ->paginate(3);
+        }
+
         $data = [
-            'user' => $this->currentUser()
+            'user' => $this->currentUser(),
+            'threads' => $threads,
+            'status' => $query
         ];
         return view('profile')->with('data', $data);
     }

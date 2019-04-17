@@ -24,8 +24,11 @@ class ThreadAskController extends Controller
      */
     public function index()
     {
-        $threads = Thread::orderBy('created_at', 'asc')->get();
-        return view('ask-index')->with('threads', $threads);
+        $threads = Thread::orderBy('created_at', 'desc')->paginate(5);
+        $data = [
+            'threads' => $threads
+        ];
+        return view('ask-index')->with('data', $data);
     }
 
     /**
@@ -35,8 +38,11 @@ class ThreadAskController extends Controller
      */
     public function create()
     {
-        $threads = Thread::orderBy('created_at', 'asc')->get();
-        return view('ask-form')->with('threads', $threads);;
+        $threads = Thread::orderBy('created_at', 'desc')->paginate(5);
+        $data = [
+            'threads' => $threads
+        ];
+        return view('ask-form')->with('data', $data);
     }
 
     /**
@@ -77,7 +83,17 @@ class ThreadAskController extends Controller
      */
     public function show($id)
     {
-        //
+        $thread = Thread::find($id);
+        if(!$thread) {
+            abort(404);
+        }
+
+        $threads = Thread::orderBy('created_at', 'desc')->paginate(5);
+        $data = [
+            'thread' => $thread,
+            'threads' => $threads
+        ];
+        return view('ask-view')->with('data', $data);
     }
 
     /**
@@ -88,19 +104,52 @@ class ThreadAskController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = $this->currentUser();
+        $thread = Thread::find($id);
+        if($thread->user_id != $user->id) {
+            return redirect()->back()->with('warning', 'Anda tidak berhak mengakses laman tersebut.');
+        }
+
+        if($thread->doctor_id != null) {
+            return redirect()->back()->with('warning', 'Tidak dapat mengubah pertanyaan karena sudah terjawab, silahkan tanyakan pertanyaan baru.');
+        }
+        $threads = Thread::orderBy('created_at', 'desc')->paginate(5);
+        $data = [
+            'thread' => $thread,
+            'threads' => $threads
+        ];
+
+        return view('ask-edit')->with('data', $data);
+
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = $this->currentUser();
+        $thread = Thread::find($id);
+        if($thread->user_id != $user->id) {
+            return redirect()->back()->with('warning', 'Anda tidak berhak mengubah ulasan tersebut.');
+        }
+
+        $this->validate($request, [
+            'topic' => 'required|min:10',
+            'question' => 'required|min:100'
+        ]);
+
+        $thread->topic = $request->input('topic');
+        $thread->question = $request->input('question');
+        if($thread->save()) {
+            return redirect(route('user.thread.show', $thread->id))->with('success', 'Berhasil mengubah ulasan !');
+        }
+        return redirect(route('user.thread.show', $thread->id))->with('success', 'Berhasil mengubah ulasan !');
     }
 
     /**
@@ -111,7 +160,16 @@ class ThreadAskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = $this->currentUser();
+        $thread = Thread::find($id);
+        if($thread->user_id != $user->id) {
+            return redirect()->back()->with('warning', 'Anda tidak berhak menghapus ulasan tersebut.');
+        }
+
+        if($thread->delete() && $this->deleteTopic($thread->id_topic)) {
+            return redirect(route('user.profile'))->with('success', 'Ulasan dihapus !');
+        }
+        return redirect()->back()->with('failed', 'Gagal menghapus ulasan.');
     }
 
 
@@ -130,5 +188,19 @@ class ThreadAskController extends Controller
             return $new;
         }
         return null;
+    }
+
+    /**
+     * Delete topic with given id
+     *
+     * @param int $id
+     * @return bool
+     */
+    private function deleteTopic($id) {
+        $topic = ThreadTopic::find($id);
+        if($topic->delete()) {
+            return true;
+        }
+        return false;
     }
 }
