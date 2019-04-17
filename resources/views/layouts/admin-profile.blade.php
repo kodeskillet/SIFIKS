@@ -83,7 +83,7 @@
                         @auth('doctor')
                             <li class="list-group-item">
                                 <a href="#">
-                                    <b>Thread terjawab</b>
+                                    <b>Diskusi terjawab</b>
                                     <span class="pull-right text-bold">
                                         0
                                     </span>
