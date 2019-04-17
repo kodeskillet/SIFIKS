@@ -2,41 +2,54 @@
 
 namespace App\Http\Controllers;
 
+use App\Thread;
 use Illuminate\Http\Request;
 
 class ThreadController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin', ['except' => [
+            'index'
+        ]]);
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param $query
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index($query)
     {
-//        abort(503);
-        return view('pages.thread');
+        $threads = null;
+        $count = null;
+        if($query == "all") {
+            $threads = Thread::orderBy('created_at', 'desc')->paginate(15);
+        } elseif($query == "answered") {
+            $threads = Thread::where('status', true)
+                            ->orderBy('created_at', 'desc')
+                            ->paginate(15);
+        } else {
+            $threads = Thread::where('status', false)
+                            ->orderBy('created_at', 'desc')
+                            ->paginate(15);
+        }
+
+        $data = [
+            'threads' => $threads,
+            'query' => $query,
+            'count' => [
+                'all' => count(Thread::all()),
+                'answered' => count(Thread::where('status', true)->get()),
+                'unanswered' => count(Thread::where('status', false)->get())
+            ]
+        ];
+
+        return view('pages.thread')->with('data', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -49,28 +62,6 @@ class ThreadController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
