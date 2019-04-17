@@ -63,7 +63,10 @@
                         <div class="row justify-content-center">
                             <div class="col-md-8 text-center">
                                 <small class="text-muted">Jumlah diskusi</small>
-                                <p style="font-size: 1.4rem;">0</p>
+                                <p>
+                                    <span style="font-size: 1.4rem;">{{ count($data['user']->thread) }}</span>
+                                    <span style="font-size: 0.8rem;" class="text-muted">/ {{ $data['user']->threadAnswered() }} Terjawab</span>
+                                </p>
                             </div>
                         </div>
                     </div>

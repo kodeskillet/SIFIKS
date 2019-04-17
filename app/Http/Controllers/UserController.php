@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Thread;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -42,7 +43,8 @@ class UserController extends Controller
     public function profile()
     {
         $data = [
-            'user' => $this->currentUser()
+            'user' => $this->currentUser(),
+            'threads' => Thread::where('user_id', $this->currentUser()->id)->orderBy('created_at', 'desc')->paginate(3)
         ];
         return view('profile')->with('data', $data);
     }

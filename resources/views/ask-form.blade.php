@@ -2,18 +2,23 @@
 <link rel="stylesheet" href="{{ asset("bower_components/font-awesome/css/font-awesome.min.css") }}">
 <link rel="stylesheet" href="{{ asset("bower_components/admin-lte/dist/css/skins/_all-skins.min.css") }}">
 <link rel="stylesheet" href="{{ asset("bower_components/admin-lte/dist/css/AdminLTE.min.css") }}">
-@include('layouts.inc.navbar')
 
 @section('content')
+
+    @include('layouts.inc.navbar')
+
     <br>
     <div class="container">
         <div class="row">
             <div class="col col-md-8">
-                <form class="modal-content" action="#" method="POST">
+
+                @include('layouts.inc.messages')
+
+                <form class="modal-content" action="{{ route('user.thread.store') }}" method="POST">
                     @csrf
                     <div class="modal-header">
                         <b>Tanya Dokter</b>
-                        <a href="{{ route('user.thread.index') }}" class="btn btn-danger btn-sm" style="z-index: 999">
+                        <a href="{{ url()->previous() }}" class="btn btn-danger btn-sm" style="z-index: 999">
                             <i class="fas fa-times"></i>
                         </a>
                     </div>
@@ -33,6 +38,11 @@
                             <div class="col-md-10">
                                 <label for="question">Pertanyaan</label>
                                 <textarea id="question" name="question" class="ckeditor form-control"></textarea>
+                                @if($errors->has('question'))
+                                    <div class="text-danger">
+                                        {{$errors->first('question')}}
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -49,7 +59,7 @@
                 @include('layouts.inc.recent-thread')
             </div>
             <div class="col col-md-4">
-                <a href="https://ibb.co/jVBG2xT"><img src="https://i.ibb.co/7g8V5TX/health.png" alt="health" border="0"width="350"></a>
+                <a href="#"><img src="https://i.ibb.co/7g8V5TX/health.png" alt="health" border="0"width="350"></a>
             </div>
         </div>
     </div>

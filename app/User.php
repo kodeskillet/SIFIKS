@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -51,7 +52,20 @@ class User extends Authenticatable
     }
 
     /**
+     * @return int
+     */
+    public function threadAnswered() {
+        return count(
+            Thread::where('status', true)
+                ->where('user_id', Auth::guard('web')
+                ->user()->id)
+                ->get()
+        );
+    }
+
+    /**
      * @param string $str
+     * @return string
      */
     public function trimStr(string $str)
     {

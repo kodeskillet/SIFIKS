@@ -21,6 +21,10 @@ class Thread extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function doctor() {
+        return $this->belongsTo('App\Doctor');
+    }
+
     public function trimStr(string $string) {
         if(strlen($string) > 200) {
             return substr($string, 0, 200).'...';

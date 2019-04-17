@@ -75,8 +75,12 @@ Route::prefix('user')->group( function() {
 
     Route::get('/thread/create', 'ThreadAskController@create')->name('user.thread.create');
     Route::post('/thread/create', 'ThreadAskController@store')->name('user.thread.store');
+    Route::get('/thread/{thread}/edit', 'ThreadAskController@edit')->name('user.thread.edit');
+    Route::put('/thread/{thread}/edit', 'ThreadAskController@update')->name('user.thread.edit.submit');
+    Route::delete('/thread/{thread}/destroy', 'ThreadAskController@destroy')->name('user.thread.destroy');
 });
 Route::get('/thread', 'ThreadAskController@index')->name('user.thread.index');
+Route::get('/thread/{thread}', 'ThreadAskController@show')->name('user.thread.show');
 Route::get('/article/{article}', 'UserController@showArticle')->name('user.article.show');
 Route::get('/', 'UserController@index')->name('home');
 // END-OF
@@ -152,17 +156,13 @@ Route::prefix('doctor')->group( function() {
     Route::get('/profile/image/remove', 'DocController@removeImage')->name('doctor.image.remove');
     Route::delete('/destroy/me', 'DocController@destroy')->name('doctor.profile.destroy');
 
-
     Route::get('/article', 'ArticleController@index')->name('doctor.article.index');
     Route::get('/article/{article}/edit', 'ArticleController@edit')->name('doctor.article.edit');
     Route::resource('article', 'ArticleController')->except([
         'index', 'edit'
     ]);
 
-//    Route::get('/thread', 'ThreadController@index')->name('doctor.thread.index');
-//    Route::resource('thread', 'ThreadController')->except([
-//        'index'
-//    ]);
+    Route::get('/thread', 'ThreadController@index')->name('doctor.thread.index');
 
     // Home -->
     Route::get('/', 'DocController@dashboard')->name('doctor.dashboard');
@@ -174,16 +174,3 @@ Route::prefix('doctor')->group( function() {
 // Socialite Open-Authentication
 Route::get('oauth/{provider}', 'Auth\OAuthController@redirectToProvider')->name('api.login');
 Route::get('oauth/{provider}/callback', 'Auth\OAuthController@handleProviderCallback')->name('api.login.submit');
-
-
-Route::get('/ask', function() {
-    return view('AskToDoctor');
-});
-Route::get('/ask-detail', function() {
-    return view('DetailQuestions');
-});
-
-
-
-
-
