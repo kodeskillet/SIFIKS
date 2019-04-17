@@ -3,12 +3,12 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Forum
+            Diskusi
             <small></small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
-            <li class="active">Forum</li>
+            <li class="active">Diskusi</li>
         </ol>
     </section>
 
@@ -18,255 +18,144 @@
             <div class="col-md-3">
                 <div class="box box-solid">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Folders</h3>
-
-                        <div class="box-tools">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                            </button>
-                        </div>
+                        <h3 class="box-title">Tampilkan</h3>
                     </div>
                     <div class="box-body no-padding">
                         <ul class="nav nav-pills nav-stacked">
-                            <li class="active"><a href="#"><i class="fa fa-inbox"></i>Latest
-                                    <span class="label label-primary pull-right">12</span></a></li>
-                            <li><a href="#"><i class="fa fa-check-circle"></i>Already Answered</a></li>
-                            <li><a href="#"><i class="fa fa-circle"></i>Not yet answered</a></li>
+                            <li class="{{ $data['query'] == "all" ? 'active' : '' }}">
+                                <a
+                                    @if(Auth::guard('admin')->check())
+                                        href="{{ route('admin.thread.index', ['query' => 'all']) }}"
+                                    @elseif(Auth::guard('doctor')->check())
+                                        href="{{ route('doctor.thread.index', ['query' => 'all']) }}"
+                                    @endif
+                                >
+                                    <i class="fa fa-inbox text-blue"></i>
+                                    Semua
+                                    <span class="label label-primary pull-right">
+                                        {{ $data['count']['all'] }}
+                                    </span>
+                                </a>
                             </li>
-                            <li><a href="#"><i class="fa fa-trash-o"></i> Trash</a></li>
+                            <li class="{{ $data['query'] == "answered" ? 'active' : '' }}">
+                                <a
+                                    @if(Auth::guard('admin')->check())
+                                        href="{{ route('admin.thread.index', ['query' => 'answered']) }}"
+                                    @elseif(Auth::guard('doctor')->check())
+                                        href="{{ route('doctor.thread.index', ['query' => 'answered']) }}"
+                                    @endif
+                                >
+                                    <i class="fa fa-check-circle text-green"></i>
+                                    Terjawab
+                                    <span class="label label-success pull-right">
+                                        {{ $data['count']['answered'] }}
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="{{ $data['query'] == "unanswered" ? 'active' : '' }}">
+                                <a
+                                    @if(Auth::guard('admin')->check())
+                                        href="{{ route('admin.thread.index', ['query' => 'unanswered']) }}"
+                                    @elseif(Auth::guard('doctor')->check())
+                                        href="{{ route('doctor.thread.index', ['query' => 'unanswered']) }}"
+                                    @endif
+                                >
+                                    <i class="fa fa-exclamation-triangle text-yellow"></i>
+                                    Belum Terjawab
+                                    <span class="label label-warning pull-right">
+                                        {{ $data['count']['unanswered'] }}
+                                    </span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /.box-body -->
                 </div>
-                <!-- /. box -->
-                <div class="box box-solid">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Labels</h3>
-
-                        <div class="box-tools">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="box-body no-padding">
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#"><i class="fa fa-circle-o text-red"></i> Important</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> Promotions</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o text-light-blue"></i> Social</a></li>
-                        </ul>
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
             </div>
 
             <div class="col-md-9">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Pertanyaan</h3>
+                        <h3 class="box-title">
+                            Pertanyaan
+
+                        </h3>
 
                         <div class="box-tools pull-right">
-                            <div class="has-feedback">
-                                <input type="text" class="form-control input-sm" placeholder="Cari pertanyaan">
-                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                            </div>
+                            <p style="margin-top:3px; margin-right: 3px;">
+                                @if($data['query'] == "all")
+                                    <span class="badge bg-blue">Semua</span>
+                                @elseif($data['query'] == "answered")
+                                    <span class="badge bg-green">
+                                        <i class="fas fa-check-circle"></i>&nbsp;
+                                        Terjawab
+                                    </span>
+                                @else
+                                    <span class="badge bg-yellow">
+                                        <i class="fas fa-exclamation-triangle"></i>&nbsp;
+                                        Belum Terjawab
+                                    </span>
+                                @endif
+                            </p>
                         </div>
                         <!-- /.box-tools -->
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body no-padding">
-                        <div class="mailbox-controls">
-                            <!-- Check all button -->
-                            <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
-                            </button>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
-                                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
-                            </div>
-                            <!-- /.btn-group -->
-                            <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
-                            <div class="pull-right">
-                                1-50/200
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>
-                                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button>
-                                </div>
-                                <!-- /.btn-group -->
-                            </div>
-                            <!-- /.pull-right -->
-                        </div>
                         <div class="table-responsive mailbox-messages">
                             <table class="table table-hover table-striped">
                                 <tbody>
-                                <tr>
-                                    <td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
-                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                                    </td>
-                                    <td class="mailbox-attachment"></td>
-                                    <td class="mailbox-date">5 mins ago</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
-                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                                    </td>
-                                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                                    <td class="mailbox-date">28 mins ago</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
-                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                                    </td>
-                                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                                    <td class="mailbox-date">11 hours ago</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
-                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                                    </td>
-                                    <td class="mailbox-attachment"></td>
-                                    <td class="mailbox-date">15 hours ago</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
-                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                                    </td>
-                                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                                    <td class="mailbox-date">Yesterday</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
-                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                                    </td>
-                                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                                    <td class="mailbox-date">2 days ago</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
-                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                                    </td>
-                                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                                    <td class="mailbox-date">2 days ago</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
-                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                                    </td>
-                                    <td class="mailbox-attachment"></td>
-                                    <td class="mailbox-date">2 days ago</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
-                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                                    </td>
-                                    <td class="mailbox-attachment"></td>
-                                    <td class="mailbox-date">2 days ago</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
-                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                                    </td>
-                                    <td class="mailbox-attachment"></td>
-                                    <td class="mailbox-date">2 days ago</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
-                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                                    </td>
-                                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                                    <td class="mailbox-date">4 days ago</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
-                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                                    </td>
-                                    <td class="mailbox-attachment"></td>
-                                    <td class="mailbox-date">12 days ago</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
-                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                                    </td>
-                                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                                    <td class="mailbox-date">12 days ago</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
-                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                                    </td>
-                                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                                    <td class="mailbox-date">14 days ago</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
-                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                                    </td>
-                                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                                    <td class="mailbox-date">15 days ago</td>
-                                </tr>
+                                    @foreach($data['threads'] as $thread)
+                                        <tr
+                                            @if($thread->status == true)
+                                                @if($thread->doctor_id == Auth::guard('doctor')->user()->id)
+                                                    title="Terjawab oleh anda"
+                                                @else
+                                                    title="Terjawab oleh dr. {{ $thread->doctor->name }}"
+                                                @endif
+                                            @else
+                                                title="Belum Terjawab"
+                                            @endif
+                                        >
+                                            <td class="mailbox-star">
+                                                @if($thread->status == true)
+                                                    <i class="fa fa-check-circle text-green"></i>
+                                                @else
+                                                    <i class="fa fa-exclamation-triangle text-yellow"></i>
+                                                @endif
+                                            </td>
+                                            <td class="mailbox-name">
+                                                {{ Str::limit($thread->user->name, 15) }}
+                                            </td>
+                                            <td class="mailbox-subject">
+                                                <b>{{ Str::limit($thread->topic->topic_name, 20) }}</b>
+                                            </td>
+                                            <td>
+                                                <span>{!! Str::limit($thread->question, 25) !!}</span>
+                                            </td>
+                                            <td class="mailbox-attachment">
+                                                <a href="#" class="btn btn-success btn-xs {{ $thread->status == true ? 'disabled' : '' }}" style="{{ $thread->doctor_id == Auth::guard('doctor')->user()->id ? 'display: none;' : ''}}">
+                                                    Jawab
+                                                </a>
+                                                @if($thread->doctor_id == Auth::guard('doctor')->user()->id)
+                                                    <a href="#" class="btn btn-warning btn-xs">
+                                                        Ubah Jawaban
+                                                    </a>
+                                                @endif
+                                            </td>
+                                            <td class="mailbox-date">{{ $thread->created_at->diffForHumans() }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
-                            <!-- /.table -->
-                        </div>
-                        <!-- /.mail-box-messages -->
-                    </div>
-                    <!-- /.box-body -->
-                    <div class="box-footer no-padding">
-                        <div class="mailbox-controls">
-                            <!-- Check all button -->
-                            <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
-                            </button>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
-                                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
-                            </div>
-                            <!-- /.btn-group -->
-                            <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
-                            <div class="pull-right">
-                                1-50/200
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>
-                                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button>
-                                </div>
-                                <!-- /.btn-group -->
-                            </div>
-                            <!-- /.pull-right -->
+
                         </div>
                     </div>
                 </div>
+                <div class="text-center">
+                    {{ $data['threads']->links() }}
+                </div>
             </div>
-            <!-- /.box-body -->
-            <!-- /.box-footer-->
         </div>
     </section>
 @endsection
