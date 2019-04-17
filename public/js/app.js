@@ -36677,8 +36677,8 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Alfaza Doc\Semester 4\Proyek\SIFIKS\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Alfaza Doc\Semester 4\Proyek\SIFIKS\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/kaboel/Documents/KULIAH/SMT4/PROYEK1/SIFIKS/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/kaboel/Documents/KULIAH/SMT4/PROYEK1/SIFIKS/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
