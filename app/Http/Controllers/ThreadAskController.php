@@ -166,8 +166,8 @@ class ThreadAskController extends Controller
             return redirect()->back()->with('warning', 'Anda tidak berhak menghapus ulasan tersebut.');
         }
 
-        if($thread->delete()) {
-            return redirect()->back()->with('success', 'Ulasan dihapus !');
+        if($thread->delete() && $this->deleteTopic($thread->id_topic)) {
+            return redirect(route('user.profile'))->with('success', 'Ulasan dihapus !');
         }
         return redirect()->back()->with('failed', 'Gagal menghapus ulasan.');
     }
@@ -190,8 +190,17 @@ class ThreadAskController extends Controller
         return null;
     }
 
-    private function deleteTopic(int $id) {
+    /**
+     * Delete topic with given id
+     *
+     * @param int $id
+     * @return bool
+     */
+    private function deleteTopic($id) {
         $topic = ThreadTopic::find($id);
-
+        if($topic->delete()) {
+            return true;
+        }
+        return false;
     }
 }
