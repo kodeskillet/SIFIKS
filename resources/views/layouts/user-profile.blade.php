@@ -73,7 +73,7 @@
                     <div class="modal-footer">
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <a href="{{ route('user.profile') }}">Diskusi Anda</a>
+                                <a href="{{ route('user.profile', ['query' => 'all']) }}">Diskusi Anda</a>
                             </li>
                             <li class="list-group-item">
                                 <a href="{{ route('user.profile.edit', ['id' => $data['user']->id]) }}">Edit Profil</a>
