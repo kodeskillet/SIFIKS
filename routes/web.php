@@ -162,7 +162,7 @@ Route::prefix('doctor')->group( function() {
         'index', 'edit'
     ]);
 
-    Route::get('/thread', 'ThreadController@index')->name('doctor.thread.index');
+    Route::get('/thread/{query}', 'ThreadController@index')->name('doctor.thread.index');
 
     // Home -->
     Route::get('/', 'DocController@dashboard')->name('doctor.dashboard');
