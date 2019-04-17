@@ -65,7 +65,7 @@ Auth::routes();
 
 // User Privileges =======================================================>
 Route::prefix('user')->group( function() {
-    Route::get('/profile', 'UserController@profile')->name('user.profile');
+    Route::get('/profile/{query}', 'UserController@profile')->name('user.profile');
     Route::get('/profile/{user}/edit', 'UserController@edit')->name('user.profile.edit');
     Route::put('/profile/{user}/edit', 'UserController@update')->name('user.profile.edit.submit');
     Route::delete('/destroy/me', 'UserController@destroy')->name('user.profile.destroy');
