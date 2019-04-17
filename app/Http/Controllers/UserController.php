@@ -48,12 +48,12 @@ class UserController extends Controller
         $threads = null;
         if($query == "all") {
             $threads = Thread::where('user_id', $this->currentUser()->id)
-                            ->orderBy('created_at', 'desc')
+                            ->orderBy('updated_at', 'desc')
                             ->paginate(3);
         } elseif($query == "answered") {
             $threads = Thread::where('user_id', $this->currentUser()->id)
                             ->where('status', true)
-                            ->orderBy('created_at', 'desc')
+                            ->orderBy('updated_at', 'desc')
                             ->paginate(3);
         }
 

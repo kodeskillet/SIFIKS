@@ -3,12 +3,15 @@
 @section('user-content')
     <div class="modal-content">
         <div class="modal-header">
-            <strong style="font-size: 1rem">Diskusi anda<br>
-                @if($data['status'] == "all")
-                    <small class="text-muted">Menampilkan semua diskusi</small>
-                @elseif($data['status'] == "answered")
-                    <small class="text-muted">Menampilkan diskusi terjawab</small>
-                @endif
+            <strong style="font-size: 1rem">Diskusi anda
+                <small class="text-muted">
+                    <i class="fas fa-chevron-right fa-sm mr-1 ml-1"></i>
+                    @if($data['status'] == "all")
+                        <span class="badge badge-primary">Semua Diskusi</span>
+                    @elseif($data['status'] == "answered")
+                        <span class="badge badge-success">Diskusi Terjawab</span>
+                    @endif
+                </small>
             </strong>
             <a href="{{ route('user.thread.create') }}" class="btn btn-primary btn-sm pull-right">
                 <strong>
@@ -25,8 +28,8 @@
                         {{ $data['threads']->links() }}
                     </div>
                     <div class="col-md-6 text-right justify-content-end mb-3">
-                        <a href="{{ route('user.profile', ['query' => 'all']) }}" class="btn btn-primary btn-sm {{ $data['status'] == "all" ? 'disabled' : '' }}"> Semua Diskusi </a>
-                        <a href="{{ route('user.profile', ['query' => 'answered']) }}" class="btn btn-success btn-sm {{ $data['status'] == "all" ? '' : 'disabled' }}"> Diskusi Terjawab </a>
+                        <a href="{{ route('user.profile', ['query' => 'all']) }}" class="btn btn-primary btn-sm {{ $data['status'] == "all" ? 'disabled font-weight-bolder' : '' }}"> Semua Diskusi </a>
+                        <a href="{{ route('user.profile', ['query' => 'answered']) }}" class="btn btn-success btn-sm {{ $data['status'] == "all" ? '' : 'disabled font-weight-bolder' }}"> Diskusi Terjawab </a>
                     </div>
                 </div>
 
@@ -62,6 +65,7 @@
                                             <small>
                                                 <span class="text-muted">Dijawab Oleh</span>
                                                 <b class="text-primary">dr. {{ $thread->doctor->name }}</b>
+                                                <span class="text-muted">{{ $thread->updated_at->diffForHumans() }}</span>
                                             </small>
                                         </span>
                                     @else

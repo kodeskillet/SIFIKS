@@ -32,19 +32,8 @@
             <hr>
         </div>
     @endforeach
-    <div class="row">
-        <div class="col-md-6 text-left">
-            @if(!$data['threads']->onFirstPage())
-                <a href="{{ $data['threads']->previousPageUrl() }}" class="btn btn-primary">
-                    <i class="fas fa-chevron-left"></i> Sebelumnya
-                </a>
-            @endif
-        </div>
-        <div class="col-md-6 text-right">
-            <a href="{{ $data['threads']->nextPageUrl() }}" class="btn btn-primary">
-                Selanjutnya <i class="fas fa-chevron-right"></i>
-            </a>
-        </div>
+    <div class="row col-md-12">
+        {{ $data['threads']->links() }}
     </div>
 </div>
 
