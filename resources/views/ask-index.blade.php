@@ -20,7 +20,6 @@
                         <b>Tanyakan Sesuatu</b>
                     </a>
                 </div>
-                <hr>
                 @include('layouts.inc.recent-thread')
             </div>
             <div class="col col-md-4">

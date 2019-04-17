@@ -55,7 +55,6 @@
                         </button>
                     </div>
                 </form>
-                <hr>
                 @include('layouts.inc.recent-thread')
             </div>
             <div class="col col-md-4">

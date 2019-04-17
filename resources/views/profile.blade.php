@@ -3,8 +3,12 @@
 @section('user-content')
     <div class="modal-content">
         <div class="modal-header">
-            <strong>Diskusi anda<br>
-                <small class="text-muted">Menampilkan semuanya</small>
+            <strong style="font-size: 1rem">Diskusi anda<br>
+                @if($data['status'] == "all")
+                    <small class="text-muted">Menampilkan semua diskusi</small>
+                @elseif($data['status'] == "answered")
+                    <small class="text-muted">Menampilkan diskusi terjawab</small>
+                @endif
             </strong>
             <a href="{{ route('user.thread.create') }}" class="btn btn-primary btn-sm pull-right">
                 <strong>
@@ -20,9 +24,9 @@
                     <div class="col-md-6">
                         {{ $data['threads']->links() }}
                     </div>
-                    <div class="col-md-6 text-right justify-content-end">
-                        <a href="#" class="btn btn-secondary btn-sm"> Semua Diskusi </a>
-                        <a href="#" class="btn btn-success btn-sm"> Diskusi Terjawab </a>
+                    <div class="col-md-6 text-right justify-content-end mb-3">
+                        <a href="{{ route('user.profile', ['query' => 'all']) }}" class="btn btn-primary btn-sm {{ $data['status'] == "all" ? 'disabled' : '' }}"> Semua Diskusi </a>
+                        <a href="{{ route('user.profile', ['query' => 'answered']) }}" class="btn btn-success btn-sm {{ $data['status'] == "all" ? '' : 'disabled' }}"> Diskusi Terjawab </a>
                     </div>
                 </div>
 
@@ -47,13 +51,14 @@
                                         </small>
                                     </span>
 
-                                    <form id="del" onsubmit="return confirm('Yakin ingin menghapus ulasan ini?')" action="#" method="POST">
+                                    <form id="del" onsubmit="return confirm('Yakin ingin menghapus ulasan ini?')" action="{{ route('user.thread.destroy', $thread->id) }}" method="POST">
+                                        @csrf
                                         <input type="hidden" name="_method" value="DELETE">
                                     </form>
 
                                     @if($thread->doctor_id != null)
                                         <span class="float-right mt-3">
-                                            <i class="fas fa-check-circle text-primary"></i>
+                                            <i class="fas fa-check-circle text-success"></i>
                                             <small>
                                                 <span class="text-muted">Dijawab Oleh</span>
                                                 <b class="text-primary">dr. {{ $thread->doctor->name }}</b>
