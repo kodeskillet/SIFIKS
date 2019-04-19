@@ -43,7 +43,7 @@
                                     </a>
                                 </li>
                                 <li class="text-sm">
-                                    <a class="text-danger" href="#" onclick="destroy()">
+                                    <a class="text-danger" href="#" onclick="$('#delete').submit()">
                                         <i class="fa far fa-trash margin-r-5"></i>
                                         Hapus
                                     </a>
@@ -68,10 +68,4 @@
             @endif
         </div>
     </div>
-
-    <script type="text/javascript">
-        function destroy() {
-            $('#delete').submit();
-        }
-    </script>
 @endsection
