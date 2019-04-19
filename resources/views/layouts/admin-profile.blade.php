@@ -75,17 +75,17 @@
                             @endif
                             >
                                 <b>Artikel anda</b>
-                                <span class="pull-right text-bold">
+                                <span class="label label-primary pull-right text-bold">
                                     {{ count($data[session('guard')]->article) }}
                                 </span>
                             </a>
                         </li>
                         @auth('doctor')
                             <li class="list-group-item">
-                                <a href="#">
+                                <a href="{{ route('doctor.profile.thread', $data['doctor']->id) }}">
                                     <b>Diskusi terjawab</b>
-                                    <span class="pull-right text-bold">
-                                        0
+                                    <span class="label label-primary pull-right text-bold">
+                                        {{ count($data['doctor']->thread) }}
                                     </span>
                                 </a>
                             </li>
@@ -93,7 +93,7 @@
                                 <a href="#">
                                     <b>Rumah Sakit anda</b>
                                     <span class="pull-right">
-                                        <i class="fas fa-hospital"></i>
+                                        <i class="fas fa-hospital-alt"></i>
                                     </span>
                                 </a>
                             </li>
