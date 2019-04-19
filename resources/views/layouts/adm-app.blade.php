@@ -80,7 +80,7 @@
     @else
         skin-red
     @endif
-    hold-transition sidebar-mini fixed
+    hold-transition sidebar-mini
 ">
 <!-- Site wrapper -->
 
