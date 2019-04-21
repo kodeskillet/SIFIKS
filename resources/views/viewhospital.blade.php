@@ -59,7 +59,6 @@
                 </div>
             </div>
                 @endforeach
-
         <div class="col md 2">
             <ul class="side-container">
                 <br> <br>
