@@ -26,7 +26,8 @@ class ThreadAnswerController extends Controller
         }
 
         $data = [
-            'doctor' => $doctor
+            'doctor' => $doctor,
+            'thread' => Thread::where('doctor_id', $doctor->id)->paginate(15)
         ];
         return view('pages.profile-thread')->with('data', $data);
     }
