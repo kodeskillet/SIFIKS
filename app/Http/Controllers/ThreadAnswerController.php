@@ -32,47 +32,76 @@ class ThreadAnswerController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'answer' => 'required|min:150'
+        ]);
+
+        $doctor = $this->currentUser();
+        $thread = Thread::find($id);
+
+        $thread->doctor_id = $doctor->id;
+        $thread->answer = $request->input('answer');
+        $thread->status = true;
+
+        if($thread->save()) {
+            return redirect(route('doctor.thread.show', $id))->with('success', 'Jawaban terkirim !');
+        }
+        return redirect()->back()->with('failed', 'Gagal mengirim jawaban.');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
     {
-        //
+        $thread = Thread::find($id);
+        if(!$thread) {
+            abort(404);
+        }
+
+        $doctor = $this->currentUser();
+        $data = [
+            'doctor' => $doctor,
+            'thread' => $thread
+        ];
+
+        return view('pages.ext.edit-thread')->with('data', $data);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'answer' => 'required|min:150'
+        ]);
+
+        $thread = Thread::find($id);
+        $thread->answer = $request->input('answer');
+        $thread->status = true;
+
+        if($thread->save()) {
+            return redirect(route('doctor.thread.show', $id))->with('success', 'Perubahan jawaban terkirim !');
+        }
+        return redirect()->back()->with('failed', 'Gagal mengirim perubahan jawaban.');
     }
 
     /**
@@ -92,7 +121,7 @@ class ThreadAnswerController extends Controller
         $thread->answer = null;
         $thread->status = false;
         if($thread->save()) {
-            return redirect(route('doctor.thread.index', ['query' => "all"]))->with('success', 'Jawaban dihapus !');
+            return redirect()->back()->with('success', 'Jawaban dihapus !');
         }
         return redirect()->back()->with('failed', 'Gagal mengahapus jawaban.');
     }
@@ -100,7 +129,8 @@ class ThreadAnswerController extends Controller
     /**
      * @return mixed
      */
-    public function currentUser() {
+    private function currentUser()
+    {
         return Auth::guard('doctor')->user();
     }
 }
