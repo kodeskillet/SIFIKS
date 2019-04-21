@@ -7,7 +7,7 @@
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
+            <li><a href="{{ route(session('guard').'.dashboard') }}"><i class="fa fas fa-tachometer-alt"></i> {{ session('role') }}</a></li>
             <li class="active">Diskusi</li>
         </ol>
     </section>
@@ -106,31 +106,31 @@
                     <div class="box-body no-padding">
                         @if(count($data['threads']) > 0)
                             <div class="table-responsive mailbox-messages">
-                                <table class="table table-hover table-striped">
+                                <table class="table">
                                     <tbody>
                                     @foreach($data['threads'] as $thread)
-                                        <tr data-toggle="tooltip"
-                                            @if($thread->status == true)
-                                            @auth('admin')
-                                            title="Terjawab oleh dr. {{ $thread->doctor->name }}"
-                                            @endauth
-
-                                            @auth('doctor')
-                                            @if($thread->doctor_id == Auth::guard('doctor')->user()->id)
-                                            title="Terjawab oleh anda"
-                                            @else
-                                            title="Terjawab oleh dr. {{ $thread->doctor->name }}"
-                                            @endif
-                                            @endauth
-                                            @else
-                                            title="Belum Terjawab"
-                                            @endif
-                                        >
-                                            <td class="mailbox-star">
+                                        <tr>
+                                            <td>
                                                 @if($thread->status == true)
-                                                    <i class="fa fa-check-circle text-green"></i>
+                                                    <i class="fa fa-check-circle text-green"
+                                                        data-toggle="tooltip"
+                                                        @auth('admin')
+                                                            title="Terjawab oleh dr. {{ $thread->doctor->name }}"
+                                                        @endauth
+
+                                                        @auth('doctor')
+                                                            @if($thread->doctor_id == Auth::guard('doctor')->user()->id)
+                                                                title="Terjawab oleh anda"
+                                                            @else
+                                                                title="Terjawab oleh dr. {{ $thread->doctor->name }}"
+                                                            @endif
+                                                        @endauth
+                                                    ></i>
                                                 @else
-                                                    <i class="fa fa-exclamation-triangle text-yellow"></i>
+                                                    <i class="fa fa-exclamation-triangle text-yellow"
+                                                        data-toggle="tooltip"
+                                                        title="Belum Terjawab"
+                                                    ></i>
                                                 @endif
                                             </td>
                                             <td class="mailbox-name">
@@ -153,11 +153,11 @@
                                                 @endauth
 
                                                 @auth('doctor')
-                                                    <a href="#" class="btn btn-success btn-xs {{ $thread->status == true ? 'disabled' : '' }}" style="{{ $thread->doctor_id == Auth::guard('doctor')->user()->id ? 'display: none;' : ''}}" title="Jawab" data-toggle="tooltip">
+                                                    <a href="{{ route('doctor.thread.show', $thread->id) }}" class="btn btn-success btn-xs {{ $thread->status == true ? 'disabled' : '' }}" style="{{ $thread->doctor_id == Auth::guard('doctor')->user()->id ? 'display: none;' : ''}}" title="Jawab" data-toggle="tooltip">
                                                         <i class="fas fa-reply"></i>
                                                     </a>
                                                     @if($thread->doctor_id == Auth::guard('doctor')->user()->id)
-                                                        <a href="#" class="btn btn-warning btn-xs" title="Edit Jawaban" data-toggle="tooltip">
+                                                        <a href="{{ route('doctor.thread.edit', $thread->id) }}" class="btn btn-warning btn-xs" title="Edit Jawaban" data-toggle="tooltip">
                                                             <i class="fas fa-sync-alt"></i>
                                                         </a>
                                                         <a href="#" onclick="$('#delAns').submit()" class="btn btn-danger btn-xs" title="Hapus Jawaban" data-toggle="tooltip">
