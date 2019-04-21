@@ -63,14 +63,17 @@
                         <div class="row justify-content-center">
                             <div class="col-md-8 text-center">
                                 <small class="text-muted">Jumlah diskusi</small>
-                                <p style="font-size: 1.4rem;">0</p>
+                                <p>
+                                    <span style="font-size: 1.4rem;">{{ count($data['user']->thread) }}</span>
+                                    <span style="font-size: 0.8rem;" class="text-muted">/ {{ $data['user']->threadAnswered() }} Terjawab</span>
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <a href="{{ route('user.profile') }}">Diskusi Anda</a>
+                                <a href="{{ route('user.profile', ['query' => 'all']) }}">Diskusi Anda</a>
                             </li>
                             <li class="list-group-item">
                                 <a href="{{ route('user.profile.edit', ['id' => $data['user']->id]) }}">Edit Profil</a>

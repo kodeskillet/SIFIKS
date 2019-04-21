@@ -12,7 +12,7 @@
     </title>
     <link rel="icon" href="{{ asset("favicon.ico") }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-    <meta name="google-site-verification" content="Tj4YErSWsWi5n0MF-HwmNjFby192EHG5HrIbCMrb1EQ" />
+    <meta name="google-site-verification" content="PyC0pXe33ZPfpV21Stl6oekQ0As-vXhFma4_ix9VWhs" />
     <meta name="description" content="Sifiks merupakan sebuah aplikasi berbasis website yang menyediakan layanan terhadap kesehatan, mulai dari konsultasi kesehatan, pencarian rumah sakit, sampai dengan pencarian dokter. Yang tentunya akan di layani oleh para ahli di bidangnya.">
     <meta name="keywords" content="sifiks">
     <meta name="keywords" content="kodeskillet">

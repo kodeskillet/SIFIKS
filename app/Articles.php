@@ -31,6 +31,21 @@ class Articles extends Model
     ];
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function admin() {
+        return $this->belongsTo('App\Admin');
+    }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function doctor() {
+        return $this->belongsTo('App\Doctor');
+    }
+
+    /**
      * @param $id
      * @return array
      */

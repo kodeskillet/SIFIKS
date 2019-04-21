@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ThreadController extends Controller
+class ThreadAnswerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,7 @@ class ThreadController extends Controller
      */
     public function index()
     {
-//        abort(503);
-        return view('pages.thread');
+        //
     }
 
     /**

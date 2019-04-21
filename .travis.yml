@@ -17,3 +17,9 @@ before_script:
   - npm install npm@latest -g
   - npm install -g jshint
   - npm install
+
+script:
+  - vendor/bin/phpunit --coverage-clover=coverage.xml
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

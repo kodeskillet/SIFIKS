@@ -14,17 +14,25 @@
                     <img src="https://i.ibb.co/JQbV1BQ/sifiks5.png" width="45%" alt="sifiks5" border="0">
                     <p class="lead my-3 font-bold" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
                     <br>
-                    <div class="row">
-                        <div class="col-md-8">
-                                <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Cari SIFIKS" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn  btn-warning" type="button" id="button-addon2">Cari</button>
-                                        </div>
-                                    </div>
-                                    <a class="btn btn-light" role="button" href="/ask">Tanya Dokter</a>
-                                    <a class="btn btn-light" role="button" href="{{route('search.doctor')}}">Cari Dokter</a>
-                                    <a class="btn btn-light" role="button" href="{{route('search.index.hospital')}}">Cari Rumah Sakit</a>
+                    <div class="row col-md-8">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Cari SIFIKS" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn  btn-warning" type="button" id="button-addon2">Cari</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="btn-toolbar" role="toolbar">
+                            <div class="btn-group mr-1" role="group">
+                                <a href="{{ route('user.thread.index') }}"><button type="button" class="btn btn-light btn-sm"><b>Tanya Dokter</b></button></a>
+                            </div>
+                            <div class="btn-group mr-1" role="group">
+                                <a href="{{ route('search.doctor') }}"><button type="button" class="btn btn-light btn-sm"><b>Cari Dokter</b></button></a>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <a href="{{route('search.index.hospital')}}"><button type="button" class="btn btn-light btn-sm"><b>Cari Rumah Sakit</b></button></a>
+                            </div>
                         </div>
                     </div>
                 </div>
