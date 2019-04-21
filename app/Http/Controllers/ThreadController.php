@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Thread;
-use Illuminate\Http\Request;
+use App\ThreadTopic;
+use Illuminate\Support\Facades\Auth;
 
 class ThreadController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth:admin', ['except' => [
@@ -59,7 +59,17 @@ class ThreadController extends Controller
      */
     public function show($id)
     {
-        //
+        $thread = Thread::find($id);
+        if(!$thread) {
+            abort(404);
+        }
+
+        $doctor = Auth::guard('doctor')->user();
+        $data = [
+            'thread' => $thread,
+            'doctor' => $doctor
+        ];
+        return view('pages.ext.view-thread')->with('data', $data);
     }
 
 
@@ -71,6 +81,26 @@ class ThreadController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $thread = Thread::find($id);
+        if($thread->delete() && $this->deleteTopic($thread->id_topic)) {
+            return redirect(route('admin.thread.index', ['query' => "all"]))->with('success', 'Diskusi dihapus !');
+        }
+        return redirect()->back()->with('failed', 'Gagal menghapus diskusi.');
+    }
+
+
+    /**
+     * Delete topic with given id
+     *
+     * @param $id
+     * @return bool
+     */
+    public function deleteTopic($id)
+    {
+        $topic = ThreadTopic::find($id);
+        if($topic->delete()) {
+            return true;
+        }
+        return false;
     }
 }
