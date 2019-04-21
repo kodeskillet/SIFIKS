@@ -50,7 +50,7 @@
                         <button type="submit" class="btn btn-success btn-sm">
                             <strong>Kirim</strong>
                         </button>
-                        <button type="reset" class="btn btn-danger btn-sm" onClick="CKEDITOR.instances.question.setData( '', function() { this.updateElement(); } )">
+                        <button type="reset" class="btn btn-danger btn-sm" onclick="CKEDITOR.instances.question.setData( '', function() { this.updateElement(); } )">
                             <strong>Reset</strong>
                         </button>
                     </div>

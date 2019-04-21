@@ -16,14 +16,6 @@
                 @foreach($data[session('guard')]->article as $article)
                     <div class="container col-md-12">
                         <div class="post">
-{{--                            <div class="user-block">--}}
-{{--                                <img class="img-circle img-bordered-sm" src="{{ asset('storage/user_images/user-default.jpg') }}" alt="Image">--}}
-{{--                                <span class="username">--}}
-{{--                                  {{ $article->admin->name }}--}}
-{{--                                </span>--}}
-{{--                                <span class="description">{{ $article->created_at->diffForHumans() }}</span>--}}
-{{--                            </div>--}}
-                        <!-- /.user-block -->
                             <h4>
                                 <strong>{{ $article->title }}</strong>
                                 <small class="pull-right text-bold">{{ $article->getCat($article->category) }}</small>
@@ -51,7 +43,7 @@
                                     </a>
                                 </li>
                                 <li class="text-sm">
-                                    <a class="text-danger" href="#" onclick="destroy()">
+                                    <a class="text-danger" href="#" onclick="$('#delete').submit()">
                                         <i class="fa far fa-trash margin-r-5"></i>
                                         Hapus
                                     </a>
@@ -76,10 +68,4 @@
             @endif
         </div>
     </div>
-
-    <script type="text/javascript">
-        function destroy() {
-            $('#delete').submit();
-        }
-    </script>
 @endsection

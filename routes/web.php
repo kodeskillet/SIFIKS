@@ -113,10 +113,9 @@ Route::prefix('admin')->group( function() {
         'index', 'edit'
     ]);
 
-//    Route::get('/thread', 'ThreadController@index')->name('admin.thread.index');
-//    Route::resource('thread', 'ThreadController')->except([
-//        'index'
-//    ]);
+    Route::get('/thread/{query}', 'ThreadController@index')->name('admin.thread.index');
+    Route::get('/thread/{thread}/show', 'ThreadController@show')->name('admin.thread.show');
+    Route::delete('/thread/{thread}/destroy', 'ThreadController@destroy')->name('admin.thread.destroy');
 
     //Hospital's Rooms Controller -->
     Route::get('/room/{room_id}/{hospital_id}/edit', 'RoomController@edit')->name('room.edit');
@@ -155,7 +154,14 @@ Route::prefix('doctor')->group( function() {
         'index', 'edit'
     ]);
 
-    Route::get('/thread', 'ThreadController@index')->name('doctor.thread.index');
+    Route::get('/thread/{query}', 'ThreadController@index')->name('doctor.thread.index');
+    Route::get('/thread/{thread}/show', 'ThreadController@show')->name('doctor.thread.show');
+
+    Route::put('/thread/{thread}/answer', 'ThreadAnswerController@store')->name('doctor.thread.answer.submit');
+    Route::get('/thread/{thread}/edit', 'ThreadAnswerController@edit')->name('doctor.thread.edit');
+    Route::put('/thread/{thread}/edit', 'ThreadAnswerController@update')->name('doctor.thread.edit.submit');
+    Route::get('/profile/{doctor}/threads', 'ThreadAnswerController@index')->name('doctor.profile.thread');
+    Route::put('/thread/{thread}/destroy', 'ThreadAnswerController@destroy')->name('doctor.thread.answer.destroy');
 
     // Home -->
     Route::get('/', 'DocController@dashboard')->name('doctor.dashboard');

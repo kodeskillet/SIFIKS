@@ -80,7 +80,7 @@
     @else
         skin-red
     @endif
-    hold-transition sidebar-mini fixed
+    hold-transition sidebar-mini
 ">
 <!-- Site wrapper -->
 
@@ -236,14 +236,14 @@
                     </li>
                     <li>
                         @if(session('role') == "Admin" && Auth::guard('admin')->check())
-                            <a href="{{ '/admin/thread' }}">
+                            <a href="{{ route('admin.thread.index', ['query' => "all"]) }}">
                                 <i class="fa far fa-comments"></i>
-                                <span>Forum</span>
+                                <span>Diskusi</span>
                             </a>
                         @elseif(session('role') == "Doctor" && Auth::guard('doctor')->check())
-                            <a href="{{ '/doctor/thread' }}">
+                            <a href="{{ route('doctor.thread.index', ['query' => "all"]) }}">
                                 <i class="fa far fa-comments"></i>
-                                <span>Forum</span>
+                                <span>Diskusi</span>
                             </a>
                         @endif
                     </li>
