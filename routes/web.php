@@ -163,6 +163,9 @@ Route::prefix('doctor')->group( function() {
     Route::get('/thread/{query}', 'ThreadController@index')->name('doctor.thread.index');
     Route::get('/thread/{thread}/show', 'ThreadController@show')->name('doctor.thread.show');
 
+    Route::put('/thread/{thread}/answer', 'ThreadAnswerController@store')->name('doctor.thread.answer.submit');
+    Route::get('/thread/{thread}/edit', 'ThreadAnswerController@edit')->name('doctor.thread.edit');
+    Route::put('/thread/{thread}/edit', 'ThreadAnswerController@update')->name('doctor.thread.edit.submit');
     Route::get('/profile/{doctor}/threads', 'ThreadAnswerController@index')->name('doctor.profile.thread');
     Route::put('/thread/{thread}/destroy', 'ThreadAnswerController@destroy')->name('doctor.thread.answer.destroy');
 
