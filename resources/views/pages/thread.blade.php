@@ -147,9 +147,14 @@
                                                     <i class="fas fa-external-link-square-alt"></i>
                                                 </a>
                                                 @auth('admin')
-                                                    <a href="#" class="btn btn-danger btn-xs" title="Hapus">
+                                                    <a href="#" onclick="$('#delThread').submit()" class="btn btn-danger btn-xs" title="Hapus">
                                                         <i class="fas fa-trash-alt"></i>
                                                     </a>
+
+                                                    <form id="delThread" onsubmit="return confirm('Yakin ingin hapus diskusi ini?')" action="{{ route('admin.thread.destroy', $thread->id) }}" method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                    </form>
                                                 @endauth
 
                                                 @auth('doctor')

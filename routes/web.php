@@ -122,6 +122,7 @@ Route::prefix('admin')->group( function() {
 
     Route::get('/thread/{query}', 'ThreadController@index')->name('admin.thread.index');
     Route::get('/thread/{thread}/show', 'ThreadController@show')->name('admin.thread.show');
+    Route::delete('/thread/{thread}/destroy', 'ThreadController@destroy')->name('admin.thread.destroy');
 
     //Hospital's Rooms Controller -->
     Route::get('/room/{room_id}/{hospital_id}/edit', 'RoomController@edit')->name('room.edit');
