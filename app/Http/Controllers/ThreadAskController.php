@@ -172,8 +172,13 @@ class ThreadAskController extends Controller
         return redirect()->back()->with('failed', 'Gagal menghapus ulasan.');
     }
 
-
-    private function currentUser() {
+    /**
+     * Get currently logged in user
+     *
+     * @return mixed
+     */
+    private function currentUser()
+    {
         return Auth::guard('web')->user();
     }
 
@@ -181,7 +186,8 @@ class ThreadAskController extends Controller
      * @param string $topic
      * @return ThreadTopic|null
      */
-    private function addTopic(string $topic) {
+    private function addTopic(string $topic)
+    {
         $new = new ThreadTopic;
         $new->topic_name = $topic;
         if($new->save()) {
@@ -196,7 +202,8 @@ class ThreadAskController extends Controller
      * @param int $id
      * @return bool
      */
-    private function deleteTopic($id) {
+    private function deleteTopic($id)
+    {
         $topic = ThreadTopic::find($id);
         if($topic->delete()) {
             return true;

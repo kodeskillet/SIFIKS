@@ -145,5 +145,5 @@ Great, now you can try and login as admin by going to `localhost:8000/admin/logi
 
 SIFIKS is open-source project licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Domain
+## Live Action
 Please visit : https://sifiks.kodeskillet.com/.
