@@ -19,19 +19,28 @@
 
                     </ul>
                     <br>
+                    {!! Form::open(['action' => 'HospitalController@searchHospital','method'=> 'POST']) !!}
+                    @csrf
                         <div class="row">
                             <div class="col-md-5">
                                 <label for="tentang">Saya mencari informasi tentang:</label>
                                 <div class="input-group">
-                                <input id="tentang" type="text" class="form-control" placeholder="Cari Nama Dokter/Spesialis">
+                                    {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Tindakan Medis'])}}
                                 </div>
                             </div>
                             <div class="col-md-5">
-                                <label for="lokasi">Lokasi</label>
+                                <label for="location">Lokasi</label>
                                 <div class="input-group">
-                                    <input id="lokasi" type="text" class="form-control" placeholder="Semua Lokasi">
+                                    {{ Form::select(
+                                        'location',
+                                        $data['location'],
+                                        null, [
+                                            'class' => 'form-control',
+                                            'placeholder' => 'Pilih Kota'
+                                        ]
+                                    )}}
                                     <div class="input-group-append">
-                                        <button class="btn btn-warning">Cari</button>
+                                        {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +69,7 @@
                                         <button class="btn btn-warning">Cari</button>
                                     </div>
                                 </div>
-                    <br>
+                        <br>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
                             <label class="form-check-label" for="exampleRadios1">Semua Tindakan</label>
@@ -111,78 +120,34 @@
                 </div>
 
 
-
-            <div class="col-md-8">
-
-    <!-- list doctor -->
-                <br>
-                <h1 class="font-weight-bold">Estimasi Biaya Rumah Sakit</h1>
-
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="{{ asset('storage/images/rs1.jpeg') }}" alt="..." class="card-img" >
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Theux Hospital Jombang</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="\viewhospital" class="btn btn-primary">Lihat Detail</a>
-                        </div>
-                    </div>
+                    <!-- list doctor -->
+                <div class="col-md-8">
+                    <br>
+                    <h1 class="font-weight-bold">Estimasi Biaya Rumah Sakit</h1>
+                    @if(count($data['hospital'])>0)
+                        @foreach($data['hospital'] as $hospital)
+                            <div class="card mb-3">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        @if($hospital->cover_images_id = null)
+                                            <img src="{{ asset('storage/images/hospital.jpg')}}" alt="{{$hospital->name}}" class="card-img" >
+                                        @else
+                                            <img src="{{ asset('storage/images/hospital.jpg')}}" alt="{{$hospital->name}}" class="card-img">
+                                        @endif
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{$hospital->name}}</h5>
+                                            <p class="card-text">{!! Str::limit($hospital->biography) !!}</p>
+                                            <a href="{{ route('view.hospital' , ['id' => $hospital->id])}}" class="btn btn-primary">Lihat Detail</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                    @endif
                 </div>
-            </div>
-
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="{{ asset('storage/images/rs2.jpeg') }}" alt="..." class="card-img" >
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Premiere Hospitals Surabaya</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="\viewhospital" class="btn btn-primary">Lihat Detail</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="{{ asset('storage/images/rs3.jpeg') }}" alt="..." class="card-img" >
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Metro Hospitals Jakarta</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="\viewhospital" class="btn btn-primary">Lihat Detail</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="{{ asset('storage/images/rs4.jpeg') }}" alt="..." class="card-img" >
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Yosemite Hospitals Palangkaraya</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="\viewhospital" class="btn btn-primary">Lihat Detail</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            </div>
-
-
-
-
         </div>
     </div>
 @endsection

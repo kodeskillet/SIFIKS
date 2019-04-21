@@ -31,7 +31,7 @@
                                 <a href="{{ route('search.doctor') }}"><button type="button" class="btn btn-light btn-sm"><b>Cari Dokter</b></button></a>
                             </div>
                             <div class="btn-group" role="group">
-                                <a href="#/SearchRS"><button type="button" class="btn btn-light btn-sm"><b>Cari Rumah Sakit</b></button></a>
+                                <a href="{{route('search.index.hospital')}}"><button type="button" class="btn btn-light btn-sm"><b>Cari Rumah Sakit</b></button></a>
                             </div>
                         </div>
                     </div>

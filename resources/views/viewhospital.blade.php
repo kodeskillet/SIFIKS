@@ -5,27 +5,17 @@
 <div class="container">
     <div class="row">
         <div class="main-container">
-            <h1 class="font-weight-bold">Theux Hospital Jombang</h1>
+            <h1 class="font-weight-bold">{{$data['hospital']->name}}</h1>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                 </ol>
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="{{ asset('storage/images/fas1.jpg') }}" class="d-block w-100" width="500px" height="400px" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{ asset('storage/images/fas2.jpg') }}" class="d-block w-100" width="500px" height="400px" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{ asset('storage/images/fas3.jpg') }}" class="d-block w-100"  width="500px" height="400px" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                        <img src="{{ asset('storage/images/fas4.jpg') }}" class="d-block w-100"  width="500px" height="400px" alt="...">
-                      </div>
+                    @if($data['hospital']->cover_images_id = null)
+                        <img src="{{ asset('storage/images/hospital.jpg')}}" alt="{{$data['hospital']->name}}" class="card-img" >
+                    @else
+                        <img src="{{ asset('storage/images/hospital.jpg')}}" alt="{{$data['hospital']->name}}" class="card-img">
+                    @endif
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -38,189 +28,46 @@
               </div>
               <br>
               <h2 class="font-weight-bold"> Profil Rumah Sakit</h2>
-              <p>Theux Hospital Jombang secara resmi menggantikan nama RS Mitra Internasional mulai 12 Agustus 2010. Theux Hospital Jombang adalah sebuah rumah sakit swasta yang menjadi rujukan pelayanan kesehatan bagi dokter dan masyarakat yang membutuhkan. Beroperasi sejak 25 Maret 1989, Theux Hospital Jombang merupakan salah satu rumah sakit swasta terkemuka di Jakarta Timur yang memiliki keunggulan termasuk di dalamnya komitmen terhadap mutu, kemudahan akses, kualitas pelayanan, kelengkapan spesialistik dan alat penunjang medis.</p>
-              <p>Cakupan layanan kesehatan yang diberikan oleh Theux Hospital Jombang berbasis pada layanan Satu Atap di mana konsultasi dokter, pemeriksaan penunjang, tindakan operatif, layanan rawat inap hingga pasca rawat inap dapat dilakukan di Theux Hospital Jombang. Theux Hospital Jombang memberikan pelayanan kesehatan untuk pertama kali pada 25 Maret 1989.</p>
-              <p>Theux Hospital Jombang memiliki kapasitas 280 tempat tidur dengan fasilitas NICU/PICU (ICU untuk bayi dan anak), ruang perawatan khusus anak, ruang perawatan Stroke Unit, USG 3 D Dynamic, MRI 1,5 Tesla, MSCT Scan, fasilitas gedung parkir, fasilitas gedung rawat jalan.</p>
-              <p>Adapun layanan unggulan yang diberikan Theux Hospital Jombang, meliputi Kedokteran Umum, Kedokteran Gigi, Onkologi, Ginekologi, Pediatri, Kedokteran Kulit & Estetik (Kecantikan), promotif dan preventif, Rehabilitasi Medis, Endokrinologi, Optalmologi, Psikiatri, Rheumatologi, THT, Ortopedi, Neurologi, dan Gizi Klinik.</p>
+              <p>{!! $data['hospital']->biography !!}</p>
               <h3 class="font-weight-bold"> Lokasi</h3>
-              <p>Jl. Raya Jombang No. 85-87, RT.10/RW.2, Bali Mester, Jombang, Jawa Timur 61481, Indonesia</p>
+              <p>{!! $data['hospital']->address !!}</p>
               <h3 class="font-weight-bold">Layanan Medis</h3>
               <div>
-                    <div class="layanan">
-                            <div class="layanan-icon">
-                                  <img src="{{ asset('storage/images/iconambulan.jpg') }}" width=20px; height=18px; alt=""> Ambulance
-                            </div>
-                    </div>
-                    <div class="layanan">
-                            <div class="layanan-icon">
-                                  <img src="{{ asset('storage/images/iconmed.jpg') }}" width=18px; height=18px; alt=""> Apotek
-                            </div>
-                    </div>
-                    <div class="layanan">
-                            <div class="layanan-icon">
-                                  <img src="{{ asset('storage/images/iconlab.png') }}" width=18px; height=18px; alt=""> Laboratorium
-                            </div>
-                    </div>
-                    <div class="layanan">
-                            <div class="layanan-icon">
-                                  <img src="{{ asset('storage/images/iconrad.png') }}" width=18px; height=18px; alt=""> Radiologi
-                            </div>
-                    </div>
-                    <div class="layanan">
-                            <div class="layanan-icon">
-                                  <img src="{{ asset('storage/images/iconugd.jpg') }}" width=18px; height=18px; alt=""> Ruang UGD
-                            </div>
-                    </div>
+                    <p>{!! $data['hospital']->medical_services !!}</p>
               </div>
               <h3 class="font-weight-bold">Layanan Umum</h3>
               <div>
-                    <div class="layanan">
-                            <div class="layanan-icon">
-                                  <img src="{{ asset('storage/images/iconatm.png') }}" width=20px; height=18px; alt=""> ATM
-                            </div>
-                    </div>
-                    <div class="layanan">
-                            <div class="layanan-icon">
-                                  <img src="{{ asset('storage/images/iconcafe.png') }}" width=18px; height=18px; alt=""> Kafe
-                            </div>
-                    </div>
-                    <div class="layanan">
-                            <div class="layanan-icon">
-                                  <img src="{{ asset('storage/images/iconmasjid.png') }}" width=18px; height=18px; alt=""> Masjid
-                            </div>
-                    </div>
-                    <div class="layanan">
-                            <div class="layanan-icon">
-                                  <img src="{{ asset('storage/images/icon24.png') }}" width=18px; height=18px; alt=""> Layanan 24 Jam
-                            </div>
-                    </div>
-                    <div class="layanan">
-                            <div class="layanan-icon">
-                                  <img src="{{ asset('storage/images/iconair.png') }}" width=18px; height=18px; alt=""> Kolam Renang
-                            </div>
-                    </div>
+                    <p>{!! $data['hospital']->public_services !!}</p>
               </div>
               <h2 class="font-weight-bold">Tarif Kamar Rumah Sakit</h2>
-              <div class="card" style="width: 30rem;">
-                  <img src="{{ asset('storage/images/rs1.jpeg') }}" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h3 class="font-weight-bold">VVIP</h3>
-                    <hr>
-                    <div class="card-body">
-                      <p class="font-weight-bold text-primary">
-                        Harga Mulai dari Rp.4.900.000
-                      </p>
-                      Fasilitas : <br>
-                      Kamar Mandi Dalam <br>
-                      AC <br>
-                      Kasur <br>
-
+              @foreach($data['room'] as $key => $room)
+                <div class="accordion" id="accordion{{$key}}">
+                  <div class="card">
+                    <div class="card-header" id="heading{{$key}}">
+                      <h2 class="mb-0">
+                        <button class="btn" type="button" data-toggle="collapse" data-target="#collapse{{$key}}" aria-expanded="true">
+                            {{$room->name}}
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapse{{$key}}" class="collapse " aria-labelledby="heading{{$key}}" data-parent="#accordion{{$key}}">
+                      <div class="card-body">
+                        <p>Harga Mulai Dari Rp. {{ number_format($room->price_per_night, 2, ",", ".") }}</p>
+                        <p>{!! $room->description !!}</p>
                     </div>
                   </div>
                 </div>
-                <br>
-                <div class="card" style="width: 30rem;">
-                    <img src="{{ asset('storage/images/rs1.jpeg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h3 class="font-weight-bold">VVIP</h3>
-                      <hr>
-                      <div class="card-body">
-                        <p class="font-weight-bold text-primary">
-                          Harga Mulai dari Rp.4.900.000
-                        </p>
-                        Fasilitas : 
-                        <br>
-                        Kamar Mandi Dalam 
-                        <br>
-                        AC 
-                        <br>
-                        Kasur 
-                        <br>
-                      </div>
-                    </div>
-                  </div>
-                  <br>
-                  <div class="card" style="width: 30rem;">
-                      <img src="{{ asset('storage/images/rs1.jpeg') }}" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h3 class="font-weight-bold">VVIP</h3>
-                        <hr>
-                        <div class="card-body">
-                          <p class="font-weight-bold text-primary">
-                            Harga Mulai dari Rp.4.900.000
-                          </p>
-                          Fasilitas : <br>
-                          Kamar Mandi Dalam <br>
-                          AC <br>
-                          Kasur <br>
-    
-                        </div>
-                      </div>
-                    </div>
-
-
-              <h2 class="font-weight-bold">Tindakan Medis</h2>
-              <div class="card" style="width: 30rem;">
-                  <img src="{{ asset('storage/images/rs1.jpeg') }}" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h3 class="font-weight-bold ">Kehamilan</h3>
-                    <hr>
-                    <div class="card-body">
-                      <p class="font-weight-bold text-primary">
-                        Harga Mulai dari Rp.4.900.000
-                      </p>
-                      Salah satu jenis pemeriksaan 
-                        dengan menggunakan bronkoskop (selang elastis dengan kamera dan lampu di ujungnya) yang dimasukkan ke dalam tenggorokan atau hidung 
-                        untuk melihat kondisi saluran pernapasan. Dalam pemeriksaan ini, dapat juga dilakukan pengambilan sampel jaringan (biopsi).
-                        * Harga belum termasuk biaya konsultasi dokter, laboratorium, obat-obatan dan lain-lain.
-
-                    </div>
-                  </div>
-                </div>
-                <br>
-                <div class="card" style="width: 30rem;">
-                    <img src="{{ asset('storage/images/rs1.jpeg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h3 class="font-weight-bold">Kedokteran Umum</h3>
-                      <hr>
-                      <div class="card-body">
-                        <p class="font-weight-bold text-primary">
-                          Harga Mulai dari Rp.4.900.000
-                        </p>
-                        Salah satu jenis pemeriksaan 
-                        dengan menggunakan bronkoskop (selang elastis dengan kamera dan lampu di ujungnya) yang dimasukkan ke dalam tenggorokan atau hidung 
-                        untuk melihat kondisi saluran pernapasan. Dalam pemeriksaan ini, dapat juga dilakukan pengambilan sampel jaringan (biopsi).
-                        * Harga belum termasuk biaya konsultasi dokter, laboratorium, obat-obatan dan lain-lain.
-                      </div>
-                    </div>
-                  </div>
-                  <br>
-                  <div class="card" style="width: 30rem;">
-                      <img src="{{ asset('storage/images/rs1.jpeg') }}" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h3 class="font-weight-bold">Laboratorium</h3>
-                        <hr>
-                        <div class="card-body">
-                          <p class="font-weight-bold text-primary">
-                            Harga Mulai dari Rp.4.900.000
-                          </p>
-                          Salah satu jenis pemeriksaan 
-                        dengan menggunakan bronkoskop (selang elastis dengan kamera dan lampu di ujungnya) yang dimasukkan ke dalam tenggorokan atau hidung 
-                        untuk melihat kondisi saluran pernapasan. Dalam pemeriksaan ini, dapat juga dilakukan pengambilan sampel jaringan (biopsi).
-                        * Harga belum termasuk biaya konsultasi dokter, laboratorium, obat-obatan dan lain-lain.
-                        </div>
-                      </div>
-                    </div>
             </div>
+                @endforeach
         <div class="col md 2">
             <ul class="side-container">
                 <br> <br>
                 <li class="list-group-item "> <img src="{{ asset('storage/images/ambulance.jpg') }}" width=18px; height=18px; alt="">
-                    0251 3681107 (Panggilan Darurat)    
+                    0251 3681107 (Panggilan Darurat)
                 </li>
             </ul>
         </div>
     </div>
-    
+
 
 </div>

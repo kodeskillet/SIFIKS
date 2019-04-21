@@ -24,7 +24,7 @@
             <a class="nav-link" href="{{route('search.doctor')}}">Cari Dokter</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/SearchRS">Cari Rumah Sakit</a>
+            <a class="nav-link" href="{{route('search.index.hospital')}}">Cari Rumah Sakit</a>
         </li>
     </ul>
     <ul class="navbar-nav">

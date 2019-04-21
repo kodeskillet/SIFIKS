@@ -18,19 +18,28 @@
 
                 </ul>
                 <br>
+                {!! Form::open(['action' => 'HospitalController@searchHospital','method'=> 'POST']) !!}
+                @csrf
                     <div class="row">
                         <div class="col-md-5">
                             <label for="tentang">Saya mencari informasi tentang:</label>
                             <div class="input-group">
-                            <input id="tentang" type="text" class="form-control" placeholder="Cari Nama Dokter/Spesialis">
+                                {{Form::text ('nama','',['class'=>'form-control','placeholder'=>'Cari Tindakan Medis'])}}
                             </div>
                         </div>
                         <div class="col-md-5">
-                            <label for="lokasi">Lokasi</label>
+                            <label for="location">Lokasi</label>
                             <div class="input-group">
-                                <input id="lokasi" type="text" class="form-control" placeholder="Semua Lokasi">
+                                {{ Form::select(
+                                    'location',
+                                    $data['location'],
+                                    null, [
+                                        'class' => 'form-control',
+                                        'placeholder' => 'Pilih Kota'
+                                    ]
+                                )}}
                                 <div class="input-group-append">
-                                    <button class="btn btn-warning">Cari</button>
+                                    {{Form::submit('Cari',['class'=>'btn btn-warning'])}}
                                 </div>
                             </div>
                         </div>
@@ -95,10 +104,7 @@
             </div>
           </div>
   </div>
-
       <a type="button" class="btn btn-primary " href="/lihatsemuars">Lihat Semua</a>
-
-
 </div>
 
 @endsection

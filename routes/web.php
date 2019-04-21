@@ -16,8 +16,15 @@ Route::get('/viewarticle', function() {
     return view('viewarticle');
 });
 
-Route::get('/SearchRS', function() {
-    return view('SearchRS');
+Route::get('/searchrs', 'HospitalController@indexUser')->name('search.index.hospital');
+Route::post('/searchrs/listhospital/cari', 'HospitalController@searchHospital')->name('search.hospital');
+Route::get('/searchrs/listhospital/viewhospital/{id}', 'HospitalController@viewHospital')->name('view.hospital');
+
+Route::get('/viewhospital', function () {
+    return view ('viewhospital');
+});
+Route::get('/lihatsemuars', function() {
+    return view('LSRumahSakit');
 });
 
 
@@ -30,20 +37,6 @@ Route::prefix('searchdoctor')->group(function() {
     Route::post('/listdoctors/cari-spesialis', 'SpecializationController@searchSpecialty');
     Route::get('/','SpecializationController@indexSearch')->name('search.doctor');
 });
-
-Route::get('/viewhospital', function() {
-    return view('viewhospital');
-});
-
-Route::get('/listhospital', function() {
-    return view('listHospital');
-});
-
-
-Route::get('/lihatsemuars', function() {
-    return view('LSRumahSakit');
-});
-
 
 Route::get('/mainsearch-article', function() {
     return view('MainSearchArt');
