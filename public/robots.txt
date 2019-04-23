@@ -1,2 +1,9 @@
+# Rule 1
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+# Rule 2
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://sifiks.kodeskillet.com/sitemap.xml
