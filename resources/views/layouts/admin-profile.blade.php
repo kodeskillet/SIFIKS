@@ -22,7 +22,7 @@
                         <h4 class="text-center">
                             {{ Auth::guard('doctor')->check() ? 'dr.' : ''}}
                             {{ $data[session('guard')]->name }}
-                            {{ Auth::guard('doctor')->check() ? ', '.$data['doctor']->specialty->degree : ''}}
+                            {{ Auth::guard('doctor')->check() ? ', '.$data['doctor']->specialty["degree"] : ''}}
                         </h4>
                         <p class="text-muted text-center"><small>{{ $data[session('guard')]->email }}</small></p>
 
@@ -38,7 +38,7 @@
                                     </a>
                                     <div id="collapseOne" class="panel-collapse collapse">
                                         <div class="box-body text-center">
-                                            {{ $data['doctor']->specialty->name }}
+                                            {{ $data['doctor']->specialty["name"] }}
                                         </div>
                                     </div>
                                 </div>

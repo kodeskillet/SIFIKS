@@ -66,9 +66,7 @@ class Doctor extends Authenticatable
 //        return $this->hasMany('App\DoctorDetail');
 //    }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
+
     public function specialty()
     {
         return $this->belongsTo('App\DoctorSpecialization', 'specialization_id');
