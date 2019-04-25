@@ -57,13 +57,13 @@
                                     <tr role="row" class="odd">
                                         <td>{{ $doctor->name }}</td>
                                         <td>
-                                            <a href="#" title="{{ $doctor->specialty["name"] }}">
-                                                {{ \Illuminate\Support\Str::limit($doctor->specialty["name"], 20) }}
+                                            <a href="#" title="{{ $doctor->specialty->name }}">
+                                                {{ \Illuminate\Support\Str::limit($doctor->specialty->name, 20) }}
                                             </a>
                                         </td>
                                         <td>
                                             @if($doctor->city_id != null)
-                                                {{ $doctor->getLocation()->name}}
+                                                {{ $doctor->city->name}}
                                             @else
                                                 null
                                             @endif
