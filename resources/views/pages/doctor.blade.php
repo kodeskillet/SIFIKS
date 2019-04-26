@@ -65,7 +65,7 @@
                                             @if($doctor->city_id != null)
                                                 {{ $doctor->city->name}}
                                             @else
-                                                null
+                                                <small><i>Belum diatur</i></small>
                                             @endif
                                         </td>
                                         <td>{{ $doctor->email }}</td>
