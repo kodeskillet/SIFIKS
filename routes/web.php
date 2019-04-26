@@ -94,8 +94,9 @@ Route::prefix('admin')->group( function() {
     Route::put('/profile/password/{admin}/edit', 'AdminController@updatePass')->name('admin.password.edit.submit');
     Route::get('/profile/image/remove', 'AdminController@removeImage')->name('admin.image.remove');
     Route::delete('destroy/me', 'AdminController@destroy')->name('admin.profile.destroy');
+    Route::get('/profile/{admin}/log', 'AdminController@log')->name('admin.profile.log');
     Route::resource('admin', 'AdminController')->except([
-        'profile', 'editProfile', 'editPass'
+        'profile', 'editProfile', 'editPass', 'log'
     ]);
     Route::get('/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 
