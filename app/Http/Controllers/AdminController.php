@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Articles;
+use App\Log;
 use App\Thread;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -236,7 +237,8 @@ class AdminController extends Controller
         $admin = $this->currentUser();
         if($admin->id == $id) {
             $data = [
-                'admin' => $admin
+                'admin' => $admin,
+                'logs' => Log::orderBy('created_at', 'desc')->paginate(10)
             ];
             return view('pages.log')->with('data', $data);
         }
