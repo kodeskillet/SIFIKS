@@ -28,4 +28,39 @@ class Log extends Model
         'created_at',
         'updated_at'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function thread() {
+        return $this->belongsTo('App\Thread', 'thread_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function article() {
+        return $this->belongsTo('App\Articles', 'article_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function admin() {
+        return $this->belongsTo('App\Admin', 'admin_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function doctor() {
+        return $this->belongsTo('App\Doctor', 'doctor_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function member() {
+        return $this->belongsTo('App\User', 'user_id');
+    }
 }
