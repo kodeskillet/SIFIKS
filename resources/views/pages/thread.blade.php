@@ -187,9 +187,9 @@
                             <div class="alert alert-warning col-md-8 col-md-offset-2 text-center text-bold">
                                 @if($data['query'] == "all")
                                     Belum ada diskusi apapun.
-                                @elseif($data['query'] = "answered")
+                                @elseif($data['query'] == "answered")
                                     Belum ada diskusi yang terjawab.
-                                @else
+                                @elseif($data['query'] == "unanswered")
                                     Semua diskusi telah terjawab.
                                 @endif
                             </div>
