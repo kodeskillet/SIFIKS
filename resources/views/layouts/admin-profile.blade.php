@@ -100,7 +100,7 @@
                         @endauth
                         @auth('admin')
                             <li class="list-group-item">
-                                <a href="#">
+                                <a href="{{ route('admin.profile.log', $data['admin']->id) }}">
                                     <b>Log Aktivitas</b>
                                     <span class="pull-right">
                                         <i class="fas fa-chart-line"></i>

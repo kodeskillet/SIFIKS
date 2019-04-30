@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Common;
 use Illuminate\Http\Request;
 Use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Articles::orderBy('category','asc')->paginate(5);
+        $articles = Articles::orderBy('category','asc')->paginate(15);
         $data = [
             'articles' => $articles
         ];
@@ -65,7 +66,19 @@ class ArticleController extends Controller
         }
         $article->cover_image = $fileNameToStore;
 
+        $log = null;
         if($article->save()) {
+            $log = Common::registerLog([
+                'action' => "membuat artikel baru.",
+                'target' => 'article',
+                'prefix' => 'a-create',
+                'target_id' => $article->id,
+                'actor' => session('guard'),
+                'actor_id' => Common::currentUser(session('guard'))->id
+            ]);
+        }
+
+        if($log != null && $log == true) {
             return redirect (route(session('guard').'.article.index'))->with('success', 'Artikel baru berhasil ditambahkan !');
         }
 
@@ -264,5 +277,14 @@ class ArticleController extends Controller
         }
 
         return redirect()->back()->with('failed', 'Gagal menghapus artikel.');
+    }
+
+    /**
+     * Get current logged in user
+     *
+     * @return mixed
+     */
+    private function currentUser() {
+        return Auth::guard(session('guard'))->user();
     }
 }

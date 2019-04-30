@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Common;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Thread;
@@ -67,7 +68,19 @@ class ThreadAskController extends Controller
             $thread->id_topic = $topic->id;
             $thread->question = $request->input('question');
 
+            $log = null;
             if($thread->save()) {
+                $log = Common::registerLog([
+                    'action' => "membuat diskusi baru.",
+                    'target' => 'thread',
+                    'prefix' => 't-create',
+                    'target_id' => $thread->id,
+                    'actor' => 'user',
+                    'actor_id' => Common::currentUser('web')->id
+                ]);
+            }
+
+            if($log != null && $log == true) {
                 return redirect(route('user.thread.index'))->with('success', 'Pertanyaan dikirim !');
             }
             return redirect()->back()->with('failed', 'Gagal mengirim pertanyaan, silahkan coba lagi nanti.');

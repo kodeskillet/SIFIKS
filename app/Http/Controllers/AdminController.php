@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Articles;
+use App\Log;
+use App\Thread;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -31,6 +35,9 @@ class AdminController extends Controller
         $data = [
             'role' => session('role'),
             'since' => $since,
+            'articles' => count(Articles::all()),
+            'members' => count(User::all()),
+            'threads' => count(Thread::all())
         ];
         return view('pages.dashboard')->with('data', $data);
     }
@@ -223,6 +230,20 @@ class AdminController extends Controller
         }
 
         return false;
+    }
+
+    public function log($id)
+    {
+        $admin = $this->currentUser();
+        if($admin->id == $id) {
+            $data = [
+                'admin' => $admin,
+                'logs' => Log::orderBy('created_at', 'desc')->paginate(10)
+            ];
+            return view('pages.log')->with('data', $data);
+        }
+
+        return redirect()->back()->with('warning', 'Anda tidak berhak mengakses laman tersebut.');
     }
 
 

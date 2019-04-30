@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Common;
 use App\Thread;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -54,6 +55,16 @@ class ThreadAnswerController extends Controller
         $thread->status = true;
 
         if($thread->save()) {
+
+            $log = Common::registerLog([
+                'action' => "menjawab diskusi oleh ",
+                'target' => 'thread',
+                'prefix' => 't-answer',
+                'target_id' => $thread->id,
+                'actor' => session('guard'),
+                'actor_id' => Common::currentUser(session('guard'))->id
+            ]);
+
             return redirect(route('doctor.thread.show', $id))->with('success', 'Jawaban terkirim !');
         }
         return redirect()->back()->with('failed', 'Gagal mengirim jawaban.');

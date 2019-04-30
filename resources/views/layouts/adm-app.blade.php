@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset("bower_components/Ionicons/css/ionicons.min.css") }}">
     <link rel="stylesheet" href="{{ asset("bower_components/admin-lte/dist/css/AdminLTE.min.css") }}">
     <link rel="stylesheet" href="{{ asset("bower_components/admin-lte/dist/css/skins/_all-skins.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("bower_components/morris.js/morris.css") }}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -86,7 +87,7 @@
 
 <div class="wrapper">
     <div class="loading-box" id="loading">
-        <img src="{{ asset('storage/images/loading-adm.gif') }}" class="loading-img">
+        <img src="{{ asset('storage/images/loading-adm.gif') }}" class="loading-img" alt="Loading...">
     </div>
 
     <div id="bodyContent" >
@@ -289,7 +290,9 @@
         <!-- /.content-wrapper -->
 
         <footer class="main-footer">
-            <p class="text-center">Copyright © 2019 <a href="https://flying-coders.github.io/" target="_blank">Flying Coders</a></p>
+            <p class="text-center">Copyright © 2019 <a href="https://flying-coders.github.io/" target="_blank">Flying Coders</a>
+                <button type="button" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" class="pull-right btn btn-primary"><i class="fas fa-chevron-up"></i></button>
+            </p>
         </footer>
     </div>
 </div>
