@@ -16,13 +16,13 @@ class CreateLogsTable extends Migration
         Schema::create('logs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('action');
-            $table->enum('target', ['thread', 'article'])->nullable();
-            $table->enum('prefix', ['t-create', 't-answer', 'a-create', 'a-update'])->nullable();
-            $table->integer('admin_id')->nullable();
-            $table->integer('user_id')->nullable();
-            $table->integer('doctor_id')->nullable();
-            $table->integer('article_id')->nullable();
+            $table->enum('target', ['thread', 'article']);
+            $table->enum('prefix', ['t-create', 't-answer', 'a-create', 'a-update']);
             $table->integer('thread_id')->nullable();
+            $table->integer('article_id')->nullable();
+            $table->integer('admin_id')->nullable();
+            $table->integer('doctor_id')->nullable();
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
     }
