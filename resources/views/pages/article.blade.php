@@ -55,7 +55,7 @@
                                                 <td>{{ ucwords($article->category) }}</td>
                                                 <td>{{ Str::limit($article->title) }}</td>
                                                 <td class="text-center">
-                                                    <a href="{{ route('article.show', ['id' => $article->id]) }}" class="btn btn-info">
+                                                    <a href="{{ url('/'.session('guard').'/article/'.$article->id) }}" class="btn btn-info">
                                                         <i class="fa fa-eye"></i>
                                                     </a>
                                                 </td>
