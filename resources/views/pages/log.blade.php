@@ -100,14 +100,14 @@
                 @endforeach
 
             </ul>
+            <div class="text-center">
+                {{ $data['logs']->links() }}
+            </div>
             @else
                 <div class="alert alert-warning text-center">
                     <strong>Belum ada aktivitas apapun.</strong>
                 </div>
             @endif
         </div>
-    </div>
-    <div class="text-center">
-        {{ $data['logs']->links() }}
     </div>
 @endsection
