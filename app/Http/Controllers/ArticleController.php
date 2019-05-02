@@ -284,7 +284,14 @@ class ArticleController extends Controller
             Storage::delete('public/cover_images/'.$article->cover_image);
         }
 
+        $unreg = null;
         if($article->delete()) {
+            $unreg = Common::unregisterLog([
+                'target' => 'article',
+                'target_id' => $id
+            ]);
+        }
+        if($unreg != null && $unreg) {
             return redirect()->back()->with('success', 'Artikel dihapus !');
         }
 
