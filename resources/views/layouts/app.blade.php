@@ -2,14 +2,6 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139040929-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-139040929-1');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSRF Token -->
@@ -24,7 +16,15 @@
     <meta name="description" content="SIFIKS merupakan sebuah aplikasi berbasis website yang menyediakan layanan terhadap kesehatan, mulai dari konsultasi kesehatan, pencarian rumah sakit, sampai dengan pencarian dokter. Yang tentunya akan di layani oleh para ahli di bidangnya.">
     <meta name="keywords" content="SIFIKS, Sifiks, sifiks, kesehatan, medis, penyakit, dokter, rumah sakit, sakit, diskusi kesehatan, tanya dokter, informasi kesehatan">
     <meta name="distribution" content="global">
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139040929-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-139040929-1');
+    </script>
 </head>
 <body>
     <div class="loading-box" id="loading">
