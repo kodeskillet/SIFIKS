@@ -179,7 +179,14 @@ class ThreadAskController extends Controller
             return redirect()->back()->with('warning', 'Anda tidak berhak menghapus ulasan tersebut.');
         }
 
+        $unreg = null;
         if($thread->delete() && $this->deleteTopic($thread->id_topic)) {
+            $unreg = Common::unregisterLog([
+               'target' => 'thread',
+               'target_id' => $id
+            ]);
+        }
+        if($unreg != null && $unreg) {
             return redirect(route('user.profile'))->with('success', 'Ulasan dihapus !');
         }
         return redirect()->back()->with('failed', 'Gagal menghapus ulasan.');
