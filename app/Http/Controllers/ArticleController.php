@@ -253,7 +253,19 @@ class ArticleController extends Controller
             $article->cover_image = $fileNameToStore;
         }
 
+        $log = null;
         if($article->save()) {
+            $log = Common::registerLog([
+                'action' => "membuat perubahan pada artikelnya.",
+                'target' => 'article',
+                'prefix' => 'a-update',
+                'target_id' => $article->id,
+                'actor' => session('guard'),
+                'actor_id' => Common::currentUser(session('guard'))->id
+            ]);
+        }
+
+        if($log != null && $log == true) {
             return redirect (route(session('guard').'.article.index'))->with('success', 'Artikel berhasil diubah !');
         }
 
