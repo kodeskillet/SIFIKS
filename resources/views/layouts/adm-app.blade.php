@@ -31,24 +31,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron">
 
     <style>
+        .sidebar-form {
+            margin-top: 0 !important;
+        }
         .clock-box {
-            font-family: 'Orbitron', sans-serif !important;
-            background: #000;
+            /*font-family: 'Orbitron', sans-serif !important;*/
+            background: #374850;
             padding:5px 10px;
-            width: 125px;
             -webkit-border-radius: 3px;
             -moz-border-radius: 3px;
             border-radius: 3px;
+            color: #ddd;
             text-align: center;
-            filter: opacity(0.2);
-            text-shadow: 0 0 6px #ff0;
-            transition: all 0.2s ease-in-out;
+            font-weight: bold;
             cursor: default;
-            font-weight: 700;
-            vertical-align: middle;
-        }
-        .clock-box:hover {
-            filter: opacity(0.8);
         }
         .loading-box {
             width: 100%;
@@ -62,7 +58,6 @@
             z-index: 9999;
             text-align: center;
         }
-
         .loading-img {
             position: absolute;
             width: 7.5%;
@@ -196,15 +191,12 @@
                     </div>
                 </div>
                 <!-- search form -->
-                <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
+                <div class="sidebar-form">
+                    <div class="clock-box">
+                        <i class="fas fa-clock"></i>&nbsp;
+                        <span class="clock"></span>
                     </div>
-                </form>
+                </div>
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
@@ -306,6 +298,12 @@
 <script src="{{ asset("bower_components/admin-lte/dist/js/demo.js") }}"></script>
 <script src="{{ asset("bower_components/ckeditor/ckeditor.js") }}"></script>
 <script>
+    $(document).ready( function() {
+        $('form').attr('autocomplete', 'off');
+        clockUpdate();
+        setInterval(clockUpdate, 1000);
+    });
+
     $(window).on('load', function() {
         $('#loading').hide();
     })
@@ -320,9 +318,32 @@
         customConfig: 'custom/ckmini-config.js'
     });
 
-    $(document).ready( function() {
-        $('form').attr('autocomplete', 'off');
-    });
+    function clockUpdate() {
+        var date = new Date();
+        function addZero(x) {
+            if (x < 10) {
+                return x = '0' + x;
+            } else {
+                return x;
+            }
+        }
+
+        function twelveHour(x) {
+            if (x > 12) {
+                return x = x - 12;
+            } else if (x == 0) {
+                return x = 12;
+            } else {
+                return x;
+            }
+        }
+
+        var h = addZero(twelveHour(date.getHours()));
+        var m = addZero(date.getMinutes());
+        // var s = addZero(date.getSeconds());
+
+        $('.clock').text(h + ':' + m + ' WIB'); // + ':' + s
+    }
 </script>
 </body>
 </html>

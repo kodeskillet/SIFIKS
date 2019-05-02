@@ -142,11 +142,12 @@
                             @if(Auth::guard('admin')->check())
                                 action="{{ route('admin.profile.destroy', $data['admin']->id) }}"
                             @elseif(Auth::guard('doctor')->check())
+                                action="{{ route('doctor.profile.destroy', $data['doctor']->id) }}"
                             @endif
                             >
                                 @csrf
                                 <input type="hidden" name="_method" value="DELETE">
-                                <input type="submit" class="btn btn-danger" value="Hapus Akun">
+                                <input type="submit" class="btn btn-danger" value="Hapus Akun" disabled>
                             </form>
                         </li>
                     </ul>

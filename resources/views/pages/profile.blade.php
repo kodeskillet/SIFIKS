@@ -18,7 +18,21 @@
                         <div class="post">
                             <h4>
                                 <strong>{{ $article->title }}</strong>
-                                <small class="pull-right text-bold">{{ $article->getCat($article->category) }}</small>
+                                <span class="badge pull-right
+                                    @if($article->category == "penyakit")
+                                        bg-red
+                                    @elseif($article->category == "obat")
+                                        bg-blue
+                                    @elseif($article->category == "kesehatan")
+                                        bg-orange
+                                    @elseif($article->category == "hidup-sehat")
+                                        bg-yellow
+                                    @else
+                                        bg-green
+                                    @endif
+                                    ">
+                                    {{ $article->getCat($article->category) }}
+                                </span>
                             </h4>
 
                             <p>

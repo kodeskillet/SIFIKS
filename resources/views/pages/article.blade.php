@@ -27,93 +27,94 @@
                     </strong>
                 </a>
             </div>
-            <div class="box-body">
-                <div class="box-body">
-                    <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+            <div class="box-body no-padding">
+                <div class="table-responsive mailbox-messages">
+                    @if(count($data['articles'])>0)
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Kategori</th>
+                                <th colspan="2" class="text-center">Artikel</th>
+                                <th>Penulis</th>
+                                <th>Ditinjau</th>
+                                <th class="text-center">#</th>
+                                <th>Terakhir diubah</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($data['articles'] as $article)
+                                <tr>
+                                    <td>
+                                        <span class="badge
+                                            @if($article->category == "penyakit")
+                                                bg-red
+                                            @elseif($article->category == "obat")
+                                                bg-blue
+                                            @elseif($article->category == "kesehatan")
+                                                bg-orange
+                                            @elseif($article->category == "hidup-sehat")
+                                                bg-yellow
+                                            @else
+                                                bg-green
+                                            @endif
+                                        ">
+                                            {{ $article->getCat($article->category) }}
+                                        </span>
+                                    </td>
+                                    <td class="text-right">
+                                        <strong>{{ \Illuminate\Support\Str::limit($article->title, 20) }}&nbsp;&nbsp;&nbsp;&nbsp;- </strong>
+                                    </td>
+                                    <td>
+                                        {!! \Illuminate\Support\Str::limit($article->content, 25) !!}
+                                    </td>
+                                    <td>
+                                        <strong>({{ $article->writer()['role'] }})</strong>
+                                        {{ $article->writer()['data']->name }}
+                                    </td>
+                                    <td>{{ $article->created_at->format("d M Y") }}</td>
+                                    <td class="text-center">
+                                        <a href="{{ url('/'.session('guard').'/article/'.$article->id) }}" class="btn btn-info btn-xs" data-toggle="tooltip" title="Selengkapnya">
+                                            <i class="fa fa-external-link-square-alt"></i>
+                                        </a>
+                                        @if(session('role') == "Admin" && Auth::guard('admin')->user()->id == $article->admin_id)
+                                            <button type="button" onclick="destroy()" class="btn btn-danger btn-xs" data-toggle="tooltip" title="Hapus">
+                                                <i class="fa fas fa-trash"></i>
+                                            </button>
+                                            <a href="{{ route('admin.article.edit', $article->id) }}" class="btn btn-warning btn-xs" data-toggle="tooltip" title="Edit">
+                                                <i class="fa fas fa-sync"></i>
+                                            </a>
+                                            <form onsubmit="return confirm('Yakin ingin menghapus artikel ini?')" id="delete" method="post" action="{{ route('article.destroy', $article->id) }}">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="DELETE">
+                                            </form>
+                                        @elseif(session('role') == "Doctor" && Auth::guard('doctor')->user()->id == $article->doctor_id)
+                                            <button type="button" onclick="destroy()" class="btn btn-danger btn-xs" data-toggle="tooltip" title="Hapus">
+                                                <i class="fa fas fa-trash"></i>
+                                            </button>
+                                            <a href="{{ route('doctor.article.edit', $article->id) }}" class="btn btn-warning btn-xs" data-toggle="tooltip" title="Edit">
+                                                <i class="fa fas fa-sync"></i>
+                                            </a>
+                                            <form onsubmit="return confirm('Yakin ingin menghapus artikel ini?')" id="delete" method="post" action="{{ route('article.destroy', $article->id) }}">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="DELETE">
+                                            </form>
+                                        @endif
+                                    </td>
+                                    <td>{{ $article->updated_at->diffForHumans() }}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                            {{ $data['articles']->links() }}
+                        </table>
+                    @else
                         <div class="row">
-                            <div class="col-sm-6"></div>
-                            <div class="col-sm-6"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                @if(count($data['articles'])>0)
-                                    <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                                        <thead>
-                                        <tr role="row">
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Category</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Judul</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Artikel</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Penulis</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Ditinjau</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Terakhir diubah</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"></th>
-                                        </tr>
-                                        </thead>
-                                        @foreach($data['articles'] as $article)
-                                            <tbody>
-                                            <tr role="row" class="odd">
-                                                <td>{{ ucwords($article->category) }}</td>
-                                                <td>{{ Str::limit($article->title) }}</td>
-                                                <td class="text-center">
-                                                    <a href="{{ url('/'.session('guard').'/article/'.$article->id) }}" class="btn btn-info">
-                                                        <i class="fa fa-eye"></i>
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    <strong>({{ $article->writer()['role'] }})</strong>
-                                                    {{ $article->writer()['data']->name }}
-                                                </td>
-                                                <td>{{ $article->created_at->format("d M Y") }}</td>
-                                                <td>{{ $article->updated_at->diffForHumans() }}</td>
-                                                @if(session('role') == "Admin" && Auth::guard('admin')->user()->id == $article->admin_id)
-                                                    <td class="text-center">
-                                                        <button type="button" onclick="destroy()" class="btn btn-danger btn-sm">
-                                                            <i class="fa fas fa-trash"></i>
-                                                        </button>
-                                                        <a href="{{ route('admin.article.edit', $article->id) }}" class="btn btn-warning btn-sm">
-                                                            <i class="fa fas fa-sync"></i>
-                                                        </a>
-                                                        <form onsubmit="return confirm('Yakin ingin menghapus artikel ini?')" id="delete" method="post" action="{{ route('article.destroy', $article->id) }}">
-                                                            @csrf
-                                                            <input type="hidden" name="_method" value="DELETE">
-                                                        </form>
-                                                    </td>
-                                                @elseif(session('role') == "Doctor" && Auth::guard('doctor')->user()->id == $article->doctor_id)
-                                                    <td class="text-center">
-                                                        <button type="button" onclick="destroy()" class="btn btn-danger btn-sm">
-                                                            <i class="fa fas fa-trash"></i>
-                                                        </button>
-                                                        <a href="{{ route('doctor.article.edit', $article->id) }}" class="btn btn-warning btn-sm">
-                                                            <i class="fa fas fa-sync"></i>
-                                                        </a>
-                                                        <form onsubmit="return confirm('Yakin ingin menghapus artikel ini?')" id="delete" method="post" action="{{ route('article.destroy', $article->id) }}">
-                                                            @csrf
-                                                            <input type="hidden" name="_method" value="DELETE">
-                                                        </form>
-                                                    </td>
-                                                @else
-                                                    <td class="text-center">
-                                                        <span class="text-danger">Tidak Tersedia</span>
-                                                    </td>
-                                                @endif
-                                            </tr>
-                                            </tbody>
-
-                                        @endforeach
-                                        {{ $data['articles']->links() }}
-                                    </table>
-                                @else
-                                    <div class="row">
-                                        <div class="col-md-6 col-md-offset-3">
-                                            <div class="alert alert-danger text-center">
-                                                <strong>Maaf tidak ada konten.</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="alert alert-danger text-center">
+                                    <strong>Maaf tidak ada konten.</strong>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
             <!-- /.box-body -->

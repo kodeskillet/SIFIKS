@@ -25,7 +25,7 @@
                         @if($log->prefix == 'a-create')
                             <i class="fa fas fa-pen bg-blue"></i>
                         @elseif($log->prefix == 'a-update')
-                            <i class="fa fas fa-user-edit bg-orange"></i>
+                            <i class="fa fas fa-edit bg-orange"></i>
                         @elseif($log->prefix == 't-create')
                             <i class="fa fas fa-comment-dots bg-yellow"></i>
                         @elseif($log->prefix == 't-answer')
@@ -58,29 +58,31 @@
                                 @endif
                             </h3>
 
-                            <div class="timeline-body">
-                                @if($log->target == "article")
-                                    <h4>
-                                        {{ $log->article->title }}
-                                    </h4>
-                                    <p>
-                                        {!! \Illuminate\Support\Str::limit($log->article->content, 200) !!}
-                                    </p>
-                                @else
-                                    @if($log->prefix == "t-create")
+                            @if($log->prefix != "a-update")
+                                <div class="timeline-body">
+                                    @if($log->target == "article")
                                         <h4>
-                                            {{ $log->thread->topic->topic_name }}
+                                            {{ $log->article->title }}
                                         </h4>
                                         <p>
-                                            {!! \Illuminate\Support\Str::limit($log->thread->question, 200) !!}
+                                            {!! \Illuminate\Support\Str::limit($log->article->content, 200) !!}
                                         </p>
-                                    @elseif($log->prefix == "t-answer")
-                                        <p>
-                                            {!! \Illuminate\Support\Str::limit($log->thread->answer, 200) !!}
-                                        </p>
+                                    @else
+                                        @if($log->prefix == "t-create")
+                                            <h4>
+                                                {{ $log->thread->topic->topic_name }}
+                                            </h4>
+                                            <p>
+                                                {!! \Illuminate\Support\Str::limit($log->thread->question, 200) !!}
+                                            </p>
+                                        @elseif($log->prefix == "t-answer")
+                                            <p>
+                                                {!! \Illuminate\Support\Str::limit($log->thread->answer, 200) !!}
+                                            </p>
+                                        @endif
                                     @endif
-                                @endif
-                            </div>
+                                </div>
+                            @endif
 
                             <div class="timeline-footer">
                                 <a class="btn btn-primary btn-xs" href="
