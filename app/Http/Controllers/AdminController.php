@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Articles;
+use App\Doctor;
 use App\Log;
 use App\Thread;
 use App\User;
@@ -30,12 +31,10 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
-        $since = new Carbon(Auth::user()->created_at);
-
         $data = [
             'role' => session('role'),
-            'since' => $since,
             'articles' => count(Articles::all()),
+            'doctors' => count(Doctor::all()),
             'members' => count(User::all()),
             'threads' => count(Thread::all())
         ];
@@ -63,7 +62,6 @@ class AdminController extends Controller
      */
     public function create()
     {
-
         $data = [
             'role' => session('role')
         ];
