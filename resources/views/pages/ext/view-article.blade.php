@@ -21,12 +21,12 @@
         <div class="box box-primary container" style="padding-bottom:20px;">
             <br>
             <div class="text-muted">
-                Ditinjau <strong>{{ $article->created_at->format("d M Y") }}</strong>
+                Ditinjau <strong>{{ $article->created_at->format("d F Y") }}</strong>
                 <br>
                 Oleh
                 <strong>
-                    <small>{{ $article->writer()['role'] }}</small>
                     {{ $article->writer()['data']->name }}
+                    <small>( {{ $article->writer()['role'] }} )</small>
                 </strong>
             </div>
             <hr>

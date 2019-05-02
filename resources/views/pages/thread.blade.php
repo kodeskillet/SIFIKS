@@ -147,7 +147,7 @@
                                                     <i class="fas fa-external-link-square-alt"></i>
                                                 </a>
                                                 @auth('admin')
-                                                    <a href="#" onclick="$('#delThread').submit()" class="btn btn-danger btn-xs" title="Hapus">
+                                                    <a href="#" onclick="$('#delThread').submit()" class="btn btn-danger btn-xs" data-toggle="tooltip" title="Hapus">
                                                         <i class="fas fa-trash-alt"></i>
                                                     </a>
 
