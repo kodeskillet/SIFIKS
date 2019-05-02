@@ -13,7 +13,8 @@ class Common
      * @param $data
      * @return bool
      */
-    public static function registerLog($data) {
+    public static function registerLog($data)
+    {
         $log = new Log;
 
         $log->action = $data['action'];
@@ -36,6 +37,33 @@ class Common
         }
 
         return false;
+    }
+
+    public static function unregisterLog($data)
+    {
+        $logs = Common::getLogs($data);
+        $c = count($logs);
+        $r = 0;
+        foreach ($logs as $log) {
+            if($log->delete()) {
+                $r++;
+            }
+        }
+        if($c == $r) {
+            return true;
+        }
+        return false;
+    }
+
+    private static function getLogs($data)
+    {
+        $logs = null;
+        if($data['target'] == 'thread') {
+            $logs = Log::where('thread_id', $data['target_id'])->get();
+        } elseif($data['target'] == 'article') {
+            $logs = Log::where('article_id', $data['target_id'])->get();
+        }
+        return $logs;
     }
 
     /**
