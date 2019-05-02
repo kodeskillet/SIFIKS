@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Common;
 use App\Thread;
 use App\ThreadTopic;
 use Illuminate\Support\Facades\Auth;
@@ -82,7 +83,14 @@ class ThreadController extends Controller
     public function destroy($id)
     {
         $thread = Thread::find($id);
+        $unreg = null;
         if($thread->delete() && $this->deleteTopic($thread->id_topic)) {
+            $unreg = Common::unregisterLog([
+                'target' => 'thread',
+                'target_id' => $id
+            ]);
+        }
+        if($unreg != null && $unreg) {
             return redirect(route('admin.thread.index', ['query' => "all"]))->with('success', 'Diskusi dihapus !');
         }
         return redirect()->back()->with('failed', 'Gagal menghapus diskusi.');
