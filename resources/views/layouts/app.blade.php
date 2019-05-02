@@ -14,11 +14,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
     <meta name="google-site-verification" content="PyC0pXe33ZPfpV21Stl6oekQ0As-vXhFma4_ix9VWhs" />
     <meta name="description" content="SIFIKS merupakan sebuah aplikasi berbasis website yang menyediakan layanan terhadap kesehatan, mulai dari konsultasi kesehatan, pencarian rumah sakit, sampai dengan pencarian dokter. Yang tentunya akan di layani oleh para ahli di bidangnya.">
-    <meta name="keywords" content="sifiks">
-    <meta name="keywords" content="Sifiks">
-    <meta name="keywords" content="SIFIKS">
+    <meta name="keywords" content="SIFIKS, Sifiks, sifiks, kesehatan, medis, penyakit, dokter, rumah sakit, sakit, diskusi kesehatan, tanya dokter, informasi kesehatan">
     <meta name="distribution" content="global">
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139040929-1"></script>
     <script>
