@@ -209,7 +209,13 @@ class HospitalController extends Controller
 
     public function searchHospital(Request $request)
     {
-        $hospital = Hospital::where('city_id',$request->location)->orderBy('name')->paginate(5);
+        if($request->nama == null AND $request->location != null){
+            $hospital = Hospital::where('city_id',$request->location)->orderBy('name','asc')->paginate(5);
+        }elseif ($request->location == null AND $request->nama != null){
+            $hospital = Hospital::where('biography','LIKE','%'.$request->nama.'%')->orderBy('name','asc')->paginate(5);
+        }else{
+            $hospital = Hospital::where('biography','LIKE','%'.$request->nama.'%')->where('city_id',$request->location)->orderBy('name','asc')->paginate(5);
+        }
         $location = City::orderBy('name','asc')->pluck('name','id');
         $data = [
             'hospital' => $hospital,
