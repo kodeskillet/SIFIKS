@@ -60,9 +60,9 @@
 
                     <li class="index-item"><a href="{{route('search.hospital.content', ['content' => 'saluran kemih'])}}">Saluran Kemih</a></li>
 
-                    <li class="index-item"><a href="saraf">Saraf</a></li>
+                    <li class="index-item"><a href="{{route('search.hospital.content', ['content' => 'saraf'])}}">Saraf</a></li>
 
-                    <li class="index-item"><a href="sistem pencernaan">Sistem Pencernaan</a></li>
+                    <li class="index-item"><a href="{{route('search.hospital.content', ['content' => 'sistem pencernaan'])}}">Sistem Pencernaan</a></li>
 
                     </ul>
                 </div>
