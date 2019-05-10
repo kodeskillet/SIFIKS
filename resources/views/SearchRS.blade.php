@@ -103,7 +103,7 @@
             </div>
           </div>
   </div>
-      <a type="button" class="btn btn-primary " href="/lihatsemuars">Lihat Semua</a>
+      <a type="button" class="btn btn-primary " href="{{route('list.hospital.all')}}">Lihat Semua</a>
 </div>
 
 @endsection

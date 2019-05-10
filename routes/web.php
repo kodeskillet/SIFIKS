@@ -18,6 +18,7 @@ Route::get('/viewarticle', function() {
 
 Route::prefix('searchrs')->group(function(){
     Route::get('/', 'HospitalController@indexUser')->name('search.index.hospital');
+    Route::get('/listhospital', 'HospitalController@showList')->name('list.hospital.all');
     Route::post('/listhospital/cari', 'HospitalController@searchHospital')->name('search.hospital');
     Route::get('/listhospital/viewhospital/{id}', 'HospitalController@viewHospital')->name('view.hospital');
     Route::get('/listhospital/{content}', 'HospitalController@searchContent')->name('search.hospital.content');

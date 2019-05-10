@@ -207,6 +207,11 @@ class HospitalController extends Controller
         return view ('SearchRS')->with('data',$data);
     }
 
+    public function showList()
+    {
+        return view('LSRumahSakit');
+    }
+
     public function searchHospital(Request $request)
     {
         if($request->nama == null AND $request->location != null){
