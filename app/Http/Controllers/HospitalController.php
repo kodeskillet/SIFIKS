@@ -224,6 +224,17 @@ class HospitalController extends Controller
         return view ('listHospital')->with('data',$data);
     }
 
+    public function searchContent($content)
+    {
+        $hospital = Hospital::where('biography','LIKE','%'.$content.'%')->orderBy('name','asc')->paginate(5);
+        $location = City::orderBy('name','asc')->pluck('name','id');
+        $data = [
+            'hospital' => $hospital,
+            'location' => $location
+        ];
+        return view ('listHospital')->with('data',$data);
+    }
+
     public function viewHospital($id)
     {
         $hospital = Hospital::find($id);
