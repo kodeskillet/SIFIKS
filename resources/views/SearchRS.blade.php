@@ -55,7 +55,6 @@
 
     </div>
 
-    {{$img = 'storage/images/hospital-icon.jpg'}}
 
 
 <div class="container">
@@ -69,37 +68,37 @@
   <div class="row">
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
-          <img src="{{ asset($img) }}"  alt="Buah" class="img-thumbnail" >
+          <img src="{{ asset($data['img']) }}"  alt="Buah" class="img-thumbnail" >
           <a href="/listhospital" class="btn btn-primary">Kandungan</a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
-            <img src="{{ asset($img) }}"  alt="Buah" class="img-thumbnail" >
+            <img src="{{ asset($data['img']) }}"  alt="Buah" class="img-thumbnail" >
             <a href="/listhospital" class="btn btn-primary">Laboratorium</a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
-            <img src="{{ asset($img) }}"  alt="Buah" class="img-thumbnail" >
+            <img src="{{ asset($data['img']) }}"  alt="Buah" class="img-thumbnail" >
             <a href="/listhospital" class="btn btn-primary">Radiologi</a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
-            <img src="{{ asset($img) }}"  alt="Buah" class="img-thumbnail" >
+            <img src="{{ asset($data['img']) }}"  alt="Buah" class="img-thumbnail" >
             <a href="/listhospital" class="btn btn-primary">Jantung</a>
         </div>
       </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
-            <img src="{{ asset($img) }}"  alt="Buah" class="img-thumbnail" >
+            <img src="{{ asset($data['img']) }}"  alt="Buah" class="img-thumbnail" >
             <a href="/listhospital" class="btn btn-primary">Paru-Paru</a>
         </div>
       </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
-          <img src="{{ asset($img) }}"  alt="Buah" class="img-thumbnail" >
+          <img src="{{ asset($data['img']) }}"  alt="Buah" class="img-thumbnail" >
           <a href="/listhospital" class="btn btn-primary">Sistem Pencernaan</a>
             </div>
           </div>

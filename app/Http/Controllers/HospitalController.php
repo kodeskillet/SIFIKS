@@ -199,8 +199,10 @@ class HospitalController extends Controller
     public function indexUser()
     {
         $location = City::orderBy('name','asc')->pluck('name', 'id');
+        $img = 'storage/images/hospital-icon.jpg';
         $data = [
-            'location' => $location,
+            'img' => $img,
+            'location' => $location
         ];
         return view ('SearchRS')->with('data',$data);
     }
