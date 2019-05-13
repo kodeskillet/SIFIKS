@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="{{ asset("bower_components/font-awesome/css/font-awesome.min.css") }}">
+<link rel="stylesheet" href="{{ asset("bower_components/admin-lte/dist/css/skins/_all-skins.min.css") }}">
+<link rel="stylesheet" href="{{ asset("bower_components/admin-lte/dist/css/AdminLTE.min.css") }}">
+
 @section('content')
 
     @include('layouts.inc.navbar')
@@ -48,7 +52,7 @@
     <div class="container">
         <h1>Info Kesehatan Terkini</h1>
         <div class="row">
-            @foreach($article as $art)
+            @foreach($data['articles'] as $art)
             <a href="{{route('user.article.show',['id'=>$art->id])}}" class="col-md-4 text-decoration-none">
                 <div class="card mb-4 shadow-sm">
                     @if($art->cover_image != null)
@@ -66,6 +70,17 @@
                 </div>
             </a>
             @endforeach
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                @include('layouts.inc.recent-thread')
+            </div>
+            <div class="col col-md-4">
+                <br>
+                <br>
+                <img src="https://i.ibb.co/7g8V5TX/health.png" alt="health" border="0"width="350">
+                <a href="{{ route('user.thread.create') }}"><img src="https://i.ibb.co/tCWCnKK/doctor.png" alt="doctor" class="mt-5" width="350"></a>
+            </div>
         </div>
     </div>
 @endsection

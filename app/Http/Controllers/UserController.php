@@ -32,8 +32,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        $article = Articles::where('category','penyakit')->orderBy('created_at','desc')->take(3)->get();
-        return view('home')->with('article', $article);
+        $threads = Thread::orderBy('created_at', 'desc')->paginate(5);
+        $articles = Articles::where('category','penyakit')->orderBy('created_at','desc')->take(3)->get();
+        $data = [
+            'threads' => $threads,
+            'articles' => $articles
+        ];
+        return view('home')->with('data', $data);
     }
 
 
