@@ -60,7 +60,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-            <h3>Pilih Kota</h3>
+            {{-- <h3>Pilih Kota</h3>
             {!! Form::open(['action' => 'DoctorController@searchByRadio','method'=> 'POST']) !!}
             <div class="box-filter">
                 <ul class="dataList">
@@ -80,7 +80,7 @@
                         </div>
                 </ul>
             </div>
-            {!! Form::close() !!}
+            {!! Form::close() !!} --}}
             </div>
 
 
@@ -88,7 +88,7 @@
             <div class="col-md-8">
 
     <!-- filter day button -->
-                <p>Filter :
+                {{-- <p>Filter :
                     <a class="btn btn-light btn-sm border" data-toggle="collapse" href="\viewdoctorcollapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Hari
                     </a>
@@ -126,7 +126,7 @@
                             <label class="form-check-label" for="defaultCheck7">Minggu</label>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
     <!-- list doctor -->
                 <br>

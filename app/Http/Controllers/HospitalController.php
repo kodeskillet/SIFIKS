@@ -199,15 +199,39 @@ class HospitalController extends Controller
     public function indexUser()
     {
         $location = City::orderBy('name','asc')->pluck('name', 'id');
+        $img = 'storage/images/hospital-icon.jpg';
         $data = [
-            'location' => $location,
+            'img' => $img,
+            'location' => $location
         ];
         return view ('SearchRS')->with('data',$data);
     }
 
+    public function showList()
+    {
+        return view('LSRumahSakit');
+    }
+
     public function searchHospital(Request $request)
     {
-        $hospital = Hospital::where('city_id',$request->location)->orderBy('name')->paginate(5);
+        if($request->nama == null AND $request->location != null){
+            $hospital = Hospital::where('city_id',$request->location)->orderBy('name','asc')->paginate(5);
+        }elseif ($request->location == null AND $request->nama != null){
+            $hospital = Hospital::where('biography','LIKE','%'.$request->nama.'%')->orderBy('name','asc')->paginate(5);
+        }else{
+            $hospital = Hospital::where('biography','LIKE','%'.$request->nama.'%')->where('city_id',$request->location)->orderBy('name','asc')->paginate(5);
+        }
+        $location = City::orderBy('name','asc')->pluck('name','id');
+        $data = [
+            'hospital' => $hospital,
+            'location' => $location
+        ];
+        return view ('listHospital')->with('data',$data);
+    }
+
+    public function searchContent($content)
+    {
+        $hospital = Hospital::where('biography','LIKE','%'.$content.'%')->orderBy('name','asc')->paginate(5);
         $location = City::orderBy('name','asc')->pluck('name','id');
         $data = [
             'hospital' => $hospital,

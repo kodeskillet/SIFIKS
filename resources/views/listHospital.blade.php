@@ -59,7 +59,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-            <h3>Pilih Tindakan</h3>
+            {{--<h3>Pilih Tindakan</h3>
 
                 <div class="box-filter">
                     <ul class="dataList">
@@ -116,7 +116,7 @@
                         </div>
                     </div>
 
-                    </ul>
+                    </ul> --}}
                 </div>
 
 
@@ -146,6 +146,13 @@
                             </div>
                         @endforeach
                     @else
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="alert alert-danger text-center">
+                                <strong>Maaf data yang anda cari tidak ada.</strong>
+                            </div>
+                        </div>
+                    </div>
                     @endif
                 </div>
         </div>

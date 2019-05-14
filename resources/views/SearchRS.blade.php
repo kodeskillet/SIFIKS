@@ -57,7 +57,6 @@
 
 
 
-
 <div class="container">
     <div class="row">
         <div class="col-md-10">
@@ -69,42 +68,42 @@
   <div class="row">
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
-          <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-          <a href="/listhospital" class="btn btn-primary">Kandungan</a>
+          <img src="{{ asset($data['img']) }}"  alt="Buah" class="img-thumbnail" >
+          <a href="{{route('search.hospital.content', ['content' => 'kandungan'])}}" class="btn btn-primary">Kandungan</a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
-            <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="/listhospital" class="btn btn-primary">Laboratorium</a>
+            <img src="{{ asset($data['img']) }}"  alt="Buah" class="img-thumbnail" >
+            <a href="{{route('search.hospital.content', ['content' => 'laboratorium'])}}" class="btn btn-primary">Laboratorium</a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
-            <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="/listhospital" class="btn btn-primary">Radiologi</a>
+            <img src="{{ asset($data['img']) }}"  alt="Buah" class="img-thumbnail" >
+            <a href="{{route('search.hospital.content', ['content' => 'radiologi'])}}" class="btn btn-primary">Radiologi</a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
-            <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="/listhospital" class="btn btn-primary">Jantung</a>
+            <img src="{{ asset($data['img']) }}"  alt="Buah" class="img-thumbnail" >
+            <a href="{{route('search.hospital.content', ['content' => 'jantung'])}}" class="btn btn-primary">Jantung</a>
         </div>
       </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
-            <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-            <a href="/listhospital" class="btn btn-primary">Paru-Paru</a>
+            <img src="{{ asset($data['img']) }}"  alt="Buah" class="img-thumbnail" >
+            <a href="{{route('search.hospital.content', ['content' => 'paru-paru'])}}" class="btn btn-primary">Paru-Paru</a>
         </div>
       </div>
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
-          <img src="{{ asset('storage/images/test1.jpg') }}"  alt="Buah" class="img-thumbnail" >
-          <a href="/listhospital" class="btn btn-primary">Sistem Pencernaan</a>
+          <img src="{{ asset($data['img']) }}"  alt="Buah" class="img-thumbnail" >
+          <a href="pencernaan" class="btn btn-primary">Sistem Pencernaan</a>
             </div>
           </div>
   </div>
-      <a type="button" class="btn btn-primary " href="/lihatsemuars">Lihat Semua</a>
+      <a type="button" class="btn btn-primary " href="{{route('list.hospital.all')}}">Lihat Semua</a>
 </div>
 
 @endsection
