@@ -34,11 +34,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center">
-                    @if ($article->cover_image != null && $article->cover_image != "noimage.jpg")
-                        <img class="center size-full wp-image-1544282" src="{{ asset('storage/cover_images/'.$article->cover_image) }}" alt="{{$article->title}}" width="650" height="433">
-                    @endif
-                </div>
+                @if ($article->cover_image != null && $article->cover_image != "noimage.jpg")
+                    <img src="{{ asset('storage/cover_images/'.$article->cover_image) }}" alt="{{$article->title}}" width="100%">
+                @endif
                 <div class="row">
                     <div class="col-md-12">
                         {!! $article->content !!}
