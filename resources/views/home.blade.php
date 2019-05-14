@@ -63,8 +63,27 @@
                     <div class="card-body text-black-50">
                         <h4>{{ $art->title }}</h4>
                         <p class="card-text">{!! Str::limit($art->content, 190) !!}</p>
-                        <div class="d-flex justify-content-end align-items-center">
-                            <small class="text-muted">{{$art->created_at->diffForHumans()}}</small>
+                        <div class="row mt-5">
+                            <div class="col-md-6 text-left">
+                                <span class="badge
+                                @if($art->category == "penyakit")
+                                    bg-red
+                                @elseif($art->category == "obat")
+                                    bg-blue
+                                @elseif($art->category == "kesehatan")
+                                    bg-orange
+                                @elseif($art->category == "hidup-sehat")
+                                    bg-yellow
+                                @else
+                                    bg-green
+                                @endif
+                                ">
+                                    {{ $art->getCat($art->category) }}
+                                </span>
+                            </div>
+                            <div class="col text-right">
+                                <small class="text-muted">{{$art->created_at->diffForHumans()}}</small>
+                            </div>
                         </div>
                     </div>
                 </div>
