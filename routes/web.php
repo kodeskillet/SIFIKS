@@ -12,9 +12,26 @@
 */
 
 
-Route::get('/viewarticle', function() {
-    return view('viewarticle');
-});
+//Route::get('/viewarticle', function() {
+//    return view('viewarticle');
+//});
+//Route::get('/viewhospital', function () {
+//    return view ('viewhospital');
+//});
+//Route::get('/lihatsemuars', function() {
+//    return view('LSRumahSakit');
+//});
+//Route::get('/mainsearch-article', function() {
+//    return view('MainSearchArt');
+//});
+//
+//Route::get('/mainsearch-doctor', function() {
+//    return view('MainSearchDoc');
+//});
+//
+//Route::get('/mainsearch-hospital', function() {
+//    return view('MainSearchHosp');
+//});
 
 Route::prefix('searchrs')->group(function(){
     Route::get('/', 'HospitalController@indexUser')->name('search.index.hospital');
@@ -24,14 +41,6 @@ Route::prefix('searchrs')->group(function(){
     Route::get('/listhospital/{content}', 'HospitalController@searchContent')->name('search.hospital.content');
 });
 
-Route::get('/viewhospital', function () {
-    return view ('viewhospital');
-});
-Route::get('/lihatsemuars', function() {
-    return view('LSRumahSakit');
-});
-
-
 Route::prefix('searchdoctor')->group(function() {
     Route::get('/listdoctors/{specialty}', 'DoctorController@show')->name('list.doctorSpecialty');
     Route::get('/listdoctors/viewdoctor/{id}', 'DoctorController@showDoctor')->name('show.doctor');
@@ -40,18 +49,6 @@ Route::prefix('searchdoctor')->group(function() {
     Route::post('/listdoctors/cari-kota','DoctorController@searchByRadio')->name('search.radio');
     Route::post('/listdoctors/cari-spesialis', 'SpecializationController@searchSpecialty');
     Route::get('/','SpecializationController@indexSearch')->name('search.doctor');
-});
-
-Route::get('/mainsearch-article', function() {
-    return view('MainSearchArt');
-});
-
-Route::get('/mainsearch-doctor', function() {
-    return view('MainSearchDoc');
-});
-
-Route::get('/mainsearch-hospital', function() {
-    return view('MainSearchHosp');
 });
 
 Route::get('/articles/{category}', 'ArticleController@listByCat')->name('list.articles');
