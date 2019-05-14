@@ -81,7 +81,7 @@
                 @include('layouts.inc.recent-thread')
             </div>
             <div class="col col-md-4">
-                <a href="{{ route('user.thread.create') }}"><img src="https://i.ibb.co/tCWCnKK/doctor.png" alt="doctor" width="350"></a>
+                <a href="{{ route('user.thread.create') }}"><img src="{{ asset('storage/images/doctor.png') }}" alt="doctor" width="350"></a>
             </div>
         </div>
     </div>

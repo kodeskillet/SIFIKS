@@ -15,7 +15,7 @@
         <div class="jumbotron p-4 p-md-5 text-white rounded bg-primary">
             <div class="row justify-content-center">
                 <div class="col-md-6 px-0">
-                    <img src="https://i.ibb.co/JQbV1BQ/sifiks5.png" width="45%" alt="sifiks5" border="0">
+                    <img src="{{ asset('storage/images/sifiks5.png') }}" width="45%" alt="sifiks5" border="0">
                     <p class="lead my-3 font-bold" >Kekayaan bukan berasal dari uang, melainkan kesehatan</p>
                     <br>
                     <div class="row col-md-8">
@@ -78,8 +78,8 @@
             <div class="col col-md-4">
                 <br>
                 <br>
-                <img src="https://i.ibb.co/7g8V5TX/health.png" alt="health" border="0"width="350">
-                <a href="{{ route('user.thread.create') }}"><img src="https://i.ibb.co/tCWCnKK/doctor.png" alt="doctor" class="mt-5" width="350"></a>
+                <img src="{{ asset('storage/images/health.png') }}" alt="health" border="0"width="350">
+                <a href="{{ route('user.thread.create') }}"><img src="{{ asset('storage/images/doctor.png') }}" alt="doctor" class="mt-5" width="350"></a>
             </div>
         </div>
     </div>

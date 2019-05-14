@@ -23,7 +23,7 @@
                 @include('layouts.inc.recent-thread')
             </div>
             <div class="col col-md-4">
-                <img src="https://i.ibb.co/7g8V5TX/health.png" alt="health" border="0"width="350">
+                <img src="{{ asset('storage/images/health.png') }}" alt="health" border="0"width="350">
             </div>
         </div>
     </div>
