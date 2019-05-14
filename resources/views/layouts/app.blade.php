@@ -46,6 +46,10 @@
                 $('#bodyContent').fadeIn();
             });
         })
+
+        $(document).ready(() => {
+            $('*').tooltip();
+        });
     </script>
 
 </body>
