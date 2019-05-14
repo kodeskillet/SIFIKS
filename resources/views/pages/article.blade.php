@@ -104,8 +104,10 @@
                                 </tr>
                             @endforeach
                             </tbody>
-                            {{ $data['articles']->links() }}
                         </table>
+                        <div class="text-center">
+                            {{ $data['articles']->links() }}
+                        </div>
                     @else
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
