@@ -26,6 +26,7 @@
                 <a class="nav-link" href="{{route('search.index.hospital')}}">Cari Rumah Sakit</a>
             </li>
         </ul>
+        <hr>
         <ul class="navbar-nav">
             @guest
                 <li class="nav-item">
@@ -38,13 +39,12 @@
                 @endif
             @else
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('user.thread.index') }}"><strong>Tanya Dokter</strong></a>
+                    <a class="nav-link btn btn-primary" href="{{ route('user.thread.index') }}"><strong>Tanya Dokter</strong></a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle text-center" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
-
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('user.profile', ['query' => 'all']) }}"> Profile</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
