@@ -16603,3 +16603,38 @@ a {
   font-size: 14px;
 }
 
+.btn-share {
+  font-size: 1.5rem;
+  text-decoration: none !important;
+  text-align: center !important;
+}
+
+.btn-share:nth-of-type(even) {
+  margin-left: 18px;
+  margin-right: 20px;
+}
+
+.share-email {
+  color: #777;
+}
+
+.share-email:hover {
+  color: #555;
+}
+
+.share-fb {
+  color: #395498;
+}
+
+.share-fb:hover {
+  color: #2e457a;
+}
+
+.share-twitter {
+  color: #00a7e6;
+}
+
+.share-twitter:hover {
+  color: #0084b4;
+}
+
