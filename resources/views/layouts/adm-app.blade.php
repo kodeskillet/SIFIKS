@@ -89,27 +89,23 @@
         <header class="main-header">
             <!-- Logo -->
             <a href="
-        @if(session('role') == "Doctor")
-            {{ route('doctor.dashboard') }}
+            @if(session('role') == "Doctor")
+                {{ route('doctor.dashboard') }}
             @else
-            {{ route('admin.dashboard') }}
+                {{ route('admin.dashboard') }}
             @endif
                 " class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini">
-                @if(session('role') == "Doctor")
-                        <img src="https://i.ibb.co/PjJBk1n/LOGO1.png" alt="LOGO1" width="75%" border="0">
-                    @else
-                        <img src="https://i.ibb.co/0XXj1FY/LOGO.png" alt="LOGO" width="75%" border="0">
-                    @endif
+                <img src="{{ asset('storage/images/LOGO-S.png') }}" alt="LOGO" width="50%" border="0">
             </span>
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg">
                 @if(session('role') == "Doctor")
-                        <img src="https://i.ibb.co/wwj2vnt/sifiks2.png" alt="sifiks2" width="40%" border="0">
-                    @else
-                        <img src="https://i.ibb.co/JQbV1BQ/sifiks5.png" alt="sifiks5" width="40%" border="0">
-                    @endif
+                    <img src="{{ asset('storage/images/sifiks2.png') }}" alt="sifiks2" width="40%" border="0">
+                @else
+                    <img src="{{ asset('storage/images/sifiks5.png') }}" alt="sifiks5" width="40%" border="0">
+                @endif
             </span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
