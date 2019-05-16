@@ -152,12 +152,15 @@ class HospitalController extends Controller
     public function destroy($id)
     {
         $hospital = Hospital::find($id);
-        $rooms = $this->deleteRoomsAndRoomDetail($id);
+        $delrooms = $this->deleteRoomsAndRoomDetail($id);
 
-        if($hospital->delete() && $rooms) {
-            return redirect(route('hospital.index'));
+        if($delrooms){
+            if($hospital->delete()) {
+                return redirect(route('hospital.index'))->with('success', 'Rumah sakit dihapus !');
+            }
+            return redirect(route('hospital.index'))->with('failed', 'Gagal menghapus rumah sakit !');
         }
-
+        return redirect(route('hospital.index'))->with('failed', 'Error ! Telah terjadi kesalahan pada server !');
     }
 
     /**
@@ -168,6 +171,9 @@ class HospitalController extends Controller
     {
         $rooms = $this->getRooms($hospital_id);
         $ids = $rooms->pluck('id')->toArray();
+        if(count($ids) < 1) {
+            return true;
+        }
 
         $delroom = Room::whereIn('id', $ids)->delete();
         $deldetail = DB::table('room_details')

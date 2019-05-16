@@ -55,7 +55,7 @@ class RoomController extends Controller
             ];
 
             if($this->insertRoomDetails($data) && $this->updateHospitalUpdatedAt($hospital_id)) {
-                return redirect(route('hospital.show', $hospital_id));
+                return redirect(route('hospital.show', $hospital_id))->with('success', 'Kamar baru berhasil ditambahkan !');
             }
         }
     }
@@ -115,7 +115,7 @@ class RoomController extends Controller
         $hospital = $this->updateHospitalUpdatedAt($request->input('hospital_id'));
 
         if($room->save() && $hospital == true) {
-            return redirect(route('hospital.show', $request->input('hospital_id')));
+            return redirect(route('hospital.show', $request->input('hospital_id')))->with('success', 'Detil Kamar berhasil diubah !');
         }
     }
 
@@ -133,7 +133,7 @@ class RoomController extends Controller
         $detail = $this->deleteRoomDetails($room_id, $hospital_id);
 
         if($room && $hospital && $detail) {
-            return redirect(route('hospital.show', ['id' => $hospital_id]));
+            return redirect(route('hospital.show', ['id' => $hospital_id]))->with('success', 'Kamar dihapus !');
         }
     }
 
