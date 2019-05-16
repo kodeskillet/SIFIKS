@@ -68,16 +68,16 @@
                                         <td>{{ $hospital->created_at->format("d M Y") }}</td>
                                         <td>{{ $hospital->updated_at->diffForHumans() }}</td>
                                         <td class="text-center">
-                                            <form method="post" action="{{ route('hospital.destroy', $hospital->id) }}">
+                                            <button onclick="$('#delHospital').submit()" type="button" class="btn btn-danger btn-sm">
+                                                <i class="fa fas fa-trash"></i>
+                                            </button>
+                                            <a href="{{ route('hospital.edit', [ 'id' => $hospital->id]) }}" class="btn btn-warning btn-sm">
+                                                <i class="fa fas fa-sync"></i>
+                                            </a>
+                                            <form onsubmit="return confirm('Apakah anda yakin ingin menghapus ?')" id="delHospital" method="post" action="{{ route('hospital.destroy', $hospital->id) }}">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="id" value="{{ $hospital->id }}">
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fa fas fa-trash"></i>
-                                                </button>
-                                                <a href="{{ route('hospital.edit', [ 'id' => $hospital->id]) }}" class="btn btn-warning btn-sm">
-                                                    <i class="fa fas fa-sync"></i>
-                                                </a>
                                             </form>
                                         </td>
                                     </tr>
