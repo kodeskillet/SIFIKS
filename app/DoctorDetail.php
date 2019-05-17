@@ -27,17 +27,17 @@ class DoctorDetail extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function doctor()
-    {
-        return $this->hasMany('App\Doctor', '');
-    }
+//    public function doctor()
+//    {
+//        return $this->('', '')
+//    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function hospital()
-    {
-        return $this->hasMany('App\Hospital', 'specialization_id');
-    }
+//    public function hospital()
+//    {
+//        return $this->hasMany('App\Hospital', 'specialization_id');
+//    }
 
 }

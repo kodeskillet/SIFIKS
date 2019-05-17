@@ -38,6 +38,13 @@ class Hospital extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function doctor() {
+        return $this->belongsToMany('App\Doctor', 'doctor_details', 'hospital_id', 'doctor_id');
+    }
+
+    /**
      * @param $str
      * @return string
      */
