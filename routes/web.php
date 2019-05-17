@@ -165,6 +165,9 @@ Route::prefix('doctor')->group( function() {
     Route::get('/profile/{doctor}/threads', 'ThreadAnswerController@index')->name('doctor.profile.thread');
     Route::put('/thread/{thread}/destroy', 'ThreadAnswerController@destroy')->name('doctor.thread.answer.destroy');
 
+    Route::get('/profile/{doctor}/hospital', 'DocController@hospital')->name('doctor.profile.hospital');
+    Route::post('/profile/{doctor}/hospital/add', 'DocController@regHospital')->name('doctor.profile.hospital.add');
+    Route::delete('/profile/{doctor}/{hospital}/destroy', 'DocController@unregHospital')->name('doctor.profile.hospital.destroy');
     // Home -->
     Route::get('/', 'DocController@dashboard')->name('doctor.dashboard');
 });
