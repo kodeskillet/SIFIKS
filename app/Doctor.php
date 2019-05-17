@@ -80,6 +80,10 @@ class Doctor extends Authenticatable
         return $this->hasMany('App\Thread', 'doctor_id');
     }
 
+    public function hospital() {
+        return $this->belongsToMany('App\Hospital', 'doctor_details', 'doctor_id', 'hospital_id');
+    }
+
     /**
      * @param $str
      * @return string
