@@ -90,7 +90,7 @@
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="#">
+                                <a href="{{ route('doctor.profile.hospital', $data['doctor']->id) }}">
                                     <b>Rumah Sakit anda</b>
                                     <span class="pull-right">
                                         <i class="fas fa-hospital-alt"></i>

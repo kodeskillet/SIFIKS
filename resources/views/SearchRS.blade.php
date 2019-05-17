@@ -99,7 +99,7 @@
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
           <img src="{{ asset($data['img']) }}"  alt="Buah" class="img-thumbnail" >
-          <a href="pencernaan" class="btn btn-primary">Sistem Pencernaan</a>
+          <a href="{{route('search.hospital.content', ['content' => 'pencernaan'])}}" class="btn btn-primary">Sistem Pencernaan</a>
             </div>
           </div>
   </div>

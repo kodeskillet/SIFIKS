@@ -9,7 +9,8 @@
                     <i class="fa far fa-pencil-alt"></i>
                     &nbsp;Buat Artikel
                 </strong>
-            </a>
+            </a><br>
+            <small>Daftar artikel yang anda buat.</small>
         </div>
         <div class="box-body ">
             @if( count($data[session('guard')]->article) > 0 )

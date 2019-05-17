@@ -9,7 +9,8 @@
                     <i class="fa far fa-comments"></i>
                     &nbsp;Lihat diskusi belum terjawab
                 </strong>
-            </a>
+            </a><br>
+            <small>Daftar pertanyaan yang anda jawab.</small>
         </div>
         <div class="box-body no-padding">
             @if( count($data['doctor']->thread) > 0 )

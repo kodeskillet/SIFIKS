@@ -141,6 +141,43 @@
         </div>
         @endauth
 
+        @auth('doctor')
+            <div class="pad margin no-print">
+                <div class="row">
+                    <div class="col-lg-6 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-teal">
+                            <div class="inner">
+                                <h3>{{ $data['articles'] }}</h3>
+                                <p>Artikel tercatat</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-android-document"></i>
+                            </div>
+                            <a href="{{ url('/doctor/article') }}" class="small-box-footer">
+                                Selengkapnya <i class="fa fa-angle-double-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-purple">
+                            <div class="inner">
+                                <h3>{{ $data['threads'] }}</h3>
+                                <p>Diskusi dibuat</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <a href="{{ url('/doctor/thread/all') }}" class="small-box-footer">
+                                Selengkapnya <i class="fa fa-angle-double-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endauth
+
     </section>
     <script src="{{ asset("bower_components/jquery/dist/jquery.min.js") }}" type="text/javascript"></script>
     <script src="{{ asset("bower_components/morris.js/morris.min.js") }}" type="text/javascript"></script>
