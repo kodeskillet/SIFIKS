@@ -4,8 +4,8 @@
     </a>
 </p>
 <p align="center">
-    <a href="https://travis-ci.com/flying-coders/SIFIKS" target="_blank">
-        <img src="https://travis-ci.com/flying-coders/SIFIKS.svg?branch=master" alt="Build Status">
+    <a href="https://travis-ci.com/kodeskillet/SIFIKS" target="_blank">
+        <img src="https://travis-ci.com/kodeskillet/SIFIKS.svg?branch=master" alt="Build Status">
     </a>
     <a href="https://scrutinizer-ci.com/g/flying-coders/SIFIKS/?branch=master" target="_blank">
         <img src="https://img.shields.io/scrutinizer/g/flying-coders/SIFIKS.svg" alt="Code Quality">
